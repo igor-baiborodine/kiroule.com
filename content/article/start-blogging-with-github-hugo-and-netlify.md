@@ -16,4 +16,27 @@ First of all, to create content, you will use Markdown, a lightweight markup lan
 
 Secondly, all your website content will be built with [Hugo](https://gohugo.io/), an open-source static site generator. It provides excellent performance, numerous out-of-the-box features, fast built-in server reloads and plenty of [themes](https://themes.gohugo.io/) to choose from.
 
-Thirdly, using [Netlify](https://www.netlify.com/) to deploy and host websites is simple and straightforward. Netlify offers a free tier plan, which is more than enough for any static website implemented with GitHub and Hugo.  Netlify's Continuous Deployment feature, in conjunction with GitHub, substantially helps in automating the content publishing workflow.
+Thirdly, using Netlify to deploy and host websites is simple and straightforward. Netlify offers a free tier plan, which is more than enough for any static website implemented with GitHub and Hugo.  Netlify's Continuous Deployment feature, in conjunction with GitHub, substantially helps in automating the content publishing workflow.
+
+But enough talk, let's get started. The tutorial below consist of the following steps:
+1. Install Hugo
+2. Create New Website
+3. Customize Example Website
+4. Create About Page
+5. Push Git Repository to GitHub
+6. Deploy on Netlify
+
+Among the prerequisites for this tutorial is a basic knowledge of Git with its command-line interface and GitHub/Netlify accounts. As a host operating system, I will be using Ubuntu 18.04.
+
+### Install Hugo
+TODO
+### Create New Website
+TODO
+### Customize Example Website
+TODO
+### Create About Page
+TODO
+### Push Git Repository to GitHub
+TODO
+### Deploy on Netlify
+
