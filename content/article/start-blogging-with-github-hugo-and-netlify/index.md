@@ -20,8 +20,8 @@ Thirdly, using Netlify to deploy and host websites is simple and straightforward
 
 But enough talk, let's get started. The tutorial below consist of the following steps:
 1. [Install Hugo](#install-hugo)
-2. [Create New Website](#create-about-page)
-3. [Customize Example Website](#customize-example-website)
+2. [Create New Site](#create-new-site)
+3. [Customize Example Site](#customize-example-site)
 4. [Create About Page](#create-about-page)
 5. [Push Git Repository to GitHub](#push-git-repository-to-github)
 6. [Deploy on Netlify](#deploy-on-netlify)
@@ -37,21 +37,23 @@ $ sudo dpkg -i hugo_0.69.1_Linux-64bit.deb
 ```
 ![Hugo Version Manual Install](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-version-manual-install.png)
 
-### Create New Website
+### Create New Site
 To create a new site in the provided directory, use `hugo new site [path]` command, e.g.:
 ```plaintext
 $ hugo new site kiroule.com
 ```
-Here, I use `kiroule.com` as a site name since I already own that domain name, and I'm planning to set it up as a custom domain for my website. The newly created site will have the correct structure but without any content or theme.
+Here, I use `kiroule.com` as a site name since I already own this domain name, and I'm planning to set it up as a custom domain for my website. The newly created site will have the correct structure but without any content or theme.
 
 ![Hugo New Site](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site.png)
+
+Before proceeding any further, you should choose a Hugo theme. Hugo offers a [plethora of themes](https://themes.gohugo.io/) that suit different tastes and needs. I picked [Bilberry Hugo](https://themes.gohugo.io/bilberry-hugo-theme/) theme because it is suitable for blogging, responsive and multilingual. Also, it offers support for Disqus comments, Algolia search and Google Analytics.
 
 ```plaintext
 $ cd kiroule.com
 $ git init
 ```
 
-### Customize Example Website
+### Customize Example Site
 TODO
 ### Create About Page
 TODO
