@@ -29,7 +29,7 @@ But enough talk, let's get started. The tutorial below consist of the following 
 Among the prerequisites for this tutorial is a basic knowledge of Git with its command-line interface and GitHub/Netlify accounts. As a host operating system, I will be using Ubuntu 18.04.
 
 ### Install Hugo
-As per Hugo's official documentation, using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, you should download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using `dpkg` utility.
+As per [Hugo's official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, you should download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using `dpkg` utility.
 
 ```plaintext
 $ wget https://github.com/gohugoio/hugo/releases/download/v0.69.1/hugo_0.69.1_Linux-64bit.deb
@@ -38,7 +38,19 @@ $ sudo dpkg -i hugo_0.69.1_Linux-64bit.deb
 ![Hugo Version Manual Install](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-version-manual-install.png)
 
 ### Create New Website
-TODO
+To create a new site in the provided directory, use `hugo new site [path]` command, e.g.:
+```plaintext
+$ hugo new site kiroule.com
+```
+Here, I use `kiroule.com` as a site name since I already own that domain name, and I'm planning to set it up as a custom domain for my website. The newly created site will have the correct structure but without any content or theme.
+
+![Hugo New Site](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site.png)
+
+```plaintext
+$ cd kiroule.com
+$ git init
+```
+
 ### Customize Example Website
 TODO
 ### Create About Page
