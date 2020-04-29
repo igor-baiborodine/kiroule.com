@@ -29,7 +29,7 @@ But enough talk, let's get started. The tutorial below consist of the following 
 Among the prerequisites for this tutorial is a basic knowledge of Git with its command-line interface and GitHub/Netlify accounts. As a host operating system, I will be using Ubuntu 18.04.
 
 ### Install Hugo
-As per [Hugo's official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, you should download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using `dpkg` utility.
+As per [Hugo's official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using `dpkg` utility:
 
 ```plaintext
 $ wget https://github.com/gohugoio/hugo/releases/download/v0.69.1/hugo_0.69.1_Linux-64bit.deb
@@ -42,19 +42,53 @@ To create a new site in the provided directory, use `hugo new site [path]` comma
 ```plaintext
 $ hugo new site kiroule.com
 ```
-Here, I use `kiroule.com` as a site name since I already own this domain name, and I'm planning to set it up as a custom domain for my website. The newly created site will have the correct structure but without any content or theme.
+Here, I use `kiroule.com` as a site name since I already own this domain name, and I'm planning to set it up as a custom domain for my website. The newly created site has the correct structure but without any content or theme.
 
 ![Hugo New Site](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site.png)
 
-Before proceeding any further, you should choose a Hugo theme. Hugo offers a [plethora of themes](https://themes.gohugo.io/) that suit different tastes and needs. I picked [Bilberry Hugo](https://themes.gohugo.io/bilberry-hugo-theme/) theme because it is suitable for blogging, responsive and multilingual. Also, it offers support for Disqus comments, Algolia search and Google Analytics.
+Before proceeding any further, you need to choose a Hugo theme. Hugo offers a [plethora of themes](https://themes.gohugo.io/) that suit different tastes and needs. I picked [Bilberry Hugo](https://themes.gohugo.io/bilberry-hugo-theme/) theme because it is suitable for blogging, responsive and multilingual. Also, it offers support for Disqus comments, Algolia search and Google Analytics.
 
+Move to the site directory and initialize a Git repository:
 ```plaintext
 $ cd kiroule.com
 $ git init
 ```
 
+Then move to `themes` directory and add the theme in question as a Git submodule:
+```plaintext
+$ cd themes
+$ git submodule add https://github.com/Lednerb/bilberry-hugo-theme.git
+```
+
+The `git submodule add` allows cloning of the theme repository to your project and keeping it as a subdirectory of the site repository. Also, it permits Netlify to recursively clone the site repository along with the theme repository when building and deploying the site.
+
+Copy the content of `themes/bilberry-hugo-theme/exampleSite` directory to the site directory, remove the default archetype and move back to the site directory:
+```plaintext
+$ cp -r bilberry-hugo-theme/exampleSite/* ../
+$ rm ../archetypes/default.md
+$ cd ..
+```
+
+At this point, the site directory structure should look like below, where  `content` directory contains the content from the example site:
+
+![Hugo New Site Dir Structure](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-dir-structure.png)
+
+From the site directory, start the hugo server to build and serve the site:
+
+![Hugo New Site Serve](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-serve.png)
+
+Access the site in your browser at http://localhost:1313. As you can see, the new site is simply a copy of the example site provided by the theme. 
+
+![Hugo New Site Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-browser.png)
+
 ### Customize Example Site
-TODO
+After making sure that the site can be built and served, let's proceed with customizations. To do so, you need to configure settings according to your needs in `config.toml` file, which Hugo uses as the default website configuration file. Please see [Hugo documentation](https://gohugo.io/getting-started/configuration/) for more details on all available configuration settings. 
+
+Here is a [version](https://github.com/igor-baiborodine/kiroule.com/blob/2cdf8876cff62fce786c3f1fb7795cd32402f0da/config.toml
+) of `config.toml` file after applying the following changes:
+
+TODO: list and explain the changes
+
 ### Create About Page
 TODO
 ### Push Git Repository to GitHub
