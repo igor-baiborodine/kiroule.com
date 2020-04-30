@@ -94,7 +94,37 @@ The `config.toml` file should look like [this](https://github.com/igor-baiborodi
 Then, to get rid of the content that came along with the example site, delete everything inside `content` and `resources` directories.
 
 ### Create About Page
-TODO
+The next step is to create an empty `About` page. Use the [hugo new](https://gohugo.io/commands/hugo_new/) command, for example:
+```plaintext
+$ hugo new page/about.md
+```
+
+![Hugo New Site About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-about-page.png)
+
+Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. The 'page' part in this path defines the post type. It should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
+
+The content for the `page/about.md` file is generated according to the `themes/bilberry-hugo-theme/archetypes/page.md` template:
+```markdown
+---
+title: "About"
+date: 2020-04-26T13:13:06-04:00
+draft: true
+excludeFromTopNav: false
+
+# set the link if you want to redirect the user.
+link: ""
+# set the html target parameter if you want to change default behavior
+target: "_blank"
+---
+
+TODO: add content
+```
+
+By default, Hugo's built-in webserver automatically rebuilds the site if it detects any changes. Then it pushes the latest content to any open browser pages. But since the `page/about.md` file contains `draft: true`, you should restart the server with the `-D` flag.
+
+![Hugo New Site Browser About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-browser-about-page.png) 
+
+
 ### Push Git Repository to GitHub
 TODO
 ### Deploy on Netlify
