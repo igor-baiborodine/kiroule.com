@@ -119,14 +119,31 @@ target: "_blank"
 
 TODO: add content
 ```
-
-By default, Hugo's built-in webserver automatically rebuilds the site if it detects any changes. Then it pushes the latest content to any open browser pages. But since the `page/about.md` file contains `draft: true`, you should restart the server with the `-D` flag.
+By default, Hugo's built-in webserver automatically rebuilds the site if it detects any changes. Then it pushes the latest content to any open browser pages. But since the `page/about.md` file contains `draft: true`, you should restart the server with the `-D` flag to include content marked as a draft. 
 
 ![Hugo New Site Browser About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-browser-about-page.png) 
 
-
 ### Push Git Repository to GitHub
-TODO
+Create a new repository on GitHub without initializing README, license or .gitignore files.
+
+![GitHub New Repo](/img/content/article/start-blogging-with-github-hugo-and-netlify/github-new-repo.png)
+
+![GitHub New Repo Instructions](/img/content/article/start-blogging-with-github-hugo-and-netlify/github-new-repo-instructions.png)
+
+Add changes to the staging area and commit them:
+```plaintext
+$ git add .
+$ git commit -m "Initial commit"
+```
+
+Then proceed with pushing your local repository to GitHub:
+```plaintext
+$ git remote add origin https://github.com/igor-baiborodine/kiroule.com.git
+$ git push -u origin master
+```
+
+![GitHub New Repo Instructions](/img/content/article/start-blogging-with-github-hugo-and-netlify/github-new-repo-push-remote.png)
+
 ### Deploy on Netlify
 TODO
 
