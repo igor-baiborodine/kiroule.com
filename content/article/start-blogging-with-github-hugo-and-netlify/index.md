@@ -77,21 +77,26 @@ From the site directory, start the hugo server to build and serve the site:
 
 ![Hugo New Site Serve](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-serve.png)
 
-Access the site in your browser at http://localhost:1313. As you can see, the new site is simply a copy of the example site provided by the theme. 
+Access the site in your browser at http://localhost:1313. As you can see, the new site is simply a replica of the example site provided by the theme. 
 
 ![Hugo New Site Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-browser.png)
 
 ### Customize Example Site
-After making sure that the site can be built and served, let's proceed with customizations. To do so, you need to configure settings according to your needs in `config.toml` file, which Hugo uses as the default website configuration file. Please see [Hugo documentation](https://gohugo.io/getting-started/configuration/) for more details on all available configuration settings. 
+After making sure that the site can be built and served, let's proceed with customizations. To do so, you need to configure settings according to your needs in the `config.toml` file, which Hugo uses as the default website configuration file. Please see [Hugo documentation](https://gohugo.io/getting-started/configuration/) for more details on all available configuration settings. 
 
-Here is a [version](https://github.com/igor-baiborodine/kiroule.com/blob/2cdf8876cff62fce786c3f1fb7795cd32402f0da/config.toml
-) of `config.toml` file after applying the following changes:
+The `config.toml` file should look like [this](https://github.com/igor-baiborodine/kiroule.com/blob/2cdf8876cff62fce786c3f1fb7795cd32402f0da/config.toml) after applying the following adjustments:
+* Set new values to the `title` setting and `author`, `description`, `keywords`, `subtitle`, `socialMediaLinks`, `copyrightBy`, `copyrightUseCurrentYear` and `copyrightUrl` params.
+* Set the `baseURL` setting to `https://kiroule.netlify.app/` where `kiroule` is the name of the site when deployed on Netlify. When deploying for the first time on Netlify, a random name will be generated automatically, e.g., `awesome-mclean-11186c`. Then the site name can be updated in the `Site Details` section.
+* Disable Google Analytics, Disqus comments and Algolia search by commenting out corresponding settings and params.
+* Switch to English only language by setting `showHeaderLanguageChooser` and `showFooterLanguageChooser` params to `false` value and removing the `[Languages.de]` params subsection.
+* Use a custom image instead of a gravatar for the header image. Copy the custom image to the `static/img/` directory and set the `customImage` param to the image's path, for example, `img/avatar.png`.
 
-TODO: list and explain the changes
+Then, to get rid of the content that came along with the example site, delete everything inside `content` and `resources` directories.
 
 ### Create About Page
 TODO
 ### Push Git Repository to GitHub
 TODO
 ### Deploy on Netlify
+TODO
 
