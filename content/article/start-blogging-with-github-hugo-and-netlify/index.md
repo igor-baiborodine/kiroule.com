@@ -1,6 +1,6 @@
 ---
 title: "Start Blogging With GitHub, Hugo and Netlify"
-date: 2020-04-26T19:47:04-04:00
+date: 2020-04-29T19:47:04-04:00
 categories: [tutorial]
 tags: [blog, github, hugo, netlify]
 author: "Igor Baiborodine"
@@ -16,7 +16,7 @@ First of all, to create content, you will use Markdown, a lightweight markup lan
 
 Secondly, all your website content will be built with [Hugo](https://gohugo.io/), an open-source static site generator. It provides excellent performance, numerous out-of-the-box features, fast built-in server reloads and plenty of [themes](https://themes.gohugo.io/) to choose from.
 
-Thirdly, using Netlify to deploy and host websites is simple and straightforward. Netlify offers a free tier plan, which is more than enough for any static website implemented with GitHub and Hugo.  Netlify's Continuous Deployment feature, in conjunction with GitHub, substantially helps in automating the content publishing workflow.
+Thirdly, using [Netlify](https://www.netlify.com/) to deploy and host websites is simple and straightforward. Netlify offers a free tier plan, which is more than enough for any static website implemented with GitHub and Hugo.  Netlify's Continuous Deployment feature, in conjunction with GitHub, substantially helps in automating the content publishing workflow.
 
 But enough talk, let's get started. The tutorial below consist of the following steps:
 1. [Install Hugo](#install-hugo)
@@ -101,7 +101,7 @@ $ hugo new page/about.md
 
 ![Hugo New Site About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-about-page.png)
 
-Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. The 'page' part in this path defines the post type. It should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
+Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. The `page` part in this path defines the post type. It should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
 
 The content for the `page/about.md` file is generated according to the `themes/bilberry-hugo-theme/archetypes/page.md` template:
 ```markdown
@@ -119,7 +119,7 @@ target: "_blank"
 
 TODO: add content
 ```
-By default, Hugo's built-in webserver automatically rebuilds the site if it detects any changes. Then it pushes the latest content to any open browser pages. But since the `page/about.md` file contains `draft: true`, you should restart the server with the `-D` flag to include content marked as a draft. 
+By default, Hugo's built-in webserver automatically rebuilds the site if it detects any changes. Then it pushes the latest content to any open browser pages. But since the `page/about.md` file contains `draft: true`, you should restart the server with the `--buildDrafts` flag to include content marked as a draft. 
 
 ![Hugo New Site Browser About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-browser-about-page.png) 
 
@@ -127,6 +127,8 @@ By default, Hugo's built-in webserver automatically rebuilds the site if it dete
 Create a new repository on GitHub without initializing README, license or .gitignore files.
 
 ![GitHub New Repo](/img/content/article/start-blogging-with-github-hugo-and-netlify/github-new-repo.png)
+
+Copy `git remote add` and `git push` commands from the `...or push an existing repository from the command line` section:
 
 ![GitHub New Repo Instructions](/img/content/article/start-blogging-with-github-hugo-and-netlify/github-new-repo-instructions.png)
 
@@ -136,7 +138,7 @@ $ git add .
 $ git commit -m "Initial commit"
 ```
 
-Then proceed with pushing your local repository to GitHub:
+Then proceed with pushing your local Git repository to GitHub:
 ```plaintext
 $ git remote add origin https://github.com/igor-baiborodine/kiroule.com.git
 $ git push -u origin master
@@ -145,5 +147,50 @@ $ git push -u origin master
 ![GitHub New Repo Instructions](/img/content/article/start-blogging-with-github-hugo-and-netlify/github-new-repo-push-remote.png)
 
 ### Deploy on Netlify
-TODO
+After signing in to [Netlify](https://www.netlify.com/), click on the `New site from Git`:
+
+![Netlify New Site](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site.png)
+
+Then you will be prompted to choose the Git provider. Continue by clicking on the `GitHub` button:
+
+![Netlify New Site Git Provider](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-git-provider.png)
+
+The next step is to install Netlify on your personal GitHub account:
+
+![Netlify New Site GitHub Install](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-github-install.png)
+
+Select the site repository and continue with the installation:
+
+![Netlify New Site GitHub Install 2](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-github-install-2.png)
+
+Pick the repository that you want to link to your site on Netlify:
+
+![Netlify New Site Pick Repository](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-pick-repository.png)
+
+Verify deploy settings and continue by clicking on the `Deploy site`: 
+
+![Netlify New Site Pick Repository 2](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-pick-repository-2.png)
+
+As soon as the build is completed, you will be presented with the deploy overview:
+
+![Netlify New Site First Deploy](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-first-deploy.png)
+
+Your website will not be correctly displayed if you proceed to the URL shown in the deploy overview since it does not match the `baseUrl` setting value in the `config.toml` file. Therefore, click on the `Deploy settings` in the deploy overview. Then select the `Site details` under the `General`. In the `Site details` tab, click on the `Change site name`:
+
+![Netlify New Site Change Site Name](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-change-site-name.png)
+
+In the `Change site name` pop-up window, set the new site name and save it:
+
+![Netlify New Site Change Site Name 2](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-change-site-name-2.png)
+
+Now you can access your website at the URL shown in the site overview:
+
+![Netlify New Site Change Site Name 3](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-change-site-name-3.png)
+
+![Netlify New Site Deploy Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-deploy-browser.png)
+
+To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that I will have enough time, focus and energy to continue publishing new content, and my second attempt will be successful.
+
+Continue reading the series:
+* Configure Custom Domain in Netlify(coming soon)
 
