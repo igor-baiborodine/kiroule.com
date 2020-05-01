@@ -192,5 +192,5 @@ Now you can access your website at the URL shown in the site overview:
 To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that I will have enough time, focus and energy to continue publishing new content, and my second attempt will be successful.
 
 Continue reading the series:
-* Configure Custom Domain in Netlify(coming soon)
+- Configure Custom Domain in Netlify(coming soon)
 
