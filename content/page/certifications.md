@@ -24,7 +24,7 @@ Credential ID: H340-8342\
 ## 2019
 #### Certified Linux Administrator (LPIC-1)
 Issued by [Linux Professional Institute](https://www.lpi.org/)\
-[See credential](http://localhost:1313/img/content/page/certifications/lpi-lpic-1-igor-baiborodine.pdf)
+[See credential](https://kiroule.netlify.app/img/content/page/certifications/lpi-lpic-1-igor-baiborodine.pdf)
 
 #### Docker Certified Associate
 Issued by [Docker](https://www.docker.com/)\
@@ -39,7 +39,7 @@ Credential ID: 12529840\
 ## 2018
 #### Linux Essentials
 Issued by [Linux Professional Institute](https://www.lpi.org/)\
-[See credential](http://localhost:1313/img/content/page/certifications/lpi-linux-essentials-igor-baiborodine.pdf)
+[See credential](https://kiroule.netlify.app/img/content/page/certifications/lpi-linux-essentials-igor-baiborodine.pdf)
 
 ## 2017
 #### Oracle Certified Professional, Java SE 8 Programmer
