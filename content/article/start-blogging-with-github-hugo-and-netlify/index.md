@@ -39,7 +39,7 @@ $ sudo dpkg -i hugo_0.69.1_Linux-64bit.deb
 ![Hugo Version Manual Install](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-version-manual-install.png)
 
 ### Create New Site
-To create a new site in the provided directory, use `hugo new site [path]` command, e.g.:
+To create a new site in the provided directory, use the `hugo new site` command, e.g.:
 ```plaintext
 $ hugo new site kiroule.com
 ```
@@ -49,7 +49,7 @@ Here, I use `kiroule.com` as a site name since I already own this domain name, a
 
 Before proceeding any further, you need to choose a Hugo theme. Hugo offers a [plethora of themes](https://themes.gohugo.io/) that suit different tastes and needs. I picked [Bilberry Hugo](https://themes.gohugo.io/bilberry-hugo-theme/) theme because it is suitable for blogging, responsive and multilingual. Also, it offers support for Disqus comments, Algolia search and Google Analytics.
 
-Move to the site directory and initialize a Git repository:
+Move to the site's root directory and initialize a Git repository:
 ```plaintext
 $ cd kiroule.com
 $ git init
@@ -63,18 +63,18 @@ $ git submodule add https://github.com/Lednerb/bilberry-hugo-theme.git
 
 The `git submodule add` allows cloning of the theme repository to your project and keeping it as a subdirectory of the site repository. Also, it permits Netlify to recursively clone the site repository along with the theme repository when building and deploying the site.
 
-Copy the content of `themes/bilberry-hugo-theme/exampleSite` directory to the site directory, remove the default archetype and move back to the site directory:
+Copy the content of the `themes/bilberry-hugo-theme/exampleSite` folder to the site's root directory, remove the default archetype and move back to the site's root directory:
 ```plaintext
 $ cp -r bilberry-hugo-theme/exampleSite/* ../
 $ rm ../archetypes/default.md
 $ cd ..
 ```
 
-At this point, the site directory structure should look like below, where  `content` directory contains the content from the example site:
+At this point, the site's root directory structure should look like below, where  `content` directory contains the content from the example site:
 
 ![Hugo New Site Dir Structure](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-dir-structure.png)
 
-From the site directory, start the hugo server to build and serve the site:
+To start the built-in server to build and serve the site, execute the `hugo server` command from the site's root directory:
 
 ![Hugo New Site Serve](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-serve.png)
 
@@ -95,14 +95,15 @@ The `config.toml` file should look like [this](https://github.com/igor-baiborodi
 Then, to get rid of the content that came along with the example site, delete everything inside `content` and `resources` directories.
 
 ### Create About Page
-The next step is to create an empty `About` page. Use the [hugo new](https://gohugo.io/commands/hugo_new/) command, for example:
+The next step is to create an empty `About` page. Use the `hugo new` command, for example:
 ```plaintext
 $ hugo new page/about.md
 ```
+Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. 
 
 ![Hugo New Site About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-about-page.png)
 
-Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. The `page` part in this path defines the post type. It should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
+The `page` part in the `page/about.md` path defines a post type that should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
 
 The content for the `page/about.md` file is generated according to the `themes/bilberry-hugo-theme/archetypes/page.md` template:
 ```markdown
@@ -192,5 +193,6 @@ Now you can access your website at the URL shown in the site overview:
 
 To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that I will have enough time, focus and energy to continue publishing new content, and my second attempt will be successful.
 
-Continue reading the series:\
-- Configure Custom Domain in Netlify(coming soon)
+Continue reading the series:
+
+* Configure Custom Domain in Netlify(coming soon)
