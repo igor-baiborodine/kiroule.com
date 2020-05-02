@@ -19,7 +19,7 @@ Credential ID: Rnl5.w8GK.BZXV\
 #### Microsoft Certified Azure Fundamentals
 Issued by [Microsoft](https://www.microsoft.com/en-us/)\
 Credential ID: H340-8342\
-[See credential](https://www.youracclaim.com/earner/earned/badge/de5c5137-d1c8-4ce0-82e6-282d39948828)
+[See credential](https://www.youracclaim.com/badges/de5c5137-d1c8-4ce0-82e6-282d39948828/public_url)
 
 ## 2019
 #### Certified Linux Administrator (LPIC-1)
