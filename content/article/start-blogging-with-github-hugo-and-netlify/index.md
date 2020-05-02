@@ -18,7 +18,8 @@ Secondly, all your website content will be built with [Hugo](https://gohugo.io/)
 
 Thirdly, using [Netlify](https://www.netlify.com/) to deploy and host websites is simple and straightforward. Netlify offers a free tier plan, which is more than enough for any static website implemented with GitHub and Hugo.  Netlify's Continuous Deployment feature, in conjunction with GitHub, substantially helps in automating the content publishing workflow.
 
-But enough talk, let's get started. The tutorial below consist of the following steps:
+But enough talk, let's get started. The tutorial below consists of the following steps:
+
 1. [Install Hugo](#install-hugo)
 2. [Create New Site](#create-new-site)
 3. [Customize Example Site](#customize-example-site)
@@ -171,7 +172,7 @@ Verify deploy settings and continue by clicking on the `Deploy site`:
 
 ![Netlify New Site Pick Repository 2](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-pick-repository-2.png)
 
-As soon as the build is completed, you will be presented with the deploy overview:
+As soon as the build completes, you will be presented with the deploy overview:
 
 ![Netlify New Site First Deploy](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-first-deploy.png)
 
@@ -191,6 +192,5 @@ Now you can access your website at the URL shown in the site overview:
 
 To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that I will have enough time, focus and energy to continue publishing new content, and my second attempt will be successful.
 
-Continue reading the series:
-
+Continue reading the series:\
 - Configure Custom Domain in Netlify(coming soon)
