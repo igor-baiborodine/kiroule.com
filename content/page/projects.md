@@ -36,7 +36,7 @@ Software and technologies used:
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
 
 ### 2015 - 2019
-**An exercise to port [MyBatis JPetStore](https://github.com/mybatis/jpetstore-6) to Vaadin 7/8 and Spring Boot**
+**An exercise to port [MyBatis JPetStore](https://github.com/mybatis/jpetstore-6) to Vaadin 7|8 and Spring Boot**
 
 Software and technologies used:
 
