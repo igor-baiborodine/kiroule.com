@@ -52,3 +52,8 @@ Software and technologies used:
 
 [See GitHub repository](https://github.com/igor-baiborodine/jpetstore-6-vaadin-spring-boot)
 
+This project was mentioned in 2016 January's edition of Vaadin's Community Spotlight:
+
+![Vaadin Community Spotlight](/img/content/page/projects/vaadin-community-spotlight.png)
+
+[See source](https://vaadin.com/blog/community-spotlight-january-2016) 
