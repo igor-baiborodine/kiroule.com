@@ -14,6 +14,7 @@ target: "_blank"
 **Multi-variant Docker images for Liferay Portal CE**
 
 Software and technologies used:
+
 * [Docker](https://www.docker.com/)
 * [Debian](https://www.debian.org/)
 * [Alpine Linux](https://alpinelinux.org/)
@@ -26,6 +27,7 @@ Software and technologies used:
 **A RESTful web service that manages campsite bookings**
 
 Software and technologies used:
+
 * [Java 10](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html)
 * [Spring Boot 2](http://projects.spring.io/spring-boot/)
 * [Lombok](https://projectlombok.org/)
