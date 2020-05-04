@@ -35,7 +35,7 @@ DefaultContentLanguage = "en"
   paginate = 7
 
   # Enable / Disable MathJax
-  enable_mathjax    = false
+  enable_mathjax = false
 
   # Enable / Disable algolia search
 #  algolia_search    = true
@@ -65,7 +65,7 @@ DefaultContentLanguage = "en"
     overlayIcon = "fa-home"
 
     # always display the top navigation (with pages and search) on non-mobile screens
-    permanentTopNav = false
+    permanentTopNav = true
 
     # always display the top navigation when scrolling
     # works only with permanentTopNav = true
