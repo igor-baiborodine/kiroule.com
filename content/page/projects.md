@@ -10,6 +10,10 @@ link: ""
 target: "_blank"
 ---
 
+### Developed with
+
+![IntelliJ IDEA Logo](/img/content/page/projects/intellij-idea-logo.png)
+
 ###  2019 - Present
 **Multi-Variant Docker Images for Liferay Portal CE**
 
