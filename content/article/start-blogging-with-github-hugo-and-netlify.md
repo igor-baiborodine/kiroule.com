@@ -173,11 +173,11 @@ Verify deploy settings and continue by clicking on the `Deploy site`:
 
 ![Netlify New Site Pick Repository 2](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-pick-repository-2.png)
 
-As soon as the build completes, you will be presented with the deploy overview:
+As soon as the build completes, you will be presented with the site overview:
 
 ![Netlify New Site First Deploy](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-first-deploy.png)
 
-Your website will not be correctly displayed if you proceed to the URL shown in the deploy overview since it does not match the `baseUrl` setting value in the `config.toml` file. Therefore, click on the `Deploy settings` in the deploy overview. Then select the `Site details` under the `General`. In the `Site details` tab, click on the `Change site name`:
+Your website will not be correctly displayed if you proceed to the URL shown in the site overview since it does not match the `baseUrl` setting value in the `config.toml` file. Therefore, click on the `Deploy settings` in the site overview. Then select the `Site details` under the `General`. In the `Site details` tab, click on the `Change site name`:
 
 ![Netlify New Site Change Site Name](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-change-site-name.png)
 
@@ -191,8 +191,8 @@ Now you can access your website at the URL shown in the site overview:
 
 ![Netlify New Site Deploy Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-deploy-browser.png)
 
-To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that I will have enough time, focus and energy to continue publishing new content, and my second attempt will be successful.
+To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus and energy to publish new content regularly.
 
 Continue reading the series:
 
-* Configure Custom Domain in Netlify(coming soon)
+**Configure Custom Domain and HTTPS in Netlify(coming soon)**
