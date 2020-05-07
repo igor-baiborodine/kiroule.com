@@ -6,7 +6,7 @@ tags: [blog, github, hugo, netlify]
 author: "Igor Baiborodine"
 ---
 
-By this blog post, I start a series of articles where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using GitHub, Hugo and Netlify.
+By this post, I start a series where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using GitHub, Hugo and Netlify.
 
 <!--more-->
 
@@ -27,10 +27,10 @@ But enough talk, let's get started. The tutorial below consists of the following
 5. [Push Git Repository to GitHub](#push-git-repository-to-github)
 6. [Deploy on Netlify](#deploy-on-netlify)
 
-Among the prerequisites for this tutorial is a basic knowledge of Git with its command-line interface and GitHub/Netlify accounts. As a host operating system, I will be using Ubuntu 18.04.
+Basic knowledge of Git with its command-line interface and GitHub/Netlify accounts are the prerequisites for this tutorial.  As a host operating system, I will be using Ubuntu 18.04.
 
 ### Install Hugo
-As per [Hugo's official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using `dpkg` utility:
+As per [Hugo official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using the `dpkg` utility:
 
 ```plaintext
 $ wget https://github.com/gohugoio/hugo/releases/download/v0.69.1/hugo_0.69.1_Linux-64bit.deb
@@ -39,7 +39,7 @@ $ sudo dpkg -i hugo_0.69.1_Linux-64bit.deb
 ![Hugo Version Manual Install](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-version-manual-install.png)
 
 ### Create New Site
-To create a new site in the provided directory, use the `hugo new site` command, e.g.:
+To create a new site, execute the `hugo new site` command in the site's root directory, for example:
 ```plaintext
 $ hugo new site kiroule.com
 ```
@@ -86,8 +86,9 @@ Access the site in your browser at http://localhost:1313. As you can see, the ne
 After making sure that the site can be built and served, let's proceed with customizations. To do so, you need to configure settings according to your needs in the `config.toml` file, which Hugo uses as the default website configuration file. Please see [Hugo documentation](https://gohugo.io/getting-started/configuration/) for more details on all available configuration settings. 
 
 The `config.toml` file should look like [this](https://github.com/igor-baiborodine/kiroule.com/blob/2cdf8876cff62fce786c3f1fb7795cd32402f0da/config.toml) after applying the following adjustments:
+
 * Set new values to the `title` setting and `author`, `description`, `keywords`, `subtitle`, `socialMediaLinks`, `copyrightBy`, `copyrightUseCurrentYear` and `copyrightUrl` params.
-* Set the `baseURL` setting to `https://kiroule.netlify.app/` where `kiroule` is the name of the site when deployed on Netlify. When deploying for the first time on Netlify, a random name will be generated automatically, e.g., `awesome-mclean-11186c`. Then the site name can be updated in the `Site Details` section.
+* Set the `baseURL` setting to `https://kiroule.netlify.app/` where `kiroule` is the name of the site when deployed on Netlify. When deploying for the first time on Netlify, a random name will be generated automatically, for example, `awesome-mclean-11186c`. Then the site name can be updated in the `Site Details` section.
 * Disable Google Analytics, Disqus comments and Algolia search by commenting out corresponding settings and params.
 * Switch to English only language by setting `showHeaderLanguageChooser` and `showFooterLanguageChooser` params to `false` value and removing the `[Languages.de]` params subsection.
 * Use a custom image instead of a gravatar for the header image. Copy the custom image to the `static/img/` directory and set the `customImage` param to the image's path, for example, `img/avatar.png`.
