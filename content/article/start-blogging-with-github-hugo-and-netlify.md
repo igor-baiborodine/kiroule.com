@@ -2,7 +2,7 @@
 title: "Start Blogging With GitHub, Hugo and Netlify"
 date: 2020-04-29T19:47:04-04:00
 categories: [Blog]
-tags: [github, hugo, netlify]
+tags: [GitHub, Hugo, Netlify]
 author: "Igor Baiborodine"
 ---
 
