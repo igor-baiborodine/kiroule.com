@@ -2,8 +2,8 @@
 title: "Configure Custom Domain and HTTPS in Netlify"
 date: 2020-05-05T06:31:46-04:00
 
-categories: [tutorial]
-tags: [blog, netlify, namecheap, custom domain, https]
+categories: [Blog]
+tags: [Netlify, Namecheap, Domain, HTTPS]
 author: "Igor Baiborodine"
 ---
 
