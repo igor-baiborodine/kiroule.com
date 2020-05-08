@@ -27,12 +27,12 @@ googleAnalytics = "UA-60574401-2"
   js_modules = []
 
   # Description and meta data for the search engines
-  author = "Igor Baiborodine"
-  description = "Igor Baiborodine's Blog"
+  author = "Igor Baiborodine|Игорь Байбородин"
+  description = "Igor Baiborodine's Blog|Блог Игоря Байбородина"
   keywords = "devops,linux,docker,virtualization,system administration,cloud computing, python programming"
 
   # How many articles should be displayed at once?
-  paginate = 7
+  paginate = 5
 
   # Enable / Disable MathJax
   enable_mathjax = false
@@ -96,11 +96,11 @@ googleAnalytics = "UA-60574401-2"
 
     # How many articles should be displayed at latest posts in the footer?
     # Set to -1 to hide the 'Latest Posts' column
-    amountLatestPostsInFooter = 7
+    amountLatestPostsInFooter = 5
 
     # How many categories should be displayed in the footer section?
     # Set to -1 to hide the 'Categories' column
-    amountCategoriesInFooter = 7
+    amountCategoriesInFooter = 5
 
     # show a language chooser in the footer
     showFooterLanguageChooser = false
