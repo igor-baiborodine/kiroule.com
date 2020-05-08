@@ -11,25 +11,52 @@ In the [previous post](https://www.kiroule.com/article/start-blogging-with-githu
 
 <!--more-->
 
-When you deploy for the first time on Netlify, your full site name will include the `netlify.app` domain. Then you can change the randomly generated subdomain name to the subdomain you want, e.g., `awesome-mclean-11186c.netlify.app` to `kiroule.netlify.app` and continue as is.  But it's evident that for your personal website, you should use a custom domain, which helps a lot in promoting yourself as a brand and improving credibility. Also, owning a custom domain comes with the option of having personalized email addresses, e.g., `igor@kiroule.com`, which I used on my About page.
+When you deploy for the first time on Netlify, a Netlify subdomain will be assigned to your site, for example, `awesome-mclean-11186c.netlify.app`. Then you can change the randomly generated part in the subdomain to the site name you want, like adjusting `awesome-mclean-11186c.netlify.app` to `kiroule.netlify.app`, and continue as is.  But it's evident that for your personal website, you should use a custom domain, which helps a lot in promoting yourself as a brand and improving credibility. Also, owning a domain comes with the option of having personalized email addresses, for example, `igor@kiroule.com`, which I put on my About page.
 
-As for HTTPS, even if it's your blog where you do not collect any sensitive information, having a secure connection gives the perception of you as a trusted source. Other than that, it also can slightly boost your Google search engine rankings. 
+As for HTTPS, even if it's your blog where you do not collect any sensitive information, having a secure connection gives the perception of you as a trusted source. Other than that, it also can slightly improve your Google search engine rankings. 
 
 This tutorial has the following tasks to complete:
 
-1. [Configure DNS Host Records](#configure-dns-host-records)
+1. [Configure DNS Records](#configure-dns-records)
 2. [Set up Custom Domain](#set-up-custom-domain)
 3. [Update Base URL](#update-base-url)
 4. [Issue SSL Certificate](#issue-ssl-certificate)
 
-The only condition here is that you take care to purchase a domain name in advance. There are several domain registrars to choose from, e.g.,  Bluehost, GoDaddy or Namecheap. As for Netlify, they also sell and register domain names:
+The only prerequisite here is that you take care to purchase a domain name in advance. There are a few domain registrars to choose from (e.g.,  Bluehost, GoDaddy or Namecheap). As for Netlify, they also sell and register domain names:
 
 ![Namecheap Choose Domain](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-choose-domain.png)
 
-### Configure DNS Host Records
+### Configure DNS Records
+DNS (Domain Name System) records are rules that define how domain name servers handle traffic to domains and subdomains. Updating DNS records is a necessary step, once you obtain your custom domain. In our case, this will allow you to connect the domain to Netlify hosting. Since I bought `kiroule.com` domain name from Namecheap, it's shown here how to do that in the Namecheap account, but the same configuration procedure can be done with any domain name registrar.
+
+After signing in to Namecheap, select `Domain List` from the left sidebar and click on the `Manage` button:
+
 ![Namecheap Domain List](/img/content/article/configure-custom-domain-and-https-in-netlify/namecheap-domain-list.png)
 
+In the `Details` view, choose the `Advanced DNS` tab:
+ 
 ![Namecheap Domain View](/img/content/article/configure-custom-domain-and-https-in-netlify/namecheap-domain-view.png)
+
+In the `Host Records` section, add `A Record` and `ALIAS Record`entries.
+
+`A Record` is an address record, which maps host names to their IPv4 addresses. To configure it, use the following settings:
+```plaintext
+Type: A Record
+Host: @
+Value: 104.198.14.52
+TTL: 30 min
+```
+Here, the `104.198.14.52`  value is Netlify's load balancer IP address.
+
+`ALIAS Record` is a virtual host record, which allows pointing one domain name to another one. To configure it, use the following settings:
+```plaintext
+Type: ALIAS Record
+Host: www
+Value: [name-of-your-site].netlify.app
+TTL: 5 min
+```
+
+`TTL` (Time to live) is a propagation time, which defines how fast a DNS record update is pushed to DNS servers around the world.   
 
 ![Namecheap Domain Advanced DNS](/img/content/article/configure-custom-domain-and-https-in-netlify/namecheap-domain-advanced-dns.png)
 
