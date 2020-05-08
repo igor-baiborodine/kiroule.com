@@ -61,15 +61,24 @@ TTL: 5 min
 ![Namecheap Domain Advanced DNS](/img/content/article/configure-custom-domain-and-https-in-netlify/namecheap-domain-advanced-dns.png)
 
 ### Set up Custom Domain
+
+Sign in to Netlify and navigate to the site in question:
+
 ![Netlify Sites View](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-sites-view.png)
+
+Select `Set up a custom domain` in the `Overview` tab:
 
 ![Netlify Site Getting Started](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-getting-started.png)
 
+Enter your custom domain value and click on the `Verify` button:
+
 ![Netlify Site Settings Add Custom Domain](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-add-custom-domain.png)
+
+Then confirm that you own the domain name by clicking the "Yes, add domain" button:
 
 ![Netlify Site Settings Add Custom Domain Owner Confirm](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-add-custom-domain-owner-confirm.png)
 
-Your site should be available at these three domains:
+To make sure that the custom domain is correctly configured, open the `Settings` tab and select `Domain management` from the left sidebar. The `Custom domains` section should contain three custom domains: Netlify's default subdomain, your domain and your domain prefixed with `www.`.
 
 ![Netlify Site Settings Domain Management](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-domain-management.png)
 
