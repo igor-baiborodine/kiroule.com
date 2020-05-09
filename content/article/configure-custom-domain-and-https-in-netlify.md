@@ -7,7 +7,7 @@ tags: [Netlify, Namecheap, Domain, HTTPS]
 author: "Igor Baiborodine"
 ---
 
-In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a website and deploy it on Netlify. It is time to enhance it, namely, configure DNS host records, set up a custom domain name and issue an SSL certificate.
+In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a website and deploy it on Netlify. It is time to enhance it, namely, configure DNS host records, set up a custom domain name and enable HTTPS.
 
 <!--more-->
 
@@ -20,7 +20,7 @@ This tutorial has the following tasks to complete:
 1. [Configure DNS Records](#configure-dns-records)
 2. [Set up Custom Domain](#set-up-custom-domain)
 3. [Update Base URL](#update-base-url)
-4. [Issue SSL Certificate](#issue-ssl-certificate)
+4. [Enable HTTPS](#enable-https)
 
 The only prerequisite here is that you take care to purchase a domain name in advance. There are a few domain registrars to choose from (e.g.,  Bluehost, GoDaddy or Namecheap). As for Netlify, they also sell and register domain names:
 
@@ -78,18 +78,37 @@ Then confirm that you own the domain name by clicking the "Yes, add domain" butt
 
 ![Netlify Site Settings Add Custom Domain Owner Confirm](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-add-custom-domain-owner-confirm.png)
 
-To make sure that the custom domain is correctly configured, open the `Settings` tab and select `Domain management` from the left sidebar. The `Custom domains` section should contain three custom domains: Netlify's default subdomain, your domain and your domain prefixed with `www.`.
+To make sure that the custom domain is correctly configured, open the `Settings` tab and select the `Domain management` from the left sidebar. The `Custom domains` subsection should contain three domains: Netlify's default subdomain, your domain and your domain prefixed with `www.`.
 
 ![Netlify Site Settings Domain Management](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-domain-management.png)
 
 ### Update Base URL
-baseURL = "https://www.kiroule.com/" - primary domain
 
-### Issue SSL Certificate
+Since we added the new primary domain in the previous step, it's necessary to update the `baseUrl` setting in your site's config.toml file, for instance:
+
+```plaintext
+baseURL = "https://www.kiroule.com/"
+```
+
+Then commit and push this change to GitHub.
+
+### Enable HTTPS
+
+Netlify hosting comes with free HTTPS for all sites, including the automatic creation and renewal of TLS-based certificates. These certificates are provided through [Let's Encrypt](https://letsencrypt.org/), a nonprofit Certification Authority.
+
+Return to Netlify and, before proceeding any further, verify in the site's `Overview` tab that the change from the previous step was successfully published. Then click on the `Domain settings` button:
+
+![Netlify Site Deploy Change BaseURL](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-deploy-change-baseurl.png)
+
+Select the `Domain management` from the left sidebar and scroll down to the `SSL/TLS certificate` subsection, then click on the `Verify DNS configuration` button:
 
 ![Netlify Site Settings Domain Management HTTPS](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-domain-management-https.png)
 
+Upon successful DNS verification, continue by clicking on the `Provision certificate' button:
+
 ![Netlify Site Settings Domain Management HTTPS Certificate](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-domain-management-https-certificate.png)
+
+Confirm once again the provisioning of Let's Encrypt certificate:
 
 ![Netlify Site Settings Domain Management HTTPS Certificate Confirm](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-domain-management-https-certificate-confirm.png)
 
