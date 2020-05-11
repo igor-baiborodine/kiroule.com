@@ -110,7 +110,7 @@ Before testing the blog with new primary domains, it's necessary to update the `
 baseURL = "https://www.kiroule.com/"
 ```
 
-Commit and push the change to GitHub. This update should trigger a new build and deploy in Netlify. So go back to Netlify and verify in the site’s `Overview` tab that the site was successfully published. 
+Commit and push the change to GitHub. This update should trigger a new build and deploy in Netlify. So go back to Netlify and verify in the site's `Overview` tab that the site was successfully published. 
 
 ![Netlify Site Deploy Change BaseURL](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-deploy-change-baseurl.png)
 
