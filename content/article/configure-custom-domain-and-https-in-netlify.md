@@ -27,7 +27,7 @@ The only prerequisite here is that you take care to purchase a domain name in ad
 ![Namecheap Choose Domain](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-choose-domain.png)
 
 ### Configure DNS Records
-DNS (Domain Name System) records are rules that define how domain name servers handle traffic to domains and subdomains. Updating DNS records is a necessary step, once you obtain your custom domain. In our case, this will allow you to connect the domain to Netlify hosting. Since I bought `kiroule.com` domain name from Namecheap, it's shown here how to do that in my Namecheap account, but the same configuration procedure can be done with any domain registrar.
+DNS (Domain Name System) records are rules that define how domain name servers handle traffic to domains and subdomains. Updating DNS records is a necessary step, once you obtain your custom domain. In our case, this will allow you to connect the domain to Netlify hosting. Since I bought `kiroule.com` domain name from Namecheap, it's shown here how to do that in my Namecheap account, but the same configuration procedure can be done with most of the domain registrars.
 
 After signing in to Namecheap, select `Domain List` from the left sidebar and click on the `Manage` button:
 
