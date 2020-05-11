@@ -22,7 +22,7 @@ This tutorial has the following tasks to complete:
 3. [Enable HTTPS](#enable-https)
 4. [Update Base URL](#update-base-url)
 
-The only prerequisite here is that you take care to purchase a domain name in advance. There are a few domain registrars where you can buy it (e.g., Bluehost, GoDaddy or Namecheap). As for Netlify, they also sell and register domain names:
+The only prerequisite here is that you take care to purchase a domain name in advance. There are a few domain registrars where you can buy it (e.g., [Bluehost](https://www.bluehost.com/), [GoDaddy](https://www.godaddy.com/) or [Namecheap](https://www.namecheap.com/)). As for Netlify, they also sell and register domain names:
 
 ![Namecheap Choose Domain](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-choose-domain.png)
 
@@ -78,7 +78,7 @@ Then confirm that you own the domain name by clicking on the `Yes, add domain` b
 
 ![Netlify Site Settings Add Custom Domain Owner Confirm](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-add-custom-domain-owner-confirm.png)
 
-To make sure that the custom domain is correctly configured, open the `Settings` tab and select the `Domain management` from the left sidebar. The `Custom domains` subsection should contain three domains: Netlify's default subdomain, your domain and your domain prefixed with `www.`.
+To verify that the custom domain has been correctly configured, open the `Settings` tab and select the `Domain management` from the left sidebar. The `Custom domains` subsection should contain three domains: Netlify's default subdomain, your domain and your domain prefixed with `www.`.
 
 ![Netlify Site Settings Domain Management](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-site-settings-domain-management.png)
 
