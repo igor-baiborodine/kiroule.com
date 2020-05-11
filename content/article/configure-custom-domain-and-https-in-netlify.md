@@ -7,7 +7,7 @@ tags: [Netlify, Namecheap, Domain, HTTPS]
 author: "Igor Baiborodine"
 ---
 
-In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a website and deploy it on Netlify. It is time to enhance it, namely, configure DNS host records, set up a custom domain name and enable HTTPS.
+In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a Hugo-based website and deploy it on Netlify. It's time to make some improvements, namely, configure DNS host records, set up a custom domain name and enable HTTPS.
 
 <!--more-->
 
@@ -120,7 +120,7 @@ Now, it's time to test the new URL:
 
 
 ### Summary
-In this article, I showed you how to improve the newly created website. First, I demonstrated to you how to add new DNS records in a Namecheap account. Then you saw how to configure a custom domain and enable HTTPS in Netlify.  And the final step was updating the `config.toml` file to make sure that the blog is displayed without any issues.
+In this article, I showed you how to enhance the newly created website. First, I demonstrated to you how to add new DNS records in a Namecheap account. Then you saw how to configure a custom domain and enable HTTPS in Netlify.  And the final step was updating the `config.toml` file to make sure that the blog is displayed without any issues.
 
 Continue reading the series:
 
