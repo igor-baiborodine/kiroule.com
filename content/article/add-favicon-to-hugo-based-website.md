@@ -20,7 +20,7 @@ As for adding a favicon to your website, it all depends on how the Hugo theme yo
 
 ![Site Directory Layout](/img/content/article/add-favicon-to-hugo-based-website/site-directory-layout.png)
 
-But the presence of the `favicon.html` file in a Hugo theme is not always the case. Then it would help if you looked for the `layouts/partials/head.html` file like this [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html). You will have to copy the `head.html` into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator.
+But the presence of the `favicon.html` file in a Hugo theme is not always the case. Then it would help if you looked for the `layouts/partials/head.html` file like that [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html). You will have to copy the `head.html` into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator.
 
 Next, what's left is to copy all generated favicon images into the `static` folder.
 
@@ -33,7 +33,36 @@ There are no prerequisites here. You can proceed right to step [2](#add-favicon-
 
 ### Add Favicon Using favicon.io
 
+![favicon.io Main View](/img/content/article/add-favicon-to-hugo-based-website/favicon-io-main-view.png)
+
+![favicon.io Generate View](/img/content/article/add-favicon-to-hugo-based-website/favicon-io-generate-view.png)
+
+![favicon.io Generate View Installation](/img/content/article/add-favicon-to-hugo-based-website/favicon-io-generate-view-installation.png)
+
+![favicon.io Zip Extracted Files](/img/content/article/add-favicon-to-hugo-based-website/favicon-io-zip-extracted-files.png)
+
 ### Add Favicon Using realfavicongenerator.net
+
+![realfavicongenerator.net Favicon Check](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-main-view-favicon-check.png)
+
+![realfavicongenerator.net Favicon Check Result](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-main-view-favicon-check-result-2.png)
+
+![realfavicongenerator.net Generate Select Image](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-select-favicon-image.png)
+
+![realfavicongenerator.net Generate Confirm](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-confirm-generate.png)
+
+![realfavicongenerator.net Generate Result](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-generate-result.png)
+
+![realfavicongenerator.net Zip Extracted Files](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-zip-extracted-files.png)
+
+![realfavicongenerator.net Commit Diff](/img/content/article/add-favicon-to-hugo-based-website/second-generate-diff-commit.png)
+
+```html
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+```
+![realfavicongenerator.net Prod Display Favicon Top Sites](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon-top-sites.png)
 
 ### Summary
 
