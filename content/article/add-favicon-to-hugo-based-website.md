@@ -20,7 +20,7 @@ As for adding a favicon to your website, it all depends on how the Hugo theme yo
 
 ![Site Directory Layout](/img/content/article/add-favicon-to-hugo-based-website/site-directory-layout.png)
 
-But the presence of the `favicon.html` file in a Hugo theme is not always the case. Then it would help if you looked for the `layouts/partials/head.html` file like this [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html). You will have to copy the `head.html` into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator tool.
+But the presence of the `favicon.html` file in a Hugo theme is not always the case. Then it would help if you looked for the `layouts/partials/head.html` file like this [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html). You will have to copy the `head.html` into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator.
 
 Next, what's left is to copy all generated favicon images into the `static` folder.
 
