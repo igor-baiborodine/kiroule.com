@@ -6,28 +6,36 @@ tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
 ---
 
-TODO: spoiler
+In this third article of the series, we continue enhancing the website that we created earlier. This time I will demonstrate to you how to generate a favicon image set and integrate it with a website implemented with Hugo.
 
 <!--more-->
 
-Plan:
-* What is favicon and why add favicon: elaborate
-* How to add favicon for a Hugo-based site: elaborate in general and for Bilberry theme
-* Generate with favicon.io - disadvantages if checked with realfavicongenerator.net 
-* Generate with realfavicongenerator.net
+A favicon is a 16x16 pixel-sized image that usually associated with a particular website. In a web browser, favicons most often displayed next to the webpage's title on the tab or the webpage's name in the bookmarks' list. When creating a blog, many underestimate the importance of having a favicon, but it plays an essential role in your website branding and identity around the web.
 
-TODO: intro
-* What is favicon and why you should add it to your site
+Looking ahead, here it is how the favicon, which we create below, will look on a browser's tab:
 
-But since this my personal website, I will use my initials in Russian(`ИБ`) without claiming unique originality.
+![Browser Display Favicon in Tab](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon.png)
 
-Steps to complete:
-1. [Add Favicon With favicon.io](#add-favicon-with-faviconio)
-2. [Add Favicon With realfavicongenerator.net](#add-favicon-with-realfavicongeneratornet)
+As for adding a favicon to your website, it all depends on how the Hugo theme you have chosen was implemented. Any well-implemented theme should have the `layouts/partial/favicon.html` file where you can define what favicon images to use. You need to copy the HTML code that was provided by a favicon generator into this file in the site's root directory:
 
-### Add Favicon With favicon.io
+![Site Directory Layout](/img/content/article/add-favicon-to-hugo-based-website/site-directory-layout.png)
 
-### Add Favicon With realfavicongenerator.net
+But the presence of the `favicon.html` file in a Hugo theme is not always the case. Then it would help if you looked for the `layouts/partials/head.html` file like this [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html). You will have to copy the `head.html` into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator tool.
+
+Next, what's left is to copy all generated favicon images into the `static` folder.
+
+![Site Directory Static](/img/content/article/add-favicon-to-hugo-based-website/site-directory-static.png)
+
+There are two steps in this tutorial:
+
+1. [Add Favicon Using favicon.io](#add-favicon-using-faviconio)
+2. [Add Favicon Using realfavicongenerator.net](#add-favicon-using-realfavicongeneratornet)
+
+There are no prerequisites here. If you already have a base favicon image, you can proceed right to step [2](#add-favicon-using-realfavicongeneratornet). If you do not have one and want to create a text-based favicon, you should start at step [1](#add-favicon-using-faviconio). In my case, without pretending to be original, I will use my initials in Russian `ИБ` to create a text-based favicon.
+
+### Add Favicon Using favicon.io
+
+### Add Favicon Using realfavicongenerator.net
 
 ### Summary
 
