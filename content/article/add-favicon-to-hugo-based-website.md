@@ -16,7 +16,7 @@ Looking ahead, here it is how the favicon, which we create below, will look on a
 
 ![Browser Display Favicon in Tab](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon.png)
 
-As for adding a favicon to your website, it all depends on how the Hugo theme you have chosen was implemented. Any well-implemented theme should have the `layouts/partial/favicon.html` file where you can define what favicon images to use. You need to copy the HTML code that was provided by a favicon generator into this file in the site's root directory:
+As for adding a favicon to your website, it all depends on how the Hugo theme you have chosen was implemented. Any well-implemented theme should have the `layouts/partial/favicon.html` file where you can define what favicon images to use. This file should be present in the `layouts/partials` folder in your site's root directory. You need to copy the HTML code that was provided by a favicon generator into it:
 
 ![Site Directory Layout](/img/content/article/add-favicon-to-hugo-based-website/site-directory-layout.png)
 
