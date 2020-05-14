@@ -12,7 +12,7 @@ In this third article of the series, we continue enhancing the website that we c
 
 A favicon is a 16x16 pixel-sized image that usually associated with a particular website. In a web browser, favicons most often displayed next to the webpage's title on the tab or the webpage's name in the bookmarks' list. When creating a blog, many underestimate the importance of having a favicon, but it plays an essential role in your website branding and identity around the web.
 
-Looking ahead, here it is how the favicon, which we create below, will look on a browser's tab:
+Looking ahead here is how the favicon, which we create below, will look on a browser's tab:
 
 ![Browser Display Favicon in Tab](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon.png)
 
@@ -24,14 +24,12 @@ But the presence of the `favicon.html` file in a Hugo theme is not always the ca
 
 Next, what's left is to copy all generated favicon images into the `static` folder.
 
-![Site Directory Static](/img/content/article/add-favicon-to-hugo-based-website/site-directory-static.png)
-
 There are two steps in this tutorial:
 
 1. [Add Favicon Using favicon.io](#add-favicon-using-faviconio)
 2. [Add Favicon Using realfavicongenerator.net](#add-favicon-using-realfavicongeneratornet)
 
-There are no prerequisites here. If you already have a base favicon image, you can proceed right to step [2](#add-favicon-using-realfavicongeneratornet). If you do not have one and want to create a text-based favicon, you should start at step [1](#add-favicon-using-faviconio). In my case, without pretending to be original, I will use my initials in Russian `ИБ` to create a text-based favicon.
+There are no prerequisites here. You can proceed right to step [2](#add-favicon-using-realfavicongeneratornet) if you already have a base favicon image. If you do not have one and want to create a text-based favicon, you should start at step [1](#add-favicon-using-faviconio). In my case, without pretending to be original, I will use my initials in Russian `ИБ` to create a text-based favicon.
 
 ### Add Favicon Using favicon.io
 
