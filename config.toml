@@ -117,7 +117,7 @@ googleAnalytics = "UA-60574401-2"
     ]
 
     # credits line configuration
-    copyrightBy = "Igor Baiborodine"
+    copyrightBy = "COPYRIGHTBY_PLACEHOLDER"
     copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
     copyrightYearOverride = "2017"
     copyrightUrl = "https://github.com/igor-baiborodine"
