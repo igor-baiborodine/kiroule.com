@@ -68,7 +68,7 @@ Restart your local Hugo web server if it's running and verify in the browser tha
 
 ![Local Dev Display Favicon](/img/content/article/add-favicon-to-hugo-based-website/local-dev-display-favicon.png)
 
-Commit and push changes to GitHub. Consequently, this update should trigger a new build and deploy in Netlify. Please wait until it completes and navigate to your website URL in the browser. Check if your custom favicon replaced the default favicon image. 
+Commit and push changes to GitHub. Consequently, this update should trigger a new build and deploy on Netlify. Please wait until it completes and navigate to your website URL in the browser. Check if your custom favicon replaced the default favicon image. 
 
 So, it looks like we accomplished our goal, but let's proceed with the next step.
 
@@ -104,7 +104,7 @@ The new package contains 3 new files when compared with the package from step 1,
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 ```
-Then again, commit and push changes to GitHub. Please wait until the deployment in Netlify completes and navigate to your website URL in the browser. Check if the favicon is correctly displayed. Now, if you run the favicon check on the `realfavicongenerator.net` again, it will pass all the tests.
+Then again, commit and push changes to GitHub. Please wait until the deployment on Netlify completes and navigate to your website URL in the browser. Check if the favicon is correctly displayed. Now, if you run the favicon check on the `realfavicongenerator.net` again, it will pass all the tests.
 
 Now, the task is complete!
 
