@@ -9,7 +9,7 @@ enableRobotsTXT = true
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
-googleAnalytics = "UA-60574401-2"
+googleAnalytics = "GOOGLE_ANALYTICS_PLACEHOLDER"
 
 # Enable / Disable comments on the articles via Disqus.
 #disqusShortname = ""
@@ -117,7 +117,7 @@ googleAnalytics = "UA-60574401-2"
     ]
 
     # credits line configuration
-    copyrightBy = "Igor Baiborodine"
+    copyrightBy = "COPYRIGHTBY_PLACEHOLDER"
     copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
     copyrightYearOverride = "2017"
     copyrightUrl = "https://github.com/igor-baiborodine"

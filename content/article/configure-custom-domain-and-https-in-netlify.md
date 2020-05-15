@@ -7,7 +7,7 @@ tags: [Netlify, Namecheap, Domain, HTTPS]
 author: "Igor Baiborodine"
 ---
 
-In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a Hugo-based website and deploy it on Netlify. It's time to make some improvements, namely, configure DNS host records, set up a custom domain name and enable HTTPS.
+In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a Hugo-based website and deploy it on Netlify. It's time to make some improvements, namely, configure DNS records, set up a custom domain and enable HTTPS.
 
 <!--more-->
 
@@ -124,4 +124,6 @@ In this article, I showed you how to enhance the newly created website. First, I
 
 Continue reading the series:
 
-**Add Favicon to Hugo-based Website(coming soon)**
+**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**\
+**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
+
