@@ -16,13 +16,22 @@ Looking ahead here is how the favicon, which we create below, will look on a bro
 
 ![Browser Display Favicon in Tab](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon.png)
 
-As for adding a favicon to your website, it all depends on how the Hugo theme you have chosen was implemented. Any well-implemented theme should have the `layouts/partial/favicon.html` file where you can define what favicon images to use. This file should be present in the `layouts/partials` folder in your site's root directory. You need to copy the HTML code that was provided by a favicon generator into it:
+In regard to adding a favicon to your website, it all depends on how the Hugo theme you have chosen was implemented. Any well-implemented theme should have the `favicon.html` file that used to define what favicon images to use. This file should be present in the `layouts/partials` folder in your site's root directory:
 
 ![Site Directory Layout](/img/content/article/add-favicon-to-hugo-based-website/site-directory-layout.png)
 
-But the presence of the `favicon.html` file in a Hugo theme is not always the case. Then it would help if you looked for the `layouts/partials/head.html` file like that [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html). You will have to copy the `head.html` into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator.
+The Bilberry theme has such a file, and it contains straightforward instructions on how to add favicon images:
+```plaintext
+<!--
+    Insert your favicon definitions here and put the icons in your `/static` folder
+    Check https://realfavicongenerator.net/ for generating your personal favicon
 
-Next, what's left is to copy all generated favicon images into the `static` folder.
+    Remove this comment.
+-->
+```
+Merely following these instructions will do.
+
+But the presence of the `favicon.html` file in a Hugo theme is not always the case. Therefore, in your theme, you should look for the `layouts/partials/head.html` file like that [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html), for instance. Once located, copy it into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator. Then place all generated favicon images into the `static` folder.
 
 There are two steps in this tutorial:
 
