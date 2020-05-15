@@ -124,4 +124,6 @@ In this article, I showed you how to enhance the newly created website. First, I
 
 Continue reading the series:
 
-**Add Favicon to Hugo-based Website(coming soon)**
+**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**\
+**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
+
