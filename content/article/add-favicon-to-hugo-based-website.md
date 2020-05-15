@@ -74,25 +74,40 @@ So, it looks like we accomplished our goal, but let's proceed with the next step
 
 ### Add Favicon Using realfavicongenerator.net
 
+Navigate to https://realfavicongenerator.net/ in the browser; enter your website URL in the `Check your favicon` field and click on the `Check favicon` button:
+
 ![realfavicongenerator.net Favicon Check](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-main-view-favicon-check.png)
 
+The check reveals that there are no issues with iOS Safari, Android Chrome and classic/desktop browsers. However, our favicon did not pass the test for Windows 8/10 and Mac OS X EI Capitan Safari:
+ 
 ![realfavicongenerator.net Favicon Check Result](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-main-view-favicon-check-result-2.png)
+
+To add missing favicon images and definitions, we can generate a new favicon package using the previously generated `android-chrome-512x512.png` favicon as a base image. Therefore, return to the main page and click on the `Select your Favicon image` button, then proceed with uploading the base image from the site's `static` folder: 
 
 ![realfavicongenerator.net Generate Select Image](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-select-favicon-image.png)
 
+Scroll down to the bottom of the page and continue by clicking on the `Generate your Favicons and HTML code` button:
+
 ![realfavicongenerator.net Generate Confirm](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-confirm-generate.png)
+
+In the `Install your favicon` page, copy the generated HTML code and replace the content of the `favicon.html` file with it; download the newly generated favicon package:
 
 ![realfavicongenerator.net Generate Result](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-generate-result.png)
 
+Unzip the downloaded favicon package and copy all extracted files into the `static` folder in the site's root:
+
 ![realfavicongenerator.net Zip Extracted Files](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-zip-extracted-files.png)
 
-![realfavicongenerator.net Commit Diff](/img/content/article/add-favicon-to-hugo-based-website/second-generate-diff-commit.png)
-
+The new package contains 3 new files when compared with the package from step 1, namely, `browseconfig.xml`, `mstile-150x150.png` and `safary-pinned-tab.svg`. Also, the HTML code has three more tags: 
 ```html
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 ```
+Then again, commit and push changes to GitHub. Please wait until the deployment in Netlify completes and navigate to your website URL in the browser. Check if the favicon is correctly displayed. Now, if you run the favicon check on the `realfavicongenerator.net` again, it will pass all the tests.
+
+Now, the task is complete!
+
 ![realfavicongenerator.net Prod Display Favicon Top Sites](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon-top-sites.png)
 
 ### Summary
