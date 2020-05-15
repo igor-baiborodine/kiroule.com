@@ -70,6 +70,8 @@ Restart your local Hugo web server if it's running and verify in the browser tha
 
 Commit and push changes to GitHub. Consequently, this update should trigger a new build and deploy in Netlify. Please wait until it completes and navigate to your website URL in the browser. Check if your custom favicon replaced the default favicon image. 
 
+So, it looks like we accomplished our goal, but let's proceed with the next step.
+
 ### Add Favicon Using realfavicongenerator.net
 
 ![realfavicongenerator.net Favicon Check](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-main-view-favicon-check.png)
