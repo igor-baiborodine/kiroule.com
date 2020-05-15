@@ -197,4 +197,6 @@ To conclude this tutorial, I want to add that it is my second attempt to start b
 Continue reading the series:
 
 **[Configure Custom Domain and HTTPS in Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**\
-**Add Favicon to Hugo-based Website(coming soon)**
+**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**\
+**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
+
