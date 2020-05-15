@@ -90,7 +90,7 @@ Scroll down to the bottom of the page and continue by clicking on the `Generate 
 
 ![realfavicongenerator.net Generate Confirm](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-confirm-generate.png)
 
-In the `Install your favicon` page, copy the generated HTML code and replace the content of the `favicon.html` file with it; download the newly generated favicon package:
+In the `Install your favicon` page, copy the given HTML code and replace the content of the `favicon.html` file with it; download the newly generated favicon package:
 
 ![realfavicongenerator.net Generate Result](/img/content/article/add-favicon-to-hugo-based-website/realfavicongenerator-generate-view-generate-result.png)
 
@@ -111,6 +111,7 @@ Now, the task is complete!
 ![realfavicongenerator.net Prod Display Favicon Top Sites](/img/content/article/add-favicon-to-hugo-based-website/prod-display-favicon-top-sites.png)
 
 ### Summary
+In this article, you saw what it takes to add a custom favicon to a Hugo-based website. First, we discussed what files in your Hugo theme should be updated with favicon definitions and where to place favicon images. Second, I showed you how to generate a text-based favicon package using the `favicon.io` website.  Then with the help of the `realfavicongenerator.net` website, I demonstrated to you how to check if your website's favicon is valid and correctly displayed in different browsers and on different platforms. To fix favicon issues, we generated a new favicon package and added it to the theme.
 
 Continue reading the series:
 
