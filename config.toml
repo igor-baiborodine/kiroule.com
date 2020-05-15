@@ -1,5 +1,5 @@
 title = "Igor Baiborodine"
-baseURL = "https://kiroule.netlify.app/"
+baseURL = "https://www.kiroule.com/"
 theme = "bilberry-hugo-theme"
 
 # Generate the robots.txt file for SEO
@@ -9,7 +9,7 @@ enableRobotsTXT = true
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
-#googleAnalytics = ""
+googleAnalytics = "GOOGLE_ANALYTICS_PLACEHOLDER"
 
 # Enable / Disable comments on the articles via Disqus.
 #disqusShortname = ""
@@ -27,15 +27,15 @@ DefaultContentLanguage = "en"
   js_modules = []
 
   # Description and meta data for the search engines
-  author = "Igor Baiborodine"
-  description = "Igor Baiborodine's Blog"
+  author = "Igor Baiborodine|Игорь Байбородин"
+  description = "Igor Baiborodine's Blog|Блог Игоря Байбородина"
   keywords = "devops,linux,docker,virtualization,system administration,cloud computing, python programming"
 
   # How many articles should be displayed at once?
-  paginate = 7
+  paginate = 5
 
   # Enable / Disable MathJax
-  enable_mathjax    = false
+  enable_mathjax = false
 
   # Enable / Disable algolia search
 #  algolia_search    = true
@@ -65,7 +65,7 @@ DefaultContentLanguage = "en"
     overlayIcon = "fa-home"
 
     # always display the top navigation (with pages and search) on non-mobile screens
-    permanentTopNav = false
+    permanentTopNav = true
 
     # always display the top navigation when scrolling
     # works only with permanentTopNav = true
@@ -96,11 +96,11 @@ DefaultContentLanguage = "en"
 
     # How many articles should be displayed at latest posts in the footer?
     # Set to -1 to hide the 'Latest Posts' column
-    amountLatestPostsInFooter = 7
+    amountLatestPostsInFooter = 5
 
     # How many categories should be displayed in the footer section?
     # Set to -1 to hide the 'Categories' column
-    amountCategoriesInFooter = 7
+    amountCategoriesInFooter = 5
 
     # show a language chooser in the footer
     showFooterLanguageChooser = false
@@ -117,7 +117,7 @@ DefaultContentLanguage = "en"
     ]
 
     # credits line configuration
-    copyrightBy = "Igor Baiborodine"
+    copyrightBy = "COPYRIGHTBY_PLACEHOLDER"
     copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
     copyrightYearOverride = "2017"
     copyrightUrl = "https://github.com/igor-baiborodine"

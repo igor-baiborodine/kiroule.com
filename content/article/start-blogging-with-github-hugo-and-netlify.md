@@ -1,12 +1,12 @@
 ---
 title: "Start Blogging With GitHub, Hugo and Netlify"
 date: 2020-04-29T19:47:04-04:00
-categories: [tutorial]
-tags: [blog, github, hugo, netlify]
+categories: [Blog]
+tags: [GitHub, Hugo, Netlify]
 author: "Igor Baiborodine"
 ---
 
-By this blog post, I start a series of articles where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using GitHub, Hugo and Netlify.
+By this post, I start a series where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using GitHub, Hugo and Netlify.
 
 <!--more-->
 
@@ -27,10 +27,10 @@ But enough talk, let's get started. The tutorial below consists of the following
 5. [Push Git Repository to GitHub](#push-git-repository-to-github)
 6. [Deploy on Netlify](#deploy-on-netlify)
 
-Among the prerequisites for this tutorial is a basic knowledge of Git with its command-line interface and GitHub/Netlify accounts. As a host operating system, I will be using Ubuntu 18.04.
+Basic knowledge of Git with its command-line interface and GitHub/Netlify accounts are the prerequisites for this tutorial.  As a host operating system, I will be using Ubuntu 18.04.
 
 ### Install Hugo
-As per [Hugo's official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using `dpkg` utility:
+As per [Hugo official documentation](https://gohugo.io/getting-started/installing/#debian-and-ubuntu), using `sudo apt-get install hugo` command is not recommended because it will not install the latest version of Hugo. Indeed, you will get version `0.40.1` while the newest version at the moment of writing is `0.69.1`. Therefore, download a .deb package from the [official Hugo releases page](https://github.com/gohugoio/hugo/releases) and install it using the `dpkg` utility:
 
 ```plaintext
 $ wget https://github.com/gohugoio/hugo/releases/download/v0.69.1/hugo_0.69.1_Linux-64bit.deb
@@ -39,7 +39,7 @@ $ sudo dpkg -i hugo_0.69.1_Linux-64bit.deb
 ![Hugo Version Manual Install](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-version-manual-install.png)
 
 ### Create New Site
-To create a new site in the provided directory, use `hugo new site [path]` command, e.g.:
+To create a new site, execute the `hugo new site` command in the site's root directory, for example:
 ```plaintext
 $ hugo new site kiroule.com
 ```
@@ -49,7 +49,7 @@ Here, I use `kiroule.com` as a site name since I already own this domain name, a
 
 Before proceeding any further, you need to choose a Hugo theme. Hugo offers a [plethora of themes](https://themes.gohugo.io/) that suit different tastes and needs. I picked [Bilberry Hugo](https://themes.gohugo.io/bilberry-hugo-theme/) theme because it is suitable for blogging, responsive and multilingual. Also, it offers support for Disqus comments, Algolia search and Google Analytics.
 
-Move to the site directory and initialize a Git repository:
+Move to the site's root directory and initialize a Git repository:
 ```plaintext
 $ cd kiroule.com
 $ git init
@@ -63,18 +63,18 @@ $ git submodule add https://github.com/Lednerb/bilberry-hugo-theme.git
 
 The `git submodule add` allows cloning of the theme repository to your project and keeping it as a subdirectory of the site repository. Also, it permits Netlify to recursively clone the site repository along with the theme repository when building and deploying the site.
 
-Copy the content of `themes/bilberry-hugo-theme/exampleSite` directory to the site directory, remove the default archetype and move back to the site directory:
+Copy the content of the `themes/bilberry-hugo-theme/exampleSite` folder to the site's root directory, remove the default archetype and move back to the site's root directory:
 ```plaintext
 $ cp -r bilberry-hugo-theme/exampleSite/* ../
 $ rm ../archetypes/default.md
 $ cd ..
 ```
 
-At this point, the site directory structure should look like below, where  `content` directory contains the content from the example site:
+At this point, the site's root directory structure should look like below, where  `content` directory contains the content from the example site:
 
 ![Hugo New Site Dir Structure](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-dir-structure.png)
 
-From the site directory, start the hugo server to build and serve the site:
+To start the built-in server to build and serve the site, execute the `hugo server` command from the site's root directory:
 
 ![Hugo New Site Serve](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-serve.png)
 
@@ -86,8 +86,9 @@ Access the site in your browser at http://localhost:1313. As you can see, the ne
 After making sure that the site can be built and served, let's proceed with customizations. To do so, you need to configure settings according to your needs in the `config.toml` file, which Hugo uses as the default website configuration file. Please see [Hugo documentation](https://gohugo.io/getting-started/configuration/) for more details on all available configuration settings. 
 
 The `config.toml` file should look like [this](https://github.com/igor-baiborodine/kiroule.com/blob/2cdf8876cff62fce786c3f1fb7795cd32402f0da/config.toml) after applying the following adjustments:
+
 * Set new values to the `title` setting and `author`, `description`, `keywords`, `subtitle`, `socialMediaLinks`, `copyrightBy`, `copyrightUseCurrentYear` and `copyrightUrl` params.
-* Set the `baseURL` setting to `https://kiroule.netlify.app/` where `kiroule` is the name of the site when deployed on Netlify. When deploying for the first time on Netlify, a random name will be generated automatically, e.g., `awesome-mclean-11186c`. Then the site name can be updated in the `Site Details` section.
+* Set the `baseURL` setting to `https://kiroule.netlify.app/` where `kiroule` is the name of the site when deployed on Netlify. When deploying for the first time on Netlify, a random name will be generated automatically, for example, `awesome-mclean-11186c`. Then the site name can be updated in the `Site Details` section.
 * Disable Google Analytics, Disqus comments and Algolia search by commenting out corresponding settings and params.
 * Switch to English only language by setting `showHeaderLanguageChooser` and `showFooterLanguageChooser` params to `false` value and removing the `[Languages.de]` params subsection.
 * Use a custom image instead of a gravatar for the header image. Copy the custom image to the `static/img/` directory and set the `customImage` param to the image's path, for example, `img/avatar.png`.
@@ -95,14 +96,15 @@ The `config.toml` file should look like [this](https://github.com/igor-baiborodi
 Then, to get rid of the content that came along with the example site, delete everything inside `content` and `resources` directories.
 
 ### Create About Page
-The next step is to create an empty `About` page. Use the [hugo new](https://gohugo.io/commands/hugo_new/) command, for example:
+The next step is to create an empty `About` page. Use the `hugo new` command, for example:
 ```plaintext
 $ hugo new page/about.md
 ```
+Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. 
 
 ![Hugo New Site About Page](/img/content/article/start-blogging-with-github-hugo-and-netlify/hugo-new-site-about-page.png)
 
-Make sure you run it from the site's root directory. Here, `page/about.md` is a path relative to the `content` folder. The `page` part in this path defines the post type. It should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
+The `page` part in the `page/about.md` path defines a post type that should map to one of the archetypes supported by the theme. The supported archetypes are defined by the theme in the `themes/bilberry-hugo-theme/archetypes` folder. Bilberry Hugo theme supports the `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video` post types.
 
 The content for the `page/about.md` file is generated according to the `themes/bilberry-hugo-theme/archetypes/page.md` template:
 ```markdown
@@ -172,11 +174,11 @@ Verify deploy settings and continue by clicking on the `Deploy site`:
 
 ![Netlify New Site Pick Repository 2](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-pick-repository-2.png)
 
-As soon as the build completes, you will be presented with the deploy overview:
+As soon as the build completes, you will be presented with the site overview:
 
 ![Netlify New Site First Deploy](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-first-deploy.png)
 
-Your website will not be correctly displayed if you proceed to the URL shown in the deploy overview since it does not match the `baseUrl` setting value in the `config.toml` file. Therefore, click on the `Deploy settings` in the deploy overview. Then select the `Site details` under the `General`. In the `Site details` tab, click on the `Change site name`:
+Your website will not be correctly displayed if you proceed to the URL shown in the site overview since it does not match the `baseUrl` setting value in the `config.toml` file. Therefore, click on the `Deploy settings` in the site overview. Then select the `Site details` under the `General`. In the `Site details` tab, click on the `Change site name`:
 
 ![Netlify New Site Change Site Name](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-change-site-name.png)
 
@@ -190,7 +192,11 @@ Now you can access your website at the URL shown in the site overview:
 
 ![Netlify New Site Deploy Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-deploy-browser.png)
 
-To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that I will have enough time, focus and energy to continue publishing new content, and my second attempt will be successful.
+To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus and energy to publish new content regularly.
 
-Continue reading the series:\
-- Configure Custom Domain in Netlify(coming soon)
+Continue reading the series:
+
+**[Configure Custom Domain and HTTPS in Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**\
+**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**\
+**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
+
