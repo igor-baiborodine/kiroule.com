@@ -10,6 +10,11 @@ By this post, I start a series where I share my experience in how to start a jou
 
 <!--more-->
 
+More articles in this series:
+
+**[Configure Custom Domain and HTTPS in Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**\
+**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**\
+
 So, you decided to start blogging, and you need to set up a blog. But from where to start? It all depends on your technical skillset. If you are not a geeky person, maybe a better approach would be to use such blogging platforms as [WordPress.com](https://wordpress.com/create-blog/) or [Wix.com](https://www.wix.com/start/blog). But if you are skilled in software development or any other related field, creating your blog with GitHub, Hugo and Netlify is the way to go.  What are the advantages of using the GitHub-Hugo-Netlify combination? 
 
 First of all, to create content, you will use Markdown, a lightweight markup language. It offers a simple formatting syntax and cross-platform portability. Also, you can use pure HTML within content written in Markdown. 
@@ -193,10 +198,3 @@ Now you can access your website at the URL shown in the site overview:
 ![Netlify New Site Deploy Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-deploy-browser.png)
 
 To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus and energy to publish new content regularly.
-
-Continue reading the series:
-
-**[Configure Custom Domain and HTTPS in Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**\
-**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**\
-**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
-
