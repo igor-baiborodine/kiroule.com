@@ -1,7 +1,7 @@
 ---
 title: "Add Favicon to Hugo-Based Website"
 date: 2020-05-11T08:19:56-04:00
-categories: [Blog]
+categories: [Blog, Tutorial]
 tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
 ---
@@ -113,6 +113,6 @@ Now, the task is complete!
 ### Summary
 In this article, you saw what it takes to add a custom favicon to a Hugo-based website. First, we discussed what files in your Hugo theme should be updated with favicon definitions and where to place favicon images. Second, I showed you how to generate a text-based favicon package using the `favicon.io` website.  Then with the help of the `realfavicongenerator.net` website, I demonstrated to you how to check if your website's favicon is valid and correctly displayed in different browsers and on different platforms. To fix favicon issues, we generated a new favicon package and added it to the theme.
 
-Continue reading the series:
-
-**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
+More articles in this series:\
+**[Start Blogging With GitHub, Hugo and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**\
+**[Configure Custom Domain and HTTPS on Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**
