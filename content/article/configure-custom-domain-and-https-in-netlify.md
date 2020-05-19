@@ -1,5 +1,5 @@
 ---
-title: "Configure Custom Domain and HTTPS in Netlify"
+title: "Configure Custom Domain and HTTPS on Netlify"
 date: 2020-05-05T06:31:46-04:00
 
 categories: [Blog, Tutorial]
