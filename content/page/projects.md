@@ -3,6 +3,7 @@ title: "Projects"
 date: 2020-04-25T21:25:07-04:00
 excludeFromTopNav: false
 showDate: false
+showComments: false
 
 # set the link if you want to redirect the user.
 link: ""
