@@ -12,7 +12,7 @@ DefaultContentLanguage = "en"
 googleAnalytics = "GOOGLE_ANALYTICS_PLACEHOLDER"
 
 # Enable / Disable comments on the articles via Disqus.
-disqusShortname = ""
+disqusShortname = "kiroule"
 
 # Enable / Disable open link with a new tab.
 [blackfriday]
