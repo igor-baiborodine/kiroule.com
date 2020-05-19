@@ -3,6 +3,7 @@ title: "About"
 date: 2020-04-26T13:13:06-04:00
 excludeFromTopNav: false
 showDate: false
+showComments: false
 
 # set the link if you want to redirect the user.
 link: ""
