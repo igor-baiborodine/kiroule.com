@@ -8,13 +8,13 @@
   HUGO_ENABLEGITINFO = "true"
 
 [context.production]
-  command = ".netlify/command-production.sh"
+  command = "hugo"
 
 [context.branch-deploy.environment]
   HUGO_VERSION = "0.68.3"
 
 [context.branch-deploy]
-  command = "netlify/command-branch-deploy.sh"
+  command = "netlify/algolia-helper.sh && hugo -b $DEPLOY_PRIME_URL --buildFuture"
 
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.68.3"

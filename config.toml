@@ -38,12 +38,12 @@ disqusShortname = "kiroule"
   enable_mathjax = false
 
   # Enable / Disable algolia search
-#  algolia_search    = true
-#  algolia_appId     = "ALGOLIA_APP_ID_PLACEHOLDER"
-#  algolia_apiKey    = "ALGOLIA_API_KEY_PLACEHOLDER"
-#  algolia_indexName = "kiroule-blog"
-#  # Set this option to false if you want to search within all articles in all languages at once
-#  algolia_currentLanguageOnly = true
+  algolia_search    = true
+  algolia_appId     = "ALGOLIA_APP_ID_PLACEHOLDER"
+  algolia_apiKey    = "ALGOLIA_API_KEY_PLACEHOLDER"
+  algolia_indexName = "kiroule-blog"
+  # Set this option to false if you want to search within all articles in all languages at once
+  algolia_currentLanguageOnly = true
 
   # Media configuration
     # let hugo automatically resize and crop your images to the correct sizes
