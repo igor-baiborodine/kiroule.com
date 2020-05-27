@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.68.3"
 
 [context.branch-deploy]
-  command = "netlify/algolia-helper.sh && hugo -b $DEPLOY_PRIME_URL --buildFuture"
+  command = "netlify/algolia-helper.sh && cat config.toml && hugo -b $DEPLOY_PRIME_URL --buildFuture"
 
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.68.3"
