@@ -39,8 +39,8 @@ disqusShortname = "kiroule"
 
   # Enable / Disable algolia search
   algolia_search    = true
-  algolia_appId     = "ALGOLIA_APP_ID_PLACEHOLDER"
-  algolia_apiKey    = "ALGOLIA_API_KEY_PLACEHOLDER"
+  algolia_appId     = "NLO8K25GU4"
+  algolia_apiKey    = "1ea1d7b821a9feb925c6bed046281341"
   algolia_indexName = "kiroule-blog"
   # Set this option to false if you want to search within all articles in all languages at once
   algolia_currentLanguageOnly = true
