@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.68.3"
 
 [context.branch-deploy]
-  command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
+  command = "netlify/command-branch-deploy.sh"
 
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.68.3"
