@@ -9,7 +9,7 @@ enableRobotsTXT = true
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
-googleAnalytics = "GOOGLE_ANALYTICS_PLACEHOLDER"
+googleAnalytics = "UA-60574401-2"
 
 # Enable / Disable comments on the articles via Disqus.
 disqusShortname = "kiroule"
@@ -39,10 +39,10 @@ disqusShortname = "kiroule"
 
   # Enable / Disable algolia search
 #  algolia_search    = true
-#  algolia_appId     = "Y2C4RWMPXW"
-#  algolia_apiKey    = "50ea7f8c41c0ad233926e0be2b769ed1"
-#  algolia_indexName = "default-content"
-  # Set this option to false if you want to search within all articles in all languages at once
+#  algolia_appId     = "ALGOLIA_APP_ID_PLACEHOLDER"
+#  algolia_apiKey    = "ALGOLIA_API_KEY_PLACEHOLDER"
+#  algolia_indexName = "kiroule-blog"
+#  # Set this option to false if you want to search within all articles in all languages at once
 #  algolia_currentLanguageOnly = true
 
   # Media configuration
