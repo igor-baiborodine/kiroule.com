@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<div class="content">
+    <div class="article-wrapper u-cf single">
+        <a class="bubble" href="{{ "/" | relLangURL}}">
+            <i class="fa fa-fw fa-exclamation-triangle"></i>
+        </a>
+
+        <article class="error404 article">
+            <div class="content">
+                <h3>404 Page Not Found</h3>
+                <p></p>
+                <p>Cute, but this is not what you were looking for. Take me back to <a href="{{ "/" | relLangURL}}"> kiroule.com</a>.</p>
+            </div>
+        </article>
+    </div>
+</div>
+{{ end }}
