@@ -1,7 +1,7 @@
 ---
 title: "Add Favicon to Hugo-Based Website"
 date: 2020-05-11T08:19:56-04:00
-categories: [Blog]
+categories: [Blog, Tutorial]
 tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
 ---
@@ -68,7 +68,7 @@ Restart your local Hugo web server if it's running and verify in the browser tha
 
 ![Local Dev Display Favicon](/img/content/article/add-favicon-to-hugo-based-website/local-dev-display-favicon.png)
 
-Commit and push changes to GitHub. Consequently, this update should trigger a new build and deploy in Netlify. Please wait until it completes and navigate to your website URL in the browser. Check if your custom favicon replaced the default favicon image. 
+Commit and push changes to GitHub. Consequently, this update should trigger a new build and deploy on Netlify. Please wait until it completes and navigate to your website URL in the browser. Check if your custom favicon replaced the default favicon image. 
 
 So, it looks like we accomplished our goal, but let's proceed with the next step.
 
@@ -104,7 +104,7 @@ The new package contains 3 new files when compared with the package from step 1,
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 ```
-Then again, commit and push changes to GitHub. Please wait until the deployment in Netlify completes and navigate to your website URL in the browser. Check if the favicon is correctly displayed. Now, if you run the favicon check on the `realfavicongenerator.net` again, it will pass all the tests.
+Then again, commit and push changes to GitHub. Please wait until the deployment on Netlify completes and navigate to your website URL in the browser. Check if the favicon is correctly displayed. Now, if you run the favicon check on the `realfavicongenerator.net` again, it will pass all the tests.
 
 Now, the task is complete!
 
@@ -113,6 +113,6 @@ Now, the task is complete!
 ### Summary
 In this article, you saw what it takes to add a custom favicon to a Hugo-based website. First, we discussed what files in your Hugo theme should be updated with favicon definitions and where to place favicon images. Second, I showed you how to generate a text-based favicon package using the `favicon.io` website.  Then with the help of the `realfavicongenerator.net` website, I demonstrated to you how to check if your website's favicon is valid and correctly displayed in different browsers and on different platforms. To fix favicon issues, we generated a new favicon package and added it to the theme.
 
-Continue reading the series:
-
-**Set Up Content Publishing Workflow With Github and Netlify(coming soon)**
+More articles in this series:\
+**[Start Blogging With GitHub, Hugo and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**\
+**[Configure Custom Domain and HTTPS on Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**
