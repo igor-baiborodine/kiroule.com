@@ -1,23 +1,25 @@
 [build]
-  HUGO_VERSION = "0.68.3"
-  ALGOLIA_APP_ID = "NLO8K25GU4"
   publish = "public"
   command = "hugo"
 
 [context.production.environment]
+  HUGO_VERSION = "0.68.3"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
+  ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
   command = "netlify/algolia-helper.sh && hugo"
 
 [context.branch-deploy.environment]
+  HUGO_VERSION = "0.68.3"
   ALGOLIA_INDEX_NAME = "dev_kiroule"
   
 [context.branch-deploy]
-  command = "netlify/algolia-helper.sh && hugo -b $DEPLOY_PRIME_URL --buildFuture"
+  command = "netlify/algolia-helper.sh && HUGO_BASEURL=$DEPLOY_PRIME_URL hugo --buildFuture"
 
 [context.deploy-preview.environment]
+  HUGO_VERSION = "0.68.3"
   
 [context.deploy-preview]
   command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
