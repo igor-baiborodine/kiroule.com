@@ -4,7 +4,7 @@ while getopts "pf:a:k:n:" opt; do
   case $opt in
   # netlify
   p)
-    python3 -m pip install --upgrade 'algoliasearch>=2.0,<3.0'
+    python3 -m pip install --upgrade 'algoliasearch>=2.0,<3.0' --target .
     # Environment variables below (except PWD) should be configured
     # in the section 'Build & deploy/Environment variables' of your site in Netlify;
     # Alternatively, the ALGOLIA_INDEX_NAME variable can be defined in the netlify.toml file.
@@ -32,8 +32,12 @@ while getopts "pf:a:k:n:" opt; do
   esac
 done
 
-python3 algolia/index-upload.py \
-    -f "$index_file" \
-    -a "$app_id" \
-    -k "$admin_api_key" \
-    -n "$index_name"
+ls -al
+echo "Igor here"
+ls -al "$PWD"
+
+#python3 algolia/index-upload.py \
+#    -f "$index_file" \
+#    -a "$app_id" \
+#    -k "$admin_api_key" \
+#    -n "$index_name"
