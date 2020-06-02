@@ -13,7 +13,7 @@
 
 [context.branch-deploy.environment]
   HUGO_VERSION = "0.68.3"
-  ALGOLIA_INDEX_NAME = "dev_kiroule"
+  ALGOLIA_INDEX_NAME = "branch_dev_kiroule"
 
 [context.branch-deploy]
   command = "hugo -b $DEPLOY_PRIME_URL --buildFuture && algolia/run-index-upload.sh -p"
