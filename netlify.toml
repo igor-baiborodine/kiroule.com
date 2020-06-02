@@ -9,14 +9,14 @@
   ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
-  command = "hugo && netlify/run-index-upload.sh -p"
+  command = "hugo && algolia/run-index-upload.sh -p"
 
 [context.branch-deploy.environment]
   HUGO_VERSION = "0.68.3"
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.branch-deploy]
-  command = "hugo -b $DEPLOY_PRIME_URL --buildFuture && netlify/run-index-upload.sh -p"
+  command = "hugo -b $DEPLOY_PRIME_URL --buildFuture && algolia/run-index-upload.sh -p"
 
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.68.3"
