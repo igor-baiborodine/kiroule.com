@@ -6,7 +6,8 @@ while getopts "pf:a:k:n:" opt; do
   p)
     pip install --upgrade 'algoliasearch>=2.0,<3.0'
     # Environment variables below (except PWD) should be configured
-    # in the section 'Build & deploy/Environment variables' of your site in Netlify
+    # in the section 'Build & deploy/Environment variables' of your site in Netlify;
+    # Alternatively, the ALGOLIA_INDEX_NAME variable can be defined in the netlify.toml file.
     index_file="$PWD/$HUGO_INDEX_FILE"
     app_id="$ALGOLIA_APP_ID"
     admin_api_key="$ALGOLIA_ADMIN_API_KEY"
