@@ -6,7 +6,8 @@ tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
 ---
 
-In this third article of the series, we continue enhancing the website that we created earlier. This time I will demonstrate to you how to generate a favicon image set and integrate it with a website implemented with Hugo.
+In this third article of the series, we continue enhancing the website that we created earlier. 
+This time I will demonstrate to you how to generate a favicon image set and integrate it with a website implemented with Hugo.
 
 <!--more-->
 
