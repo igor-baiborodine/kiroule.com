@@ -4,7 +4,7 @@
 
 # URL: https://kiroule.com/
 [context.production.environment]
-  HUGO_VERSION = "0.68.3"
+  HUGO_VERSION = "0.72.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
   ALGOLIA_INDEX_NAME = "prod_kiroule"
@@ -14,7 +14,7 @@
 
 # URL: https://dev--kiroule.netlify.app/
 [context.dev.environment]
-  HUGO_VERSION = "0.68.3"
+  HUGO_VERSION = "0.72.0"
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.dev]
