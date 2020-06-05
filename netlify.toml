@@ -11,15 +11,9 @@
 [context.production]
   command = "./config.sh && hugo && algolia/run-index-upload.sh -p"
 
-[context.branch-deploy.environment]
+[context.dev.environment]
   HUGO_VERSION = "0.68.3"
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
-[context.branch-deploy]
+[context.dev]
   command = "./config.sh && hugo -b $DEPLOY_PRIME_URL --buildFuture && algolia/run-index-upload.sh -p"
-
-[context.deploy-preview.environment]
-  HUGO_VERSION = "0.68.3"
-
-[context.deploy-preview]
-  command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
