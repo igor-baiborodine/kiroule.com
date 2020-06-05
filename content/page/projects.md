@@ -11,7 +11,7 @@ link: ""
 target: "_blank"
 ---
 
-### Developed with
+### Developed with Pleasure!
 
 ![IntelliJ IDEA Logo](/img/content/page/projects/intellij-idea-logo.png)
 
