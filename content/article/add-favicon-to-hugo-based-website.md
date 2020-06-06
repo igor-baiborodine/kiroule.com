@@ -6,8 +6,7 @@ tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
 ---
 
-In this third article of the [series](https://www.kiroule.com/article/building-your-blog-the-geeky-way/), we continue enhancing the website that we created earlier. 
-This time I will demonstrate to git you how to generate a favicon image set and integrate it with a website implemented with Hugo.
+In this third article of the series, we continue enhancing the website that we created earlier. This time I will demonstrate to git you how to generate a favicon image set and integrate it with a website implemented with Hugo.
 
 <!--more-->
 
@@ -19,12 +18,10 @@ As for adding a favicon to a Hugo-based website, it all depends on how the Hugo 
 
 The Bilberry theme has such a file, and it contains straightforward instructions on how to add favicon images:
 ```plaintext
-<!--
     Insert your favicon definitions here and put the icons in your `/static` folder
     Check https://realfavicongenerator.net/ for generating your personal favicon
 
     Remove this comment.
--->
 ```
 Merely following these instructions will do.
 
