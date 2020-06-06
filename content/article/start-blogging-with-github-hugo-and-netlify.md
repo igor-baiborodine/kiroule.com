@@ -6,7 +6,7 @@ tags: [Hugo, GitHub, Netlify]
 author: "Igor Baiborodine"
 ---
 
-By this post, I start a [series](https://www.kiroule.com/article/building-your-blog-the-geeky-way/) where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using Hugo, GitHub and Netlify.
+By this post, I start a series where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using Hugo, GitHub and Netlify.
 
 <!--more-->
 
