@@ -18,7 +18,7 @@
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.dev]
-  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL --buildFuture && algolia/run-index-upload.sh -p"
+  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL && algolia/run-index-upload.sh -p"
 
 # Use this configuration for specific branch development
 # URL: https://<feature-branch>--kiroule.netlify.app/
@@ -27,4 +27,4 @@
 #  ALGOLIA_INDEX_NAME = "<feature-branch>_kiroule"
 #
 #[context.<feature-branch>]
-#  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL --buildFuture && algolia/run-index-upload.sh -p"
+#  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL && algolia/run-index-upload.sh -p"
