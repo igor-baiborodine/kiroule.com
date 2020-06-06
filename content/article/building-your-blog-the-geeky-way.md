@@ -2,6 +2,7 @@
 title: "Building Your Blog, the Geeky Way"
 date: 2025-05-15T11:01:45-04:00
 showDate: false
+draft: true
 categories: [Blog]
 tags: []
 author: "Igor Baiborodine"
