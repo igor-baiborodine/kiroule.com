@@ -4,6 +4,7 @@ date: 2020-05-11T08:19:56-04:00
 categories: [Blog, Tutorial]
 tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
+draft: false
 ---
 
 In this third article of the series, we continue enhancing the website that we created earlier. This time I will demonstrate to git you how to generate a favicon image set and integrate it with a website implemented with Hugo.
