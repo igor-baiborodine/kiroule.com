@@ -35,4 +35,4 @@
   ALGOLIA_INDEX_NAME = "summary_kiroule"
 
 [context.summary]
-  command = "hugo -b $DEPLOY_PRIME_URL"
+  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL && algolia/run-index-upload.sh -p"
