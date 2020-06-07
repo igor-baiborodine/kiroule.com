@@ -76,9 +76,9 @@ disqusShortname = "kiroule"
 
   # Content configuration
     # Enable an optional pinned page to display at the top of the index
-#    pinnedPost = "/building-your-blog-the-geeky-way"
+    # pinnedPost = ""
     # Set to true to pin only to the first page, false to all pages
-#    pinOnlyToFirstPage = true
+    # pinOnlyToFirstPage = true
 
     # enable automatical localization of the article's PublishedDate with momentjs
     enableMomentJs = true
