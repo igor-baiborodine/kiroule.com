@@ -32,6 +32,7 @@
 
 [context.summary.environment]
   HUGO_VERSION = "0.72.0"
+  ALGOLIA_INDEX_NAME = "summary_kiroule"
 
 [context.summary]
   command = "./config.sh && hugo -b $DEPLOY_PRIME_URL"
