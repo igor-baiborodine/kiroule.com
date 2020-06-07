@@ -8,6 +8,7 @@
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
   ALGOLIA_INDEX_NAME = "prod_kiroule"
+  GOOGLE_ANALYTICS_ID = "UA-60574401-2"
 
 [context.production]
   command = "./config.sh && hugo && algolia/run-index-upload.sh -p"
@@ -28,3 +29,10 @@
 #
 #[context.<feature-branch>]
 #  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL && algolia/run-index-upload.sh -p"
+
+[context.summary.environment]
+  HUGO_VERSION = "0.72.0"
+  ALGOLIA_INDEX_NAME = "summary_kiroule"
+
+[context.summary]
+  command = "./config.sh && hugo -b $DEPLOY_PRIME_URL && algolia/run-index-upload.sh -p"
