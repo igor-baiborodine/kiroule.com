@@ -6,6 +6,7 @@ categories: [Blog]
 tags: []
 author: "Igor Baiborodine"
 noSummary: true
+draft: true
 ---
 
 Read this series of articles on how to build your blog from scratch and gradually enhance it with time:
