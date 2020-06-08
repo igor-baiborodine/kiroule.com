@@ -4,12 +4,10 @@ date: 2020-05-05T06:31:46-04:00
 categories: [Blog, Tutorial]
 tags: [Netlify, Namecheap, Domain, HTTPS]
 author: "Igor Baiborodine"
-draft: false
+summary: "In the previous post, I showed you how to create a Hugo-based website and deploy it on Netlify. It's time to make some improvements, namely, configure DNS records, set up a custom domain and enable HTTPS."
 ---
 
 In the [previous post](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/), I showed you how to create a Hugo-based website and deploy it on Netlify. It's time to make some improvements, namely, configure DNS records, set up a custom domain and enable HTTPS.
-
-<!--more-->
 
 When you deploy for the first time on Netlify, a Netlify subdomain will be assigned to your site, for example, `awesome-mclean-11186c.netlify.app`. Then you can change the randomly generated part in the subdomain to the site name you want, like adjusting `awesome-mclean-11186c.netlify.app` to `kiroule.netlify.app`, and continue as is.  But it's evident that for your personal website, you should use a custom domain, which helps a lot in promoting yourself as a brand and improving credibility. Also, owning a domain comes with the option of having personalized email addresses, for instance, `igor@kiroule.com`, which I put on my About page.
 
