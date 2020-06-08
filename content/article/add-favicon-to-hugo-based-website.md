@@ -16,11 +16,13 @@ As for adding a favicon to a Hugo-based website, it all depends on how the Hugo 
 ![Site Directory Layout](/img/content/article/add-favicon-to-hugo-based-website/site-directory-layout.png)
 
 The Bilberry theme has such a file, and it contains straightforward instructions on how to add favicon images:
-```plaintext
+```html
+<!--
     Insert your favicon definitions here and put the icons in your `/static` folder
     Check https://realfavicongenerator.net/ for generating your personal favicon
 
     Remove this comment.
+-->
 ```
 Merely following these instructions will do.
 
