@@ -9,7 +9,7 @@ enableRobotsTXT = true
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
-googleAnalytics = "UA-60574401-2"
+googleAnalytics = "GOOGLE_ANALYTICS_ID_PLACEHOLDER"
 
 # Enable / Disable comments on the articles via Disqus.
 disqusShortname = "kiroule"
@@ -76,9 +76,9 @@ disqusShortname = "kiroule"
 
   # Content configuration
     # Enable an optional pinned page to display at the top of the index
-#    pinnedPost = "/building-your-blog-the-geeky-way"
+    # pinnedPost = ""
     # Set to true to pin only to the first page, false to all pages
-#    pinOnlyToFirstPage = true
+    # pinOnlyToFirstPage = true
 
     # enable automatical localization of the article's PublishedDate with momentjs
     enableMomentJs = true

@@ -4,12 +4,10 @@ date: 2020-05-11T08:19:56-04:00
 categories: [Blog, Tutorial]
 tags: [Hugo, Favicon]
 author: "Igor Baiborodine"
-draft: false
+summary: "In this third article of the series, we continue enhancing the website that we created earlier. This time I will demonstrate to git you how to generate a favicon image set and integrate it with a website implemented with Hugo."
 ---
 
-In this third article of the series, we continue enhancing the website that we created earlier. This time I will demonstrate to git you how to generate a favicon image set and integrate it with a website implemented with Hugo.
-
-<!--more-->
+In this third article of the [series](https://www.kiroule.com/article/building-your-blog-the-geeky-way/), we continue enhancing the website that we created earlier. This time I will demonstrate to git you how to generate a favicon image set and integrate it with a website implemented with Hugo.
 
 A favicon is a 16x16 pixel-sized image that usually associated with a particular website. In a web browser, favicons most often displayed next to the webpage's title on the tab or the webpage's name in the bookmarks' list. When creating a blog, many underestimate the importance of having a favicon, but it plays an essential role in your website branding and identity around the web.
 
