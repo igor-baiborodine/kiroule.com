@@ -5,11 +5,11 @@ showDate: false
 categories: [Blog]
 tags: []
 author: "Igor Baiborodine"
-noSummary: true
-draft: true
 ---
 
-Read this series of articles on how to build your blog from scratch and gradually enhance it with time:
+Read this series of articles on how to build your blog from scratch and gradually enhance it with time.
+
+<!--more-->
 
 **[Start Blogging With Hugo, GitHub and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**  
 **[Configure Custom Domain and HTTPS on Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**  
