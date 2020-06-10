@@ -5,7 +5,7 @@ date: 2020-06-03T06:24:20-04:00
 categories: [Blog, Write-Up]
 tags: [Automation, Netlify, Algolia]
 author: "Igor Baiborodine"
-summary: 'This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the series "Building Your Blog, the Geeky Way"'
+summary: 'This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the series "Building Your Blog, the Geeky Way".'
 ---
 
 This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the [series "Building Your Blog, the Geeky Way"](https://www.kiroule.com/article/building-your-blog-the-geeky-way/).
