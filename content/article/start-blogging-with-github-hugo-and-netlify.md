@@ -197,3 +197,4 @@ To conclude this tutorial, I want to add that it is my second attempt to start b
 More articles in this series:  
 **[Configure Custom Domain and HTTPS in Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**  
 **[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**  
+**[Automate Index Upload to Algolia Search](https://www.kiroule.com/article/automate-index-upload-to-algolia-search/)**   
