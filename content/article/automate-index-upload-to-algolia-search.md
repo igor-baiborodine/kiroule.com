@@ -71,7 +71,7 @@ To do testing in the local dev, run the script from the command line as follows:
 
 ```shell script
 $ cd algolia
-$ index-upload.py -f ../public/index.json -a <algolia-app-id> -k <algolia-admin-api-key> -n <alogolia-index-name>
+$ index-upload.py -f ../public/index.json -a <algolia-app-id> -k <algolia-admin-api-key> -n <algolia-index-name>
 ```
 Or create a `Run/Debug` configuration in **IntelliJ IDEA**, for instance:
 
