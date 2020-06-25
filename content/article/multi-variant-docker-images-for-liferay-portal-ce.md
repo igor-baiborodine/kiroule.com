@@ -1,14 +1,12 @@
 ---
-title: "Multi-Variant Docker Images for Liferay Portal CE"
+title: "Multi-Variant Docker Images for Liferay Portal Community Edition"
 date: 2020-06-25T06:20:46-04:00
 
 categories: [Containers, Write-Up]
 tags: [Docker, Liferay, Debian, Alpine]
 author: "Igor Baiborodine"
-summary: "TODO"
+summary: "In this article, I elaborate on my personal project, which was part of preparations for the Docker Certified Associate exam. You will be presented with detailed information about the initial implementation and some refactorings that have been done recently."
 ---
-
-summary: TODO
 
 1. Elaborate on reason d'etre of this project
 - Part of preparation for my Docker certification:
