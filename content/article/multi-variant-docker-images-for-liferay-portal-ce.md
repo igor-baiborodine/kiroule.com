@@ -8,6 +8,10 @@ author: "Igor Baiborodine"
 summary: "In this article, I elaborate on my personal project, which was part of preparations for the Docker Certified Associate exam. You will be presented with detailed information about the initial implementation and some refactorings that have been done recently."
 ---
 
+It's been almost a year since I became a [Docker Certified Associate](https://credentials.docker.com/efc0806a-b47a-488e-955b-43695a823864). As with any certification, I consider it a good starting point to learn new technology. Of course, nothing can beat hands-on experience, but to pass a certification exam, you must learn fundamentals that you can later apply in practice.
+
+One of the main parts of the [Docker certification curriculum](https://docker.cdn.prismic.io/docker/4a619747-6889-48cd-8420-60f24a6a13ac_DCA_study+Guide_v1.3.pdf) is image creation and management. Therefore, I decided not to limit myself to merely memorizing [Dockerfile reference](https://docs.docker.com/engine/reference/builder/), but to practice implementing a Dockerfile, not just a banal `Hello, World!` but something more complex and practical.
+
 1. Elaborate on reason d'etre of this project
 - Part of preparation for my Docker certification:
 -- Dockerfile is a big part of the certification curriculum, therefore additional hands-on experience will not be superfluous
