@@ -16,6 +16,24 @@ Back then, I worked a lot with Liferay Portal, which is an open-source portal fr
 
 Before I started implementing anything, I spent a considerable amount of time studying Dockerfile implementations of [official images](https://hub.docker.com/search?q=&type=image&image_filter=official) published by Docker, such as [Redis](https://github.com/docker-library/redis), [Tomcat](https://github.com/docker-library/tomcat), [MariaDB](https://github.com/docker-library/mariadb), and [RabbitMQ](https://github.com/docker-library/rabbitmq). I also looked at how official images published by **Docker** since I wanted to automate the process of publishing images to Docker Hub using a continuous integration service like [Travis CI](https://travis-ci.org/) or [CircleCI](https://circleci.com/).
 
+The [initial implementation](https://github.com/igor-baiborodine/docker-liferay-portal-ce/tree/V2019) meant supporting the following:
+- Liferay Portal major version: 7
+- Liferay Portal release: only the latest GA
+- Two latest JDK LTS versions:  8, 11
+- Latest Linux variants: Alpine, Debian Stretch, Debian Stretch Slim
+
+The image release workflow was based on the following assumptions:
+- All Dockerfile variants are released in the `master` branch.
+- Only a single Dockerfile variant is released at once.
+- Any release pushed to the `origin/master` on GitHub should trigger a build job on Travis CI.
+
+The build job on Travis CI was supposed to:
+- Build a Docker image from the released Dockerfile variant.
+- Test the newly built image using Docker's [official images test suite](https://github.com/docker-library/official-images/tree/master/test).  
+- Push the image to Docker Hub.
+- Generate updated project's README.md.
+- Push the newly generated README.md to the `origin/master` on GitHub.
+
 1. Elaborate on reason d'etre of this project
 - Part of preparation for my Docker certification:
 -- Dockerfile is a big part of the certification curriculum, therefore additional hands-on experience will not be superfluous
