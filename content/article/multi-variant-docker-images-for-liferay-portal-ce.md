@@ -39,4 +39,36 @@ To facilitate the implementation and debugging of Travis CI and Docker Hub integ
 Working in my spare time, it took me almost eight weeks to implement Dockerfile templates, auxiliary shell scripts, and the image release pipeline. The first images were released on July 3rd, 2019, and it was for version 7.1.3-ga4. Since then, I had continued publishing new images on Docker Hub for each GA version. 
 
 But almost a year later, I decided to revise the project and see what could be improved. First of all, the support for Debian's `slim` variants was dropped due to the total image size (more than 1 GB) and the fact that the `slim` variant contains only the minimal packages to run Java. That entailed the refactoring of Dockerfile templates. As a result, three distinct templates were refactored into one base template with two template partials (one for each variant). Secondly, I added a dry-run functionality to release an image and, consequently, update the `README` file. Thirdly, all test commands to run containers were combined and finalized into one single script. And last but not least, the image naming convention was updated to include the current stable release codename for the Debian-based variant(`buster` at the moment of writing).   
+
+And now a little more in detail about what the current implementation includes:
+1. [Dockerfile Templates and Partials](#dockerfile-templates-and-partials)
+2. [Auxiliary Scripts](#auxiliary-scripts)
+    - [release-image.sh](#release-imagesh)
+    - [generate-readme.sh](#generate-readmesh)
+    - [dry-run.sh](#dry-runsh)
+    - [run-container.sh](#run-containersh)
+    - [push-remote.sh](#push-remotesh)
+3. [README Template and Partials](#readme-template-and-partials)   
+4. [travis.yml](#travisyml)
+5. [Docker Compose](#docker-compose) 
+    
+### Dockerfile templates and Partials
+
+### Auxiliary Scripts
+
+#### release-image.sh
+
+#### generate-readme.sh
+
+#### dry-run.sh
+
+#### run-container.sh
+
+#### push-remote.sh
+
+### README Template and Partials
+
+### travis.yml
+
+### Docker Compose
  
