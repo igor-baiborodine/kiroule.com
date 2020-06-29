@@ -31,26 +31,12 @@ The build job on Travis CI was supposed to:
 - Build a Docker image from the released Dockerfile variant.
 - Test the newly built image using Docker's [official images test suite](https://github.com/docker-library/official-images/tree/master/test).  
 - Push the image to Docker Hub.
-- Generate updated project's README.md.
-- Push the newly generated README.md to the `origin/master` on GitHub.
+- Generate updated project's `README`.
+- Push the newly generated `README` to the `origin/master` on GitHub.
 
-1. Elaborate on reason d'etre of this project
-- Part of preparation for my Docker certification:
--- Dockerfile is a big part of the certification curriculum, therefore additional hands-on experience will not be superfluous
-- Why Liferay Portal CE:
--- complex product
--- I have experience working with Liferay
--- Docker image provided by Liferay Inc is only Alpine-based for Java 8 LTS
--- Other limitations: root user execution, impossible override CMD and externalize document library directory 
-2. Elaborate on the initial implementation:
-- Studied other official images on Docker Hub
-- Assumptions: https://github.com/igor-baiborodine/dockerhub-test/blob/master/update-use-cases.md
-- Automate image release with a job on Travis CI: travis.yml + auxiliary scripts
-- Base tests from Docker Hub for official images
-3. Elaborate on this year refactoring:
-- Drop support for the slim image
-- Explicit version for Debian-based image
-- Refactor Dockerfile templates
-- Refactor existing and new scripts: dry run functionality and run container script
-   
+To facilitate the implementation and debugging of Travis CI and Docker Hub integration, I created an auxiliary [project](https://github.com/igor-baiborodine/dockerhub-test). 
+
+Working in my spare time, it took me almost eight weeks to implement Dockerfile templates, auxiliary shell scripts, and the image release pipeline. The first images were released on July 3rd, 2019, and it was for version 7.1.3-ga4. Since then, I had continued publishing new images on Docker Hub for each GA version. 
+
+But almost a year later, I decided to revise the project and see what could be improved. First of all, the support for Debian's `slim` variants was dropped due to the total image size (more than 1 GB) and the fact that the `slim` variant contains only the minimal packages to run Java. That entailed the refactoring of Dockerfile templates. As a result, three distinct templates were refactored into one base template with two template partials (one for each variant). Secondly, I added a dry-run functionality to release an image and, consequently, update the `README` file. Thirdly, all test commands to run containers were combined and finalized into one single script. And last but not least, the image naming convention was updated to include the current stable release codename for the Debian-based variant(`buster` at the moment of writing).   
  
