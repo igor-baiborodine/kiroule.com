@@ -5,7 +5,7 @@ date: 2020-06-03T06:24:20-04:00
 categories: [Blog, Write-Up]
 tags: [Automation, Netlify, Algolia]
 author: "Igor Baiborodine"
-summary: 'This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the series "Building Your Blog, the Geeky Way"'
+summary: 'This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the series "Building Your Blog, the Geeky Way".'
 ---
 
 This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the [series "Building Your Blog, the Geeky Way"](https://www.kiroule.com/article/building-your-blog-the-geeky-way/).
@@ -48,10 +48,10 @@ import json
 from algoliasearch.search_client import SearchClient
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-f', '--index_file', help="Index file to upload to Algolia")
-parser.add_argument('-a', '--app_id', help="Algolia application ID")
-parser.add_argument('-k', '--admin_api_key', help="Algolia admin API key")
-parser.add_argument('-n', '--index_name', help="Algolia index name")
+parser.add_argument('-f', '--index-file', help="Index file to upload to Algolia")
+parser.add_argument('-a', '--app-id', help="Algolia application ID")
+parser.add_argument('-k', '--admin-api-key', help="Algolia admin API key")
+parser.add_argument('-n', '--index-name', help="Algolia index name")
 args = parser.parse_args()
 
 with open(args.index_file, 'r') as file:

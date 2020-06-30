@@ -27,8 +27,8 @@ disqusShortname = "kiroule"
   js_modules = []
 
   # Description and meta data for the search engines
-  author = "Igor Baiborodine|Игорь Байбородин"
-  description = "Igor Baiborodine's Blog|Блог Игоря Байбородина"
+  author = "Igor Baiborodine | Игорь Байбородин"
+  description = "Igor Baiborodine's Blog | Блог Игоря Байбородина"
   keywords = "devops,linux,docker,virtualization,system administration,cloud computing, python programming"
 
   # How many articles should be displayed at once?
