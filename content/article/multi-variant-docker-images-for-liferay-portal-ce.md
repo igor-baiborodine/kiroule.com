@@ -42,5 +42,4 @@ But almost a year later, I decided to revise the project and see what could be i
 
 Summing up, this project was a good exercise that helped me gain hands-on experience. It was an excellent supplement to my preparations for the Docker certification exam, which I successfully [passed](https://credentials.docker.com/efc0806a-b47a-488e-955b-43695a823864#gs.91vgbj) on August 5, 2019.
 
-[See Docker Hub Repository](https://hub.docker.com/r/ibaiborodine/liferay-portal-ce)  
-[See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
+The source code is available [here](https://github.com/igor-baiborodine/docker-liferay-portal-ce). If you want to play with this project in your local dev, see this [manual](https://github.com/igor-baiborodine/docker-liferay-portal-ce/blob/master/readme/release-image-manual.md). The published images are available on [Docker Hub](https://hub.docker.com/r/ibaiborodine/liferay-portal-ce).
