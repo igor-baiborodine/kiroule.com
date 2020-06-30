@@ -17,10 +17,10 @@ Back then, I worked a lot with Liferay Portal, which is an open-source portal fr
 Before I started implementing anything, I spent a considerable amount of time studying Dockerfile implementations of [official images](https://hub.docker.com/search?q=&type=image&image_filter=official) published by Docker, such as [Redis](https://github.com/docker-library/redis), [Tomcat](https://github.com/docker-library/tomcat), [MariaDB](https://github.com/docker-library/mariadb), and [RabbitMQ](https://github.com/docker-library/rabbitmq). I also looked at how official images published by **Docker** since I wanted to automate the process of publishing images to Docker Hub using a continuous integration service like [Travis CI](https://travis-ci.org/) or [CircleCI](https://circleci.com/).
 
 The [initial implementation](https://github.com/igor-baiborodine/docker-liferay-portal-ce/tree/V2019) meant supporting the following:
-- Liferay Portal major version: 7
-- Liferay Portal release: only the latest GA
-- Two latest JDK LTS versions:  8, 11
-- Latest Linux variants: Alpine, Debian Stretch, Debian Stretch Slim
+- Liferay Portal major version: **7**
+- Liferay Portal release: **only the latest GA**
+- Two latest JDK LTS versions:  **8**, **11**
+- Latest Linux variants: **Alpine**, **Debian Stretch**, **Debian Stretch Slim**
 
 The image release workflow was based on the following assumptions:
 - All Dockerfile variants are released in the `master` branch.
@@ -40,35 +40,7 @@ Working in my spare time, it took me almost eight weeks to implement Dockerfile 
 
 But almost a year later, I decided to revise the project and see what could be improved. First of all, the support for Debian's `slim` variants was dropped due to the total image size (more than 1 GB) and the fact that the `slim` variant contains only the minimal packages to run Java. That entailed the refactoring of Dockerfile templates. As a result, three distinct templates were refactored into one base template with two template partials (one for each variant). Secondly, I added a dry-run functionality to release an image and, consequently, update the `README` file. Thirdly, all test commands to run containers were combined and finalized into one single script. And last but not least, the image naming convention was updated to include the current stable release codename for the Debian-based variant(`buster` at the moment of writing).   
 
-And now a little more in detail about what the current implementation includes:
-1. [Dockerfile Templates and Partials](#dockerfile-templates-and-partials)
-2. [Auxiliary Scripts](#auxiliary-scripts)
-    - [release-image.sh](#release-imagesh)
-    - [generate-readme.sh](#generate-readmesh)
-    - [dry-run.sh](#dry-runsh)
-    - [run-container.sh](#run-containersh)
-    - [push-remote.sh](#push-remotesh)
-3. [README Template and Partials](#readme-template-and-partials)   
-4. [travis.yml](#travisyml)
-5. [Docker Compose](#docker-compose) 
-    
-### Dockerfile templates and Partials
+Summing up, this project was a good exercise that helped me gain hands-on experience. It was an excellent supplement to my preparations for the Docker certification exam, which I successfully [passed](https://credentials.docker.com/efc0806a-b47a-488e-955b-43695a823864#gs.91vgbj) on August 5, 2019.
 
-### Auxiliary Scripts
-
-#### release-image.sh
-
-#### generate-readme.sh
-
-#### dry-run.sh
-
-#### run-container.sh
-
-#### push-remote.sh
-
-### README Template and Partials
-
-### travis.yml
-
-### Docker Compose
- 
+[See Docker Hub Repository](https://hub.docker.com/r/ibaiborodine/liferay-portal-ce)  
+[See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
