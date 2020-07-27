@@ -1,3 +1,6 @@
+# DO NOT USE!!!
+# See config files in the config directory
+
 title = "Igor Baiborodine"
 baseURL = "https://www.kiroule.com/"
 theme = "bilberry-hugo-theme"
