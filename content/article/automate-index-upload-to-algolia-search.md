@@ -16,7 +16,7 @@ I use Netlify to host my website, and all websites on Netlify by default are bui
 
 The proper way to do that is to use the `netlify.toml` configuration file where the build command and environment variables can be defined per the deployment context, for instance, `prod` and `dev`.  Also, environment variables that are common for all deployment contexts, including sensitive configuration (e.g., the Algolia admin API key), can be defined at the site level in the section `Environment variables`. Since each deployment context is mapped to its proper Algolia index, the `algolia_indexName` param in the `config.toml` file should be initialized with the corresponding index name. It can be achieved by implementing an auxiliary shell script that should be executed before the `hugo` command.
 
-Let's take a closer look at how this solution is implemented. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com).
+Let's take a closer look at how this solution is implemented. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file).
 1. [Algolia Indices](#algolia-indices)
 2. [index-upload.py](#index-uploadpy)
 3. [run-index-upload.sh](#run-index-uploadsh)
