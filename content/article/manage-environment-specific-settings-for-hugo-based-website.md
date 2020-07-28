@@ -5,10 +5,12 @@ date: 2020-07-27T08:48:43-04:00
 categories: [Blog, Write-Up]
 tags: [Hugo, Configuration, Netlify]
 author: "Igor Baiborodine"
-summary: 'TODO'
+summary: 'In this post, I describe how I migrated the configuration of my site from a single config file with variable placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" approach. This article is the fifth part of the series "Building Your Blog, the Geeky Way".'
 ---
 
-Intro: TODO
+Anyone related to software development is familiar with the concept of environments. It all starts with the local development(local) environment, usually a developer's laptop or workstation. That is where most of the coding is done. Then follows the development(dev) environment where you deploy and test results of your work done in the local. Before deploying in the production environment, there are two or three more environments in between, for instance, QA, staging, and/or pre-production. 
+
+So when I started developing my website, I applied this concept of environments. I use three environments: local, dev, and production. I find that the three environments are more than enough when using Hugo, GitHub, and Netlify, even though Netlify allows you to have multiple non-production environments.
 
 1. Classic single file configuration + disadvantages:
  - Google Analytics ID - pollute stats if not configured
