@@ -14,7 +14,7 @@ Thus, when I started developing my website, I applied this concept of environmen
 
 In Hugo, to manage your site configuration, you use `config.toml`, `config.yaml`, or `config.json` file, which is found in the site root. You can use the same config file for each of your environments, but it all depends on a Hugo theme you chose for your website. For a minimalistic theme, that could work just fine. But if your theme offers integration with external services such as Google Analytics, Discus or Algolia, using your non-prod environments for development and testing may affect your production environment. For example, using the same Google Analytics ID in local and dev environments will pollute your usage statatistics with data from these non-prod environments.
 
-Since initially I didn't have much experience with Hugo, I solved the problem of managing environment-specific settings by using the placeholder approach. With this approach, you replace in your config.tom file the actual value of configuration setting with a placeholder text, for example:
+Since initially I didn't have much experience with Hugo, I solved the problem of managing environment-specific settings by using the placeholder approach. With this approach, you replace in your `config.toml` file the actual value of configuration setting with a placeholder text, for example:
 ```toml
 googleAnalytics = "GOOGLE_ANALYTICS_ID_PLACEHOLDER"
 algolia_indexName = "ALGOLIA_INDEX_NAME_PLACEHOLDER"
