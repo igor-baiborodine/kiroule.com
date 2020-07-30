@@ -30,24 +30,34 @@ sed -i "s/ALGOLIA_INDEX_NAME_PLACEHOLDER/${ALGOLIA_INDEX_NAME}/g" config.toml
 grep -E 'googleAnalytics|algolia_indexName' config.toml
 ```
 
-Provided that GOOGLE_ANALYTICS_ID and  ALGOLIA_INDEX_NAME environments variables are set accordingly either manually in the local environment or via the netlify.toml file for the production and dev environments, the config.sh script should be executed right before the hugo command:
+Provided that GOOGLE_ANALYTICS_ID and  ALGOLIA_INDEX_NAME environment variables are set accordingly either manually in the local environment or via the netlify.toml file for the production and dev environments, the config.sh script should be executed right before the hugo command:
 
 a) in the local environment 
 ```shell script
-$ ./config.sh && hugo serve
+$ ./config.sh && hugo server
 ```
 b) in the dev and production environments
 ```shell script
 $ ./config.sh && hugo
 ```
 
-So far, this approach served me well. But recently, I discovered that Hugo has built-in [functionality](https://gohugo.io/getting-started/configuration/#configuration-directory) for managing environment-specific settings, that is the `Configuration Directory` method. It is based on a single site config file that used together with additional configuration files for each environment that placed in the config/ directory in the site root. Since it's considered as the proper way to manage configuration settings for a Hugo-based website, I switched from my custom approach with placeholders to the Hugo's Configuration Directory method.
+So far, this approach served me well. But I recently discovered that Hugo has built-in [functionality](https://gohugo.io/getting-started/configuration/#configuration-directory) for managing environment-specific settings, that is the `Configuration Directory`. It is based on a single site config file that used together with additional configuration files for each environment that placed in the config directory in the site root. Since it's considered as the proper way to manage configuration settings for a Hugo-based website, I switched from my custom approach with placeholders to the Hugo's Configuration Directory method.
 
 Now let's look at the implementation details of this migration.
-1. [config/ directory](#config-directory)
+1. [config directory](#config-directory)
 2. [netlify.toml](#netlifytoml)
 
-### config/ directory
+### config directory
+Since I have local, dev, and production environments, the config directory contains one directory for each environment where the _default maps to the local environment:
+
+![Config Dir Content](/img/content/article/manage-environment-specific-settings-for-hugo-based-website/config-dir-content.png)
+
+The _default/config.toml file here is the same config file used to be in the site root, but **without** the googleAnalytics and disqusShortname settings and the algolia_indexName parameter. The params.toml file in each environment directory contains only the algolia_indexName parameter, which set to the corresponding value, for example, like in dev/params.toml:
+
+```toml
+algolia_indexName = "dev_kiroule"
+```
+The production/config.toml contains only the googleAnalytics and disqusShortname settings.
 
 ### netlify.toml
    
