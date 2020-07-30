@@ -50,9 +50,4 @@ Now let's look at the implementation details of this migration.
 ### config/ directory
 
 ### netlify.toml
- 
-4. Implementation details:
- - old-config.toml
- - config directory
- - netlify.toml
    
