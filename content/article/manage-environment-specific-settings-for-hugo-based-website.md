@@ -41,7 +41,7 @@ b) in the dev and production environments
 $ ./config.sh && hugo
 ```
 
-So far, this approach served me well. But recently, I discovered that Hugo has built-in [functionality for managing the environment-specific settings](https://gohugo.io/getting-started/configuration/#configuration-directory), that is the `Configuration Directory` method. It is based on a single site config file that used together with additional configuration files for each environment that placed in the config/ directory in the site root. Since it's considered as the proper way to manage configuration settings for a Hugo-based website, I switched from my custom approach with placeholders to the Hugo's Configuration Directory method.
+So far, this approach served me well. But recently, I discovered that Hugo has built-in [functionality](https://gohugo.io/getting-started/configuration/#configuration-directory) for managing environment-specific settings, that is the `Configuration Directory` method. It is based on a single site config file that used together with additional configuration files for each environment that placed in the config/ directory in the site root. Since it's considered as the proper way to manage configuration settings for a Hugo-based website, I switched from my custom approach with placeholders to the Hugo's Configuration Directory method.
 
 Now let's look at the implementation details of this migration.
 1. [config/ directory](#config-directory)
