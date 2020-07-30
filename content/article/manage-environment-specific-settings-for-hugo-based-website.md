@@ -92,4 +92,4 @@ This is how the netlify.toml file looks like after the above changes:
   command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p"
 ```
    
-I had to keep the `ALGOLIA_INDEX_NAME` for each environment context since it's needed to execute algolia/run-index-upload.sh.   
+I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute algolia/run-index-upload.sh.   
