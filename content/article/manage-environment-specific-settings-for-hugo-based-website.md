@@ -16,7 +16,7 @@ Thus, when I started developing my website, I applied this concept of environmen
 
 In Hugo, to manage your site configuration, you use the config.toml, config.yaml, or config.json file, which is found in the site root. You can use the same config file for each of your environments, but it depends on a Hugo theme you chose for your website. For a minimalistic theme, that could work just fine. But if your theme offers integration with external services such as Google Analytics, Discus, or Algolia, using your non-prod environments for development and testing may affect your production environment. For example, using the same Google Analytics ID in local and dev environments will pollute your usage statistics with data from these non-prod environments.
 
-Since I initially didn't have much experience with Hugo, I solved the problem of managing environment-specific settings using the placeholder approach(the source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file)). With this approach, you replace in your config.toml file the actual value of configuration setting with a placeholder text, for example:
+Since I initially didn't have much experience with Hugo, I solved the problem of managing environment-specific settings using the placeholder approach(the source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file)). With this approach, which was inspired by Netlify's [Inject environment variable values]((https://docs.netlify.com/configure-builds/file-based-configuration/#inject-environment-variable-values)), you replace in your config.toml file the actual value of configuration setting with a placeholder text, for example:
 ```toml
 googleAnalytics = "GOOGLE_ANALYTICS_ID_PLACEHOLDER"
 algolia_indexName = "ALGOLIA_INDEX_NAME_PLACEHOLDER"
@@ -60,4 +60,36 @@ algolia_indexName = "dev_kiroule"
 The production/config.toml contains only the googleAnalytics and disqusShortname settings.
 
 ### netlify.toml
+The following changes have been made to the `netlify.toml` file:
+- The `GOOGLE_ANALYTICS_ID` variable was removed from the `[context.production.environment]` section.
+- Execution of the config.sh script was removed from the command setting in `[context.dev]` and `[context.production]` sections.
+- `--environment dev` option was added to the `hugo` command in the command setting in `[context.dev]` section.
+
+This is how the netlify.toml file looks like after the above changes:
+```toml
+[build]
+  publish = "public"
+  command = "hugo"
+
+# URL: https://kiroule.com/
+[context.production.environment]
+  HUGO_VERSION = "0.72.0"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+  # Algolia index name needed to run algolia/run-index-upload.sh
+  ALGOLIA_INDEX_NAME = "prod_kiroule"
+
+[context.production]
+  command = "hugo --buildFuture && algolia/run-index-upload.sh -p"
+
+# URL: https://dev--kiroule.netlify.app/
+[context.dev.environment]
+  HUGO_VERSION = "0.72.0"
+  # Algolia index name needed to run algolia/run-index-upload.sh
+  ALGOLIA_INDEX_NAME = "dev_kiroule"
+
+[context.dev]
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p"
+```
    
+I had to keep the `ALGOLIA_INDEX_NAME` for each environment context since it's needed to execute algolia/run-index-upload.sh.   
