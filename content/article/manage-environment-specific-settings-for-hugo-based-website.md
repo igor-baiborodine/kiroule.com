@@ -45,7 +45,8 @@ So far, this approach served me well. But I recently discovered that Hugo has bu
 
 Now let's look at the implementation details of this migration.
 1. [config directory](#config-directory)
-2. [netlify.toml](#netlifytoml)
+2. [Default Environments](#default-environments)
+3. [netlify.toml](#netlifytoml)
 
 ### config directory
 Since I have local, dev, and production environments, the config directory contains one directory for each environment where the _default maps to the local environment:
@@ -58,6 +59,12 @@ The _default/config.toml file here is the same config file used to be in the sit
 algolia_indexName = "dev_kiroule"
 ```
 The production/config.toml contains only the googleAnalytics and disqusShortname settings.
+
+### Default Environments
+According to the Hugo documentation, this is how default environments are chosen when using the `hugo` command:
+> Default environments are **development** with `hugo serve` and **production** with `hugo`.
+
+In other words, Hugo implicitly adds `--environment development` and `--environment production` to `hugo serve(r)` and `hugo` commands accordingly. Thus, when you use the `hugo server` command in your local environment, Hugo will use the settings from the `config/_default` directory. And when the `hugo` command is used, Hugo will merge all settings from the `config/production` directory on top of the settings from the `config/_default`. 
 
 ### netlify.toml
 The following changes have been made to the `netlify.toml` file:
@@ -92,4 +99,4 @@ This is how the netlify.toml file looks like after the above changes:
   command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p"
 ```
    
-I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute algolia/run-index-upload.sh.   
+I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute algolia/run-index-upload.sh.
