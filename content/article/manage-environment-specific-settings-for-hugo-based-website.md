@@ -8,7 +8,7 @@ author: "Igor Baiborodine"
 summary: 'In this post, I describe how I migrated the configuration of my site from a single config file with placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" approach. This article is the fifth part of the series "Building Your Blog, the Geeky Way".'
 ---
 
-In this post, I describe how I migrated the configuration of my site from a single config file with placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" approach. This article is the fifth part of the series "Building Your Blog, the Geeky Way".
+In this post, I describe how I migrated the configuration of my site from a single config file with placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" approach. This article is the fifth part of the [series "Building Your Blog, the Geeky Way"](https://www.kiroule.com/article/building-your-blog-the-geeky-way/).
 
 Anyone related to software development or system administration is familiar with the concept of environments. It all starts with the local development(local) environment, usually a developer's laptop or workstation. That is where most of the coding is done. Then follows the development(dev) environment where you deploy and test results of your work done in the local. Before deploying in the production environment, there are two or three more environments in between, for instance, QA, staging, and/or pre-production. 
 
@@ -72,6 +72,8 @@ The following changes have been made to the `netlify.toml` file:
 - Execution of the config.sh script was removed from the command setting in `[context.dev]` and `[context.production]` sections.
 - `--environment dev` option was added to the `hugo` command in the command setting in `[context.dev]` section.
 
+I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute algolia/run-index-upload.sh.
+
 This is how the netlify.toml file looks like after the above changes:
 ```toml
 [build]
@@ -98,5 +100,4 @@ This is how the netlify.toml file looks like after the above changes:
 [context.dev]
   command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p"
 ```
-   
-I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute algolia/run-index-upload.sh.
+  
