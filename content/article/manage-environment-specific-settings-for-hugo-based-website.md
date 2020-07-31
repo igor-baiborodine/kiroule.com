@@ -16,7 +16,7 @@ Thus, when I started developing my website, I applied this concept of environmen
 
 In Hugo, to manage your site configuration, you use the `config.toml`, `config.yaml`, or `config.json` file, which is found in the site root. You can use the same config file for each of your environments, but it depends on a Hugo theme you chose for your website. For a minimalistic theme, that could work just fine. But if your theme offers integration with external services such as Google Analytics, Discus, or Algolia, using your non-prod environments for development and testing may affect your production environment. For example, using the same Google Analytics ID in local and dev environments will pollute your usage statistics with data from these non-prod environments.
 
-Since I initially didn't have much experience with Hugo, I solved the problem of managing environment-specific settings using the placeholder approach(the source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file)). With this approach, which was inspired by Netlify's [Inject environment variable values]((https://docs.netlify.com/configure-builds/file-based-configuration/#inject-environment-variable-values)), you replace in your `config.toml` file the actual value of configuration setting with a placeholder text, for example:
+Since I initially didn't have much experience with Hugo, I solved the problem of managing environment-specific settings using the placeholder approach, which was inspired by Netlify's [Inject environment variable values]((https://docs.netlify.com/configure-builds/file-based-configuration/#inject-environment-variable-values)). With this approach, you replace in your `config.toml` file the actual value of configuration setting with a placeholder text, for instance:
 ```toml
 googleAnalytics = "GOOGLE_ANALYTICS_ID_PLACEHOLDER"
 algolia_indexName = "ALGOLIA_INDEX_NAME_PLACEHOLDER"
@@ -53,7 +53,7 @@ Since I have local, dev, and production environments, the `config` directory con
 
 ![Config Dir Content](/img/content/article/manage-environment-specific-settings-for-hugo-based-website/config-dir-content.png)
 
-The `_default/config.toml` file here is the same config file used to be in the site root, but **without** the `googleAnalytics` and `disqusShortname` settings and the `algolia_indexName` parameter. The `params.toml` file in each environment directory contains only the `algolia_indexName` parameter, which is set to the corresponding value, for example, like in `dev/params.toml`:
+The `_default/config.toml` file here is the same config file that used to be located in the site root, but **without** the `googleAnalytics` and `disqusShortname` settings and the `algolia_indexName` parameter. The `params.toml` file in each environment directory contains only the `algolia_indexName` parameter set to the corresponding value, for example, like in `dev/params.toml`:
 
 ```toml
 algolia_indexName = "dev_kiroule"
@@ -61,7 +61,7 @@ algolia_indexName = "dev_kiroule"
 The `production/config.toml` contains only the `googleAnalytics` and `disqusShortname` settings.
 
 ### Default Environments
-According to the Hugo documentation, this is how default environments are chosen when using the `hugo` command:
+As per the Hugo documentation, this is how default environments are chosen when using the `hugo` command:
 > Default environments are **development** with `hugo serve` and **production** with `hugo`.
 
 In other words, Hugo implicitly adds `--environment development` and `--environment production` to `hugo serve(r)` and `hugo` commands accordingly. Thus, when you use the `hugo server` command in your local environment, Hugo will use the settings from the `config/_default` directory. And when the `hugo` command is used, Hugo will merge all settings from the `config/production` directory on top of the settings from the `config/_default`. 
@@ -70,7 +70,7 @@ In other words, Hugo implicitly adds `--environment development` and `--environm
 The following changes have been made to the `netlify.toml` file:
 - The `GOOGLE_ANALYTICS_ID` variable was removed from `[context.production.environment]` section.
 - Execution of the `config.sh` script was removed from the `command` setting in `[context.dev]` and `[context.production]` sections.
-- `--environment dev` option was added to the `hugo` command in the `command` setting in `[context.dev]` section.
+- `--environment dev` option was added to the `hugo` command in the `command` setting in `[context.dev]` section to merge all the settings from the `config/dev` directory on top of the settings from the `config/_default`. 
 
 I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute the `algolia/run-index-upload.sh` script.
 
@@ -100,6 +100,8 @@ This is how the `netlify.toml` file looks like after the above changes:
 [context.dev]
   command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p"
 ```
+
+The source code for the placeholder approach is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file).
 
 More articles in this series:  
 **[Start Blogging With Hugo, GitHub and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**  
