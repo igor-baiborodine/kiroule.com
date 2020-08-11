@@ -113,7 +113,7 @@ Now, the task is complete!
 In this article, you saw what it takes to add a custom favicon to a Hugo-based website. First, we discussed what files in your Hugo theme should be updated with favicon definitions and where to place favicon images. Second, I showed you how to generate a text-based favicon package using the `favicon.io` website.  Then with the help of the `realfavicongenerator.net` website, I demonstrated to you how to check if your website's favicon is valid and correctly displayed in different browsers and on different platforms. To fix favicon issues, we generated a new favicon package and added it to the theme.
 
 More articles in this series:  
-**[Start Blogging With Hugo, GitHub and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**  
-**[Configure Custom Domain and HTTPS on Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**  
-**[Automate Index Upload to Algolia Search](https://www.kiroule.com/article/automate-index-upload-to-algolia-search/)**  
-**[Manage Environment-Specific Settings for Hugo-Based Website](https://www.kiroule.com/article/manage-environment-specific-settings-for-hugo-based-website/)** 
+**[Start Blogging With Hugo, GitHub and Netlify](/article/start-blogging-with-github-hugo-and-netlify/)**  
+**[Configure Custom Domain and HTTPS on Netlify](/article/configure-custom-domain-and-https-in-netlify/)**  
+**[Automate Index Upload to Algolia Search](/article/automate-index-upload-to-algolia-search/)**  
+**[Manage Environment-Specific Settings for Hugo-Based Website](/article/manage-environment-specific-settings-for-hugo-based-website/)** 
