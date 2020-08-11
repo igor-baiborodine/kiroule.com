@@ -104,7 +104,7 @@ This is how the `netlify.toml` file looks like after the above changes:
 The source code for the placeholder approach is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file).
 
 More articles in this series:  
-**[Start Blogging With Hugo, GitHub and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**  
-**[Configure Custom Domain and HTTPS on Netlify](https://www.kiroule.com/article/configure-custom-domain-and-https-in-netlify/)**  
-**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**  
-**[Automate Index Upload to Algolia Search](https://www.kiroule.com/article/automate-index-upload-to-algolia-search/)**  
+**[Start Blogging With Hugo, GitHub and Netlify](/article/start-blogging-with-github-hugo-and-netlify/)**  
+**[Configure Custom Domain and HTTPS on Netlify](/article/configure-custom-domain-and-https-in-netlify/)**  
+**[Add Favicon to Hugo-Based Website](/article/add-favicon-to-hugo-based-website/)**  
+**[Automate Index Upload to Algolia Search](/article/automate-index-upload-to-algolia-search/)**  

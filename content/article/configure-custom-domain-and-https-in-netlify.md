@@ -121,7 +121,7 @@ Now, it's time to test the new URL:
 In this article, I showed you how to enhance the newly created website. First, I demonstrated to you how to add new DNS records in a Namecheap account. Then you saw how to configure a custom domain and enable HTTPS in Netlify.  And the final step was updating the `config.toml` file to make sure that the blog is displayed without any issues.
 
 More articles in this series:    
-**[Start Blogging With Hugo, GitHub and Netlify](https://www.kiroule.com/article/start-blogging-with-github-hugo-and-netlify/)**  
-**[Add Favicon to Hugo-Based Website](https://www.kiroule.com/article/add-favicon-to-hugo-based-website/)**  
-**[Automate Index Upload to Algolia Search](https://www.kiroule.com/article/automate-index-upload-to-algolia-search/)**  
-**[Manage Environment-Specific Settings for Hugo-Based Website](https://www.kiroule.com/article/manage-environment-specific-settings-for-hugo-based-website/)**
+**[Start Blogging With Hugo, GitHub and Netlify](/article/start-blogging-with-github-hugo-and-netlify/)**  
+**[Add Favicon to Hugo-Based Website](/article/add-favicon-to-hugo-based-website/)**  
+**[Automate Index Upload to Algolia Search](/article/automate-index-upload-to-algolia-search/)**  
+**[Manage Environment-Specific Settings for Hugo-Based Website](/article/manage-environment-specific-settings-for-hugo-based-website/)**
