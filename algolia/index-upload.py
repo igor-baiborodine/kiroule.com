@@ -17,7 +17,7 @@ indices = json.loads(indices_json)
 if args.base_url:
     for index in indices:
         tokens = index["url"].split("/")[3:]
-        index["url"] = args.base_url + "/".join(tokens)
+        index["url"] = args.base_url + "/" + "/".join(tokens)
 
 client = SearchClient.create(args.app_id, args.admin_api_key)
 index = client.init_index(args.index_name)
