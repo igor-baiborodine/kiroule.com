@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-while getopts "pf:a:k:n:" opt; do
+while getopts "pf:a:k:n:u:" opt; do
   case $opt in
   # netlify
   p)
@@ -26,6 +26,9 @@ while getopts "pf:a:k:n:" opt; do
   n)
     index_name="$OPTARG"
     ;;
+  u)
+    base_url="$OPTARG"
+    ;;
   \?)
     echo "Invalid option: -$OPTARG" >&2
     ;;
@@ -36,4 +39,5 @@ python algolia/index-upload.py \
     -f "$index_file" \
     -a "$app_id" \
     -k "$admin_api_key" \
-    -n "$index_name"
+    -n "$index_name" \
+    -u "$base_url"
