@@ -23,7 +23,7 @@ DefaultContentLanguage = "en"
   # Description and meta data for the search engines
   author = "Igor Baiborodine | Игорь Байбородин"
   description = "Igor Baiborodine's Blog | Блог Игоря Байбородина"
-  keywords = "devops,linux,docker,virtualization,system administration,cloud computing, python programming"
+  keywords = "software development,devops,java,python,linux,docker,cloud computing"
 
   # How many articles should be displayed at once?
   paginate = 7
