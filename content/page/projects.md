@@ -4,7 +4,7 @@ date: 2020-04-25T21:25:07-04:00
 excludeFromTopNav: false
 showDate: false
 showComments: false
-
+weight: 2
 # set the link if you want to redirect the user.
 link: ""
 # set the html target parameter if you want to change default behavior
