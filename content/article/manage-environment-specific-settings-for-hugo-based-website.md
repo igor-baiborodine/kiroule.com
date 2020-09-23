@@ -43,10 +43,9 @@ $ ./config.sh && hugo
 
 So far, this approach served me well. But I recently discovered that Hugo has built-in [functionality](https://gohugo.io/getting-started/configuration/#configuration-directory) for managing environment-specific settings, that is the `Configuration Directory`. It is based on a single site config file that used together with additional configuration files for each environment that placed in the `config` directory in the site root. Since it's considered as the proper way to manage configuration settings for a Hugo-based website, I switched from my custom approach with placeholders to the Hugo's Configuration Directory method.
 
-Now let's look at the implementation details of this migration. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/releases/tag/configuration-directory).
-1. [config/ Directory](#config-directory)
-2. [Default Environments](#default-environments)
-3. [netlify.toml](#netlifytoml)
+Now let's look at the implementation details of this migration: 
+{{< toc >}}
+The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/releases/tag/configuration-directory).
 
 ### config/ Directory
 Since I have local, dev, and production environments, the `config` directory contains one directory for each environment where the `_default` maps to the local environment:

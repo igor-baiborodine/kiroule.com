@@ -19,14 +19,7 @@ Secondly, all your website content will be built with [Hugo](https://gohugo.io/)
 Thirdly, using [Netlify](https://www.netlify.com/) to deploy and host websites is simple and straightforward. Netlify offers a free tier plan, which is more than enough for any static website implemented with GitHub and Hugo.  Netlify's Continuous Deployment feature, in conjunction with GitHub, substantially helps in automating the content publishing workflow.
 
 But enough talk, let's get started. The tutorial below consists of the following steps:
-
-1. [Install Hugo](#install-hugo)
-2. [Create New Site](#create-new-site)
-3. [Customize Example Site](#customize-example-site)
-4. [Create About Page](#create-about-page)
-5. [Push Git Repository to GitHub](#push-git-repository-to-github)
-6. [Deploy on Netlify](#deploy-on-netlify)
-
+{{< toc >}}
 Basic knowledge of Git with its command-line interface and GitHub/Netlify accounts are the prerequisites for this tutorial.  As a host operating system, I will be using Ubuntu 18.04.
 
 ### Install Hugo

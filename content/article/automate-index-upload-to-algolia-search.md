@@ -18,14 +18,9 @@ I use Netlify to host my website, and all websites on Netlify by default are bui
 
 The proper way to do that is to use the `netlify.toml` configuration file where the build command and environment variables can be defined per the deployment context, for instance, `prod` and `dev`.  Also, environment variables that are common for all deployment contexts, including sensitive configuration (e.g., the Algolia admin API key), can be defined at the site level in the section `Environment variables`. Since each deployment context is mapped to its proper Algolia index, the `algolia_indexName` parameter in the `config/<environment>/params.toml` file should be set with the corresponding index name. 
 
-Let's take a closer look at how this solution is implemented. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/automate-index-upload).
-1. [Algolia Indices](#algolia-indices)
-2. [index-upload.py](#index-uploadpy)
-3. [run-index-upload.sh](#run-index-uploadsh)
-4. [Configuration Files](#configuration-files)
-5. [netlify.toml](#netlifytoml)
-6. [Netlify Configuration](#netlify-configuration)
-7. [Dev and Master Branch Deployments](#dev-and-master-branch-deployments)
+Let's take a closer look at how this solution is implemented: 
+{{< toc >}}
+The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/automate-index-upload).
 
 ### Algolia Indices
 The very first step is to create and configure Algolia indices at [algolia.com](https://www.algolia.com/), one for each Git branch plus one additional index for the local environment. The `master` branch is mapped to the production environment, namely [kiroule.com](https://www.kiroule.com/). All development is done in the `dev` branch, which deployed and tested at [dev--kiroule.netlify.app](https://dev--kiroule.netlify.app/) before merging it into the `master`. Therefore, the following indices are needed: `prod_kiroule`, `dev_kiroule` and `local_dev_kiroule`.

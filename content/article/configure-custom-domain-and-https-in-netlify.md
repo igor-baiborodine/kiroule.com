@@ -14,12 +14,7 @@ When you deploy for the first time on Netlify, a Netlify subdomain will be assig
 As for HTTPS, even if it's your blog where you do not collect any sensitive information, having a secure connection gives the perception of you as a trusted source. Other than that, it also can slightly improve your Google search engine rankings. 
 
 This tutorial has the following tasks to complete:
-
-1. [Configure DNS Records](#configure-dns-records)
-2. [Set up Custom Domain](#set-up-custom-domain)
-3. [Enable HTTPS](#enable-https)
-4. [Update Base URL](#update-base-url)
-
+{{< toc >}}
 The only prerequisite here is that you take care to purchase a domain name in advance. There are a few domain registrars where you can buy it (e.g., [Bluehost](https://www.bluehost.com/), [GoDaddy](https://www.godaddy.com/) or [Namecheap](https://www.namecheap.com/)). As for Netlify, they also sell and register domain names:
 
 ![Namecheap Choose Domain](/img/content/article/configure-custom-domain-and-https-in-netlify/netlify-choose-domain.png)
