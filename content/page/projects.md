@@ -16,9 +16,20 @@ target: "_blank"
 {{< intellij-logo >}}
 
 ### 2020
+**Bilberry Hugo Theme**
+
+Made following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
+1. Implemented the table of contents feature.
+2. Automated index upload to Algolia search.
+3. Fixed bugs.
+4. Updated documentation. 
+
+Technologies used: [Hugo](https://gohugo.io/)\
+[See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
+
 **Personal Website at https://kiroule.com**
 
-Technologies used: Git, Hugo, GitHub, Netlify\
+Technologies used: [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
 [See GitHub Repository](https://github.com/igor-baiborodine/kiroule.com)
  
 ### 2019
