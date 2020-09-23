@@ -13,7 +13,7 @@ target: "_blank"
 
 ### Developed with Pleasure!
 
-![IntelliJ IDEA Logo](/img/content/page/projects/intellij-idea-logo.png)
+{{< intellij-logo >}}
 
 ### 2020
 **Personal Website at https://kiroule.com**
