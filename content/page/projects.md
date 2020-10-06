@@ -18,8 +18,8 @@ target: "_blank"
 ### 2020
 **Bilberry Hugo Theme**
 
-Made following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
-1. Implemented the table of contents feature.
+Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
+1. Implemented the series taxonomy and table of contents features.
 2. Automated index upload to Algolia search.
 3. Fixed bugs.
 4. Updated documentation. 
