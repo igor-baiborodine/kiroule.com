@@ -29,7 +29,7 @@ Technologies used: [Hugo](https://gohugo.io/)\
 
 **Personal Website at https://kiroule.com**
 
-Technologies used: [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
+Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hugo-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
 [See GitHub Repository](https://github.com/igor-baiborodine/kiroule.com)
  
 ### 2019
@@ -42,7 +42,7 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 ### 2018
 **RESTful Web Service That Manages Campsite Bookings**
 
-Technologies used: [Java 10](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
+Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
 
 ### 2016
