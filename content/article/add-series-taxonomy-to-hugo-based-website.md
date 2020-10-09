@@ -40,7 +40,7 @@ One solution to this problem might be to create a shortcode to encapsulate such 
 
 But it is possible to parameterize such a shortcode by passing the series name as an argument. In this case, the content should be somehow classified so that we can retrieve the corresponding articles. To help us group such content, we can implement the series taxonomy.
 
-Now let's take a closer look at the implementation of this solution.
+Now let's take a closer look at the implementation details.
 {{< toc >}}
 
 ### Configuration
@@ -112,6 +112,20 @@ other = "Series"
 ```
 
 ### Usage
+To group articles as a series, add the `series` front matter variable to each article and set its value to the name of the series, for example:
+```
+series: "Building Your Blog, the Geeky Way"
+```
+Then if you want to list all articles for a particular series within the markdown, use the `series` shortcode with the series' name, for example:
+```
+{{</* series "Building Your Blog, the Geeky Way" */>}}
+```
+<-- image -->
 
+The page that lists all the series will be available at `<site-base-url>/series/`, for instance, `https://www.kiroule.com/series/`:
+<-- image -->
 
-It could be applied to the Hugo theme of your choice or directly to your website.
+And the content associated with the series "Building Your Blog, the Geeky Way" can be accessed at `<site-base-url>/series/<urilzed-series-name>`, for example, `https://www.kiroule.com/series/building-your-blog-the-geeky-way/`.
+
+The implementation above can be applied not only to your Hugo-based website but directly to the Hugo theme of your choice. [Here](https://github.com/Lednerb/bilberry-hugo-theme/commit/553a452c745bf19f82e1a267b5bf51da0ae3bc7e
+) you can check my contribution to the Bilberry Hugo theme.
