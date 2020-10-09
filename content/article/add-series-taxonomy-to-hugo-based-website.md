@@ -36,13 +36,82 @@ The example above presents content relationships from the taxonomy's perspective
 
 Usually, when you publish a series of articles, it's a good practice to add `Next` and `Previous` links at the end of an article that is part of the series. Instead, I opted for listing all articles in the series. Therefore, every time a new post in the series is published, I have to manually add a link to the newly published article in every previously published series' article.
 
-One of the solutions is to create a shortcode to encapsulate such a list of article links. With this approach, you add this shortcode to the end of each series' article, and when a new article is published, you only need to update the shortcode. So every time you start a new series, you have to create its proper shortcode.
+One solution to this problem might be to create a shortcode to encapsulate such a list of article links. With this approach, you add this shortcode to the end of each series' article, and when a new article is published, you only need to update the shortcode. So every time you start a new series, you have to create its proper shortcode.
 
-But it is possible to parameterize such a shortcode by passing the series name as an argument. In this case, the content should be somehow classified so that we can retrieve the corresponding articles. To help us group the content, we can implement the series taxonomy.
+But it is possible to parameterize such a shortcode by passing the series name as an argument. In this case, the content should be somehow classified so that we can retrieve the corresponding articles. To help us group such content, we can implement the series taxonomy.
 
-Now let's take a closer look at the implementation of this solution:
+Now let's take a closer look at the implementation of this solution.
 {{< toc >}}
 
-Add series taxonomies.
-Implementation details
+### Configuration
+Before using the `series` taxonomy, it should be defined in the site config file by providing singular and plural labels:
+```toml
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+```
+Please note that if you want to continue using `tags` and `categories` default taxonomies, you should explicitly define in the config file.  
+
+### Taxonomy template
+The `layouts/_default/series.terms.html` file is the `series` taxonomy template. Hugo will use it to automatically generate both a page that lists all of the series and individual pages that list the content associated with each series. This template is implemented as follows:
+```html
+{{ define "main" }}
+
+<div class="content">
+    <div class="article-wrapper u-cf single">
+        <a class="bubble" href="{{ "/series/" | relLangURL }}">
+            <i class="fa fa-fw fa-list-alt"></i>
+        </a>
+
+        <article class="article">
+            <div class="content">
+                <h3>{{ i18n "series" | default "series" }}</h3>
+                <hr>
+                <ul id="all-series">
+                    {{ range $name, $taxonomy := .Site.Taxonomies.series }}
+                        {{ $series_name := $name }}
+                        {{ $series_path := (printf "/series/%s" (urlize $name)) }}
+                        {{ $series_page := site.GetPage $series_path }}
+
+                        {{ if $series_page }}
+                            {{ $series_name = $series_page.Title }}
+                        {{ end }}
+
+                        <li><a href="{{ $series_path }}">{{ $series_name }} ({{ $taxonomy.Count }})</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        </article>
+    </div>
+</div>
+{{ end }}
+```
+
+### Shortcode
+The `layouts/shortcodes/series.html` file is the shortcode that encapsulates the list of articles for the provided series name. Articles are sorted descending by page's `date` front matter variable value, i.e., the newest first. This shortcode is implemented as follows:
+```html
+{{ $series_name := .Get 0 | urlize }}
+
+{{ range $key, $taxonomy := .Site.Taxonomies.series }}
+    {{ if eq $key $series_name }}
+    <ul>
+        {{ range $taxonomy.Pages.ByDate }}
+        <li hugo-nav="{{ .RelPermalink }}"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+    </ul>
+    {{ end }}
+{{ end }}
+```
+
+### i18n
+The `i18n` function is used in the `layouts/_default/series.terms.html` taxonomy to display the `Series` label. Therefore, in the language of your choice, define a label value for the `series` key in the corresponding i18n configuration file, e.g., `en.toml`:
+```toml
+[series]
+other = "Series"
+```
+
+### Usage
+
+
 It could be applied to the Hugo theme of your choice or directly to your website.
