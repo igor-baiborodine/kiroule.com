@@ -3,6 +3,7 @@ title: "Start Blogging With Hugo, GitHub and Netlify"
 date: 2020-04-29T19:47:04-04:00
 categories: [Blog, Tutorial]
 tags: [Hugo, GitHub, Netlify]
+series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 summary: "By this post, I start a series where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using Hugo, GitHub and Netlify."
 ---
@@ -187,8 +188,5 @@ Now you can access your website at the URL shown in the site overview:
 
 To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus and energy to publish new content regularly.
 
-More articles in this series:  
-**[Configure Custom Domain and HTTPS in Netlify](/article/configure-custom-domain-and-https-in-netlify/)**  
-**[Add Favicon to Hugo-Based Website](/article/add-favicon-to-hugo-based-website/)**  
-**[Automate Index Upload to Algolia Search](/article/automate-index-upload-to-algolia-search/)**  
-**[Manage Environment-Specific Settings for Hugo-Based Website](/article/manage-environment-specific-settings-for-hugo-based-website/)** 
+All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+{{< series "Building Your Blog, the Geeky Way" >}}

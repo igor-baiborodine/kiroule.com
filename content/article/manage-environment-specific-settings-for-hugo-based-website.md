@@ -1,9 +1,9 @@
 ---
 title: "Manage Environment-Specific Settings for Hugo-Based Website"
 date: 2020-07-27T08:48:43-04:00
-
 categories: [Blog, Write-Up]
 tags: [Hugo, Configuration, Netlify]
+series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 summary: 'In this post, I describe how I migrated the configuration of my site from a single config file with placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" method. This article is the fifth part of the series "Building Your Blog, the Geeky Way".'
 ---
@@ -102,8 +102,5 @@ This is how the `netlify.toml` file looks like after the above changes:
 
 The source code for the placeholder approach is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file).
 
-More articles in this series:  
-**[Start Blogging With Hugo, GitHub and Netlify](/article/start-blogging-with-github-hugo-and-netlify/)**  
-**[Configure Custom Domain and HTTPS on Netlify](/article/configure-custom-domain-and-https-in-netlify/)**  
-**[Add Favicon to Hugo-Based Website](/article/add-favicon-to-hugo-based-website/)**  
-**[Automate Index Upload to Algolia Search](/article/automate-index-upload-to-algolia-search/)**  
+All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+{{< series "Building Your Blog, the Geeky Way" >}}
