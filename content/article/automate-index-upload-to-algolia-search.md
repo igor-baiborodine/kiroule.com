@@ -1,9 +1,9 @@
 ---
 title: "Automate Index Upload to Algolia Search"
 date: 2020-06-03T06:24:20-04:00
-
 categories: [Blog, Write-Up]
 tags: [Automation, Netlify, Algolia]
+series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 summary: 'This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the series "Building Your Blog, the Geeky Way".'
 ---
@@ -192,8 +192,5 @@ After merging the `dev` branch into the `master` branch on GitHub, the search fe
 
 *Q.E.D.*
 
-More articles in this series:  
-**[Start Blogging With Hugo, GitHub and Netlify](/article/start-blogging-with-github-hugo-and-netlify/)**  
-**[Configure Custom Domain and HTTPS on Netlify](/article/configure-custom-domain-and-https-in-netlify/)**  
-**[Add Favicon to Hugo-Based Website](/article/add-favicon-to-hugo-based-website/)**  
-**[Manage Environment-Specific Settings for Hugo-Based Website](/article/manage-environment-specific-settings-for-hugo-based-website/)**
+All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+{{< series "Building Your Blog, the Geeky Way" >}}

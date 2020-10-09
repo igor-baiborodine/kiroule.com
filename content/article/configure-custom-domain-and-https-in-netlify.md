@@ -3,6 +3,7 @@ title: "Configure Custom Domain and HTTPS on Netlify"
 date: 2020-05-05T06:31:46-04:00
 categories: [Blog, Tutorial]
 tags: [Netlify, Namecheap, Domain, HTTPS]
+series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 summary: "In the previous post, I showed you how to create a Hugo-based website and deploy it on Netlify. It's time to make some improvements, namely, configure DNS records, set up a custom domain and enable HTTPS."
 ---
@@ -115,8 +116,5 @@ Now, it's time to test the new URL:
 ### Summary
 In this article, I showed you how to enhance the newly created website. First, I demonstrated to you how to add new DNS records in a Namecheap account. Then you saw how to configure a custom domain and enable HTTPS in Netlify.  And the final step was updating the `config.toml` file to make sure that the blog is displayed without any issues.
 
-More articles in this series:    
-**[Start Blogging With Hugo, GitHub and Netlify](/article/start-blogging-with-github-hugo-and-netlify/)**  
-**[Add Favicon to Hugo-Based Website](/article/add-favicon-to-hugo-based-website/)**  
-**[Automate Index Upload to Algolia Search](/article/automate-index-upload-to-algolia-search/)**  
-**[Manage Environment-Specific Settings for Hugo-Based Website](/article/manage-environment-specific-settings-for-hugo-based-website/)**
+All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+{{< series "Building Your Blog, the Geeky Way" >}}
