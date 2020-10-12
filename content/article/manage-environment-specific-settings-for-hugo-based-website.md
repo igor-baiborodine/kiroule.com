@@ -102,5 +102,5 @@ This is how the `netlify.toml` file looks like after the above changes:
 
 The source code for the placeholder approach is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file).
 
-All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}
