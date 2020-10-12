@@ -113,5 +113,5 @@ Now, the task is complete!
 ### Summary
 In this article, you saw what it takes to add a custom favicon to a Hugo-based website. First, we discussed what files in your Hugo theme should be updated with favicon definitions and where to place favicon images. Second, I showed you how to generate a text-based favicon package using the `favicon.io` website.  Then with the help of the `realfavicongenerator.net` website, I demonstrated to you how to check if your website's favicon is valid and correctly displayed in different browsers and on different platforms. To fix favicon issues, we generated a new favicon package and added it to the theme.
 
-All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}

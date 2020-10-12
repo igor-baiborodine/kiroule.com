@@ -116,5 +116,5 @@ Now, it's time to test the new URL:
 ### Summary
 In this article, I showed you how to enhance the newly created website. First, I demonstrated to you how to add new DNS records in a Namecheap account. Then you saw how to configure a custom domain and enable HTTPS in Netlify.  And the final step was updating the `config.toml` file to make sure that the blog is displayed without any issues.
 
-All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}
