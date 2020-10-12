@@ -192,5 +192,5 @@ After merging the `dev` branch into the `master` branch on GitHub, the search fe
 
 *Q.E.D.*
 
-All articles in the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}
