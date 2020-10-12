@@ -98,7 +98,9 @@ The `layouts/shortcodes/series.html` file is the shortcode that encapsulates the
     {{ if eq $key $series_name }}
     <ul>
         {{ range $taxonomy.Pages.ByDate }}
-        <li hugo-nav="{{ .RelPermalink }}"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+        <li hugo-nav="{{ .RelPermalink }}">
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        </li>
         {{ end }}
     </ul>
     {{ end }}
