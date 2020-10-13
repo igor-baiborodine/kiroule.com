@@ -17,8 +17,8 @@ DefaultContentLanguage = "en"
   # Files are relative to the static/ directory or a URL.
   # Files are imported in the order they appear here, after
   # theme.css and theme.js, respectively.
-  css_modules = []
-  js_modules = []
+  css_modules = ["..", "//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"]
+  js_modules = ["..", "//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js", "init-cookieconsent.js"]
 
   # Description and meta data for the search engines
   author = "Igor Baiborodine | Игорь Байбородин"
