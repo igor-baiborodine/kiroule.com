@@ -5,12 +5,13 @@ categories: [Blog, Write-Up]
 tags: [Automation, Netlify, Algolia]
 series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
-summary: 'This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the series "Building Your Blog, the Geeky Way".'
 ---
 
 **Content updated on August 13, 2020**
 
 This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the [series "Building Your Blog, the Geeky Way"](https://www.kiroule.com/article/building-your-blog-the-geeky-way/).
+
+<!--more-->
 
 The [Bilberry theme](https://themes.gohugo.io/bilberry-hugo-theme/), which I used to create my website, comes with built-in search functionality. It's implemented using the Algolia search engine.  To activate this feature, what you need is to get a free-tier plan at [algolia.com](https://www.algolia.com/), populate corresponding Algolia params in Hugo configuration files and upload to Algolia generated index records, namely the content of the `public/index.json` file. You can upload them either manually or using [Algolia's API](https://www.algolia.com/doc/api-reference/api-methods/). 
 

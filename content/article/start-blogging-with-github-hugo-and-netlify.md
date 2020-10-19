@@ -5,11 +5,11 @@ categories: [Blog, Tutorial]
 tags: [Hugo, GitHub, Netlify]
 series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
-summary: "By this post, I start a series where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using Hugo, GitHub and Netlify."
 ---
 
 By this post, I start a [series](https://www.kiroule.com/article/building-your-blog-the-geeky-way/) where I share my experience in how to start a journey as a blogger from a technical perspective. This tutorial will show you how to set up from scratch a blog using Hugo, GitHub and Netlify.
 
+<!--more-->
 
 So, you decided to start blogging, and you need to set up a blog. But from where to start? It all depends on your technical skillset. If you are not a geeky person, maybe a better approach would be to use such blogging platforms as [WordPress.com](https://wordpress.com/create-blog/) or [Wix.com](https://www.wix.com/start/blog). But if you are skilled in software development or any other related field, creating your blog with Hugo, GitHub and Netlify is the way to go.  What are the advantages of using the Hugo-GitHub-Netlify combination? 
 
