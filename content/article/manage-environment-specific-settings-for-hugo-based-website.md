@@ -5,10 +5,11 @@ categories: [Blog, Write-Up]
 tags: [Hugo, Configuration, Netlify]
 series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
-summary: 'In this post, I describe how I migrated the configuration of my site from a single config file with placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" method. This article is the fifth part of the series "Building Your Blog, the Geeky Way".'
 ---
 
 In this post, I describe how I migrated the configuration of my site from a single config file with placeholders to the Hugo way of managing environment-specific settings, namely the "Configuration Directory" method. This article is the fifth part of the [series "Building Your Blog, the Geeky Way"](https://www.kiroule.com/article/building-your-blog-the-geeky-way/).
+
+<!--more-->
 
 Anyone related to software development or system administration is familiar with the concept of environments. It all starts with the local development(**local**) environment, usually a developer's laptop or workstation. That is where most of the coding is done. Then follows the development(**dev**) environment where you deploy and test results of your work done in the local. Before deploying in the **production** environment, there are two or three more environments in between, for instance, QA, staging, and/or pre-production. 
 

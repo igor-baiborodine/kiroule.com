@@ -1,14 +1,14 @@
 ---
 title: "Multi-Variant Docker Images for Liferay Portal Community Edition"
 date: 2020-06-25T06:20:46-04:00
-
 categories: [Containers, Write-Up]
 tags: [Docker, Liferay, Debian, Alpine]
 author: "Igor Baiborodine"
-summary: "In this article, I elaborate on my personal project, which was part of preparations for the Docker Certified Associate exam. You will be presented with detailed information about the initial implementation and some refactorings that have been done recently."
 ---
 
 It's been almost a year since I became a [Docker Certified Associate](https://credentials.docker.com/efc0806a-b47a-488e-955b-43695a823864). As with any certification, I considered it as a good starting point to learn Docker container technology. Of course, nothing can beat hands-on experience, but to pass a certification exam, you must learn fundamentals that you can later apply in practice.
+
+<!--more-->
 
 One of the main parts of the [Docker certification curriculum](https://docker.cdn.prismic.io/docker/4a619747-6889-48cd-8420-60f24a6a13ac_DCA_study+Guide_v1.3.pdf) is image creation and management. Therefore, I decided not to limit myself to merely memorizing the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/), but to practice creating a Dockerfile, not just a banal `Hello, World!` but something more complex and practical.
 
