@@ -21,7 +21,22 @@ Since it can only be used in Go templates, you cannot merely place `.TableOfCont
 ```
 {{ .Page.TableOfContents }}
 ``` 
-Then you can put this shortcode in your content file anywhere you want:
+Next, you can use this shortcode in your content file anywhere you want:
 ```
 {{</* toc */>}}
 ```
+To define what heading levels need to be included in TOC, you should add the following to your site config file, for example, `config.toml`:
+```
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 5
+    ordered = false
+```
+The `startLevel` setting defines the heading level when Hugo starts rendering the table of contents. The `endLevel` sets the heading level(inclusive) when Hugo stops generating the TOC. In the configuration above, all headings starting from H2(`##`) to H5(`#####`) inclusive will be used to create a table of contents. The `ordered` setting determines what type of list to generate, either an ordered list using the `<ol>` tag or an unordered list using the `<ul>` tag.
+
+Then we could go even further and completely automate the creation of the table of contents. То do so, firstly, you need to add the `toc` front matter variable to a default archetype template that is used to create an empty content file in your Hugo theme. In the Bilberry theme, it's the [archetype/default.md](https://github.com/Lednerb/bilberry-hugo-theme/blob/2.4.0/archetypes/default.md). The default value of the `toc` variable should be set to `false`:
+```
+toc: false
+``` 
+
