@@ -23,5 +23,5 @@ Since it can only be used in Go templates, you cannot merely place `.TableOfCont
 ``` 
 Then you can put this shortcode in your content file anywhere you want:
 ```
-{{< toc >}}
+{{</* toc */>}}
 ```
