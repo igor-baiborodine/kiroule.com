@@ -17,11 +17,11 @@ Usually, my tutorials or write-ups start with an introductory part. Then follows
 
 Therefore, instead of manually adding a list of anchor links, I wanted to automate the table of contents creation. This can be achieved by using Hugo's built-in feature to automatically parse Markdown content and create a TOC. As per Hugo [documentation](https://gohugo.io/content-management/toc/), if you have appropriate headings in your markdown, Hugo will extract them and store in the page variable `.TableOfContents`. 
 
-Since it can only be used in Go templates, you cannot merely place `.TableOfContents` within your content file and expect a TOC to be displayed. What you can do is to wrap it in a shortcode. To do so, create the `layouts/shortcodes/toc.html` file within the site root as follows:
+Since it can only be used in Go templates, you cannot merely place `.TableOfContents` within your content file and expect a TOC to be displayed. What you can do is to wrap it in a shortcode. Within the site root, create the `layouts/shortcodes/toc.html` file that contains the following:
 ```
 {{ .Page.TableOfContents }}
 ``` 
 Then you can put this shortcode in your content file anywhere you want:
 ```
-{{</* toc */>}}
+{{< toc >}}
 ```
