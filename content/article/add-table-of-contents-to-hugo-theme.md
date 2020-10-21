@@ -80,4 +80,8 @@ So, in the above example, the TOC will only be rendered when the following condi
 - the number of words in the content is greater than the value defined in the `tocMinWordCount` site config setting
 - the content has appropriate headings that are within the range defined by the `startLevel` and `endLevel` site config settings
 
-
+Since the `i18n` function is used to display the `Table of Contents` label, define a value for the `tableOfContents` key in the appropriate i18n configuration file, for instance, [i18n/en.toml](https://github.com/Lednerb/bilberry-hugo-theme/blob/2.4.0/i18n/en.toml):
+```
+[tableOfContents]
+  other = "Table of Contents"
+```
