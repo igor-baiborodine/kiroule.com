@@ -25,7 +25,7 @@ Next, you can use this shortcode in your content file anywhere you want:
 ```
 {{</* toc */>}}
 ```
-To define what heading levels need to be included in TOC, you should add the following to your site config file, for example, `config.toml`:
+To define what heading levels need to be included in TOC, you have to add the following to your site config file, for example, `config.toml`:
 ```
 [markup]
   [markup.tableOfContents]
@@ -35,8 +35,49 @@ To define what heading levels need to be included in TOC, you should add the fol
 ```
 The `startLevel` setting defines the heading level when Hugo starts rendering the table of contents. The `endLevel` sets the heading level(inclusive) when Hugo stops generating the TOC. In the configuration above, all headings starting from H2(`##`) to H5(`#####`) inclusive will be used to create a table of contents. The `ordered` setting determines what type of list to generate, either an ordered list using the `<ol>` tag or an unordered list using the `<ul>` tag.
 
-Then we could go even further and completely automate the creation of the table of contents. То do so, firstly, you need to add the `toc` front matter variable to a default archetype template that is used to create an empty content file in your Hugo theme. In the Bilberry theme, it's the [archetype/default.md](https://github.com/Lednerb/bilberry-hugo-theme/blob/2.4.0/archetypes/default.md). The default value of the `toc` variable should be set to `false`:
+Then you could go even further and completely automate the creation of the table of contents. То do so, firstly, you need to add the `toc` front matter variable to a default archetype template that is used to create an empty content file in your Hugo theme. In the Bilberry theme, it's the [archetype/default.md](https://github.com/Lednerb/bilberry-hugo-theme/blob/2.4.0/archetypes/default.md). The default value of the `toc` variable should be set to `false`:
 ```
 toc: false
 ``` 
+
+Secondly, if you want to make the TOC rendering conditional based on the number of words in the content, add the `tocMinWordCount` param to the site config file and set its value you see fit:
+```
+[param]
+  # Minimum word count to display the Table of Contents
+  tocMinWordCount = 500
+```
+
+Thirdly, in your [single page template](https://gohugo.io/templates/single-page-templates/), add the following code snippet right before displaying the content:
+```
+{{ if and (gt .WordCount .Site.Params.tocMinWordCount ) (.Params.toc) }}
+  <h2>{{ i18n "tableOfContents" }}</h2>
+  {{ .TableOfContents }}
+{{ end }}
+```
+
+Or, a simple page template `layout/_default/single.html` may look like this:
+```
+{{ define "main" }}
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    {{ if and (.Params.toc) (gt .WordCount .Site.Params.tocMinWordCount ) }}
+      <h2>{{ i18n "tableOfContents" }}</h2>
+      {{ .TableOfContents }}
+    {{ end }}
+
+    {{ .Content }}
+  </article>
+</main>
+{{ end }}
+```
+
+So, in the above example, the TOC will only be rendered when the following conditions are met:
+- the `toc` page variable is set to `true`
+- the number of words in the content is greater than the value defined in the `tocMinWordCount` site config setting
+- the content has appropriate headings that are within the range defined by the `startLevel` and `endLevel` site config settings
+
 
