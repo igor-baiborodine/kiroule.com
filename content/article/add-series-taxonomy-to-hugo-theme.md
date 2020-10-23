@@ -90,7 +90,7 @@ The `layouts/_default/series.terms.html` file is the `series` taxonomy template.
 Please note that the CSS class names may differ if you use other than the Bilberry Hugo theme.
 
 ### Shortcode
-The `layouts/shortcodes/series.html` file is the shortcode that encapsulates the list of articles for the provided series' name. Articles are sorted descending by page's `date` front matter variable value, i.e., the newest first. This shortcode is implemented as follows:
+The `layouts/shortcodes/series.html` file is the shortcode that encapsulates the list of articles for the provided series' name. Articles are sorted ascending by page's `date` front matter variable value, i.e., the oldest first. This shortcode is implemented as follows:
 ```html
 {{ $series_name := .Get 0 | urlize }}
 
