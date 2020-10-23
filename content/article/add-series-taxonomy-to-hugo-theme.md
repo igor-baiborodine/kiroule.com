@@ -54,7 +54,7 @@ Before using the `series` taxonomy, it should be defined in the site config file
 Please note that if you want to continue using `tags` and `categories` default taxonomies, you should explicitly define them in the config file.  
 
 ### Taxonomy template
-The `layouts/_default/series.terms.html` file is the `series` taxonomy template. Hugo will use it to automatically generate both a page that lists all of the series and individual pages that list the content associated with each series. This template is implemented as follows:
+The `layouts/_default/series.terms.html` file is the `series` taxonomy template. Hugo will use it to automatically generate both a page that lists all the series and individual pages that list the content associated with each series. This template is implemented as follows:
 ```html
 {{ define "main" }}
 
