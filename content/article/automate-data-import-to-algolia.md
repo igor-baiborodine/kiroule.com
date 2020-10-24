@@ -1,10 +1,12 @@
 ---
-title: "Automate Index Upload to Algolia Search"
+title: "Automate Data Import to Algolia"
 date: 2020-06-03T06:24:20-04:00
 categories: [Blog, Write-Up]
-tags: [Automation, Netlify, Algolia]
+tags: [Algolia, Data Import, Netlify]
 series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
+aliases:
+    - /article/automate-index-upload-to-algolia-search/
 ---
 
 **Content updated on August 13, 2020**
