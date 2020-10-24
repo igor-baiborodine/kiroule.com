@@ -2,7 +2,7 @@
 title: "Manage Environment-Specific Settings for Hugo-Based Website"
 date: 2020-07-27T08:48:43-04:00
 categories: [Blog, Write-Up]
-tags: [Hugo, Configuration, Netlify]
+tags: [Hugo, Environment, Netlify]
 series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 ---
