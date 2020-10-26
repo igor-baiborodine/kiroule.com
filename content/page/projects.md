@@ -45,6 +45,11 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
 
+**Coding Challenges from CodeWars, HackerRank, Codility**
+
+Technologies used: Java, Python\
+[See GitHub repository](https://github.com/igor-baiborodine/coding-challenges)
+
 ### 2016
 **Exercise to Port [MyBatis JPetStore](https://github.com/mybatis/jpetstore-6) From RDBMS/MyBatis to NoSQL/MongoDB and Spring Boot**
 
