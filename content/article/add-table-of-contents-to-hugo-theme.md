@@ -24,7 +24,7 @@ So let's examine the details of this solution. The source code for the implement
 
 ## Configuration
 To define what heading levels need to be included in TOC, you have to add the following to your site config file, for instance, `config.toml`:
-```
+```toml
 [markup]
   [markup.tableOfContents]
     startLevel = 2
@@ -47,14 +47,14 @@ toc: false
 ``` 
 
 Secondly, if you want to make the TOC rendering conditional based on the number of words in the content, add the `tocMinWordCount` param to the site config file and set its value you see fit, for instance, `500`:
-```
+```toml
 [param]
   # Minimum word count to display the Table of Contents
   tocMinWordCount = 500
 ```
 
 Thirdly, in your [single page template](https://gohugo.io/templates/single-page-templates/), add the following code snippet right before displaying the content:
-```
+```html
 {{ if and (.Params.toc) (gt .WordCount .Site.Params.tocMinWordCount ) }}
   <h2>{{ i18n "tableOfContents" }}</h2>
   {{ .TableOfContents }}
@@ -62,7 +62,7 @@ Thirdly, in your [single page template](https://gohugo.io/templates/single-page-
 ```
 
 For example, a simple page template `layout/_default/single.html` may look like this:
-```
+```html
 {{ define "main" }}
 <main>
   <article>
@@ -88,7 +88,7 @@ So, in the above example, the TOC will only be rendered when the following condi
 
 ## i18n
 Since the `i18n` function is used to display the `Table of Contents` label, define a value for the `tableOfContents` key in the appropriate i18n configuration file, for instance, [i18n/en.toml](https://github.com/Lednerb/bilberry-hugo-theme/blob/2.4.0/i18n/en.toml):
-```
+```toml
 [tableOfContents]
   other = "Table of Contents"
 ```
