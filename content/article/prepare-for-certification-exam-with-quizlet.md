@@ -8,7 +8,7 @@ author: "Igor Baiborodine"
 noSummary: true
 ---
 
-Here are links to flashcard study sets I created on Quizlet to prepare for various certification exams: 
+Here are the links to flashcard study sets I created on Quizlet to prepare for the following certification exams: 
  
 - [LPIC-1: Linux Administrator (101-500)](https://quizlet.com/class/12237989/) 
 - [LPIC-1: Linux Administrator (102-500)](https://quizlet.com/class/12423376/)

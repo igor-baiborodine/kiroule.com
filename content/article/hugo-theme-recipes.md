@@ -6,8 +6,9 @@ categories: [Theme]
 tags: []
 author: "Igor Baiborodine"
 noSummary: true
+icon: fa-list-alt
 ---
 
-Read this series to learn how you can enhance a Hugo theme:
+Read this series to learn how to enhance a Hugo theme:
 
 {{< series "Hugo Theme Recipes" >}}
