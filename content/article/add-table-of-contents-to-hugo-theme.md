@@ -9,7 +9,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-This post introduces another enhancement to a Hugo theme - the Table of Contents (TOC). It's based on Hugo's built-in ability to parse Markdown content and generate a table of contents that can be used in templates. This article is the second one in the "Hugo Theme Recipes" series.
+This post introduces another enhancement to a Hugo theme - the Table of Contents (TOC). It's based on Hugo's built-in ability to parse Markdown content and generate a table of contents that can be used in templates. This article is the second one in the series "Hugo Theme Recipes".
 
 <!--more-->
 
