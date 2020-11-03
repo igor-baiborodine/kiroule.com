@@ -13,7 +13,7 @@ It's been 6 months since the inception of my website, [kiroule.com](https://kiro
 
 <!--more-->
 
-Past month, I hit a new record for monthly users. As per Google Analytics, my website has had 414 users in October, totaling 1042 new users for the past 6 months.
+Past month, I hit a new record for monthly users. As per Google Analytics, my website has had 414 users in October, totaling 1,042 new users for the past 6 months.
 
 ![Google Analytics Results](/img/content/article/kiroulecom-summing-up-after-6-months/google-analytics-results.png)
 
@@ -33,7 +33,7 @@ Also, I'm planning to start a new series named "JAMstack Adventures." In this se
 - Deployment and hosting options for JAMstack applications
 - Development of progressive web applications using Gatsby, Next.js, FaunaDB, GraphQL, serverless functions, etc.
 
-I concluded my first article, "Start Blogging With GitHub, Hugo, and Netlify," with these words:
+I concluded my first article, ["Start Blogging With GitHub, Hugo, and Netlify,"](/article/start-blogging-with-github-hugo-and-netlify/) with these words:
 >I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used Jekyll and GitHub Pages to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus, and energy to regularly publish new content.
 
 And after 6 months, with eight published articles and 1,042 visitors, I can say that my second attempt was quite successful.
