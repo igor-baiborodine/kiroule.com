@@ -186,7 +186,7 @@ Now you can access your website at the URL shown in the site overview:
 
 ![Netlify New Site Deploy Browser](/img/content/article/start-blogging-with-github-hugo-and-netlify/netlify-new-site-deploy-browser.png)
 
-To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus and energy to publish new content regularly.
+To conclude this tutorial, I want to add that it is my second attempt to start blogging. My first try was in 2016, but it didn't go any further than creating an empty website. Back then, I used [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/) to build and host the blog. I hope that my second attempt will be successful, and I will have enough time, focus, and energy to regularly publish new content.
 
 Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}
