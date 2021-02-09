@@ -13,3 +13,30 @@ Originally the Campsite Booking API project was a coding challenge for a develop
 <!--more-->
 
 The initial task was to develop a Spring Boot based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mostly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project after two years, the main goal was to complement it from a DevOps perspective, particularly Dockerization and CI/CD pipeline.
+
+Let's look at what was accomplished in more detail.
+
+{{< toc >}}
+
+The source code is available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v2.0.8).
+
+### SonarCloud Scan
+TODO
+
+### Code Enhancements
+TODO
+- Code smells and vulnerabilities
+- Test coverage
+- Date auditing
+- Spring Boot and other dependencies upgrade
+- Open API v3 upgrade
+
+### Dockerization
+TODO
+- Dockerfile
+- docker-compose
+
+### CI/CD Pipeline
+TODO
+- Migrate CI from Travis CI to GitHub Actions
+- Integrate GitHub Packages and Docker Hub
