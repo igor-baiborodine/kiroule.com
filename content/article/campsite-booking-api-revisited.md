@@ -3,13 +3,13 @@ title: "Campsite Booking API Revisited"
 date: 2021-02-03T08:00:01-05:00
 
 categories: [Blog, Write-Up]
-tags: [Java, API, Spring Boot]
+tags: [Java, API, Spring Boot, DevOps]
 toc: false
 author: "Igor Baiborodine"
 ---
 
-Originally the Campsite Booking API project was a code challenge for a developer position I applied at [Upgrade Inc.](https://www.upgrade.com/). Back then, in 2018, the code challenge was followed by a series of interviews, but in the end, I didn't receive an offer. I recently revisited this project, and in this post, I will recap various enhancements and new features.  
+Originally the Campsite Booking API project was a coding challenge for a developer position I applied to at [Upgrade Inc.](https://www.upgrade.com/). Back then, in 2018, the coding challenge was followed by a series of interviews, but in the end, I didn't receive an offer. I recently revisited this project, and in this post, I go over the various improvements and new features that have been implemented.
 
 <!--more-->
 
-TODO: Introduction
+The initial task was to develop a Spring Boot based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mostly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project after two years, the main goal was to complement it from a DevOps perspective, particularly Dockerization and CI/CD pipeline.
