@@ -19,7 +19,7 @@ The source code is available [here](https://github.com/igor-baiborodine/campsite
 ### SonarCloud 
 Whenever I code, work, or my pet projects, I always strive to produce clean, high-quality code. One of the tools I use to write better and safer code is the SonarLint plugin, which helps detect and fix code smells, bugs, and vulnerabilities while working in IntelliJ.
 
-In case you want to enable continuous code inspections within your development workflow, you can use on-premise [SonarQube](https://www.sonarqube.org/).  Previously, the on-premise option was the only option from [SonarSource](https://www.sonarsource.com/). But they recently offered a cloud-based option called [SonarCloud](https://sonarcloud.io/), which is free for public projects. Therefore, I decided to enrich the project's continuous integration workflow with a SonarCloud scan.
+In case you want to enable continuous code inspections within your development workflow, you can use on-premise [SonarQube](https://www.sonarqube.org/).  Previously, the on-premise option was the only option from [SonarSource](https://www.sonarsource.com/). But they recently offered a cloud-based option called [SonarCloud](https://sonarcloud.io/), which is free for public projects. So I decided to enrich the project's continuous integration workflow with SonarCloud scanning.
 
 ### Code Enhancements
 TODO
