@@ -17,9 +17,11 @@ Let's look at what was accomplished in more detail.
 The source code is available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v2.0.8).
 
 ### SonarCloud 
-Whenever I code, work, or my pet projects, I always strive to produce clean, high-quality code. One of the tools I use to write better and safer code is the SonarLint plugin, which helps detect and fix code smells, bugs, and vulnerabilities while working in IntelliJ.
+Whenever I code, either work or my pet projects, I always strive to produce clean, high-quality code. One of the tools I use to write better and safer code is the [SonarLint](https://www.sonarlint.org/intellij) plugin, which helps detect and fix code smells, bugs, and vulnerabilities while working in IntelliJ IDEA. 
 
 In case you want to enable continuous code inspections within your development workflow, you can use on-premise [SonarQube](https://www.sonarqube.org/).  Previously, the on-premise option was the only option from [SonarSource](https://www.sonarsource.com/). But they recently offered a cloud-based option called [SonarCloud](https://sonarcloud.io/), which is free for public projects. So I decided to enrich the project's continuous integration workflow with SonarCloud scanning.
+
+For an initial GitHub integration with SonarCloud, you can follow this getting started [guide](https://sonarcloud.io/documentation/integrations/github/).
 
 ### Code Enhancements
 TODO
