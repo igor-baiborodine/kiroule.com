@@ -74,8 +74,9 @@ After generating an access token in the `Security` section of `My Account` at [s
 $ mvn clean verfify sonar:sonar -Dsonar.login=<SONAR_TOKEN> -Pcoverage
 ```
 
-
 ### Code Enhancements
+The SonarCloud scanning revealed some code smells and vulnerabilities. The main vulnerability, which was detected in the `BookingController` class, was persistent entities' usage as arguments of `@RequestMapping` methods. I overlooked this during the initial implementation, and it was fixed by replacing the `Booking` persistent entity with the `BookingDTO` object.
+
 TODO
 - Code smells and vulnerabilities
 - Test coverage
