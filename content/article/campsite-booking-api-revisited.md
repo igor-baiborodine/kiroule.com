@@ -75,11 +75,11 @@ $ mvn clean verfify sonar:sonar -Dsonar.login=<SONAR_TOKEN> -Pcoverage
 ```
 
 ### Code Enhancements
-The SonarCloud scanning revealed some code smells and vulnerabilities. The main vulnerability, which was detected in the `BookingController` class, was persistent entities' usage as arguments of `@RequestMapping` methods. I overlooked this during the initial implementation, and it was fixed by replacing the `Booking` persistent entity with the `BookingDTO` object.
+The SonarCloud scanning revealed some code smells and vulnerabilities. After [fixing](https://github.com/igor-baiborodine/campsite-booking/commit/0bdac033c620b82c2cf22fb353c4907f1ac1c485) code smells, I addressed the main vulnerability, which was detected in the `BookingController` class: persistent entities were used as arguments of `@RequestMapping` methods.  I overlooked this during the initial implementation, and it was [corrected](https://github.com/igor-baiborodine/campsite-booking/commit/46a46a14c45fcbfe307d479948b529c098017bc4) by replacing the `Booking` persistent entity with the `BookingDTO` object. Also, I [improved](https://github.com/igor-baiborodine/campsite-booking/commit/e3720315eac4929a16233fc708cbdd1078bff2dc) the test coverage, which is now at [88.2%](https://sonarcloud.io/component_measures/metric/coverage/list?id=igor-baiborodine_campsite-booking).
+
+Another significant improvement was UUID's introduction for the `Booking` entity while keeping the database's ID. The main advantage here is that entity's unique ID can be created without connecting to the database. You can read more on the pros and cons of using UUID vs. database ID in this Stackoverflow [thread](https://stackoverflow.com/questions/45399/advantages-and-disadvantages-of-guid-uuid-database-keys).
 
 TODO
-- Code smells and vulnerabilities
-- Test coverage
 - Date auditing
 - Spring Boot and other dependencies upgrade
 - Open API v3 upgrade
