@@ -79,10 +79,10 @@ The SonarCloud scanning revealed some code smells and vulnerabilities. After [fi
 
 Another significant improvement was UUID's introduction for the `Booking` entity while keeping the database's ID. The main advantage here is that entity's unique ID can be created without connecting to the database. You can read more on the pros and cons of using UUID vs. database ID in this Stackoverflow [thread](https://stackoverflow.com/questions/45399/advantages-and-disadvantages-of-guid-uuid-database-keys).
 
-TODO
-- Date auditing
-- Spring Boot and other dependencies upgrade
-- Open API v3 upgrade
+Additionally, the following adjustments were made:
+1. [Upgraded](https://github.com/igor-baiborodine/campsite-booking/commit/59f9c2acaee85b1a0a4cebbf08d56dba9f07e51e) Spring Boot and other dependencies
+2. [Complemented](https://github.com/igor-baiborodine/campsite-booking/commit/a90bc36f7f89d1fa3d691165334304bd16748a79) the `Booking` entity with date auditing fields
+3. [Switched](https://github.com/igor-baiborodine/campsite-booking/commit/d2394601415c1a630c9fe0487e2e05ad13c614ec) to OpenAPI v3
 
 ### Containerization
 TODO
