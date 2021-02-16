@@ -8,7 +8,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-The initial task was to develop a Spring Boot based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mainly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project two years later, the main goal was to complement it from a DevOps perspective, particularly containerization and CI/CD.
+The initial task was to develop a Spring Boot-based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mainly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project two years later, the main goal was to complement it from a DevOps perspective, particularly containerization and CI/CD.
 
 Let's look at what was accomplished in more detail.
 
@@ -85,9 +85,15 @@ Additionally, the following adjustments were made:
 3. [Switched](https://github.com/igor-baiborodine/campsite-booking/commit/d2394601415c1a630c9fe0487e2e05ad13c614ec) to OpenAPI v3
 
 ### Containerization
+Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files.
+1. Dockerfile
+
 TODO
-- Dockerfile
-- docker-compose
+
+2. Docker Compose
+
+TODO
+
 
 ### CI/CD
 TODO
