@@ -91,7 +91,7 @@ Additionally, the following adjustments were made:
 ### Containerization
 Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files. I used a multi-stage build approach to implement the [Dockerfile](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/Dockerfile). With this approach, a Dockerfile consists of different sections or stages, each of which refers to its own base image. 
 
-In my case, the Dockerfile has two stages. The first phase, or build phase, is based on the `maven: 3-jdk-11` Docker image. At this point, the project is built and packaged into a JAR artifact using the `mvn package` command. 
+In my case, the Dockerfile has two stages. The first stage, or builder, is based on the `maven: 3-jdk-11` Docker image. At this point, the project is built and packaged into a JAR artifact using the `mvn package` command. 
  
 ```dockerfile
 FROM maven:3-jdk-11 AS builder
@@ -104,6 +104,8 @@ RUN mvn --batch-mode package -DskipTests -DskipITs; \
     mv /usr/src/app/target/campsite-booking-$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout).jar \
         /usr/src/app/target/app.jar
 ```
+
+The second stage is the stage when the actual Campsite Booking API Docker image is built. It's based on Debian's `buster-slim` image.
 
 ```dockerfile
 FROM openjdk:11-jre-slim
