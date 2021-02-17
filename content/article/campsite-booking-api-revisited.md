@@ -135,6 +135,15 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 8080
 CMD ["bash", "-c", "java -jar $APP_HOME/app.jar"]
 ```
+
+When building the image, the user that will be used to run the image defaults to `root`. The step-down from `root` to a non-privileged user `campsite` is done during the execution of the [docker-entrypoint.sh](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/docker-entrypoint.sh).
+```shell script
+if [[ "$3" == java* && "$(id -u)" = '0' ]]; then
+  echo "Switching user from root to $APP_USER..."
+  chown -R "$APP_USER:$APP_GROUP" "$APP_HOME"
+  exec gosu "$APP_USER" "$@"
+fi
+```
 2. Docker Compose
 
 TODO
