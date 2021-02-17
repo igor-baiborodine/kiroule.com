@@ -8,6 +8,10 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
+Originally the Campsite Booking API project was a coding challenge for a developer position I applied to at [Upgrade Inc.](https://www.upgrade.com/). Back then, in 2018, the coding challenge was followed by a series of interviews, but in the end, I didn't receive an offer. I recently revisited this project, and in this post, I go over the various improvements and new features that have been implemented.
+
+<!--more-->
+
 The initial task was to develop a Spring Boot-based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mainly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project two years later, the main goal was to complement it from a DevOps perspective, particularly containerization and CI/CD.
 
 Let's look at what was accomplished in more detail.
@@ -85,10 +89,20 @@ Additionally, the following adjustments were made:
 3. [Switched](https://github.com/igor-baiborodine/campsite-booking/commit/d2394601415c1a630c9fe0487e2e05ad13c614ec) to OpenAPI v3
 
 ### Containerization
-Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files.
-1. Dockerfile
+Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files. I used a multi-stage build approach to implement the [Dockerfile](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/Dockerfile). With this approach, a Dockerfile consists of different sections or stages, each of which refers to its own base image. 
 
-TODO
+In my case, the Dockerfile has two stages. The first phase, or build phase, is based on `maven: 3-jdk-11` Docker image. At this point, the project is built and packaged into a JAR artifact using the `mvn package` command. In general, you can bypass the build step by fetching already published artifacts from the artifact repository, whether snapshots or releases. But here, I opted for building directly from the source instead of using already packaged artifacts, as it gives more flexibility. 
+```dockerfile
+FROM maven:3-jdk-11 AS builder
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN mvn --batch-mode package -DskipTests -DskipITs; \
+    mv /usr/src/app/target/campsite-booking-$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout).jar \
+        /usr/src/app/target/app.jar
+```
 
 2. Docker Compose
 
