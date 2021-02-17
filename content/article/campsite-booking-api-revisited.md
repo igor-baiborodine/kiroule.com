@@ -89,8 +89,10 @@ Additionally, the following adjustments were made:
 3. [Switched](https://github.com/igor-baiborodine/campsite-booking/commit/d2394601415c1a630c9fe0487e2e05ad13c614ec) to OpenAPI v3
 
 ### Containerization
-Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files. I used a multi-stage build approach to implement the [Dockerfile](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/Dockerfile). With this approach, a Dockerfile consists of different sections or stages, each of which refers to its own base image. 
+Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files. 
 
+#### Dockerfile
+I used a multi-stage build approach to implement the [Dockerfile](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/Dockerfile). With this approach, a Dockerfile consists of different sections or stages, each of which refers to its own base image. 
 In my case, the Dockerfile has two stages. The first stage, or builder, is based on the `maven: 3-jdk-11` Docker image. At this point, the project is built and packaged into a JAR artifact using the `mvn package` command. 
  
 ```dockerfile
@@ -105,7 +107,7 @@ RUN mvn --batch-mode package -DskipTests -DskipITs; \
         /usr/src/app/target/app.jar
 ```
 
-The second stage is the stage when the actual Campsite Booking API Docker image is built. It's based on Debian's `buster-slim` image.
+The second stage is the stage when the actual Campsite Booking API Docker image is built. It's based on OpenJDK's `buster-slim` image.
 
 ```dockerfile
 FROM openjdk:11-jre-slim
@@ -144,9 +146,42 @@ if [[ "$3" == java* && "$(id -u)" = '0' ]]; then
   exec gosu "$APP_USER" "$@"
 fi
 ```
-2. Docker Compose
 
-TODO
+#### Docker Compose
+
+```yaml
+version: '3.7'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      # Setting this variable to yes is not recommended
+      # unless you really know what you are doing
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "3316:3306"
+      - "33070:33060"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+
+  api:
+    build: .
+    # image: ibaiborodine/campsite-booking:latest
+    depends_on:
+      - db
+    environment:
+      # sleep for 20 seconds while the database is being initialized
+      - WAIT_FOR_DB=20
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/campsite?useUnicode=true
+    ports:
+      - "80:8080"
+
+volumes:
+  db-data:
+```
 
 
 ### CI/CD
