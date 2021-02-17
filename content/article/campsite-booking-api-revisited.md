@@ -91,7 +91,8 @@ Additionally, the following adjustments were made:
 ### Containerization
 Since deploying applications, especially microservices, using containers has become the de facto standard, I added Dockerfile and Docker Compose files. I used a multi-stage build approach to implement the [Dockerfile](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/Dockerfile). With this approach, a Dockerfile consists of different sections or stages, each of which refers to its own base image. 
 
-In my case, the Dockerfile has two stages. The first phase, or build phase, is based on `maven: 3-jdk-11` Docker image. At this point, the project is built and packaged into a JAR artifact using the `mvn package` command. In general, you can bypass the build step by fetching already published artifacts from the artifact repository, whether snapshots or releases. But here, I opted for building directly from the source instead of using already packaged artifacts, as it gives more flexibility. 
+In my case, the Dockerfile has two stages. The first phase, or build phase, is based on the `maven: 3-jdk-11` Docker image. At this point, the project is built and packaged into a JAR artifact using the `mvn package` command. 
+ 
 ```dockerfile
 FROM maven:3-jdk-11 AS builder
 
@@ -104,6 +105,34 @@ RUN mvn --batch-mode package -DskipTests -DskipITs; \
         /usr/src/app/target/app.jar
 ```
 
+```dockerfile
+FROM openjdk:11-jre-slim
+
+ENV APP_HOME /opt/campsite
+ENV APP_USER campsite
+ENV APP_GROUP campsite
+
+RUN groupadd ${APP_GROUP}; \
+    useradd -g ${APP_GROUP} ${APP_USER}
+
+RUN set -ex; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        # su tool for easy step-down from root
+        gosu; \
+    rm -rf /var/lib/apt/lists/*; \
+    gosu nobody true
+
+COPY --from=builder --chown=${APP_USER}:${APP_GROUP} /usr/src/app/target/app.jar ${APP_HOME}/app.jar
+COPY docker-entrypoint.sh /usr/local/bin/
+
+RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
+
+WORKDIR ${APP_HOME}
+ENTRYPOINT ["docker-entrypoint.sh"]
+EXPOSE 8080
+CMD ["bash", "-c", "java -jar $APP_HOME/app.jar"]
+```
 2. Docker Compose
 
 TODO
