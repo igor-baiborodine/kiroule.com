@@ -149,6 +149,8 @@ fi
 
 #### Docker Compose
 
+The Docker Compose [file](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/docker-compose.yml) consists of two services.  The `db` service is based on the `mysql:5.7` Docker image. Since its configuration contains the  `./mysql/initdb.d:/docker-entrypoint-initdb.d` volume definition, the `mysql/initdb.d/init-campsite-db.sql` file will be executed when a container starts for the first time. This script creates the `campsite` database and the `campsite` user with all necessary privileges. The database data is stored outside of the container since the `/var/lib/mysql` directory is mapped to the named volume `db-data` defined in the `volumes` section.
+
 ```yaml
 version: '3.7'
 
