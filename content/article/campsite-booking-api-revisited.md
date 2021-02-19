@@ -152,39 +152,45 @@ fi
 The Docker Compose [file](https://github.com/igor-baiborodine/campsite-booking/blob/v2.0.8/docker-compose.yml) consists of two services.  The `db` service is based on the `mysql:5.7` Docker image. Since its configuration contains the  `./mysql/initdb.d:/docker-entrypoint-initdb.d` volume definition, the `mysql/initdb.d/init-campsite-db.sql` file will be executed when a container starts for the first time. This script creates the `campsite` database and the `campsite` user with all necessary privileges. The database data is stored outside of the container since the `/var/lib/mysql` directory is mapped to the named volume `db-data` defined in the `volumes` section.
 
 ```yaml
-version: '3.7'
-
-services:
-  db:
-    image: mysql:5.7
-    environment:
-      # Setting this variable to yes is not recommended
-      # unless you really know what you are doing
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - "3316:3306"
-      - "33070:33060"
-    volumes:
-      - db-data:/var/lib/mysql
-      - ./mysql/conf.d:/etc/mysql/conf.d
-      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
-
-  api:
-    build: .
-    # image: ibaiborodine/campsite-booking:latest
-    depends_on:
-      - db
-    environment:
-      # sleep for 20 seconds while the database is being initialized
-      - WAIT_FOR_DB=20
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/campsite?useUnicode=true
-    ports:
-      - "80:8080"
-
-volumes:
-  db-data:
+db:
+  image: mysql:5.7
+  environment:
+    # Setting this variable to yes is not recommended
+    # unless you really know what you are doing
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+  ports:
+    - "3316:3306"
+    - "33070:33060"
+  volumes:
+    - db-data:/var/lib/mysql
+    - ./mysql/conf.d:/etc/mysql/conf.d
+    - ./mysql/initdb.d:/docker-entrypoint-initdb.d
 ```
 
+The `api` service is based on the build context, which is the project's root. Alternatively, you can use an [image](https://hub.docker.com/r/ibaiborodine/campsite-booking) published on the Docker Hub, for example, `ibaiborodine/campsite-booking: latest`. To do this, comment out the `build` config option and uncomment the `image` option.
+
+```yaml
+api:
+  build: .
+  # image: ibaiborodine/campsite-booking:latest
+  depends_on:
+    - db
+  environment:
+    # sleep for 20 seconds while the database is being initialized
+    - WAIT_FOR_DB=20
+    - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/campsite?useUnicode=true
+  ports:
+    - "80:8080"
+```
+
+Since the `depends_on` option does not wait for the `db` service to be ready, that is, when the `campsite` database and `campsite` user are initialized, I added a delay that is configurable through the `WAIT_FOR_DB` environment variable. The wait is triggered by the following condition that I added to the docker-entrypoint.sh:
+
+```shell script
+if [[ -n "$WAIT_FOR_DB" ]]; then
+  echo "Sleeping for $WAIT_FOR_DB seconds while the database is being initialized..."
+  sleep "$WAIT_FOR_DB"
+fi
+```
 
 ### CI/CD
 TODO
