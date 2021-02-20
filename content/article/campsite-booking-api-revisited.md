@@ -208,6 +208,8 @@ notifications:
 
 So far, I have had experience developing pipelines using Jenkins, Travis CI, Azure DevOps, and Bitbucket Pipelines. Since 2019, GitHub offers support for full-fledged CI/CD pipelines, free for public repositories. Therefore, I decided to use GitHub Actions for re-implementing the project's CI/CD.
 
+For this project, I adopted the [trunk-based development](https://trunkbaseddevelopment.com/) as a source-control branching model. With this model, all development is done either by committing directly to the trunk or through short-lived feature branches merged to the trunk using pull requests combined with the automated builds. Also, the main branch is meant to be deployable at any commit. 
+
 #### Pull Request
 TODO
 #### Master Branch
