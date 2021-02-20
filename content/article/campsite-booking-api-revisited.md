@@ -192,7 +192,28 @@ if [[ -n "$WAIT_FOR_DB" ]]; then
 fi
 ```
 
-### CI/CD
+### CI/CD Workflows
+The original CI workflow was implemented using [Travis CI](https://www.travis-ci.com), a hosted continuous integration service. This workflow was relatively straightforward and only consisted of executing the `mvn clean integration-test` command triggered by any commit on the `master` branch.
+```yaml
+language: java
+
+jdk:
+- openjdk11
+
+script: mvn clean integration-test
+
+notifications:
+  email: false
+```
+
+So far, I have had experience developing pipelines using Jenkins, Travis CI, Azure DevOps, and Bitbucket Pipelines. Since 2019, GitHub offers support for full-fledged CI/CD pipelines, free for public repositories. Therefore, I decided to use GitHub Actions for re-implementing the project's CI/CD.
+
+#### Pull Request
 TODO
+#### Master Branch
+TODO
+#### Release
+TODO
+
 - Migrate CI from Travis CI to GitHub Actions
 - Integrate GitHub Packages and Docker Hub
