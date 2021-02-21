@@ -265,7 +265,7 @@ jobs:
 ```
 
 #### Master Branch
-This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains only the Snapshot Publishing job. 
+This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains only the Snapshot Publishing job, which will package a snapshot JAR and upload it to the GitHub Packages. 
 ```yaml
 name: Build Master Branch
 
@@ -294,4 +294,73 @@ jobs:
 ```
 
 #### Release
-TODO
+This is a workflow that is triggered manually whenever the code in the master branch is ready to be released. It contains two jobs: Maven Release and Docker Image. The Maven Release job performs a release and uploads produced release JAR to GitHub Packages. Its successful completion is a prerequisite for the Docker Image job's subsequent execution when the Docker image is built and uploaded to [Docker Hub](https://hub.docker.com/r/ibaiborodine/campsite-booking).
+```yaml
+name: Perform Release
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: Release Version
+        required: true
+
+env:
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/campsite-booking
+  IMAGE_TAG:  ${{ github.event.inputs.releaseVersion }}
+
+jobs:
+  maven_release:
+    name: Maven Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+          server-id: github
+
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Perform release & publish artifacts
+        run: ./mvnw -B release:prepare release:perform -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DskipTests -DskipITs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docker_image:
+    name: Docker Image
+    runs-on: ubuntu-latest
+    needs: [ maven_release ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: v${{ github.event.inputs.releaseVersion }}
+
+      - name: Build image
+        run: |
+          docker build . --file Dockerfile --tag $IMAGE_NAME:$IMAGE_TAG
+          docker tag $IMAGE_NAME:$IMAGE_TAG $IMAGE_NAME:latest
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Push image
+        run: |
+          docker push $IMAGE_NAME:$IMAGE_TAG
+          docker push $IMAGE_NAME:latest
+```
+
+The `Release Version` parameter value should be provided before executing this workflow:
+![GitHub Actions Main View](/img/content/article/campsite-booking-api-revisited/github-actions-perform-release.png)
