@@ -218,6 +218,3 @@ TODO
 TODO
 #### Release
 TODO
-
-- Migrate CI from Travis CI to GitHub Actions
-- Integrate GitHub Packages and Docker Hub
