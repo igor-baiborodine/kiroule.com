@@ -208,7 +208,9 @@ notifications:
 
 So far, I have had experience developing pipelines using Jenkins, Travis CI, Azure DevOps, and Bitbucket Pipelines. Since 2019, GitHub offers support for full-fledged CI/CD pipelines, free for public repositories. Therefore, I decided to use GitHub Actions for re-implementing the project's CI/CD.
 
-For this project, I adopted the [trunk-based development](https://trunkbaseddevelopment.com/) as a source-control branching model. With this model, all development is done either by committing directly to the trunk or through short-lived feature branches merged to the trunk using pull requests combined with the automated builds. Also, the main branch is meant to be deployable at any commit. 
+For this project, I adopted the [trunk-based development](https://trunkbaseddevelopment.com/) as a source-control branching model. With this model, all development is done either by committing directly to the trunk or through short-lived feature branches merged to the trunk using pull requests combined with the automated builds. Also, the master branch is meant to be deployable at any commit. With all this in mind, I developed the following GitHub Action workflows: [Build Master Branch](https://github.com/igor-baiborodine/campsite-booking/actions/workflows/master.yml), [Build on Pull Request](https://github.com/igor-baiborodine/campsite-booking/actions/workflows/pull-request.yml), and [Perform Release](https://github.com/igor-baiborodine/campsite-booking/actions/workflows/release.yml).
+
+![GitHub Actions Main View](/img/content/article/campsite-booking-api-revisited/github-actions-main-view.png)
 
 #### Pull Request
 TODO
