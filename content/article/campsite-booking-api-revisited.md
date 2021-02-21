@@ -265,6 +265,33 @@ jobs:
 ```
 
 #### Master Branch
-TODO
+This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains only the Snapshot Publishing job. 
+```yaml
+name: Build Master Branch
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  snapshot:
+    name: Snapshot Publishing
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Publish snapshot on GitHub Packages
+        run: mvn -B clean deploy -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
 #### Release
 TODO
