@@ -213,7 +213,60 @@ For this project, I adopted the [trunk-based development](https://trunkbaseddeve
 ![GitHub Actions Main View](/img/content/article/campsite-booking-api-revisited/github-actions-main-view.png)
 
 #### Pull Request
-TODO
+This is an automatic workflow that starts whenever a new pull request is made to the master branch. It contains two jobs: Unit & Integration Tests and SonarCloud Scan. The SonanCloud Scan job is dependent on the successful completion of the Unit & Integration Tests job.
+```yaml
+name: Build on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+  test:
+    name: Unit & Integration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run Maven Package
+        run: mvn -B clean package -DskipTests
+
+      - name: Run Maven Verify
+        run: mvn -B clean verify -Pintegration-test
+
+  sonar:
+    name: SonarCloud Scan
+    runs-on: ubuntu-18.04
+    needs: [ test ]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run SonarCloud scan
+        run: mvn -B clean verify sonar:sonar -Pcoverage -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
 #### Master Branch
 TODO
 #### Release
