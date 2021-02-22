@@ -1,6 +1,6 @@
 ---
 title: "Building Your Blog, the Geeky Way"
-date: 2020-05-15T11:01:45-04:00
+date: 2020-10-24T07:35:59-04:00
 showDate: false
 categories: [Blog]
 tags: []

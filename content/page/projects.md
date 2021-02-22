@@ -33,6 +33,8 @@ Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hug
 [See GitHub Repository](https://github.com/igor-baiborodine/kiroule.com)
  
 ### 2019
+*Updated in 2020*
+
 **Multi-Variant Docker Images for Liferay Portal CE**
 
 Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debian.org/), [Alpine Linux](https://alpinelinux.org/)\
@@ -40,6 +42,8 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 [See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
 
 ### 2018
+*Updated in 2021*
+
 **RESTful Web Service That Manages Campsite Bookings**
 
 Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
