@@ -14,11 +14,9 @@ Originally the Campsite Booking API project was a coding challenge for a develop
 
 The initial task was to develop a Spring Boot-based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mainly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project two years later, the main goal was to complement it from a DevOps perspective, particularly containerization and CI/CD.
 
-Let's look at what was accomplished in more detail.
+Let's look at what was accomplished in more detail. The source code is available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v2.0.8).
 
 {{< toc >}}
-
-The source code is available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v2.0.8).
 
 ### SonarCloud 
 Whenever I code, either work or my pet projects, I always strive to produce clean, high-quality code. One of the tools I use to write better and safer code is the [SonarLint](https://www.sonarlint.org/intellij) plugin, which helps detect and fix code smells, bugs, and vulnerabilities while working in IntelliJ IDEA. 
@@ -167,7 +165,7 @@ db:
     - ./mysql/initdb.d:/docker-entrypoint-initdb.d
 ```
 
-The `api` service is based on the build context, which is the project's root. Alternatively, you can use an [image](https://hub.docker.com/r/ibaiborodine/campsite-booking) published on the Docker Hub, for example, `ibaiborodine/campsite-booking: latest`. To do this, comment out the `build` config option and uncomment the `image` option.
+The `api` service is based on the build context, which is the project's root. Alternatively, you can use an [image](https://hub.docker.com/r/ibaiborodine/campsite-booking) published on Docker Hub, for example, `ibaiborodine/campsite-booking:latest`. To do this, comment out the `build` config option and uncomment the `image` option.
 
 ```yaml
 api:
@@ -183,7 +181,7 @@ api:
     - "80:8080"
 ```
 
-Since the `depends_on` option does not wait for the `db` service to be ready, that is, when the `campsite` database and `campsite` user are initialized, I added a delay that is configurable through the `WAIT_FOR_DB` environment variable. The wait is triggered by the following condition that I added to the docker-entrypoint.sh:
+Since the `depends_on` option does not wait for the `db` service to be ready, that is, when the `campsite` database and `campsite` user are initialized, I added a delay that is configurable through the `WAIT_FOR_DB` environment variable. The wait is triggered by the following condition in the docker-entrypoint.sh:
 
 ```shell script
 if [[ -n "$WAIT_FOR_DB" ]]; then
