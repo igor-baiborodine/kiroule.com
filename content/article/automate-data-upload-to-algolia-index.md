@@ -1,5 +1,5 @@
 ---
-title: "Automate Data Import to Algolia"
+title: "Automate Data Upload to Algolia Index"
 date: 2020-06-03T06:24:20-04:00
 categories: [Blog, Write-Up]
 tags: [Algolia, Data Import, Netlify]
@@ -7,6 +7,7 @@ series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 aliases:
     - /article/automate-index-upload-to-algolia-search/
+    - /article/automate-data-import-to-algolia/
 ---
 
 **Content updated on August 13, 2020**
@@ -34,8 +35,8 @@ Each newly created index should be configured as follows: in the tab `Configurat
 
 ![Algolia Index Config](/img/content/article/automate-index-upload-to-algolia-search/algolia-index-config.png)
 
-### index-upload.py
-The `index-upload.py` script reads the `public/index.json` file and uploads index records to Algolia. By default, index records from the `public/index.json` file will contain the `url` field with the value that starts with the base URL from the `config/_default/config.toml` configuration file:
+### data-upload.py
+The `data-upload.py` script reads the `public/index.json` file and uploads index records to Algolia. By default, index records from the `public/index.json` file will contain the `url` field with the value that starts with the base URL from the `config/_default/config.toml` configuration file:
 
 ![Hugo Index Json](/img/content/article/automate-index-upload-to-algolia-search/hugo-index-json.png)
 
@@ -81,7 +82,7 @@ To generate the `public/index.json` file containing index records, execute the `
 To do testing in the local environment, run the script from in command line from the site root as follows:
 
 ```shell script
-$ algolia/index-upload.py -f public/index.json \
+$ algolia/data-upload.py -f public/index.json \
     -a <algolia-app-id> \
     -k <algolia-admin-api-key> \
     -n <algolia-index-name> \
@@ -95,8 +96,8 @@ In the case of the script's successful execution, the index entries will be uplo
 
 ![Python Script Algolia Indices View](/img/content/article/automate-index-upload-to-algolia-search/python-script-algolia-indices-view.png)
 
-### run-index-upload.sh
-The `run-index-upload.sh` script is a wrapper shell script for the `index-upload.py` script. It can be executed either in the `netlify` or `local` mode. When it runs with the `-p` flag, i.e., in the `netlify` mode, Algolia API's Python client is installed, and `index-upload.py` script's arguments are initialized with the corresponding environment variables.
+### run-data-upload.sh
+The `run-data-upload.sh` script is a wrapper shell script for the `data-upload.py` script. It can be executed either in the `netlify` or `local` mode. When it runs with the `-p` flag, i.e., in the `netlify` mode, Algolia API's Python client is installed, and `data-upload.py` script's arguments are initialized with the corresponding environment variables.
 
 The script is implemented as follows:
 ```shell script
@@ -122,7 +123,7 @@ while getopts "pf:a:k:n:u:" opt; do
   esac
 done
 
-python algolia/index-upload.py \
+python algolia/data-upload.py \
     -f "$index_file" \
     -a "$app_id" \
     -k "$admin_api_key" \
@@ -160,22 +161,22 @@ The `netlify.toml` file contains the following configuration:
   HUGO_VERSION = "0.72.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
-  # Algolia index name needed to run algolia/run-index-upload.sh
+  # Algolia index name is needed to execute algolia/run-data-upload.sh
   ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
-  command = "hugo --buildFuture && algolia/run-index-upload.sh -p"
+  command = "hugo --buildFuture && algolia/run-data-upload.sh -p"
 
 # URL: https://dev--kiroule.netlify.app/
 [context.dev.environment]
   HUGO_VERSION = "0.72.0"
-  # Algolia index name needed to run algolia/run-index-upload.sh
+  # Algolia index name is needed to execute algolia/run-data-upload.sh
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.dev]
-  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p -u $DEPLOY_PRIME_URL"
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-data-upload.sh -p -u $DEPLOY_PRIME_URL"
 ```
-The `ALGOLIA_INDEX_NAME` environment variable is defined per the deployment context. In the `command` setting in `[context.dev]` section, the `algolia/run-index-upload.sh` script should be executed with the `-u $DEPLOY_PRIME_URL` option to override the site's production URL(`https://www.kiroule.com/`) with the site's dev URL(`https://dev--kiroule.netlify.app/`) in the `url` field of index records.
+The `ALGOLIA_INDEX_NAME` environment variable is defined per the deployment context. In the `command` setting in `[context.dev]` section, the `algolia/run-data-upload.sh` script should be executed with the `-u $DEPLOY_PRIME_URL` option to override the site's production URL(`https://www.kiroule.com/`) with the site's dev URL(`https://dev--kiroule.netlify.app/`) in the `url` field of index records.
 
 ### Netlify Configuration
 The deployment contexts should be defined accordingly in the section `Deploy contexts` of the `Build & deploy` site settings:
