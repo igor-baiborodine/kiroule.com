@@ -7,27 +7,27 @@
   HUGO_VERSION = "0.72.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
-  # Algolia index name needed to run algolia/run-index-upload.sh
+  # Algolia index name is needed to execute algolia/run-data-upload.sh
   ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
-  command = "hugo --buildFuture && algolia/run-index-upload.sh -p"
+  command = "hugo --buildFuture && algolia/run-data-upload.sh -p"
 
 # URL: https://dev--kiroule.netlify.app/
 [context.dev.environment]
   HUGO_VERSION = "0.72.0"
-  # Algolia index name needed to run algolia/run-index-upload.sh
+  # Algolia index name is needed to execute algolia/run-data-upload.sh
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.dev]
-  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildDrafts && algolia/run-index-upload.sh -p -u $DEPLOY_PRIME_URL"
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildDrafts && algolia/run-data-upload.sh -p -u $DEPLOY_PRIME_URL"
 
 # Use this configuration for specific branch development
 # URL: https://<feature-branch>--kiroule.netlify.app/
 #[context.<feature-branch>.environment]
 #  HUGO_VERSION = "0.72.0"
-#  Algolia index name needed to run algolia/run-index-upload.sh
+#  Algolia index name is needed to execute algolia/run-data-upload.sh
 #  ALGOLIA_INDEX_NAME = "<feature-branch>_kiroule"
 #
 #[context.<feature-branch>]
-#  command = "hugo --environment <feature-branch> -b $DEPLOY_PRIME_URL && algolia/run-index-upload.sh -p -u $DEPLOY_PRIME_URL"
+#  command = "hugo --environment <feature-branch> -b $DEPLOY_PRIME_URL && algolia/run-data-upload.sh -p -u $DEPLOY_PRIME_URL"

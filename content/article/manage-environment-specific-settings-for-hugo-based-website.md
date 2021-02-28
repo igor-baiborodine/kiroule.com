@@ -72,7 +72,7 @@ The following changes have been made to the `netlify.toml` file:
 - Execution of the `config.sh` script was removed from the `command` setting in `[context.dev]` and `[context.production]` sections.
 - `--environment dev` option was added to the `hugo` command in the `command` setting in `[context.dev]` section to merge all the settings from the `config/dev` directory on top of the settings from the `config/_default`. 
 
-I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute the `algolia/run-index-upload.sh` script.
+I had to keep the `ALGOLIA_INDEX_NAME` variable for each environment context since it's needed to execute the `algolia/run-data-upload.sh` script.
 
 This is how the `netlify.toml` file looks like after the above changes:
 ```toml
@@ -85,20 +85,20 @@ This is how the `netlify.toml` file looks like after the above changes:
   HUGO_VERSION = "0.72.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
-  # Algolia index name needed to run algolia/run-index-upload.sh
+  # Algolia index name is needed to execute algolia/run-data-upload.sh
   ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
-  command = "hugo --buildFuture && algolia/run-index-upload.sh -p"
+  command = "hugo --buildFuture && algolia/run-data-upload.sh -p"
 
 # URL: https://dev--kiroule.netlify.app/
 [context.dev.environment]
   HUGO_VERSION = "0.72.0"
-  # Algolia index name needed to run algolia/run-index-upload.sh
+  # Algolia index name is needed to execute algolia/run-data-upload.sh
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.dev]
-  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-index-upload.sh -p"
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture --buildDrafts && algolia/run-data-upload.sh -p"
 ```
 
 The source code for the placeholder approach is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/single-config-file).
