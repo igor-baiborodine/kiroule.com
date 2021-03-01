@@ -7,6 +7,7 @@ tags: []
 author: "Igor Baiborodine"
 noSummary: true
 icon: fa-list-alt
+draft: true
 ---
 
 Read this series on how to build your blog from scratch and gradually improve it with time:
