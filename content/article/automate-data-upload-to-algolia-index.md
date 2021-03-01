@@ -2,7 +2,7 @@
 title: "Automate Data Upload to Algolia Index"
 date: 2020-06-03T06:24:20-04:00
 categories: [Blog, Write-Up]
-tags: [Algolia, Data Import, Netlify]
+tags: [Algolia, Data Upload, Netlify]
 series: "Building Your Blog, the Geeky Way"
 author: "Igor Baiborodine"
 aliases:
