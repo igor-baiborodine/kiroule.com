@@ -7,6 +7,7 @@ tags: []
 author: "Igor Baiborodine"
 noSummary: true
 icon: fa-list-alt
+draft: true
 ---
 
 Read this series to learn how to enhance a Hugo theme:
