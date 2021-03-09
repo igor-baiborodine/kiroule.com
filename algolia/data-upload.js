@@ -1,4 +1,4 @@
-var argv = require("yargs/yargs")(process.argv.slice(2))
+const argv = require("yargs/yargs")(process.argv.slice(2))
   .boolean("c").alias("c", "clear-index").describe("c", "Clear Algolia index before upload")
   .alias("f", "index-file").nargs("f", 1).describe("f", "Index file to upload to Algolia")
   .alias("a", "app-id").nargs("a", 1).describe("a", "Algolia application ID")
