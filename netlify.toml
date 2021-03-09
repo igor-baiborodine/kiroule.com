@@ -11,7 +11,7 @@
   ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
-  command = "hugo --buildFuture && algolia/run-data-upload.sh -p"
+  command = "hugo && algolia/run-data-upload-npm.sh -p"
 
 # URL: https://dev--kiroule.netlify.app/
 [context.dev.environment]
