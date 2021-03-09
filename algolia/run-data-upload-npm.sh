@@ -4,7 +4,7 @@ while getopts "pf:a:k:n:u:" opt; do
   case $opt in
   # netlify
   p)
-    npm install
+    npm install "$PWD/algolia"
     # Environment variables below (except PWD) should be configured
     # in the section 'Build & deploy/Environment variables' of your site in Netlify;
     # Alternatively, the ALGOLIA_INDEX_NAME variable can be defined in the netlify.toml file.
@@ -35,7 +35,7 @@ while getopts "pf:a:k:n:u:" opt; do
   esac
 done
 
-npm run data-upload -- -c \
+npm --prefix "$PWD/algolia" run data-upload -- -c \
     -f "$index_file" \
     -a "$app_id" \
     -k "$admin_api_key" \

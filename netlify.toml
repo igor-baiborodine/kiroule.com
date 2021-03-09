@@ -20,7 +20,7 @@
   ALGOLIA_INDEX_NAME = "dev_kiroule"
 
 [context.dev]
-  command = "hugo --environment dev -b $DEPLOY_PRIME_URL && algolia/run-data-upload.sh -p -u $DEPLOY_PRIME_URL"
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL && algolia/run-data-upload-npm.sh -p"
 
 # Use this configuration for specific branch development
 # URL: https://<feature-branch>--kiroule.netlify.app/
