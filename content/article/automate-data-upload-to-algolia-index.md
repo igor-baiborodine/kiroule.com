@@ -12,7 +12,7 @@ aliases:
 
 **Content updated on August 13, 2020**
 
-This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the [series "Building Your Blog, the Geeky Way"](https://www.kiroule.com/article/building-your-blog-the-geeky-way/).
+This post summarizes how to automate the manual upload of index records to Algolia if you use Netlify to host your website. With this enhancement, every time you add new or update existing content, it will be automatically indexed and uploaded to Algolia. This article is the fourth part of the [series "Building Your Blog, the Geeky Way"](/article/building-your-blog-the-geeky-way/).
 
 <!--more-->
 
