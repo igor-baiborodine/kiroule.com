@@ -1,5 +1,5 @@
 ---
-title: "Campsite Booking API Revisited"
+title: "Campsite Booking API: Revisited"
 date: 2021-02-03T08:00:01-05:00
 
 categories: [Blog, Write-Up]
