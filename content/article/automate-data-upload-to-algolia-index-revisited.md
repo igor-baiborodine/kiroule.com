@@ -2,7 +2,7 @@
 title: "Automate Data Upload to Algolia Index: Revisited"
 date: 2021-03-10T07:46:59-05:00
 categories: [Blog, Write-Up]
-tags: [Algolia, Data Upload, Netlify]
+tags: [Algolia, Data Upload, npm]
 series: "Building Your Blog, the Geeky Way"
 toc: false
 author: "Igor Baiborodine"
@@ -12,11 +12,13 @@ I recently made some changes to the automated upload of data to Algolia; namely,
 
 <!--more-->
 
-Intro
+It's been almost nine months since I automated data upload to Algolia using the Python client. This solution worked well, and I haven't had any issues so far. So it would be logical to ask why to reimplement something that already works.
 
 {{< toc >}}
 
-### Details 1
-### Details 2
-### Details 3
+### data-upload.py
+### run-data-upload.sh
+### Configuration Files
+### netlify.toml
+### Netlify Configuration
 
