@@ -8,7 +8,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-I recently made some changes to the automated upload of data to Algolia; namely, the script that reads and sends data to the appropriate index has been reimplemented using Algolia's JavaScript API client. In this post, which is an addition to the [original post](/article/automate-data-upload-to-algolia-index/) on this topic, I will go into detail about JavaScript implementation and upload automation with npm.
+I recently made some changes to the automated upload of data to Algolia; namely, the script that reads and sends data to the appropriate index has been reimplemented using Algolia's JavaScript API client. In this post, which is an addition to the [original post](/article/automate-data-upload-to-algolia-index/) on this topic, I go into detail about JavaScript implementation and upload automation with npm.
 
 <!--more-->
 
@@ -16,7 +16,85 @@ It's been almost nine months since I automated data upload to Algolia using the 
 
 {{< toc >}}
 
-### data-upload.py
+### package.json
+
+```json
+{
+  "name": "algolia-helper",
+  "version": "1.0.0",
+  "description": "Algolia helper for sending and managing data",
+  "dependencies": {
+    "algoliasearch": "^4.8.5",
+    "jsonfile": "^6.1.0",
+    "yargs": "^16.2.0"
+  },
+  "scripts": {
+    "data-upload": "node data-upload.js"
+  },
+  "author": "Igor Baiborodine",
+  "license": "ISC"
+}
+```
+
+### data-upload.js
+
+```javascript
+const argv = require("yargs/yargs")(process.argv.slice(2))
+  .boolean("c").alias("c", "clear-index").describe("c", "Clear Algolia index before upload")
+  .alias("f", "index-file").nargs("f", 1).describe("f", "Index file to upload to Algolia")
+  .alias("a", "app-id").nargs("a", 1).describe("a", "Algolia application ID")
+  .alias("k", "admin-api-key").nargs("k", 1).describe("k", "Algolia admin API key")
+  .alias("n", "index-name").nargs("n", 1).describe("n", "Algolia index name")
+  .alias("u", "base-url").nargs("u", 1).describe("u", "Site base URL")
+  .demandOption(["f", "a", "k", "n"])
+  .help("h")
+  .alias("h", "help")
+  .argv;
+
+const algoliaSearch = require("algoliasearch");
+const client = algoliaSearch(argv["app-id"], argv["admin-api-key"]);
+const algoliaIndex = client.initIndex(argv["index-name"]);
+const jsonfile = require("jsonfile");
+
+const replaceBaseUrl = (indices) => {
+  indices.forEach(index => {
+    let offset = -2;
+    if (index["type"] === "article") {
+      offset = -3;
+    }
+    let tokens = index["url"].split("/").slice(offset);
+    index["url"] = argv["base-url"] + "/" + tokens.join("/");
+  });
+}
+
+const saveObjects = () => {
+  jsonfile.readFile(argv["index-file"], function (err, indices) {
+    if (err) {
+      console.error(err);
+    } else {
+      if (argv["base-url"]) {
+        replaceBaseUrl(indices);
+      }
+      algoliaIndex.saveObjects(indices).then(() => {
+        console.log("Uploaded data to index %s", argv["index-name"]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  })
+};
+
+if (argv["clear-index"]) {
+  algoliaIndex.clearObjects().then(() => {
+    console.log("Cleared data from index %s", argv["index-name"]);
+    saveObjects();
+  });
+} else {
+  saveObjects();
+}
+```
+
 ### run-data-upload.sh
 ### Configuration Files
 ### netlify.toml
