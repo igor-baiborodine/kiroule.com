@@ -104,3 +104,5 @@ if (argv["clear-index"]) {
 ### netlify.toml
 ### Netlify Configuration
 
+Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+{{< series "Building Your Blog, the Geeky Way" >}}
