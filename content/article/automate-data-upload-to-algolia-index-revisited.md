@@ -18,6 +18,8 @@ The main reason was to use the same build tools that are used to develop Hugo-ba
 
 Since Netlify's [Ubuntu image](https://github.com/netlify/build-image/blob/v3.7.0/Dockerfile) also comes with node.js and npm preinstalled, the script that reads and pushes index data could easily be rewritten using Algolia API's [JavaScript client](https://github.com/algolia/algoliasearch-client-javascript). The wrapper shell script can be bridged with the new JavaScript implementation using npm. All the above does not affect the configuration of the indices in Algolia and website configuration files located in the `config` directory.
 
+Below are the details of the new implementation. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/automate-index-upload-revisited).
+
 {{< toc >}}
 
 ### package.json
