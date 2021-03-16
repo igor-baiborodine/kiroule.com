@@ -16,7 +16,7 @@ It's been almost nine months since I automated data upload to Algolia using the 
 
 The main reason was to use the same build tools that are used to develop Hugo-based themes. Back then, when Hugo didn't have a built-in asset pipeline, it was natural to use npm for asset bundling, minification, fingerprinting, etc. After actively contributing to the Bilberry Hugo theme, which also uses npm, and gaining some valuable experience, I thought it would be practical to align the data upload with the main stack tools.
 
-Since Netlify's [Ubuntu image](https://github.com/netlify/build-image/blob/v3.7.0/Dockerfile) also comes with node.js and npm preinstalled, the script that reads and pushes index data could easily be rewritten using Algolia API's [JavaScript client](https://github.com/algolia/algoliasearch-client-javascript).
+Since Netlify's [Ubuntu image](https://github.com/netlify/build-image/blob/v3.7.0/Dockerfile) also comes with node.js and npm preinstalled, the script that reads and pushes index data could easily be rewritten using Algolia API's [JavaScript client](https://github.com/algolia/algoliasearch-client-javascript). The wrapper shell script can be bridged with the new JavaScript implementation using npm. All the above does not affect the configuration of the indices in Algolia and website configuration files located in the `config` directory.
 
 {{< toc >}}
 
