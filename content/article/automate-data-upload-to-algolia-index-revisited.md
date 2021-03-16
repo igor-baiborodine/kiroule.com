@@ -18,29 +18,9 @@ The main reason was to use the same build tools that are used to develop Hugo-ba
 
 Since Netlify's [Ubuntu image](https://github.com/netlify/build-image/blob/v3.7.0/Dockerfile) also comes with node.js and npm preinstalled, the script that reads and pushes index data could easily be rewritten using Algolia API's [JavaScript client](https://github.com/algolia/algoliasearch-client-javascript). The wrapper shell script can be bridged with the new JavaScript implementation using npm. All the above does not affect the configuration of the indices in Algolia and website configuration files located in the `config` directory.
 
-Below are the details of the new implementation. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/automate-index-upload-revisited).
+Below you can learn more about the new implementation. The source code is available [here](https://github.com/igor-baiborodine/kiroule.com/tree/automate-index-upload-revisited).
 
 {{< toc >}}
-
-### package.json
-
-```json
-{
-  "name": "algolia-helper",
-  "version": "1.0.0",
-  "description": "Algolia helper for sending and managing data",
-  "dependencies": {
-    "algoliasearch": "^4.8.5",
-    "jsonfile": "^6.1.0",
-    "yargs": "^16.2.0"
-  },
-  "scripts": {
-    "data-upload": "node data-upload.js"
-  },
-  "author": "Igor Baiborodine",
-  "license": "ISC"
-}
-```
 
 ### data-upload.js
 
@@ -98,6 +78,28 @@ if (argv["clear-index"]) {
   });
 } else {
   saveObjects();
+}
+```
+
+### package.json
+
+To install dependencies and execute the `data-upload.js` script from within the `run-data-upload.sh` wrapper script, I added a `package.json` file containing definitions for a script command and required packages for the `data-upload.js`.
+
+```json
+{
+  "name": "algolia-helper",
+  "version": "1.0.0",
+  "description": "Algolia helper for sending and managing data",
+  "dependencies": {
+    "algoliasearch": "^4.8.5",
+    "jsonfile": "^6.1.0",
+    "yargs": "^16.2.0"
+  },
+  "scripts": {
+    "data-upload": "node data-upload.js"
+  },
+  "author": "Igor Baiborodine",
+  "license": "ISC"
 }
 ```
 
