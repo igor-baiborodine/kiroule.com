@@ -24,6 +24,10 @@ Below you can learn more about the new implementation. The source code is availa
 
 ### data-upload.js
 
+To clear the corresponding Algolia index before starting a new upload, I added a new option: `-c` or `--clear-index`.  Also, I ran into a bug in the code that replaces the base URL in the `url` index field value when the `--base-url` option is specified.
+
+In the course of the initial implementation, I overlooked the fact that the `url` index field value for articles is created differently from the `url` for tags, categories, and authors during the generation of the `index.json` file, namely, the `url` for articles ends with a `/`. To deal with this discrepancy, I had to introduce a variable to offset the slicing of tokens obtained as a result of splitting on `/` the original `url` value.
+
 ```javascript
 const argv = require("yargs/yargs")(process.argv.slice(2))
   .boolean("c").alias("c", "clear-index").describe("c", "Clear Algolia index before upload")
@@ -79,6 +83,27 @@ if (argv["clear-index"]) {
 } else {
   saveObjects();
 }
+```
+
+To test this script in your local dev, execute the following commands in the site's root:
+
+```shell
+# install dependencies: algoliasearch, jsonfile, yargs
+$ npm install "algolia"
+
+# generate public/index.json with index data
+$ hugo
+
+# clear Algolia index and push data
+$ npm --prefix "algolia" run data-upload -- \ 
+    -c \
+    -f public/index.json \
+    -a <algolia-app-id> \
+    -k <algolia-admin-api-key> \
+    -n <algolia-index-name> \
+    # specify this option 
+    # if you use a separate Algolia index for your local dev
+    -u http://localhost:1313 
 ```
 
 ### package.json
