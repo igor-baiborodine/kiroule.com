@@ -26,7 +26,7 @@ Below you can learn more about the new implementation. The source code is availa
 
 To clear the corresponding Algolia index before starting a new upload, I added a new option: `-c` or `--clear-index`.  Also, I ran into a bug in the code that replaces the base URL in the `url` index field value when the `--base-url` option is specified.
 
-In the course of the initial implementation, I overlooked the fact that the `url` index field value for articles is created differently from the `url` for tags, categories, and authors during the generation of the `index.json` file, namely, the `url` for articles ends with a `/`. To deal with this discrepancy, I had to introduce a variable to offset the slicing of tokens obtained as a result of splitting on `/` the original `url` value.
+In the course of the initial implementation, I overlooked the fact that the `url` index field value for articles is created differently from the `url` value for tags, categories, and authors during the generation of the `index.json` file, namely, the `url` for articles ends with a `/`. To deal with this discrepancy, I had to introduce a variable to offset the slicing of tokens obtained as a result of splitting on `/` the original `url` value.
 
 ```javascript
 const argv = require("yargs/yargs")(process.argv.slice(2))
@@ -102,7 +102,7 @@ $ npm --prefix "algolia" run data-upload -- \
     -k <algolia-admin-api-key> \
     -n <algolia-index-name> \
     # specify this option 
-    # if you use a separate Algolia index for your local dev
+    # if you use a separate Algolia index for the local dev
     -u http://localhost:1313 
 ```
 
@@ -168,8 +168,42 @@ npm --prefix "algolia" run data-upload -- -c \
 ```
 
 ### Configuration Files
+
+The site configuration files have not changed.
+
 ### netlify.toml
+
+In the build command,  the Python-based wrapper script was replaced with the npm-based one. Also, I removed the `-u $DEPLOY_PRIME_URL` option for `run-data-upload-js.sh` script from the build command in the dev deployment context. Obviously, when the `-b $DEPLOY_PRIME_URL` flag is specified for the`hugo` command, the values of the `url` index field in the `public/ index.json` file will contain the base URL corresponding to the dev deployment context and not to the production one.
+
+```toml
+[build]
+  publish = "public"
+  command = "hugo"
+
+# URL: https://kiroule.com/
+[context.production.environment]
+  HUGO_VERSION = "0.72.0"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+  # Algolia index name is needed to execute algolia/run-data-upload-js.sh
+  ALGOLIA_INDEX_NAME = "prod_kiroule"
+
+[context.production]
+  command = "hugo && algolia/run-data-upload-js.sh -p"
+
+# URL: https://dev--kiroule.netlify.app/
+[context.dev.environment]
+  HUGO_VERSION = "0.72.0"
+  # Algolia index name is needed to execute algolia/run-data-upload-js.sh
+  ALGOLIA_INDEX_NAME = "dev_kiroule"
+
+[context.dev]
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL && algolia/run-data-upload-js.sh -p"
+```
+
 ### Netlify Configuration
+
+The Netlify site configuration has not changed.
 
 Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}
