@@ -85,7 +85,7 @@ if (argv["clear-index"]) {
 }
 ```
 
-To test this script in your local dev, execute the following commands in the site's root:
+This script can be tested in the local dev by executing the following commands in the site's root:
 
 ```shell
 # install dependencies: algoliasearch, jsonfile, yargs
@@ -130,14 +130,17 @@ To install dependencies and execute the `data-upload.js` script from within the 
 
 ### run-data-upload.sh
 
+To adapt this wrapper script to use npm, I made the following adjustments: 
+1. `pip install --upgrade 'algoliasearch>=2.0,<3.0'` was replaced with `npm install "algolia"` 
+2. `python algolia/data-upload.py` was replaced with `npm --prefix "algolia" run data-upload --  -c` 
+
 ```shell
 #!/usr/bin/env bash
 
 while getopts "pf:a:k:n:u:" opt; do
   case $opt in
   # netlify
-  p)
-    npm install "algolia"
+  p) npm install "algolia"
     # Environment variables below (except PWD) should be configured
     # in the section 'Build & deploy/Environment variables' of your site in Netlify;
     # Alternatively, the ALGOLIA_INDEX_NAME variable can be defined in the netlify.toml file.
@@ -147,24 +150,12 @@ while getopts "pf:a:k:n:u:" opt; do
     index_name="$ALGOLIA_INDEX_NAME"
     ;;
   # local dev
-  f)
-    index_file="$OPTARG"
-    ;;
-  a)
-    app_id="$OPTARG"
-    ;;
-  k)
-    admin_api_key="$OPTARG"
-    ;;
-  n)
-    index_name="$OPTARG"
-    ;;
-  u)
-    base_url="$OPTARG"
-    ;;
-  \?)
-    echo "Invalid option: -$OPTARG" >&2
-    ;;
+  f) index_file="$OPTARG" ;;
+  a) app_id="$OPTARG" ;;
+  k) admin_api_key="$OPTARG" ;;
+  n) index_name="$OPTARG" ;;
+  u) base_url="$OPTARG" ;;
+  \?) echo "Invalid option: -$OPTARG" >&2 ;;
   esac
 done
 
