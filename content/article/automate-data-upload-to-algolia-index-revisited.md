@@ -24,9 +24,9 @@ Below you can learn more about the new implementation. The source code is availa
 
 ### data-upload.js
 
-To clear the corresponding Algolia index before starting a new upload, I added a new option: `-c` or `--clear-index`.  Also, I ran into a bug in the code that replaces the base URL in the `url` index field value when the `--base-url` option is specified.
+To clear the corresponding Algolia index before starting a new upload, I added the `-c` or `--clear-index` option.  Also, I ran into a bug in the code that replaces the base URL in the `url` index field value when the `--base-url` option is specified.
 
-In the course of the initial implementation, I overlooked the fact that the `url` index field value for articles is created differently from the `url` value for tags, categories, and authors during the generation of the `index.json` file, namely, the `url` for articles ends with a `/`. To deal with this discrepancy, I had to introduce a variable to offset the slicing of tokens obtained as a result of splitting on `/` the original `url` value.
+In the course of the initial implementation, I missed the fact that the `url` index field value for articles is created differently from the `url` value for tags, categories, and authors during the generation of the `index.json` file, specifically, the `url` for articles ends with a `/`. To deal with this discrepancy, I had to introduce a variable to offset the slicing of tokens obtained as a result of splitting on `/` the original `url` value.
 
 ```javascript
 const argv = require("yargs/yargs")(process.argv.slice(2))
@@ -173,7 +173,7 @@ The site configuration files have not changed.
 
 ### netlify.toml
 
-In the build command,  the Python-based wrapper script was replaced with the npm-based one. Also, I removed the `-u $DEPLOY_PRIME_URL` option for `run-data-upload-js.sh` script from the build command in the dev deployment context. Obviously, when the `-b $DEPLOY_PRIME_URL` flag is specified for the`hugo` command, the values of the `url` index field in the `public/ index.json` file will contain the base URL corresponding to the dev deployment context and not to the production one.
+In the build command,  the Python-based wrapper script was replaced with the npm-based one. Also, I removed the `-u $DEPLOY_PRIME_URL` option for `run-data-upload-js.sh` script from the build command in the dev deployment context. Obviously, when the `-b $DEPLOY_PRIME_URL` flag is specified for the `hugo` command, the values of the `url` index field in the `public/index.json` file will contain the base URL corresponding to the dev deployment context and not to the production one.
 
 ```toml
 [build]
@@ -204,6 +204,8 @@ In the build command,  the Python-based wrapper script was replaced with the npm
 ### Netlify Configuration
 
 The Netlify site configuration has not changed.
+
+And to conclude this post, I want to note that this was my first real experience of task automation using npm. I hope that the new JavaScript/npm solution will perform well and be as good as the Python-based implementation.
 
 Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
 {{< series "Building Your Blog, the Geeky Way" >}}
