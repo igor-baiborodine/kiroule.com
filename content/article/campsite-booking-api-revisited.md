@@ -1,5 +1,5 @@
 ---
-title: "Campsite Booking API Revisited"
+title: "Campsite Booking API: Revisited"
 date: 2021-02-03T08:00:01-05:00
 
 categories: [Blog, Write-Up]
@@ -73,7 +73,7 @@ To exclude certain Java classes (like DTOs or model classes) from scanning, you 
 
 After generating an access token in the `Security` section of `My Account` at [sonarcloud.io](https://sonarcloud.io), you can launch the scanning with the following command:
 ```shell script
-$ mvn clean verfify sonar:sonar -Dsonar.login=<SONAR_TOKEN> -Pcoverage
+$ mvn clean verify sonar:sonar -Dsonar.login=<SONAR_TOKEN> -Pcoverage
 ```
 
 ### Code Enhancements
