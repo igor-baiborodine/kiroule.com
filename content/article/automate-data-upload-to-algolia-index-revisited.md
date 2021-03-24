@@ -85,17 +85,19 @@ if (argv["clear-index"]) {
 }
 ```
 
-This script can be tested in the local dev by executing the following commands in the site's root:
+This script can be tested in the local dev by executing the following commands from within the `algolia` folder:
 
 ```shell
+$ cd algolia
+
 # install dependencies: algoliasearch, jsonfile, yargs
-$ npm install "algolia"
+$ npm install
 
 # generate public/index.json with index data
 $ hugo
 
 # clear Algolia index and push data
-$ npm --prefix "algolia" run data-upload -- \ 
+$ npm run data-upload -- \ 
     -c \
     -f public/index.json \
     -a <algolia-app-id> \
