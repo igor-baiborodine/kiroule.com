@@ -14,7 +14,7 @@ Originally the Campsite Booking API project was a coding challenge for a develop
 
 The initial task was to develop a Spring Boot-based REST API that meets the system requirements outlined in this [README](https://github.com/igor-baiborodine/campsite-booking/blob/master/README.md). In 2019, I switched from Java software development to DevOps and worked in this field for a year and a half. During this period, I mainly developed and maintained CI/CD pipelines using Jenkins and Azure DevOps. So when I came back to this project two years later, the main goal was to complement it from a DevOps perspective, particularly containerization and CI/CD.
 
-Let's look at what was accomplished in more detail. The source code is available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v2.0.8).
+Let's look at what was accomplished in more detail. The source code is available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v2.0.9).
 
 {{< toc >}}
 
@@ -77,7 +77,7 @@ $ mvn clean verify sonar:sonar -Dsonar.login=<SONAR_TOKEN> -Pcoverage
 ```
 
 ### Code Enhancements
-The SonarCloud scanning revealed some code smells and vulnerabilities. After [fixing](https://github.com/igor-baiborodine/campsite-booking/commit/0bdac033c620b82c2cf22fb353c4907f1ac1c485) code smells, I addressed the main vulnerability, which was detected in the `BookingController` class: persistent entities were used as arguments of `@RequestMapping` methods.  I overlooked this during the initial implementation, and it was [corrected](https://github.com/igor-baiborodine/campsite-booking/commit/46a46a14c45fcbfe307d479948b529c098017bc4) by replacing the `Booking` persistent entity with the `BookingDTO` object. Also, I [improved](https://github.com/igor-baiborodine/campsite-booking/commit/e3720315eac4929a16233fc708cbdd1078bff2dc) the test coverage, which is now at [88.2%](https://sonarcloud.io/component_measures/metric/coverage/list?id=igor-baiborodine_campsite-booking).
+The SonarCloud scanning revealed some code smells and vulnerabilities. After [fixing](https://github.com/igor-baiborodine/campsite-booking/commit/0bdac033c620b82c2cf22fb353c4907f1ac1c485) code smells, I addressed the main vulnerability, which was detected in the `BookingController` class: persistent entities were used as arguments of `@RequestMapping` methods.  I overlooked this during the initial implementation, and it was [corrected](https://github.com/igor-baiborodine/campsite-booking/commit/46a46a14c45fcbfe307d479948b529c098017bc4) by replacing the `Booking` persistent entity with the `BookingDTO` object. Also, I [improved](https://github.com/igor-baiborodine/campsite-booking/commit/e3720315eac4929a16233fc708cbdd1078bff2dc) the test coverage, which is now at [89.1%](https://sonarcloud.io/component_measures/metric/coverage/list?id=igor-baiborodine_campsite-booking).
 
 Another significant improvement was UUID's introduction for the `Booking` entity while keeping the database's ID. The main advantage here is that entity's unique ID can be created without connecting to the database. You can read more on the pros and cons of using UUID vs. database ID in this Stackoverflow [thread](https://stackoverflow.com/questions/45399/advantages-and-disadvantages-of-guid-uuid-database-keys).
 
@@ -245,7 +245,7 @@ jobs:
 
   sonar:
     name: SonarCloud Scan
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     needs: [ test ]
 
     steps:
@@ -263,7 +263,7 @@ jobs:
 ```
 
 #### Master Branch
-This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains only the Snapshot Publishing job, which will package a snapshot JAR and upload it to the GitHub Packages. 
+This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains the Snapshot Publishing job, which will package a snapshot JAR and upload it to the GitHub Packages, and the SonarCloud job.
 ```yaml
 name: Build Master Branch
 
@@ -273,6 +273,24 @@ on:
       - 'master'
 
 jobs:
+  jobs:
+  sonar:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run SonarCloud scan
+        run: mvn -B clean verify sonar:sonar -Pcoverage -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
   snapshot:
     name: Snapshot Publishing
     runs-on: ubuntu-latest
