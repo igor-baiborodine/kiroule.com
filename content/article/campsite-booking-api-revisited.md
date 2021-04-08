@@ -245,7 +245,7 @@ jobs:
 
   sonar:
     name: SonarCloud Scan
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     needs: [ test ]
 
     steps:
@@ -263,7 +263,7 @@ jobs:
 ```
 
 #### Master Branch
-This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains only the Snapshot Publishing job, which will package a snapshot JAR and upload it to the GitHub Packages. 
+This is also an automatic workflow, and it runs whenever a commit is pushed to the master branch. It contains the Snapshot Publishing job, which will package a snapshot JAR and upload it to the GitHub Packages, and the SonarCloud job.
 ```yaml
 name: Build Master Branch
 
@@ -273,6 +273,24 @@ on:
       - 'master'
 
 jobs:
+  jobs:
+  sonar:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run SonarCloud scan
+        run: mvn -B clean verify sonar:sonar -Pcoverage -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
   snapshot:
     name: Snapshot Publishing
     runs-on: ubuntu-latest
