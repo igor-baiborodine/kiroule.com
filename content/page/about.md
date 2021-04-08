@@ -15,6 +15,6 @@ target: "_blank"
 
 ### Igor Baiborodine
 
-I am a full-stack enthusiast interested in Java/Python programming, JAMstack, and DevOps. You can find more detailed information about my professional experience in my [LinkedIn profile](https://www.linkedin.com/in/igorbaiborodine).
+I am a full-stack enthusiast interested in Java/Python programming, Jamstack, and DevOps. You can find more detailed information about my professional experience in my [LinkedIn profile](https://www.linkedin.com/in/igorbaiborodine).
 
 This blog is mostly about my software development/DevOps adventures. You can find here various how-tos, tutorials, and write-ups about my personal project experiences. In case you need to contact me, please email at [igor@kiroule.com](mailto:igor@kiroule.com).
