@@ -43,8 +43,8 @@ jobs:
           paths:
             - ~/.m2
           key: vaadin-demo-bakery-app-{{ checksum "pom.xml" }}
-      - run: mvn com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -DnodeVersion="v10.16.0"
-      - run: mvn clean package
+      - run: mvn -B com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -DnodeVersion="v10.16.0"
+      - run: mvn -B clean package -Pproduction
 ```
 
 #### GitHub Actions - Build
@@ -90,6 +90,8 @@ jobs:
 ```
 
 #### GitHub Actions - Release
+This manual workflow allows creating a release for every quarterly source code update. It consists of two jobs: `Tag Release` and `Docker Image`. The `Tag Release` job, based on the [github-tagger](https://github.com/tvdias/github-tagger) action, will mark the release point by tagging the last commit in the master branch
+
 ```yaml
 name: Perform Release
 on:
