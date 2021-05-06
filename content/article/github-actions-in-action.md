@@ -44,21 +44,11 @@ jobs:
             - ~/.m2
           key: vaadin-demo-bakery-app-{{ checksum "pom.xml" }}
       - run: mvn com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -DnodeVersion="v10.16.0"
-      - run: mvn package
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
-          when: always
-      - store_test_results:
-          path: ~/test-results
-      - store_artifacts:
-          path: ~/test-results/junit 
+      - run: mvn clean package
 ```
 
 #### GitHub Actions - Build
-This automatic workflow replaced the original one, and it differs in that this new workflow is launched not only for every commit to the master branch but also whenever a new pull request to the master is open. Also, instead of using the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) plugin to install Node.js and npm, I opted for using the [setup-node]( https://github.com/actions/setup-node) action.
+This new automatic workflow replaced the original one, and it differs in that this new workflow is launched not only for every commit to the master branch but also whenever a new pull request to the master is open. Also, instead of using the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) plugin to install Node.js and npm, I opted for using the [setup-node]( https://github.com/actions/setup-node) action.
 
 ```yaml
 name: Build Project
