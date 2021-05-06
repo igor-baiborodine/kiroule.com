@@ -20,10 +20,11 @@ Back then, when GitHub couldn't offer full support for CI/CD pipelines, I opted 
 Earlier, I've already described how I replaced Travis CI with GitHub Actions for this project. You can read about that in this [post](/article/campsite-booking-api-revisited/#cicd-workflows).
 
 ### Vaadin Demo Apps
-I have two GitHub repositories that contain the source code of Vaadin demo applications, namely [Bakery app](https://vaadin.com/docs/v14/guide/starters/bakeryflow/overview) and [Business app](https://vaadin.com/docs/v14/guide/starters/business-app/overview). The source code in these repositories is generated using Vaadin's App Starter(https://vaadin.com/start). In the past, I used to update the code twice a year when I had time, but this year I decided to make updates and releases on a quarterly basis.
+I have two GitHub repositories that contain the source code of Vaadin demo applications, namely [Bakery App](https://vaadin.com/docs/v14/guide/starters/bakeryflow/overview) and [Business App](https://vaadin.com/docs/v14/guide/starters/business-app/overview). The source code in these repositories is generated using [Vaadin's App Starter](https://vaadin.com/start). In the past, I used to update the code twice a year when I had time, but this year I decided to make updates and releases on a quarterly basis. The source code for the Bakery and Business applications can be found [here](https://github.com/igor-baiborodine/vaadin-demo-bakery-app) and [here](https://github.com/igor-baiborodine/vaadin-demo-business-app), respectively.
 
 #### CircleCI - Build
-The original CI workflow for both projects was implemented using CircleCI. Below is the `config.yml` for the `vaadin-demo-bakery-app` repository.  
+The original CI workflow for both projects was implemented using CircleCI. It was an automatic workflow that was executed whenever a commit was pushed to the master branch. Below is the `config.yml` for the `vaadin-demo-bakery-app` repository.
+
 ```yaml
 version: 2 # use CircleCI 2.0
 jobs: 
@@ -57,6 +58,8 @@ jobs:
 ```
 
 #### GitHub Actions - Build
+This automatic workflow replaced the original one, and it differs in that this new workflow is launched not only for every commit to the master branch but also whenever a new pull request to the master is open. Also, instead of using the `frontend-maven-plugin` plugin to install Node.js and npm, I opted for using the [setup-node action]( https://github.com/actions/setup-node).
+
 ```yaml
 name: Build Project
 on:
