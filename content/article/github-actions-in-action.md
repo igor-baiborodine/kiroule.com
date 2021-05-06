@@ -58,7 +58,7 @@ jobs:
 ```
 
 #### GitHub Actions - Build
-This automatic workflow replaced the original one, and it differs in that this new workflow is launched not only for every commit to the master branch but also whenever a new pull request to the master is open. Also, instead of using the `frontend-maven-plugin` plugin to install Node.js and npm, I opted for using the [setup-node action]( https://github.com/actions/setup-node).
+This automatic workflow replaced the original one, and it differs in that this new workflow is launched not only for every commit to the master branch but also whenever a new pull request to the master is open. Also, instead of using the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) plugin to install Node.js and npm, I opted for using the [setup-node]( https://github.com/actions/setup-node) action.
 
 ```yaml
 name: Build Project
