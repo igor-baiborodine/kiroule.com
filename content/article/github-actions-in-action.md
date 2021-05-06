@@ -23,7 +23,7 @@ Earlier, I've already described how I replaced Travis CI with GitHub Actions for
 I have two GitHub repositories that contain the source code of Vaadin demo applications, namely [Bakery App](https://vaadin.com/docs/v14/guide/starters/bakeryflow/overview) and [Business App](https://vaadin.com/docs/v14/guide/starters/business-app/overview). The source code in these repositories is generated using [Vaadin's App Starter](https://vaadin.com/start). In the past, I used to update the code twice a year when I had time, but this year I decided to make updates and releases on a quarterly basis. The source code for the Bakery and Business applications can be found [here](https://github.com/igor-baiborodine/vaadin-demo-bakery-app) and [here](https://github.com/igor-baiborodine/vaadin-demo-business-app), respectively.
 
 #### CircleCI - Build
-The original CI workflow for both projects was implemented using CircleCI. It was an automatic workflow that was executed whenever a commit was pushed to the master branch. Below is the `config.yml` for the `vaadin-demo-bakery-app` repository.
+The original continuous integration workflow for both projects was implemented using CircleCI. It was an automatic workflow that was executed whenever a commit was pushed to the master branch. Below is the `config.yml` for the `vaadin-demo-bakery-app` repository.
 
 ```yaml
 version: 2 # use CircleCI 2.0
