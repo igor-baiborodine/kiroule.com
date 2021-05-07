@@ -150,4 +150,104 @@ jobs:
           docker push $IMAGE_NAME:latest
 ```
 
+The `Release Version` parameter value should be provided before executing the release workflow:
+
+![GitHub Actions Perform Release](/img/content/article/github-actions-in-action/github-actions-perform-release-bakery-app.png)
+
 ### Docker Liferay Portal CE
+
+#### Travis CI - .travis.yml
+```yaml
+language: bash
+services: docker
+branches:
+  only:
+    master
+
+env:
+  global:
+  - secure: mAQiO76xNoUi0DQ3NKSx/DonUuWWwq0G3ulCydIeGoyWS74yxQ0IMy+4AwSmP/u08XZlXnyTNiCg1+qpw2C53ZstuCEug/NP8EWnIqMU7UDPOdHNYSbm0T7OuoYiocZFw54ELvHg+qhOdPrYI3aq/04o0F1sGMQH8n+AwHzZcxFH6UZv1XtqmG7nDc+F6+26xdx2OH1p9JajqQK9gtoehH7cpxs8fibT3GKUgwSKM2bvCxvXT1vIYtl1S3TGQu9Pd2mVSpt32HVpgfj5PQyRdfCgBHVCVYszxNW+NrhrjzXgrGr5OPSSAwkcI8R6NT4GtW0N1FDhRLbb1J1eq0W6MhpIHIIKC2NdMo870AgnhUjZ3QqJVG3yfqWpbPOrNi0WqyusRygPWI9lAY6BdmpJwUmNaIP9DdX6LR6Zua+wEuFCVFWr11N/qOc58Do6MfXFAHfbNU0p5LGHAwrjdpJN7+XHyTjgVBbQwYdx3GaRzx0P3VdSfgJVhoCNaKSOCbC/fhgJJfdbKYycLxOIZ9HH39lDs3sw9Yh5MsPgK3oMDsiuG2GmUUz5dpmr3C70+nkeA+YHv6+ScoP2JNIaMqx3cDWABI3B5UvPb+wFAasOmKenIvd082OeUKcFkoAGBRExyOc/J1S5Gc+sDyIlcHy5HSvTDLpvgyNpAbMdGvbV+n8=
+  matrix:
+    - VERSION=7.3.2-ga3 VARIANT=jdk11-buster
+
+install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - git clone https://github.com/docker-library/official-images.git ~/official-images
+
+before_script:
+  - image="$DOCKER_USERNAME/liferay-portal-ce:$VERSION-$VARIANT"
+  - latest_image="$DOCKER_USERNAME/liferay-portal-ce:latest"
+
+script:
+  - |
+    (
+      set -Eeuo pipefail
+      set -x
+      docker build -t "$image" ./"$VERSION/$VARIANT"
+      ~/official-images/test/run.sh "$image"
+      docker push "$image"
+      docker tag "$image" "$latest_image"
+      docker push "$latest_image"
+      ./script/generate-readme.sh -t "$VERSION/$VARIANT" -c "$TRAVIS_COMMIT"
+      git status
+    )
+after_success:
+  - docker images
+  - ./script/push-remote.sh
+```
+
+#### GitHub Actions - Release
+
+```yaml
+name: Perform Release
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: Release Version
+        required: true
+
+env:
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}
+  IMAGE_TAG:  ${{ github.event.inputs.releaseVersion }}
+
+jobs:
+  release:
+    name: Dockerfile & Docker Image & README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v2
+
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Release Dockerfile
+        run: |
+          ./script/release-dockerfile.sh -t "$IMAGE_TAG"
+
+      - name: Check out docker-library/official-images
+        run: |
+          git clone https://github.com/docker-library/official-images.git ../official-images
+
+      - name: Build image
+        run: |
+          docker build -t $IMAGE_NAME:"${IMAGE_TAG//\//-}" ./"$IMAGE_TAG"
+          ../official-images/test/run.sh $IMAGE_NAME:"${IMAGE_TAG//\//-}"
+          docker tag $IMAGE_NAME:"${IMAGE_TAG//\//-}" $IMAGE_NAME:latest
+
+      - name: Log into registry
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Push image
+        run: |
+          docker push $IMAGE_NAME:"${IMAGE_TAG//\//-}"
+          docker push $IMAGE_NAME:latest
+
+      - name: Generate README
+        run: |
+          ./script/generate-readme.sh -t "$IMAGE_TAG" -c "$(git rev-parse HEAD)"
+```
