@@ -1,6 +1,6 @@
 ---
 title: "GitHub Actions in Action"
-date: 2021-04-20T07:11:44-04:00
+date: 2021-05-07T07:11:44-04:00
 
 categories: [CICD, Write-up]
 tags: [GitHub Actions, Docker]
@@ -90,7 +90,11 @@ jobs:
 ```
 
 #### GitHub Actions - Release
-This manual workflow allows creating a release for every quarterly source code update. It consists of two jobs: `Tag Release` and `Docker Image`. The `Tag Release` job, based on the [github-tagger](https://github.com/tvdias/github-tagger) action, will mark the release point by tagging the last commit in the master branch
+This manual workflow allows creating a release for every quarterly source code update. It consists of two jobs: `Tag Release` and `Docker Image`. The `Tag Release` job, based on the [github-tagger](https://github.com/tvdias/github-tagger) action, will mark the release point by tagging the last commit in the master branch. Unlike the Campsite Booking API project, where I used the [Maven Release](https://maven.apache.org/maven-release/maven-release-plugin/) plugin to make a release, here I took a simplified release approach, namely the simple tagging of the master branch.
+
+As for the release versioning, I chose a numbering system based on [Calendar Versioning](https://calver.org/). In addition, the version number is supplemented by the Vaadin version. So, for example, version number `2021.1-14.5` means that the release was made in the spring of 2021, and the Vaadin version used to generate the source code was `14.5`.
+
+The successful completion of the `Tag Release` job is a prerequisite for the `Docker Image` job's subsequent execution when a Docker image is built and published on Docker Hub. The corresponding Dockerfiles can be found [here](https://github.com/igor-baiborodine/vaadin-demo-bakery-app/blob/master/Dockerfile) and [here](https://github.com/igor-baiborodine/vaadin-demo-business-app/blob/master/Dockerfile).
 
 ```yaml
 name: Perform Release
@@ -144,15 +148,6 @@ jobs:
         run: |
           docker push $IMAGE_NAME:$IMAGE_TAG
           docker push $IMAGE_NAME:latest
-```
-
-#### Dockerfile - Bakery App
-```dockerfile
-
-```
-#### Dockerfile - Business App
-```dockerfile
-
 ```
 
 ### Docker Liferay Portal CE
