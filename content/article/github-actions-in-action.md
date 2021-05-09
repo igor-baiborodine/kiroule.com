@@ -155,8 +155,19 @@ The `Release Version` parameter value should be provided before executing the re
 ![GitHub Actions Perform Release](/img/content/article/github-actions-in-action/github-actions-perform-release-bakery-app.png)
 
 ### Docker Liferay Portal CE
+The original continuous delivery workflow was implemented using Travis CI and was executed in the following order:
+1. In the local dev, run the `release-dockerfile.sh` script for the new version/variant.
+2. Commit and push changes to the remote, i.e., GitHub.
+3. The new commit to the master will trigger a new job on Travis CI.
+4. The job on Travis CI will do the following: \
+   &nbsp;&nbsp;&nbsp;&nbsp;-- build a new image \
+   &nbsp;&nbsp;&nbsp;&nbsp;-- runs tests \
+   &nbsp;&nbsp;&nbsp;&nbsp;-- tag and push the new image to Docker Hub \
+   &nbsp;&nbsp;&nbsp;&nbsp;-- update README and supported-tags files \
+   &nbsp;&nbsp;&nbsp;&nbsp;-- commit and push back changes to GitHub 
+5. In the local dev, pull the changes from the remote and repeat the above steps for the next variant.
 
-#### Travis CI - .travis.yml
+#### Travis CI - Release
 ```yaml
 language: bash
 services: docker
