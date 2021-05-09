@@ -156,7 +156,7 @@ The `Release Version` parameter value should be provided before executing the re
 
 ### Docker Liferay Portal CE
 The original continuous delivery workflow was implemented using Travis CI and was executed in the following order:
-1. In the local dev, run the `release-dockerfile.sh` script for the new version/variant.
+1. In the local dev, run the [release-image.sh](https://github.com/igor-baiborodine/docker-liferay-portal-ce/blob/a3d850e3916e94790f3becd13991398fe6baaf05/script/release-image.sh) script for the new version/variant.
 2. Commit and push changes to the remote, i.e., GitHub.
 3. The new commit to the master will trigger a new job on Travis CI.
 4. The job on Travis CI will do the following: \
@@ -170,6 +170,8 @@ The original continuous delivery workflow was implemented using Travis CI and wa
 As you can see, this workflow was not fully automated as I had to go through some manual steps in my local dev. Therefore, when switching to GitHub Actions, the goal was to fully automate the workflow.
 
 #### Travis CI - Release
+Below is the original `.travis.yml` file. Every time the `release-image.sh` script was executed in the local dev, the build matrix's `VERSION` and `VARIANT` properties were updated with the supplied values.
+
 ```yaml
 language: bash
 services: docker
