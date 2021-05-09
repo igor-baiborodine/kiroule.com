@@ -161,11 +161,13 @@ The original continuous delivery workflow was implemented using Travis CI and wa
 3. The new commit to the master will trigger a new job on Travis CI.
 4. The job on Travis CI will do the following: \
    &nbsp;&nbsp;&nbsp;&nbsp;-- build a new image \
-   &nbsp;&nbsp;&nbsp;&nbsp;-- runs tests \
+   &nbsp;&nbsp;&nbsp;&nbsp;-- run tests \
    &nbsp;&nbsp;&nbsp;&nbsp;-- tag and push the new image to Docker Hub \
    &nbsp;&nbsp;&nbsp;&nbsp;-- update README and supported-tags files \
    &nbsp;&nbsp;&nbsp;&nbsp;-- commit and push back changes to GitHub 
 5. In the local dev, pull the changes from the remote and repeat the above steps for the next variant.
+
+As you can see, this workflow was not fully automated as I had to go through some manual steps in my local dev. Therefore, when switching to GitHub Actions, the goal was to fully automate the workflow.
 
 #### Travis CI - Release
 ```yaml
