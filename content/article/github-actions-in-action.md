@@ -156,16 +156,15 @@ The `Release Version` parameter value should be provided before executing the re
 
 ### Docker Liferay Portal CE
 The original continuous delivery workflow was implemented using Travis CI and was executed in the following order:
-1. In the local dev, run the [release-image.sh](https://github.com/igor-baiborodine/docker-liferay-portal-ce/blob/a3d850e3916e94790f3becd13991398fe6baaf05/script/release-image.sh) script for the new version/variant.
-2. Commit and push changes to the remote, i.e., GitHub.
-3. The new commit to the master will trigger a new job on Travis CI.
-4. The job on Travis CI will do the following: \
+1. In the local dev, run the `release-dockerfile.sh` script for the new version/variant, which will subsequently commit and push the changes to the remote, that is, to GitHub.
+2. The new commit to the master will trigger a new job on Travis CI.
+3. The job on Travis CI will do the following: \
    &nbsp;&nbsp;&nbsp;&nbsp;-- build a new image \
    &nbsp;&nbsp;&nbsp;&nbsp;-- run tests \
    &nbsp;&nbsp;&nbsp;&nbsp;-- tag and push the new image to Docker Hub \
    &nbsp;&nbsp;&nbsp;&nbsp;-- update README and supported-tags files \
    &nbsp;&nbsp;&nbsp;&nbsp;-- commit and push back changes to GitHub 
-5. In the local dev, pull the changes from the remote and repeat the above steps for the next variant.
+4. In the local dev, pull the changes from the remote and repeat the above steps for the next variant.
 
 As you can see, this workflow was not fully automated as I had to go through some manual steps in my local dev. Therefore, when switching to GitHub Actions, the goal was to fully automate the workflow.
 
@@ -212,6 +211,7 @@ after_success:
 ```
 
 #### GitHub Actions - Release
+
 
 ```yaml
 name: Perform Release
