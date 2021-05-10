@@ -2,8 +2,8 @@
 title: "Campsite Booking API: Revisited"
 date: 2021-02-03T08:00:01-05:00
 
-categories: [Blog, Write-Up]
-tags: [Java, Spring Boot, SonarCloud, GitHub Actions, Docker]
+categories: [Java, Write-Up]
+tags: [Spring Boot, SonarCloud, CICD, GitHub Actions, Docker]
 toc: false
 author: "Igor Baiborodine"
 ---
@@ -379,6 +379,6 @@ jobs:
 ```
 
 The `Release Version` parameter value should be provided before executing this workflow:
-![GitHub Actions Main View](/img/content/article/campsite-booking-api-revisited/github-actions-perform-release.png)
+![GitHub Actions Perform Release](/img/content/article/campsite-booking-api-revisited/github-actions-perform-release.png)
 
 And in conclusion, I want to say that coming back to the project after two years and working on it again was quite refreshing and enjoyable. After improving the existing code base and adding new features such as containerization and CI/CD, the project is now more robust and complete.

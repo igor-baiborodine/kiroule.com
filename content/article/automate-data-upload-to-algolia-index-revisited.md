@@ -1,8 +1,8 @@
 ---
 title: "Automate Data Upload to Algolia Index: Revisited"
 date: 2021-03-10T07:46:59-05:00
-categories: [Blog, Write-Up]
-tags: [Algolia, Data Upload, npm]
+categories: [Jamstack, Write-Up]
+tags: [Algolia, Data Upload, JavaScript, npm]
 series: "Building Your Blog, the Geeky Way"
 toc: false
 author: "Igor Baiborodine"

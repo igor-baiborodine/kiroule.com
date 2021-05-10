@@ -55,7 +55,6 @@ Issued by [Oracle](https://www.oracle.com/index.html)\
 ### 2014
 ##### MongoDB for Java Developers
 Issued by [MongoDB, Inc.](https://www.mongodb.com/)\
-[See credential](https://webcache.googleusercontent.com/search?q=cache:uJu7UnTkMs0J:https://s3.amazonaws.com/edu-cert.10gen.com/downloads/7dfcd9c50617446b9572e44a4aaefbba/Certificate.pdf+&cd=5&hl=en&ct=clnk&gl=ca)
 
 ### 2013
 ##### Oracle Certified Expert, Java EE 6 Java Persistence API Developer
