@@ -3,7 +3,7 @@ title: "Campsite Booking API: Revisited"
 date: 2021-02-03T08:00:01-05:00
 
 categories: [Java, Write-Up]
-tags: [Java, Spring Boot, SonarCloud, GitHub Actions, Docker]
+tags: [Spring Boot, SonarCloud, CICD, GitHub Actions, Docker]
 toc: false
 author: "Igor Baiborodine"
 ---

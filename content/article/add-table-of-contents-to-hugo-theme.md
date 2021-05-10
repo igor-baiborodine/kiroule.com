@@ -2,8 +2,8 @@
 title: "Add Table of Contents to Hugo Theme"
 date: 2020-10-19T08:08:54-04:00
 draft: false
-categories: [Theme, Recipe]
-tags: [Hugo, Table of Contents, TOC]
+categories: [Jamstack, Recipe]
+tags: [Hugo, Theme, Table of Contents, TOC]
 series: "Hugo Theme Recipes"
 toc: false
 author: "Igor Baiborodine"

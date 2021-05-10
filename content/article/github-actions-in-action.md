@@ -3,7 +3,7 @@ title: "GitHub Actions in Action"
 date: 2021-05-07T07:11:44-04:00
 
 categories: [DevOps, Write-up]
-tags: [GitHub Actions, Docker]
+tags: [CICD, GitHub Actions, Docker]
 toc: false
 author: "Igor Baiborodine"
 ---
@@ -164,9 +164,11 @@ The original continuous delivery workflow was implemented using Travis CI and wa
    &nbsp;&nbsp;&nbsp;&nbsp;-- tag and push the new image to Docker Hub \
    &nbsp;&nbsp;&nbsp;&nbsp;-- update README and supported-tags files \
    &nbsp;&nbsp;&nbsp;&nbsp;-- commit and push back changes to GitHub 
-4. In the local dev, pull the changes from the remote and repeat the above steps for the next variant.
+4. In the local dev, pull the changes from the remote and repeat step 1 for the next variant.
 
-As you can see, this workflow was not fully automated as I had to go through some manual steps in my local dev. Therefore, when switching to GitHub Actions, the goal was to fully automate the workflow.
+As you can see, this workflow was not fully automated as I had to go through some manual steps in my local dev. Therefore, when switching to GitHub Actions, the goal was to fully automate the workflow. 
+
+The source code for the Docker Liferay Portal CE project can be found [here](https://github.com/igor-baiborodine/docker-liferay-portal-ce).
 
 #### Travis CI - Release
 Below is the original `.travis.yml` file. Every time the `release-image.sh` script was executed in the local dev, the build matrix's `VERSION` and `VARIANT` properties were updated with the supplied values.
@@ -211,7 +213,9 @@ after_success:
 ```
 
 #### GitHub Actions - Release
+This new `release.yml` file is nothing more than a rewrite of the `.travis.yml`, although there are some minor changes. First, the version and variant values no longer need to be hard-coded as they are provided via a workflow dispatch input. Second, the `release-image.sh` script has been renamed to `release-dockerfile.sh`. And third, the `push-remote.sh` script was included in the `generate-readme.sh` script.
 
+This is a manual workflow, and The `Release Version` parameter value should be provided before executing it. The release version value should follow the `LIFERAY_VERSION/JDK-LINUX_VARIANT` pattern, for example, `7.4.0-ga1/jdk8-alpine`.  The complete release manual can be found [here](https://github.com/igor-baiborodine/docker-liferay-portal-ce/blob/master/readme/release-image-manual.md).
 
 ```yaml
 name: Perform Release
@@ -266,3 +270,5 @@ jobs:
         run: |
           ./script/generate-readme.sh -t "$IMAGE_TAG" -c "$(git rev-parse HEAD)"
 ```
+
+Migrating the development workflows of my active projects to GitHub Actions was a great experience, and I learned a lot from the practical side. Now GitHub Actions will be a great addition to my CICD pipeline building skills, which already include Jenkins, Travis CI, Azure DevOps, and Bitbucket Pipelines.
