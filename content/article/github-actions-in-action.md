@@ -156,7 +156,7 @@ The `Release Version` parameter value should be provided before executing the re
 
 ### Docker Liferay Portal CE
 The original continuous delivery workflow was implemented using Travis CI and was executed in the following order:
-1. In the local dev, run the `release-dockerfile.sh` script for the new version/variant, which will subsequently commit and push the changes to the remote, that is, to GitHub.
+1. In the local dev, run the `release-image.sh` script for the new version/variant, which will subsequently commit and push the changes to the remote, that is, to GitHub.
 2. The new commit to the master will trigger a new job on Travis CI.
 3. The job on Travis CI will do the following: \
    &nbsp;&nbsp;&nbsp;&nbsp;-- build a new image \
