@@ -36,7 +36,7 @@ Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hug
 **Multi-Variant Docker Images for Liferay Portal CE**\
 *Updated in 2020, 2021*
 
-**100K+ pulls**\
+**500K+ pulls**\
 Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debian.org/), [Alpine Linux](https://alpinelinux.org/)\
 [See Docker Hub Repository](https://hub.docker.com/r/ibaiborodine/liferay-portal-ce)\
 [See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
