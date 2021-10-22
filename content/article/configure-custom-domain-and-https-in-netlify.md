@@ -13,7 +13,7 @@ In the [previous post](https://www.kiroule.com/article/start-blogging-with-githu
 
 When you deploy for the first time on Netlify, a Netlify subdomain will be assigned to your site, for example, `awesome-mclean-11186c.netlify.app`. Then you can change the randomly generated part in the subdomain to the site name you want, like adjusting `awesome-mclean-11186c.netlify.app` to `kiroule.netlify.app`, and continue as is.  But it's evident that for your personal website, you should use a custom domain, which helps a lot in promoting yourself as a brand and improving credibility. Also, owning a domain comes with the option of having personalized email addresses, for instance, `igor@kiroule.com`, which I put on my About page.
 
-As for HTTPS, even if it's your blog where you do not collect any sensitive information, having a secure connection gives the perception of you as a trusted source. Other than that, it also can slightly improve your Google search engine rankings. 
+As far as HTTPS is concerned, even if this is your own blog where you do not collect any sensitive information, having a secure connection gives the perception of you as a trusted source. Other than that, it can also slightly improve your Google search rankings.
 
 This tutorial has the following tasks to complete:
 {{< toc >}}
