@@ -19,8 +19,21 @@ You can create multiple subdomains in your main domain.
 The exact number of subdomains that can be configured should be checked with your domain registrar. 
 For example, *Namecheap* allows you to use up to 150 subdomains per domain name.
 
-{{< toc >}}
+Therefore, if you decide to use a subdomain for your website when hosting it on Netlify, given that the domain name is not registered with Netlify and comes from an external registrar like GoDaddy, Namecheap, etc., you can follow the steps that I outlined in the article ["Configure Custom Domain and HTTPS on Netlify."](/article/configure-custom-domain-and-https-in-netlify) 
+The only difference will be in configuring the `ALIAS record` parameters in the ["Configure DNS Records"](/article/configure-custom-domain-and-https-in-netlify/#configure-dns-records) step.
 
-### Details 1
-### Details 2
-### Details 3
+Here is the configuration with the primary domain:
+```plaintext
+Type: ALIAS Record
+Host: www
+Value: [name-of-your-site].netlify.app
+TTL: 5 min
+```
+
+With a subdomain, you must add the subdomain name as a suffix to the `www` in the value of the `Host` property:
+```plaintext
+Type: ALIAS Record
+Host: www.[name-of-your-subdomain]
+Value: [name-of-your-site].netlify.app
+TTL: 5 min
+```
