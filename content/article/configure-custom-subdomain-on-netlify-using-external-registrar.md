@@ -17,7 +17,7 @@ Since I own the `kiroule.com` domain, I could have published my blog under the `
 
 You can create multiple subdomains in your main domain. 
 The exact number of subdomains that can be configured should be checked with your domain registrar. 
-For example, Namecheap allows you to use up to 150 subdomains per domain name.
+For example, *Namecheap* allows you to use up to 150 subdomains per domain name.
 
 {{< toc >}}
 
