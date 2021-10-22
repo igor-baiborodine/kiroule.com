@@ -1,5 +1,5 @@
 ---
-title: "Configure Custom Subdomain on Netlify Using External Registrar"
+title: "Configure Custom Subdomain and HTTPS on Netlify"
 date: 2021-10-20T07:53:45-04:00
 categories: [Jamstack, Tutorial]
 tags: [Subdomain, Netlify, Namecheap]
