@@ -32,7 +32,7 @@ To produce a slug, you can use an online slugifier like https://slugify.online/:
 ![Slugify Title](/img/content/article/use-aliases-to-redirect-old-urls/slugify-title.png)
 
 Thus, whenever the name of the content file changes, the URL of the corresponding page also changes. 
-Therefore, to prevent 404 errors for old URLs, you should add the aliases variable to the revised article's [front matter](https://gohugo.io/content-management/front-matter/#predefined). 
+Therefore, to prevent 404 errors for old URLs, you should add the [aliases](https://gohugo.io/content-management/urls/#aliases) variable to the revised article's [front matter](https://gohugo.io/content-management/front-matter/#predefined). 
 This variable is defined as:
 > an array of one or more aliases (e.g., old published paths of renamed content) that will be created in the output directory structure
 
