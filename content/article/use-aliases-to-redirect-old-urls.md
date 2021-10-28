@@ -36,3 +36,23 @@ Therefore, to prevent 404 errors for old URLs, you should add the [aliases](http
 This variable is defined as:
 > an array of one or more aliases (e.g., old published paths of renamed content) that will be created in the output directory structure
 
+In my case, the article ["Automate Index Upload to Algolia Search"](/article/automate-data-upload-to-algolia-index/) has been revised twice. 
+And every time, its title changed. After the first revision, the title changed to "Automate Data Import to Algolia." 
+During the second revision, I re-defined the title as "Automate Data Upload to Algolia Index." 
+With each revision, the corresponding content file name was also updated, which in turn altered the URL of the page.
+
+Hence, to make the previously published URLs functional, I created the following relative to the base URL aliases in the article's front matter:
+```markdown
+aliases:
+    - /article/automate-index-upload-to-algolia-search/
+    - /article/automate-data-import-to-algolia/
+```
+
+But once the aliases are specified, how does it work under the hood?
+For each alias entry, Hugo creates a directory that contains an `index.html` file:
+
+![List Directories](/img/content/article/use-aliases-to-redirect-old-urls/list-directories.png)
+
+
+
+
