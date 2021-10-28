@@ -1,0 +1,43 @@
+---
+title: "Use Aliases to Redirect Old URLs"
+date: 2021-10-26T08:14:54-04:00
+
+categories: [Jamstack, How-to]
+tags: [Hugo, Aliases]
+toc: false
+series: "Building Your Blog, the Geeky Way"
+author: "Igor Baiborodine"
+---
+
+This article provides a quick guide to using Hugo aliases to redirect old URLs when reworking already published content.
+
+<!--more-->
+
+Having published an article, after a while, you often need to return to the already published material and revise it. 
+During such revision, not only the content of the article may change, but also its title. 
+So, whenever the title changes, it's advised to update the slug of the published page.
+
+I want to emphasize the importance of having a concise, descriptive, and relevant article title and, consequently, a matching slug because they greatly help convey the page's information to visitors and search engines.
+
+For example, given the URL for this post is https://kiroule.com/article/use-aliases-to-redirect-old-urls/, it can be split into the following parts:
+```plaintext
+baseurl: https://kiroule.com/
+section: article/
+slug: use-aliases-to-redirect-old-urls/
+```
+
+As per the [Hugo documentation](https://gohugo.io/content-management/organization/#slug), by default, the slug value is determined by the name of the content file, for example, `use-aliases-to-redirect-old-urls.md`. 
+To produce a slug, you can use an online slugifier like https://slugify.online/:
+
+![Slugify Title](/img/content/article/use-aliases-to-redirect-old-urls/slugify-title.png)
+
+Thus, whenever the name of the content file changes, the URL of the corresponding page also changes. 
+Therefore, to prevent 404 errors for old URLs, you should add the aliases variable to the revised article's [front matter](https://gohugo.io/content-management/front-matter/#predefined). 
+This variable is defined as:
+> an array of one or more aliases (e.g., old published paths of renamed content) that will be created in the output directory structure
+
+{{< toc >}}
+
+### Details 1
+### Details 2
+### Details 3
