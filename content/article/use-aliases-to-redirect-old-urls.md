@@ -36,8 +36,3 @@ Therefore, to prevent 404 errors for old URLs, you should add the aliases variab
 This variable is defined as:
 > an array of one or more aliases (e.g., old published paths of renamed content) that will be created in the output directory structure
 
-{{< toc >}}
-
-### Details 1
-### Details 2
-### Details 3
