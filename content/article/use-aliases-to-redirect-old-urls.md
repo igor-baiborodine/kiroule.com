@@ -41,7 +41,7 @@ And every time, its title changed. After the first revision, the title changed t
 During the second revision, I re-defined the title as "Automate Data Upload to Algolia Index." 
 With each revision, the corresponding content file name was also updated, which in turn altered the URL of the page.
 
-Hence, to make the previously published URLs functional, I created the following relative to the base URL aliases in the article's front matter:
+Hence, to make the previously published URLs functional, I added the following relative to the base URL aliases in the article's front matter:
 ```markdown
 aliases:
     - /article/automate-index-upload-to-algolia-search/
@@ -49,10 +49,29 @@ aliases:
 ```
 
 But once the aliases are specified, how does it work under the hood?
-For each alias entry, Hugo creates a directory that contains an `index.html` file:
+As you can see, for each alias entry, Hugo created a directory that contains an auto-generated `index.html` file:
 
 ![List Directories](/img/content/article/use-aliases-to-redirect-old-urls/list-directories.png)
 
+For example, `index.html` files in the `public/article/automate-data-import-to-algolia` and `public/article/automate-index-upload-to-algolia-search` directories are identical and contain the canonical URL and the redirect target for the latest version of the article: 
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>https://www.kiroule.com/article/automate-data-upload-to-algolia-index/</title>
+  <link rel="canonical"
+        href="https://www.kiroule.com/article/automate-data-upload-to-algolia-index/"/>
+  <meta name="robots" content="noindex">
+  <meta charset="utf-8"/>
+  <meta http-equiv="refresh"
+        content="0; url=https://www.kiroule.com/article/automate-data-upload-to-algolia-index/"/>
+</head>
+</html>
+```
 
+The `meta http-equiv="refresh"` line is responsible for the actual redirect. 
+Also, the `<meta name="robots" content="noindex">
+` line prevents engine bots from crawling and indexing the new alias page. 
 
+So, as you can see, Hugo provides an easy-to-apply and straightforward mechanism to handle redirecting to old URLs when reworking or migrating existing published content.
