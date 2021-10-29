@@ -75,3 +75,6 @@ Also, the `<meta name="robots" content="noindex">
 ` line prevents engine bots from crawling and indexing the new alias page. 
 
 So, as you can see, Hugo provides an easy-to-apply and straightforward mechanism to handle redirecting to old URLs when reworking or migrating existing published content.
+
+Continue reading the series ["Building Your Blog, the Geeky Way"](/series/building-your-blog-the-geeky-way/):
+{{< series "Building Your Blog, the Geeky Way" >}}
