@@ -27,7 +27,7 @@ Technologies used: [Hugo](https://gohugo.io/)\
 
 **CI/CD with GitHub Actions**
 
-Automated software development workflows for following repositories:
+Automated software development workflows for the following repositories:
 1. [Docker Liferay Portal CE](https://github.com/igor-baiborodine/docker-liferay-portal-ce/tree/master/.github/workflows)
 2. [Campsite Booking API](https://github.com/igor-baiborodine/campsite-booking/tree/master/.github/workflows)
 3. [Vaadin Demo Bakery App](https://github.com/igor-baiborodine/vaadin-demo-bakery-app/tree/master/.github/workflows)
