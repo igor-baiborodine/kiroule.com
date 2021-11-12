@@ -17,7 +17,7 @@ Having published an article, after a while, you often need to return to the alre
 During such revision, not only the content of the article may change, but also its title. 
 So, whenever the title changes, it's advised to update the slug of the published page.
 
-I want to emphasize the importance of having a concise, descriptive, and relevant article title and, consequently, a matching slug because they greatly help convey the page's information to visitors and search engines.
+Here I want to emphasize the importance of having a concise, descriptive, and relevant article title and, consequently, a matching slug because they greatly help convey the page's information to visitors and search engines.
 
 For example, given the URL for this post is https://kiroule.com/article/use-aliases-to-redirect-old-urls/, it can be split into the following parts:
 ```plaintext
