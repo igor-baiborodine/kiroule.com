@@ -15,12 +15,32 @@ target: "_blank"
 
 {{< intellij-logo >}}
 
+### 2021
+**Bilberry Hugo Theme**
+
+Took the role of the official maintainer; made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
+1. Automated data upload to Algolia index using JavaScript API client.
+2. Updated documentation.
+
+Technologies used: [Hugo](https://gohugo.io/)\
+[See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
+
+**CI/CD with GitHub Actions**
+
+Automated software development workflows for the following repositories:
+1. [Docker Liferay Portal CE](https://github.com/igor-baiborodine/docker-liferay-portal-ce/tree/master/.github/workflows)
+2. [Campsite Booking API](https://github.com/igor-baiborodine/campsite-booking/tree/master/.github/workflows)
+3. [Vaadin Demo Bakery App](https://github.com/igor-baiborodine/vaadin-demo-bakery-app/tree/master/.github/workflows)
+4. [Vaadin Demo Business App](https://github.com/igor-baiborodine/vaadin-demo-business-app/tree/master/.github/workflows)
+
+Technologies used: [GitHub Actions](https://github.com/features/actions)
+
 ### 2020
 **Bilberry Hugo Theme**
 
 Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
 1. Implemented the series taxonomy and table of contents features.
-2. Automated index upload to Algolia search.
+2. Automated data upload to Algolia index using Python API client.
 3. Fixed bugs.
 4. Updated documentation. 
 
@@ -42,7 +62,7 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 [See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
 
 ### 2018
-**RESTful Web Service That Manages Campsite Bookings**\
+**Campsite Booking API**\
 *Updated in 2021*
 
 Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
