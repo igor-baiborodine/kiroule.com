@@ -24,7 +24,7 @@ You can create multiple subdomains in your main domain.
 The exact number of subdomains that can be configured should be checked with your domain registrar. 
 For example, Namecheap allows you to use up to 150 subdomains per domain name.
 
-Therefore, if you decide to use a subdomain for your website when hosting it on Netlify, given that the domain name is not registered with Netlify and comes from an external registrar like Bluehost, GoDaddy, Namecheap, etc., you can follow the steps that I outlined in the article ["Configure Custom Domain and HTTPS on Netlify."](/article/configure-custom-domain-and-https-in-netlify) 
+Therefore, if you decide to use a subdomain for your website when hosting it on Netlify, given that the domain name is not registered with Netlify and comes from an external registrar like Bluehost, GoDaddy, Namecheap, etc., you can follow the steps that I outlined in the article ["Configure Custom Domain and HTTPS in Netlify."](/article/configure-custom-domain-and-https-in-netlify) 
 The difference will be in configuring the `ALIAS Record` properties in the ["Configure DNS Records"](/article/configure-custom-domain-and-https-in-netlify/#configure-dns-records) step.
 
 Here is the configuration with the primary domain:
@@ -45,7 +45,7 @@ TTL: 5 min
 
 Also, when [setting up the custom domain in Netlify](/article/configure-custom-domain-and-https-in-netlify/#set-up-custom-domain) and [updating the base URL](/article/configure-custom-domain-and-https-in-netlify/#update-base-url), the full custom domain value should contain the subdomain: `www.<subdomain>.<domain-name>`.
 
-As for me, after creating my blog and setting up the `kiroule.com` domain and HTTPS on Netlify, I wanted to use a subdomain to publish another website, also hosted on Netlify. 
+As for me, after creating my blog and setting up the `kiroule.com` domain and HTTPS in Netlify, I wanted to use a subdomain to publish another website, also hosted on Netlify. 
 So I have a test website https://bilberry-sandbox.netlify.app/ that I am using to test my contributions to the Bilberry Hugo theme. 
 To make it available as the `bilberry-sandbox` subdomain of `kiroule.com`, I followed the instructions from my article mentioned above, except for the `ALIAS record` and Netlify custom domain set-up configuration:
 
