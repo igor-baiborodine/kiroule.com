@@ -8,10 +8,6 @@ enableRobotsTXT = true
 # Change to one of your content languages definded at the end.
 DefaultContentLanguage = "en"
 
-# Enable / Disable open link with a new tab.
-[blackfriday]
-  hrefTargetBlank = false
-
 [params]
   # Custom CSS / JS modules that will be imported by the template.
   # Files are relative to the static/ directory or a URL.
@@ -139,6 +135,11 @@ DefaultContentLanguage = "en"
   page = [ "HTML" ]
 
 [markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Change to 'true' if you need to render raw HTMLs whithin your markdown content
+      unsafe = false
   [markup.tableOfContents]
     endLevel = 5
     ordered = false
