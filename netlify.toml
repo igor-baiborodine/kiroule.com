@@ -29,7 +29,6 @@
 # Use this configuration for specific branch development
 # URL: https://<feature-branch>--kiroule.netlify.app/
 #[context.<feature-branch>.environment]
-#  HUGO_VERSION = "0.89.0"
 #  Algolia index name is needed to execute algolia/run-data-upload-js.sh
 #  ALGOLIA_INDEX_NAME = "<feature-branch>_kiroule"
 #
