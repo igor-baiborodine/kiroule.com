@@ -20,14 +20,15 @@ target: "_blank"
 
 Took the role of the official maintainer; made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
 1. Automated data upload to Algolia index using JavaScript API client.
-2. Updated documentation.
+2. Implemented support for custom audio files.
+3. Updated documentation.
 
 Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
 
 **CI/CD with GitHub Actions**
 
-Automated software development workflows for the following repositories:
+Automated software development workflows for the following personal repositories:
 1. [Docker Liferay Portal CE](https://github.com/igor-baiborodine/docker-liferay-portal-ce/tree/master/.github/workflows)
 2. [Campsite Booking API](https://github.com/igor-baiborodine/campsite-booking/tree/master/.github/workflows)
 3. [Vaadin Demo Bakery App](https://github.com/igor-baiborodine/vaadin-demo-bakery-app/tree/master/.github/workflows)
