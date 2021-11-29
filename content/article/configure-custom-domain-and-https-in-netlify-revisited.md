@@ -1,5 +1,5 @@
 ---
-title: "Configure Custom Domain and HTTPS in Netlify: Revisited"
+title: "Configure Custom Domain and HTTPS in Netlify : Revisited"
 date: 2021-10-20T07:53:45-04:00
 
 categories: [Jamstack, Tutorial]
