@@ -100,6 +100,12 @@ DefaultContentLanguage = "en"
     # social media profile urls for the footer links
     showSocialMedia = true
 
+    # show archive link in the footer
+    showArchive = true
+
+    # arhive grouping: "2006" by year, "2006-01" by month
+    archiveDateGrouping = "2006"
+
     # define your links with FontAwesome 5 (only free icons are supported)
     # all icons https://fontawesome.com/icons?d=gallery&m=free
     # brand icons https://fontawesome.com/icons?d=gallery&s=brands&m=free
