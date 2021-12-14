@@ -20,7 +20,7 @@ target: "_blank"
 
 Took the role of the official maintainer; made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
 1. Automated data upload to Algolia index using JavaScript API client.
-2. Implemented support for custom audio files.
+2. Implemented support for custom audio files, co-authored the archive functionality.
 3. Updated documentation.
 
 Technologies used: [Hugo](https://gohugo.io/)\
