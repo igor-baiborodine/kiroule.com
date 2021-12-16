@@ -5,10 +5,6 @@ excludeFromTopNav: false
 showDate: false
 showComments: false
 weight: 2
-# set the link if you want to redirect the user.
-link: ""
-# set the html target parameter if you want to change default behavior
-target: "_blank"
 ---
 
 ### Developed with Pleasure!
@@ -20,8 +16,8 @@ target: "_blank"
 
 Took the role of the official maintainer; made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
 1. Automated data upload to Algolia index using JavaScript API client.
-2. Implemented support for custom audio files, co-authored the archive functionality.
-3. Updated documentation.
+2. Implemented support for custom audio files; co-authored the archive functionality; updated documentation.
+3. Reviewed pull requests.
 
 Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
