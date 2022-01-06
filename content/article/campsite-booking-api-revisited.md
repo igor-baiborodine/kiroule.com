@@ -211,7 +211,7 @@ For this project, I adopted the [trunk-based development](https://trunkbaseddeve
 ![GitHub Actions Main View](/img/content/article/campsite-booking-api-revisited/github-actions-main-view.png)
 
 #### Pull Request
-This is an automatic workflow that starts whenever a new pull request is made to the master branch. It contains two jobs: Unit & Integration Tests and SonarCloud Scan. The SonanCloud Scan job is dependent on the successful completion of the Unit & Integration Tests job.
+This is an automatic workflow that starts whenever a new pull request is made to the master branch. It contains two jobs: Unit & Integration Tests and SonarCloud Scan. The SonarCloud Scan job is dependent on the successful completion of the Unit & Integration Tests job.
 ```yaml
 name: Build on Pull Request
 
