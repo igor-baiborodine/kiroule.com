@@ -17,7 +17,8 @@ So this post details this new testing environment and its use in my development 
 <!--more-->
 
 Using my previously published tutorial ["Start Blogging With Hugo, GitHub and Netlify"](/article/start-blogging-with-github-hugo-and-netlify/), I created a new website and deployed it on Netlify. 
-This website is based on the vanilla version of the Bilberry Theme, i.e., it does not contain any customization. The only configuration difference is that it has the raw HTML enabled compared to the example site.
+This website is based on the vanilla version of the Bilberry Theme, i.e., it does not contain any customizations. 
+The only difference is that it has the raw HTML enabled compared to the example site.
 
 Since I already own the `kiroule.com` domain name, I decided to publish it under the `bilberry-sandbox.kiroule.com` subdomain. 
 In the post ["Configure Custom Domain and HTTPS in Netlify: Revisited"](/article/configure-custom-domain-and-https-in-netlify-revisited/), I detailed the configuration differences when using a subdomain for your website to host it on Netlify.
