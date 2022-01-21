@@ -29,3 +29,4 @@ Also, I added the following configuration to the [netlify.toml](https://github.c
 [context.deploy-preview]
   command = "hugo -b $DEPLOY_PRIME_URL"
 ```
+Below I will show you how this feature can come in handy when testing against a specific fork/branch.
