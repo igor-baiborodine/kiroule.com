@@ -23,7 +23,7 @@ The only difference is that it has the raw HTML enabled compared to the example 
 Since I already own the `kiroule.com` domain name, I decided to publish it under the `bilberry-sandbox.kiroule.com` subdomain. 
 In the post ["Configure Custom Domain and HTTPS in Netlify: Revisited"](/article/configure-custom-domain-and-https-in-netlify-revisited/), I detailed the configuration differences when using a subdomain for your website to host it on Netlify. 
 
-While configuring site settings on Netlify, I enabled the `Deploy Previews` feature which allows generating a deploy preview with a unique URL for each built pull request. 
+While configuring site settings on Netlify, I enabled the `Deploy Previews` feature, which allows generating a deploy preview with a unique URL for each built pull request. 
 Also, I added the following configuration to the [netlify.toml](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/master/netlify.toml) file:
 ```toml
 [context.deploy-preview]
