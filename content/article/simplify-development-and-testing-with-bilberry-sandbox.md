@@ -43,7 +43,17 @@ Then the updated `.gitmodules` file might look like this:
   url = https://github.com/TeknikalDomain/bilberry-hugo-theme.git
   branch = peertube-video
 ```
- 
+
+Next, the submodule needs to be synced and updated with the following commands:
+```shell
+$ git submodule sync
+$ git submodule update --init --recursive --remote
+```
+
+And only now we can start testing. 
+I usually create test content for each use case, which is categorized and tagged accordingly. 
+So, for example, when testing the ["Support for custom audio files"](https://github.com/Lednerb/bilberry-hugo-theme/issues/270) issue, all the test content I created was categorized as `Audio`, and each article was tagged according to the tested use case, namely the supported audio streaming providers: `Mixcloud`, `SoundCloud`, `Spotify`, and `TuneIn`.
+With proper categorization and tagging, it's easy to filter the necessary content, for instance, https://www.bilberry-sandbox.kiroule.com/categories/audio/ or https://www.bilberry-sandbox.kiroule.com/tags/spotify/.
 
 ### Use in Theme Development
 // TODO
