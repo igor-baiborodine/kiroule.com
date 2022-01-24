@@ -30,3 +30,20 @@ Also, I added the following configuration to the [netlify.toml](https://github.c
   command = "hugo -b $DEPLOY_PRIME_URL"
 ```
 Below you will see how this feature can come in handy when testing against a specific fork/branch.
+
+### Test Against Fork/Branch
+
+So here is my routine when I need to test pull requests from other contributors. 
+First, the `url` configuration variable in the `.gitmodules` file must be updated with the URL of the fork in question. 
+The `branch` variable should also be defined if the submitted changes are in a specific branch. 
+Then the updated `.gitmodules` file might look like this:
+```shell
+[submodule "themes/bilberry-hugo-theme"]
+  path = themes/bilberry-hugo-theme
+  url = https://github.com/TeknikalDomain/bilberry-hugo-theme.git
+  branch = peertube-video
+```
+ 
+
+### Use in Theme Development
+// TODO
