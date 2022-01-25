@@ -23,7 +23,7 @@ The only difference is that it has the raw HTML enabled compared to the example 
 Since I already own the `kiroule.com` domain name, I decided to publish it under the `bilberry-sandbox.kiroule.com` subdomain. 
 In the post ["Configure Custom Domain and HTTPS in Netlify: Revisited"](/article/configure-custom-domain-and-https-in-netlify-revisited/), I detailed the configuration differences when using a subdomain for your website to host it on Netlify. 
 
-While configuring site settings on Netlify, I enabled the `Deploy Previews` feature, which allows generating a deploy preview with a unique URL for each built pull request. 
+While configuring site settings on Netlify, I enabled the [Deploy Previews](https://docs.netlify.com/site-deploys/deploy-previews/) feature, which allows generating a deploy preview with a unique URL for each built pull request. 
 Also, I added the following configuration to the [netlify.toml](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/master/netlify.toml) file:
 ```toml
 [context.deploy-preview]
@@ -53,8 +53,15 @@ $ git submodule update --init --recursive --remote
 
 And only now we can start testing. 
 I usually create test content for each use case, which is categorized and tagged accordingly. 
-So, for example, when testing the ["Support for custom audio files"](https://github.com/Lednerb/bilberry-hugo-theme/issues/270) issue, all the test content I created was categorized as `Audio`, and each article was tagged according to the tested use case, namely the supported audio streaming providers: `Mixcloud`, `SoundCloud`, `Spotify`, and `TuneIn`.
+So, for example, while testing the ["Support for custom audio files"](https://github.com/Lednerb/bilberry-hugo-theme/issues/270) issue, all the test content I created was categorized as `Audio`, and each article was tagged according to the tested use case, namely the supported audio streaming providers: `Mixcloud`, `SoundCloud`, `Spotify`, and `TuneIn`.
 With proper categorization and tagging, it's easy to filter the necessary content, for instance, https://www.bilberry-sandbox.kiroule.com/categories/audio/ or https://www.bilberry-sandbox.kiroule.com/tags/spotify/.
+
+Then after deploying the Bilberry Sandbox website in my local dev with the `hugo server` command, I test the newly created content. 
+If the test results are satisfactory, I commit and push the branch to remote.
+
+The next step is to create a pull request for the new branch in the [bilberry-hugo-theme-sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox) repository on GitHub.
+Given that **Deploy Previews** is enabled for this repository, Netlify automatically builds the website from that branch and deploys it to a unique URL. 
+
 
 ### Use in Theme Development
 // TODO
