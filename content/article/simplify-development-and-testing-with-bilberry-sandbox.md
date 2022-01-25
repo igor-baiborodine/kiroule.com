@@ -61,9 +61,11 @@ If the test results are satisfactory, I commit and push the branch to remote.
 
 The next step is to create a pull request for the new branch in the [bilberry-hugo-theme-sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox) repository on GitHub.
 Given that **Deploy Previews** is enabled for this repository, Netlify automatically builds the website from that branch and deploys it to a unique URL.
-Upon successful deployment, the Netlify bot updates the pull request with a comment that includes the deploy preview URL, for example:
+Upon successful deployment, the Netlify bot updates the pull request with a comment which may look as follows:
 
 ![Netlify Bot Comment Deploy Preview](/img/content/article/simplify-development-and-testing-with-bilberry-sandbox/deploy-preview-netlify-bot-comment.png)
+
+As you can see, this comment includes the deploy preview URL, which is prefixed by `deploy-preview` and followed by the identifier number of the pull request.
 
 ### Use in Theme Development
 // TODO
