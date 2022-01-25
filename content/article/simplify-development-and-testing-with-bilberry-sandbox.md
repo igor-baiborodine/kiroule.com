@@ -34,7 +34,7 @@ Below you will see how this feature can come in handy when testing against a spe
 ### Test Against Fork/Branch
 
 So here is my routine when I need to test pull requests from other contributors.
-The first thing to do is to create a new branch. 
+The first thing to do is to create a new test branch. 
 Then the `url` configuration variable in the `.gitmodules` file must be updated with the URL of the fork in question. 
 The `branch` variable should also be defined if the submitted changes are in a specific branch. 
 The updated `.gitmodules` file might look like this:
@@ -70,6 +70,16 @@ The website published to this URL will be updated each time changes are made to 
 
 Then again, I verify the test content, but this time I'm testing it in a production-like environment. 
 If I get the expected results, I can approve changes from other contributor's fork/branch and merge them into the `master` branch of the [bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme) repository.
+
+And finally, following the successful merge, the test branch I created in the bilberry-hugo-theme-sandbox needs to be merged into the master. 
+But before that, the `.gitmodules` file needs to be rolled back to the state when the branch was created, i.e., the `url` variable should match the URL of the original repository:
+```shell
+[submodule "themes/bilberry-hugo-theme"]
+  path = themes/bilberry-hugo-theme
+  url = https://github.com/Lednerb/bilberry-hugo-theme.git
+```
+
+After syncing and updating the `themes/bilberry-hugo-theme submodule`, changes are committed and pushed to remote.
 
 
 ### Use in Theme Development
