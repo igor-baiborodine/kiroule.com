@@ -33,10 +33,11 @@ Below you will see how this feature can come in handy when testing against a spe
 
 ### Test Against Fork/Branch
 
-So here is my routine when I need to test pull requests from other contributors. 
-First, the `url` configuration variable in the `.gitmodules` file must be updated with the URL of the fork in question. 
+So here is my routine when I need to test pull requests from other contributors.
+The first thing to do is to create a new branch. 
+Then the `url` configuration variable in the `.gitmodules` file must be updated with the URL of the fork in question. 
 The `branch` variable should also be defined if the submitted changes are in a specific branch. 
-Then the updated `.gitmodules` file might look like this:
+The updated `.gitmodules` file might look like this:
 ```shell
 [submodule "themes/bilberry-hugo-theme"]
   path = themes/bilberry-hugo-theme
@@ -44,7 +45,7 @@ Then the updated `.gitmodules` file might look like this:
   branch = peertube-video
 ```
 
-Next, the submodule needs to be synced and updated with the following commands:
+Next, the submodule needs to be synced and updated using the following commands:
 ```shell
 $ git submodule sync
 $ git submodule update --init --recursive --remote
