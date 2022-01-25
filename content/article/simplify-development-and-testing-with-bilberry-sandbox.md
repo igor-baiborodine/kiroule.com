@@ -66,6 +66,11 @@ Upon successful deployment, the Netlify bot updates the pull request with a comm
 ![Netlify Bot Comment Deploy Preview](/img/content/article/simplify-development-and-testing-with-bilberry-sandbox/deploy-preview-netlify-bot-comment.png)
 
 As you can see, this comment includes the deploy preview URL, which is prefixed by `deploy-preview` and followed by the identifier number of the pull request.
+The website published to this URL will be updated each time changes are made to the corresponding pull request.
+
+Then again, I verify the test content, but this time I'm testing it in a production-like environment. 
+If I get the expected results, I can approve changes from other contributor's fork/branch and merge them into the `master` branch of the [bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme) repository.
+
 
 ### Use in Theme Development
 // TODO
