@@ -79,7 +79,7 @@ But before that, the `.gitmodules` file needs to be rolled back to the state whe
   url = https://github.com/Lednerb/bilberry-hugo-theme.git
 ```
 
-After syncing and updating the `themes/bilberry-hugo-theme submodule`, changes are committed and pushed to remote.
+After syncing and updating the `themes/bilberry-hugo-theme` submodule, changes are committed and pushed to remote.
 
 
 ### Use in Theme Development
