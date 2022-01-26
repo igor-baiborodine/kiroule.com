@@ -85,5 +85,5 @@ To complete the procedure, after the merge, I do another check of the test conte
 
 
 ### Use in Theme Development
-Now I want to dwell on how the Bilberry Sandbox helps me develop new features or fix bugs in the Bilberry theme. 
+Now I want to dwell on how the Bilberry Sandbox is used in my day-to-day development when implementing new features or fixing bugs in the Bilberry theme. 
 So, first of all, a few words about my local development environment.
