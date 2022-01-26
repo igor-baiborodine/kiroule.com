@@ -81,7 +81,7 @@ But before that, the `.gitmodules` file needs to be rolled back to the state whe
 
 After syncing and updating the `themes/bilberry-hugo-theme` submodule, changes are committed and pushed to remote.
 Now it is ready to be merged into the master branch.
-And to complete the procedure, after the merge, I do another check of the test content published to the main URL: https://www.bilberry-sandbox.kiroule.com/. 
+To complete the procedure, after the merge, I do another check of the test content published to the main URL: https://www.bilberry-sandbox.kiroule.com/. 
 
 
 ### Use in Theme Development
