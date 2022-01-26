@@ -11,7 +11,7 @@ author: "Igor Baiborodine"
 After becoming an official maintainer of the Bilberry theme a few months ago, I was faced with the problem of how to facilitate and speed up the testing of changes submitted by other contributors. 
 I felt that just testing in my local dev wasn't enough and that I needed a production-like environment with a website powered by a vanilla Bilberry theme.
 
-Therefore, I created the [Bilberry Sandbox](https://www.bilberry-sandbox.kiroule.com/), which helps me develop, test, and maintain the Bilberry theme. 
+Therefore, I created the [Bilberry Sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox), which helps me develop, test, and maintain the Bilberry theme. 
 So this post details this new testing environment and its use in my development process.
 
 <!--more-->
@@ -80,6 +80,8 @@ But before that, the `.gitmodules` file needs to be rolled back to the state whe
 ```
 
 After syncing and updating the `themes/bilberry-hugo-theme` submodule, changes are committed and pushed to remote.
+Now it is ready to be merged into the master branch.
+And to complete the procedure, after the merge, I do another check of the test content published to the main URL: https://www.bilberry-sandbox.kiroule.com/. 
 
 
 ### Use in Theme Development
