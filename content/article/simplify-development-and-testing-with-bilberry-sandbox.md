@@ -11,7 +11,7 @@ author: "Igor Baiborodine"
 After becoming an official maintainer of the Bilberry theme a few months ago, I was faced with the problem of how to facilitate and speed up the testing of changes submitted by other contributors. 
 I felt that just testing in my local dev wasn't enough and that I needed a production-like environment with a website powered by a vanilla Bilberry theme.
 
-Therefore, I created the [Bilberry Sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox), which helps me develop, test, and maintain the Bilberry theme. 
+Therefore, I created the [Bilberry Sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/), which helps me develop, test, and maintain the Bilberry theme. 
 So this post details this new testing environment and its use in my development process.
 
 <!--more-->
@@ -88,14 +88,25 @@ To complete the procedure, after the merge, I do another check of the test conte
 Now I want to dwell on how the Bilberry Sandbox is used in my day-to-day development when implementing new features or fixing bugs in the Bilberry theme. 
 So, first of all, a few words about my local dev environment.
 
-For any development activities, I use IntelliJ IDEA, which is my favorite IDE. Usually, I create a separate project for a group of related applications. For example, for all Hugo-related development, I have a project that contains my website kiroule.com, the Bilberry Hugo theme, and the Bilberry Sandbox:
+For any development activities, I use [IntelliJ IDEA](https://www.jetbrains.com/idea/), which is my favorite IDE. 
+Usually, I create a separate project for a group of related applications. 
+For example, for all Hugo-related development, I have a project that contains my website **kiroule.com**, **Bilberry theme**, and **Bilberry Sandbox**:
+
+![IntelliJ hugo-dev Project](/img/content/article/simplify-development-and-testing-with-bilberry-sandbox/intellij-hugo-dev-project.png)
+
+Since I'm the official maintainer of the Bilberry theme, I no longer need to use the repository I previously forked from the original one. 
+For any minor fixes, such as typos in the README page, I can make changes directly to the original's master branch, but for anything else, I would work on a branch created from master.
+
+As for the Bilberry Sandbox, its primary purpose is to test all Bilberry theme's new development in my local dev before committing and pushing to remote. 
+Usually, I start any new development by creating a new feature/bugfix branch from the `bilberry-hugo-theme` repository's master.
+
+Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repository, the `theme` property in the `config.toml` file must be set to a relative path from the `themes` directory to that repository, which in my case will be `../../lednerb/bilberry-hugo-theme` given the following path structure for the theme and sandbox repositories:
 
 <-picture->
 
-Since I am the official maintainer of the Bilberry theme, I no longer need to use the repository I previously forked from the original one. For any minor fixes, such as typos in the README page, I can make changes directly to the original master branch, but for anything else, I would work on a branch created from master.
+I deploy a sandbox website using the `hugo server` command when a feature or fix is ready for testing. 
+Once deployed, any changes made to the theme's source code, except for SCSS files, will automatically force the site to be rebuilt and republished. 
+For SCSS files, the `assets/sass/theme.scss` file needs to be updated using either `npm run dev` or `npm run production` commands.
 
-As for the Bilberry Sandbox, its primary purpose is to test all Bilberry theme's new development in my local dev before committing and pushing to remote. Usually, I start any new development by creating a new feature/bugfix branch from the bilberry-hugo-theme repository's master.
-
-Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repository, the theme property in the config.toml file must be set to a relative path to that repository, which in my case will be "../../lednerb/bilberry-hugo-theme" given the following path structure for the theme and sandbox repositories:
-
-<-picture->
+As soon as the development is completed, I push the theme's local branch to remote and revert changes to the sandbox's `config.toml` file. 
+Then it's time to follow the above-described [Test Against Fork/Branch](/article/simplify-development-and-testing-with-bilberry-sandbox#test-against-forkbranch) routine, but this time it will be tested against my own branch in the original repository.  
