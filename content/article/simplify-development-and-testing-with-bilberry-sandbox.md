@@ -86,9 +86,10 @@ To complete the procedure, after the merge, I do another check of the test conte
 
 ### Use in Theme Development
 Now I want to dwell on how the Bilberry Sandbox is used in my day-to-day development when implementing new features or fixing bugs in the Bilberry theme. 
-So, first of all, a few words about my local development environment.
+So, first of all, a few words about my local dev environment.
 
 For any development activities, I use IntelliJ IDEA, which is my favorite IDE. Usually, I create a separate project for a group of related applications. For example, for all Hugo-related development, I have a project that contains my website kiroule.com, the Bilberry Hugo theme, and the Bilberry Sandbox:
+
 <-picture->
 
 Since I am the official maintainer of the Bilberry theme, I no longer need to use the repository I previously forked from the original one. For any minor fixes, such as typos in the README page, I can make changes directly to the original master branch, but for anything else, I would work on a branch created from master.
@@ -96,4 +97,5 @@ Since I am the official maintainer of the Bilberry theme, I no longer need to us
 As for the Bilberry Sandbox, its primary purpose is to test all Bilberry theme's new development in my local dev before committing and pushing to remote. Usually, I start any new development by creating a new feature/bugfix branch from the bilberry-hugo-theme repository's master.
 
 Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repository, the theme property in the config.toml file must be set to a relative path to that repository, which in my case will be "../../lednerb/bilberry-hugo-theme" given the following path structure for the theme and sandbox repositories:
+
 <-picture->
