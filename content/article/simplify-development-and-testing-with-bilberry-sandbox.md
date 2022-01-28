@@ -45,7 +45,7 @@ The updated `.gitmodules` file might look like this:
   branch = peertube-video
 ```
 
-Next, the submodule needs to be synced and updated using the following commands:
+Next, the theme submodule needs to be synced and updated using the following commands:
 ```shell
 $ git submodule sync
 $ git submodule update --init --recursive --remote
@@ -68,11 +68,11 @@ Upon successful deployment, the Netlify bot updates the pull request with a comm
 As you can see, this comment includes the deploy preview URL, which is prefixed by `deploy-preview` and followed by the identifier number of the pull request.
 The website published to this URL will be updated each time changes are made to the corresponding pull request.
 
-Then again, I verify the test content, but this time I'm testing it in a production-like environment. 
-If I get the expected results, I can approve changes from other contributor's fork/branch and merge them into the `master` branch of the [bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme) repository.
+Then again, I verify the deployed test content, but this time I'm testing it in a production-like environment. 
+If I get the expected results, I can approve changes (pull request) from other contributor's fork/branch and merge it into the `master` branch of the [bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme) repository.
 
-And finally, following the successful merge, the test branch I created in the bilberry-hugo-theme-sandbox needs to be merged into the master. 
-But before that, the `.gitmodules` file needs to be rolled back to the state when the branch was created, i.e., the `url` variable should match the URL of the original repository:
+Following the successful merge, the test branch I created in the [bilberry-hugo-theme-sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox) repository also needs to be merged into the master. 
+But before that, in my local dev, the `.gitmodules` file needs to be rolled back to the state when the branch was created, i.e., the `url` variable should match the URL of the original repository:
 ```shell
 [submodule "themes/bilberry-hugo-theme"]
   path = themes/bilberry-hugo-theme
@@ -98,7 +98,7 @@ Since I'm the official maintainer of the Bilberry theme, I no longer need to use
 For any minor fixes, such as typos in the README page, I can make changes directly to the original's master branch, but for anything else, I would work on a branch created from master.
 
 As for the Bilberry Sandbox, its primary purpose is to test all Bilberry theme's new development in my local dev before committing and pushing to remote. 
-Usually, I start any new development by creating a new feature/bugfix branch from the `bilberry-hugo-theme` repository's master.
+Usually, I start any new development by creating a new feature/bugfix branch from the [bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme) repository's master.
 
 Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repository, the `theme` property in the `config.toml` file must be set to a relative path from the `themes` directory to that repository, which in my case will be `../../lednerb/bilberry-hugo-theme` given the following path structure for the theme and sandbox repositories:
 ```shell
@@ -108,7 +108,7 @@ Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repo
 │   ├── config.toml
 ```
 
-I deploy a sandbox website using the `hugo server` command when a feature or fix is ready for testing. 
+I build and deploy the sandbox website using the `hugo server` command when a feature or fix is ready for testing. 
 Once deployed, any changes made to the theme's source code, except for SCSS files, will automatically force the site to be rebuilt and republished. 
 For SCSS files, the `assets/sass/theme.scss` file needs to be updated using either `npm run dev` or `npm run production` commands.
 
