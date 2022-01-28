@@ -11,7 +11,7 @@ author: "Igor Baiborodine"
 After becoming an official maintainer of the Bilberry theme a few months ago, I was faced with the problem of how to facilitate and speed up the testing of changes submitted by other contributors. 
 I felt that just testing in my local dev wasn't enough and that I needed a production-like environment with a website powered by a vanilla Bilberry theme.
 
-Therefore, I created the [Bilberry Sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/), which helps me develop, test, and maintain the Bilberry theme. 
+Therefore, I created the [Bilberry Sandbox](https://www.bilberry-sandbox.kiroule.com/), which helps me develop, test, and maintain the Bilberry theme. 
 So this post details this new testing environment and its use in my development process.
 
 <!--more-->
