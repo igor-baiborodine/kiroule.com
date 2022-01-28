@@ -12,7 +12,7 @@ aliases:
 ---
 
 After publishing the article ["Configure Custom Domain and HTTPS in Netlify"](/article/configure-custom-domain-and-https-in-netlify), one reader asked in the comments if the same instructions could be used to set up a custom **subdomain**.
-So in this post, I will expand on my answer.
+So in this post, I expand on my answer.
 
 <!--more-->
 
