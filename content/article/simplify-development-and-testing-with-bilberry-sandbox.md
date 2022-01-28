@@ -101,8 +101,12 @@ As for the Bilberry Sandbox, its primary purpose is to test all Bilberry theme's
 Usually, I start any new development by creating a new feature/bugfix branch from the `bilberry-hugo-theme` repository's master.
 
 Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repository, the `theme` property in the `config.toml` file must be set to a relative path from the `themes` directory to that repository, which in my case will be `../../lednerb/bilberry-hugo-theme` given the following path structure for the theme and sandbox repositories:
-
-<-picture->
+```shell
+├── lednerb
+│   └── bilberry-hugo-theme
+├── bilberry-hugo-theme-sandbox
+│   ├── config.toml
+```
 
 I deploy a sandbox website using the `hugo server` command when a feature or fix is ready for testing. 
 Once deployed, any changes made to the theme's source code, except for SCSS files, will automatically force the site to be rebuilt and republished. 
