@@ -34,7 +34,7 @@ Below you will see how this feature can come in handy when testing against a spe
 ### Test Against Fork/Branch
 
 So here is my routine when I need to test pull requests from other contributors.
-The first thing to do is to create a new test branch. 
+The first thing to do is to create a new test branch in the local `bilberry-hugo-theme-sandbox` repository. 
 Then the `url` configuration variable in the `.gitmodules` file must be updated with the URL of the fork in question. 
 The `branch` variable should also be defined if the submitted changes are in a specific branch. 
 The updated `.gitmodules` file might look like this:
@@ -57,7 +57,7 @@ So, for example, while testing the ["Support for custom audio files"](https://gi
 With proper categorization and tagging, it's easy to filter the necessary content, for instance, https://www.bilberry-sandbox.kiroule.com/categories/audio/ or https://www.bilberry-sandbox.kiroule.com/tags/spotify/.
 
 Then after deploying the Bilberry Sandbox website in my local dev with the `hugo server` command, I test the newly created content. 
-If the test results are satisfactory, I commit and push the branch to remote.
+If the test results are satisfactory, I commit and push the test branch to remote.
 
 The next step is to create a pull request for the new branch in the [bilberry-hugo-theme-sandbox](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox) repository on GitHub.
 Given that **Deploy Previews** is enabled for this repository, Netlify automatically builds the website from that branch and deploys it to a unique URL.
@@ -100,7 +100,7 @@ For any minor fixes, such as typos in the README page, I can make changes direct
 As for the Bilberry Sandbox, its primary purpose is to test all Bilberry theme's new development in my local dev before committing and pushing to remote. 
 Usually, I start any new development by creating a new feature/bugfix branch from the [bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme) repository's master.
 
-Then, for the Bilberry sandbox to use the Bilberry theme from the local Git repository, the `theme` property in the `config.toml` file must be set to a relative path from the `themes` directory to that repository, which in my case will be `../../lednerb/bilberry-hugo-theme` given the following path structure for the theme and sandbox repositories:
+Then, for the Bilberry sandbox to use the Bilberry theme from the local `bilberry-hugo-theme` repository, the `theme` property in the sandbox's `config.toml` file must be set to a relative path from the `themes` directory to that repository, which in my case will be `../../lednerb/bilberry-hugo-theme` given the following path structure for the theme and sandbox local repositories:
 ```shell
 ├── lednerb
 │   └── bilberry-hugo-theme
