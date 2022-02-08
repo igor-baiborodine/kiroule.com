@@ -13,7 +13,7 @@
   ALGOLIA_INDEX_NAME = "prod_kiroule"
 
 [context.production]
-  command = "hugo && algolia/run-data-upload-js.sh -p"
+  command = "hugo --buildFuture && algolia/run-data-upload-js.sh -p"
 
 [context.deploy-preview]
   command = "hugo -b $DEPLOY_PRIME_URL"
