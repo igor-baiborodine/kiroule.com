@@ -18,10 +18,73 @@ Since the advent of the [Bilberry Sandbox](https://www.bilberry-sandbox.kiroule.
 After successfully deploying the sandbox website on Netlify, I enabled and configured the Algolia search feature by following the [Algolia Indices](/article/automate-data-upload-to-algolia-index/#algolia-indices) and [Configuration Files](/article/automate-data-upload-to-algolia-index/#configuration-files) steps from the ["Automate Data Upload to Algolia Index"](/article/automate-data-upload-to-algolia-index/) tutorial.
 
 Whenever new test content was added, I had to follow the [Manual Upload](https://github.com/Lednerb/bilberry-hugo-theme#manual-upload) procedure from Bilberry theme's README to update Algolia indexes. 
-Therefore, the easiest way to solve the automation problem would be to use the same approach I used for the **kiroule.com** website, namely, calling the `algolia/run-data-upload-js.sh` script in the build command in the `netlify.toml` configuration file:
+Therefore, the easiest way to solve the automation problem would be to use the same approach I used for the **kiroule.com** website, namely, calling the `algolia/run-data-upload-js.sh` wrapper script in the build command in the `netlify.toml` configuration file:
 ```toml
 [context.production]
   command = "hugo --buildFuture && algolia/run-data-upload-js.sh -p"
 ```
 
-But I'm not the one to follow the path of least resistance.
+But I'm not the one to follow the path of least resistance. 
+Since I gained some experience with GitHub Actions last year while automating software development workflows for my personal projects, I decided to implement a workflow that would upload index data to Algolia on any commit to the master branch, which is mapped to the production environment on Netlify.
+
+So, this workflow is implemented as follows:
+```yml
+name: Upload Data to Algolia Index
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  upload_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          # extended: true
+
+      - name: Build Site
+        run: hugo
+
+      - name: Upload Data
+        working-directory: ./algolia # equivalent of 'cd algolia'
+        run: |
+          npm install
+          npm run data-upload -- -c \
+            -f ../public/index.json \
+            -a 810O6T2B5U \
+            -k ${{ secrets.ALGOLIA_ADMIN_API_KEY }} \
+            -n prod_bilberry_sandbox
+```
+
+There is nothing complicated in this implementation, and it speaks for itself. 
+It all starts with checking out the current repository first, then followed by installing **Node.js** and **Hugo**. 
+Next, to generate the `public/index.json` file, the `hugo` command is executed in the `Build Site` step. 
+And the last step is the actual upload of data to the Algolia index.
+
+As you can see, the `Upload Data` step is precisely the same as the [Automated Upload](https://github.com/Lednerb/bilberry-hugo-theme#automated-upload) instructions in the theme's README.
+The only difference is that the script is invoked with the `-c` or `--clear-index` option, which allows clearing the corresponding Algolia index before starting a new upload.
+>1. Switch to the `algolia` directory and install required dependencies by executing the following command:
+>  ```shell script
+>  cd algolia
+>  npm install
+>  ```
+>2. Run the `data-upload.js` from from the `algolia` directory as follows:
+>  ```shell script
+>  npm run data-upload -- -f ../public/index.json -a <algolia-app-id> -k <algolia-admin-api-key> -n <algolia-index-name>
+>  ```
+ 
