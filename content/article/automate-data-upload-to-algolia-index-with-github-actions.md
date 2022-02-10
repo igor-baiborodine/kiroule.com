@@ -88,7 +88,10 @@ The only difference is that the script is invoked with the `-c` or `--clear-inde
 >  npm run data-upload -- -f ../public/index.json -a <algolia-app-id> -k <algolia-admin-api-key> -n <algolia-index-name>
 >  ```
 
-Since the value of the Algolia's `Admin API Key` must be kept secret, the action secret should be added to the `Secrets` section of the repository's settings. 
+Since the value of the Algolia's `Admin API Key` must be kept secret, an action secret should be added to the `Secrets` section of the repository's settings. 
 The `secrets.ALGOLIA_ADMIN_API_KEY` value will then be used when calling the upload script.
 
 ![GitHub Settings | Secrets Section](/img/content/article/automate-data-upload-to-algolia-index-with-github-actions/github-settings-secrets-section.png)
+
+And in conclusion, I want to add that this workflow can be used as-is or combined with other GitHub Actions' workflows. 
+So, for example, if you plan to use [GitHub Pages](https://pages.github.com/) to host your Bilberry-powered website, the `Upload Data to Algolia Index` action can be used in conjunction with the [GitHub Pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action) action to publish your website. 
