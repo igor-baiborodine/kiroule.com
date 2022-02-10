@@ -78,16 +78,21 @@ And the last step is the actual upload of data to the Algolia index.
 
 As you can see, the `Upload Data` step is precisely the same as the [Automated Upload](https://github.com/Lednerb/bilberry-hugo-theme#automated-upload) instructions in the theme's README.
 The only difference is that the script is invoked with the `-c` or `--clear-index` option, which allows clearing the corresponding Algolia index before starting a new upload.
->1. Switch to the `algolia` directory and install required dependencies by executing the following command:
+>1. Switch to the `algolia` directory and install required dependencies by executing the following commands:
 >  ```shell script
->  cd algolia
->  npm install
+> cd algolia
+> npm install
 >  ```
 >2. Run the `data-upload.js` from from the `algolia` directory as follows:
 >  ```shell script
->  npm run data-upload -- -f ../public/index.json -a <algolia-app-id> -k <algolia-admin-api-key> -n <algolia-index-name>
+> npm run data-upload -- \
+>   -f ../public/index.json \
+>   -a <algolia-app-id> \
+>   -k <algolia-admin-api-key> \
+>   -n <algolia-index-name>
 >  ```
 
+The `algolia-app-id` and `algolia-index-name` placeholders should be replaced with the values of the `algolia_appId` and `algolia_indexName` parameters, respectively, from the [config.toml](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/3c77ff2352ca7c5fe5ed460aa5b7df80cd9b03e8/config.toml) file. 
 Since the value of the Algolia's `Admin API Key` must be kept secret, an action secret should be added to the `Secrets` section of the repository's settings. 
 The `secrets.ALGOLIA_ADMIN_API_KEY` value will then be used when calling the upload script.
 
