@@ -65,7 +65,7 @@ DefaultContentLanguage = "en"
 
   # Content configuration
     # Enable an optional pinned page to display at the top of the index
-    pinnedPost = "/article/series-list/"
+    pinnedPost = "/article/series-list/,/article/automate-data-upload-to-algolia-index-with-github-actions/,/article/simplify-development-and-testing-with-bilberry-sandbox/"
     # Set to true to pin only to the first page, false to all pages
     pinOnlyToFirstPage = true
 

@@ -1,6 +1,6 @@
 ---
 title: "Series"
-date: 2020-03-01T07:15:44-05:00
+date: 2025-01-01T07:15:44-05:00
 showDate: false
 categories: []
 tags: []
