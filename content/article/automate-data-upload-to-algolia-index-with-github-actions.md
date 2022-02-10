@@ -87,4 +87,8 @@ The only difference is that the script is invoked with the `-c` or `--clear-inde
 >  ```shell script
 >  npm run data-upload -- -f ../public/index.json -a <algolia-app-id> -k <algolia-admin-api-key> -n <algolia-index-name>
 >  ```
- 
+
+Since the value of the Algolia's `Admin API Key` must be kept secret, the action secret should be added to the `Secrets` section of the repository's settings. 
+The `secrets.ALGOLIA_ADMIN_API_KEY` value will then be used when calling the upload script.
+
+![GitHub Settings | Secrets Section](/img/content/article/automate-data-upload-to-algolia-index-with-github-actions/github-settings-secrets-section.png)
