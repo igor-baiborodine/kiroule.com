@@ -22,7 +22,7 @@ DefaultContentLanguage = "en"
   keywords = "software development,java,python,jamstack,devops"
 
   # How many articles should be displayed at once?
-  paginate = 10
+  paginate = 4
 
   # Enable / Disable MathJax
   enable_mathjax = false
@@ -65,7 +65,7 @@ DefaultContentLanguage = "en"
 
   # Content configuration
     # Enable an optional pinned page to display at the top of the index
-    pinnedPost = "/article/series-list/,/article/automate-data-upload-to-algolia-index-with-github-actions/,/article/simplify-development-and-testing-with-bilberry-sandbox/"
+    pinnedPost = "/article/series-list/"
     # Set to true to pin only to the first page, false to all pages
     pinOnlyToFirstPage = true
 
