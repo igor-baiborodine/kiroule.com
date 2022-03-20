@@ -7,10 +7,6 @@ showComments: false
 weight: 2
 ---
 
-### Developed with Pleasure!
-
-{{< intellij-logo >}}
-
 ### 2021
 **Bilberry Hugo Theme**
 
