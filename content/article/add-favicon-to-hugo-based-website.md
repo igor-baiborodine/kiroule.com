@@ -28,17 +28,30 @@ The Bilberry theme has such a file, and it contains straightforward instructions
 ```
 Merely following these instructions will do.
 
-But the presence of the `favicon.html` file in a Hugo theme is not always the case. Therefore, in your theme, you should look for the `layouts/partials/head.html` file like that [one](https://github.com/lxndrblz/anatole/blob/master/layouts/partials/head.html), for instance. Once located, copy it into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator. Then place all generated favicon images into the `static` folder. 
+But the presence of the `favicon.html` file in a Hugo theme is not always the case. 
+Therefore, in your theme, you should look for the `layouts/partials/head.html` file like that [one](https://github.com/igor-baiborodine/hugo-terrassa-theme/blob/87a1454029a012440b8f937702027e60010faac6/layouts/partials/head.html), for instance.
+If you cannot locate the `head.html` file, search for any other file that contains the `<head>` HTML tag. 
+For example, in the Bilberry theme, this file is named `baseof.html`. 
+
+Once located, copy it into the `layouts/partials` folder in your site's root directory and replace the favicon's `link` tags with the HTML code provided by a favicon generator. 
+Then place all generated favicon images into the `static` folder. 
 
 But why, you might ask, favicons should be placed into this particular directory? Here what the [Hugo documentation](https://gohugo.io/content-management/static-files/) says:
-```plaintext
-By default, the static/ directory in the site project is used 
-for all static files (e.g. stylesheets, JavaScript, images). 
-The static files are served on the site root path (eg. if you 
-have the file static/image.png you can access it using 
-http://{server-url}/image.png, to include it in a document you 
-can use ![Example image](/image.png) ).
+
+>By default, the `static/` directory in the site project is used
+for all static files (e.g. stylesheets, JavaScript, images).
+The static files are served on the site root path (eg. if you
+have the file `static/image.png` you can access it using
+`http://{server-url}/image.png`, to include it in a document you
+can use `![Example image](/image.png)` ).
+
+Or you can do it the Bilberry way by creating the `favicon.html` with generated favicon links. 
+Then copy it along with your theme's `head.html` file into the `layouts/partials` folder in your site's root, and replace all favicon links in the `head.html` file with the following line:
+```html
+{{ partial "favicon.html" . }}
 ```
+
+Check this [commit](https://github.com/projetsrios/projetsrios.com/commit/925ea89f73633dd0781e71997a81fad4364af103) if you want to go the Bilberry way.
 
 We proceed in two steps in this tutorial:
 
