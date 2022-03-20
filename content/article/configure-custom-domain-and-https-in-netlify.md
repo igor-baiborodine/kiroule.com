@@ -39,7 +39,7 @@ In the `Host Records` section, add `A Record` and `ALIAS Record`entries.
 Type: A Record
 Host: @
 Value: 104.198.14.52
-TTL: 30 min
+TTL: 5 min
 ```
 Here, the `104.198.14.52`  value is Netlify's load balancer IP address.
 
