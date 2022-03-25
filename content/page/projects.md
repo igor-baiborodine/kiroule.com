@@ -7,6 +7,12 @@ showComments: false
 weight: 2
 ---
 
+### 2022
+**Company Website at https://www.projetsrios.com/**
+
+Technologies used: [Hugo Terrassa Theme](https://github.com/igor-baiborodine/hugo-terrassa-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
+[See GitHub Repository](https://github.com/projetsrios/projetsrios.com)
+
 ### 2021
 **Bilberry Hugo Theme**
 
