@@ -1,5 +1,5 @@
 ---
-title: "Automate Data Upload to Algolia Index With GitHub Actions"
+title: "Automate Data Upload to Algolia Index with GitHub Actions"
 date: 2022-02-03T17:56:13-05:00
 
 categories: [Jamstack, Write-Up]

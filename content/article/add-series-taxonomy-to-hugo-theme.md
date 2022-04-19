@@ -1,9 +1,9 @@
 ---
 title: "Add Series Taxonomy to Hugo Theme"
 date: 2020-10-06T07:00:02-04:00
-draft: false
+
 categories: [Jamstack, Recipe]
-tags: [Hugo, Theme, Taxonomy, Series]
+tags: [Hugo Theme, Taxonomy, Series]
 series: "Hugo Theme Recipes"
 toc: false
 author: "Igor Baiborodine"
