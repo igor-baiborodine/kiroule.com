@@ -1,5 +1,5 @@
 ---
-title: "Simplify Development and Testing With Bilberry Sandbox"
+title: "Simplify Development and Testing with Bilberry Sandbox"
 date: 2022-01-20T07:55:47-05:00
 
 categories: [Bilberry, Jamstack, Write-Up]
