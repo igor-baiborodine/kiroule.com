@@ -134,4 +134,7 @@ The page that lists all the series will be available at `<site-base-url>/series/
 
 The content associated with a particular series can be accessed at `<site-base-url>/series/<urlized-series-name>`, for example, `https://www.kiroule.com/series/building-your-blog-the-geeky-way/`.
 
-And concluding this post, I want to add that the presented solution is generic enough, and it can be applied to any Hugo theme. If you're going to use it within your theme, the only thing to change is the taxonomy template's CSS class names. 
+And concluding this post, I want to add that the presented solution is generic enough, and it can be applied to any Hugo theme. If you're going to use it within your theme, the only thing to change is the taxonomy template's CSS class names.
+
+Continue reading the series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/):
+{{< series "Hugo Theme Recipes" >}}

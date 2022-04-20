@@ -54,3 +54,6 @@ So as you can see from the screenshots below, depending on the version of your t
 
 And in conclusion, I would add that this recipe is generic enough and can be used for any theme based on Hugo. 
 As you can see, the presented solution is simple and easy to implement.
+
+Continue reading the series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/):
+{{< series "Hugo Theme Recipes" >}}
