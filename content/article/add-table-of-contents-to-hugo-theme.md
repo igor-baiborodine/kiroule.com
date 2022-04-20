@@ -163,4 +163,5 @@ toc: true
 ## Conclusion
 To sum up, the presented solution offers two options for automating the creation of a table of contents. You can use either one or both. The shortcode approach is more straightforward and less dependent on the implementation of the Hugo theme of your choice. Also, you can place the shortcode anywhere within the markdown content. On the other hand, the single page template/partial approach is more theme-dependent, and the generated TOC has a fixed position within displayed content. Still, it's easier to use by simply enabling the corresponding page variable.
 
-
+Continue reading the series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/):
+{{< series "Hugo Theme Recipes" >}}
