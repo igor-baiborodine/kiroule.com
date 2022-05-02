@@ -14,7 +14,7 @@ it continues the  series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 
 <!--more-->
 
-With the proliferation of various video-sharing platforms such as YouTube, Vimeo, Bilibili, etc., the ability to post videos or include them in articles is a necessity for any blog or website.
+With the proliferation of various video-sharing platforms such as YouTube, Vimeo, Bilibili, etc., the ability to post videos or include them in articles has become a necessity for any blog or website. 
 If we look at how this can be done when using a Hugo-based website, it will largely depend on your chosen Hugo theme.
 
 {{< toc >}}
