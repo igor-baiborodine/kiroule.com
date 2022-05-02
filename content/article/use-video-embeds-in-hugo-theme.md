@@ -9,7 +9,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-This article details how to handle video embedding when creating content for a Hugo-based website or enhancing a Hugo theme; 
+In this article, I will show how to handle video embedding when creating content for a Hugo-based website or enhancing a Hugo theme; 
 it continues the "Hugo Theme Recipes" series.
 
 <!--more-->
