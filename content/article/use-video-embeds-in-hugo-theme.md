@@ -10,11 +10,12 @@ author: "Igor Baiborodine"
 ---
 
 In this article, I will show how to handle video embedding when creating content for a Hugo-based website or enhancing a Hugo theme; 
-it continues the "Hugo Theme Recipes" series.
+it continues the  series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 
 <!--more-->
 
-Intro
+With the proliferation of various video-sharing platforms such as YouTube, Vimeo, Bilibili, etc., the ability to post videos or include them in articles is a necessity for any blog or website.
+If we look at how this can be done when using a Hugo-based website, it will largely depend on your chosen Hugo theme.
 
 {{< toc >}}
 
