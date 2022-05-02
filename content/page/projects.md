@@ -7,7 +7,7 @@ showComments: false
 weight: 2
 ---
 
-### 2022
+## 2022
 ###### Learning Go
 1. [Exercises](https://github.com/igor-baiborodine/coding-challenges/blob/master/exercism/go-exercises.md) related to the [Exercism's Go track syllabus](https://exercism.org/tracks/go/concepts).
 
@@ -25,7 +25,7 @@ Technologies used: [GitHub Actions](https://github.com/features/actions)
 Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hugo-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
 [See GitHub Repository](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox)
 
-### 2021
+## 2021
 
 ###### Bilberry Hugo Theme
 Took the role of the official maintainer; made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
@@ -45,7 +45,7 @@ Automated software development workflows for the following personal repositories
 
 Technologies used: [GitHub Actions](https://github.com/features/actions)
 
-### 2020
+## 2020
 
 ###### Personal Website at https://kiroule.com
 
@@ -63,7 +63,7 @@ Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-them
 Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
 
-### 2019
+## 2019
 ###### Multi-Variant Docker Images for Liferay Portal CE
 *Updated in 2020, 2021*
 
@@ -72,7 +72,7 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 [See Docker Hub Repository](https://hub.docker.com/r/ibaiborodine/liferay-portal-ce)\
 [See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
 
-### 2018
+## 2018
 ###### Campsite Booking API
 *Updated in 2021*
 
@@ -84,13 +84,13 @@ Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk
 Technologies used: Java, Python\
 [See GitHub repository](https://github.com/igor-baiborodine/coding-challenges)
 
-### 2016
+## 2016
 ###### Exercise to port [MyBatis JPetStore](https://github.com/mybatis/jpetstore-6) from RDBMS/MyBatis to NoSQL/MongoDB and Spring Boot
 
 Technologies used: [Java 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html), [Lombok](https://projectlombok.org/), [Stripes](https://stripesframework.atlassian.net/wiki/display/STRIPES/Home), [Spring Boot](http://projects.spring.io/spring-boot/), [Spring Data MongoDB](http://projects.spring.io/spring-data-mongodb/), [Maven 3](http://maven.apache.org/)\
 [See GitHub repository](https://github.com/igor-baiborodine/jpetstore-6-spring-data-mongodb)
 
-### 2015
+## 2015
 
 ###### Exercise to port [MyBatis JPetStore](https://github.com/mybatis/jpetstore-6) to Vaadin 7|8 and Spring Boot
 
