@@ -17,6 +17,8 @@ it continues the  series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 With the proliferation of various video-sharing platforms such as [YouTube](https://www.youtube.com/), [Vimeo](https://vimeo.com/), [Bilibili](https://www.bilibili.com/), etc., the ability to post videos or include them in articles has become a necessity for any blog or website.
 This can be easily achieved if you plan to use videos from YouTube and Vimeo only, as Hugo includes built-in [youtube](https://gohugo.io/content-management/shortcodes/#youtube) and [vimeo](https://gohugo.io/content-management/shortcodes/#vimeo) shortcodes by default.
 
+For example, to embed a responsive video player to play a YouTube video with the URL https://www.youtube.com/watch?v=OaNT3gBR9IY, you need to place `{{</* youtube OaNT3gBR9IY */>}}` within the article's markdown, where the `OaNT3gBR9IY` value is the video's ID.
+
 {{< toc >}}
 
 ### Details 1
