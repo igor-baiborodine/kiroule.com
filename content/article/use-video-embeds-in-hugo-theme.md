@@ -28,6 +28,18 @@ Simply trying to place the following `iframe` embed element will not work:
         scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 ```
 
+Since **v0.60.0**, Hugo switched to the Goldmark markdown renderer, which by default omits all raw HTML content embedded in the markdown. 
+To make it work, you should add the following to your `config.toml` configuration file:
+```yaml
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+```
+
+The `unsafe = true` option may sound intimidating, but it doesn't necessarily make your website insecure. 
+Perhaps the creators of Hugo meant that the practice of using raw HTML in markdown should be considered unsafe.
+
 
 {{< toc >}}
 
