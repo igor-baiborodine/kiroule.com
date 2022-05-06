@@ -18,7 +18,7 @@ With the proliferation of various video-sharing platforms such as [YouTube](http
 This can be easily achieved if you plan to use videos from YouTube and Vimeo only, as Hugo includes built-in [youtube](https://gohugo.io/content-management/shortcodes/#youtube) and [vimeo](https://gohugo.io/content-management/shortcodes/#vimeo) shortcodes by default.
 
 For example, to embed a responsive video player to play a YouTube video with the URL https://www.youtube.com/watch?v=qtIqKaDlqXo, you need to place `{{</* youtube qtIqKaDlqXo */>}}` within the article's markdown, where the `qtIqKaDlqXo` value is the video's ID. 
-To test the `youtube` shortcode, I created a [test article](https://www.bilberry-sandbox.kiroule.com/article/test-hugo-youtube-shortcode/) on the Bilberry Sandbox site where you can see what the video looks like.
+To test the `youtube` shortcode, I created a [test article](https://www.bilberry-sandbox.kiroule.com/article/test-hugo-youtube-shortcode/) on the Bilberry Sandbox site where you can see what the embedded video looks like.
 
 {{< toc >}}
 
