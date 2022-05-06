@@ -20,6 +20,14 @@ This can be easily achieved if you plan to use videos from YouTube and Vimeo onl
 For example, to embed a responsive video player to play a YouTube video with the URL https://www.youtube.com/watch?v=qtIqKaDlqXo, you need to place `{{</* youtube qtIqKaDlqXo */>}}` within the article's markdown, where the `qtIqKaDlqXo` value is the video's ID. 
 To test the `youtube` shortcode, I created a [test article](https://www.bilberry-sandbox.kiroule.com/article/test-hugo-youtube-shortcode/) on the Bilberry Sandbox site where you can see what the embedded video looks like.
 
+So far, so good, but what would you do if you needed to embed videos from video-sharing providers other than YouTube and Vimeo. 
+For example, let's say you want to use a video hosted on Bilibili, one of the major Chinese video-on-demand platforms.
+Simply trying to place the following iframe embed HTML element will not work:
+```html
+<iframe src="//player.bilibili.com/player.html?bvid=BV1sN411o7fr&page=1&high_quality=1&danmaku=0"
+        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+```
+
 {{< toc >}}
 
 ### Details 1
