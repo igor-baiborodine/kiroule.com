@@ -56,6 +56,10 @@ On the contrary, the YouTube video, which is embedded via the `youtube` shortcod
 ### Custom Shortcodes
 TODO: elaborate
 
+### Responsiveness
+
+### Video Embed Archetype
+
 Plan:
 Note: all examples will be with YouTube embeds.
 - Use embed iframe in markdown as is, but raw HTML will be ignored. Therefore, raw HTML should be enabled. Create an example content on Bilberry Sandbox.
