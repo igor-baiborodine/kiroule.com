@@ -18,7 +18,7 @@ With the proliferation of various video-sharing platforms such as [YouTube](http
 This can be easily achieved if you plan to use videos from YouTube and Vimeo only, as Hugo includes built-in [youtube](https://gohugo.io/content-management/shortcodes/#youtube) and [vimeo](https://gohugo.io/content-management/shortcodes/#vimeo) shortcodes by default.
 
 For example, to embed a responsive video player to play a YouTube video with the URL https://www.youtube.com/watch?v=qtIqKaDlqXo, you need to place `{{</* youtube qtIqKaDlqXo */>}}` within the article's markdown, where the `qtIqKaDlqXo` value is the video's ID. 
-To test the `youtube` shortcode, I created a [test article](https://www.bilberry-sandbox.kiroule.com/article/test-hugo-youtube-shortcode/) on the Bilberry Sandbox site where you can see what the embedded video looks like.
+To test the `youtube` shortcode, I created a [test article](https://www.bilberry-sandbox.kiroule.com/article/test-hugo-youtube-shortcode/) on the Bilberry Sandbox website where you can see what the embedded video looks like.
 
 So far, so good, but what would you do if you needed to embed videos from video-sharing providers other than YouTube and Vimeo. 
 For example, let's say you want to use a video hosted on Bilibili, one of the major Chinese video-on-demand platforms.
@@ -29,7 +29,7 @@ Simply trying to place the following `iframe` embed element will not work:
 ```
 
 Since **v0.60.0**, Hugo switched to the Goldmark markdown renderer, which by default omits all raw HTML content embedded in the markdown. 
-To make it work, you should add the following to your `config.toml` configuration file:
+To make it work, you should add the following setting to your `config.toml` configuration file:
 ```yaml
 [markup]
   [markup.goldmark]
@@ -39,6 +39,8 @@ To make it work, you should add the following to your `config.toml` configuratio
 
 The `unsafe = true` option may sound intimidating, but it doesn't necessarily make your website insecure. 
 Perhaps the creators of Hugo meant that the practice of using raw HTML in markdown should be considered unsafe.
+The Bilberry Sandbox, which helps me develop, test, and maintain the Bilberry theme, has the raw HTML rendering enabled. 
+To try the above `iframe` embed, I've added another test [post](https://www.bilberry-sandbox.kiroule.com/article/test-raw-html-iframe-embed/).
 
 
 {{< toc >}}
