@@ -28,7 +28,7 @@ So far, so good, but what would you do if you needed to embed videos from video-
 For example, let's say you want to use a video hosted on Bilibili, one of the major Chinese video-on-demand platforms.
 Simply trying to place the following `iframe` embed element will not work:
 ```html
-<iframe src="//player.bilibili.com/player.html?bvid=BV1sN411o7fr&page=1&high_quality=1&danmaku=0"
+<iframe src="//player.bilibili.com/player.html?bvid=BV1jz4y1f7yo&page=1&high_quality=1&danmaku=0"
         scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 ```
 
@@ -54,7 +54,19 @@ On the contrary, the YouTube video, which is embedded via the `youtube` shortcod
 ![Test Raw HTML iframe Embed](/img/content/article/use-video-embeds-in-hugo-theme/bilberry-sandbox-hugo-youtube-shortcode-test.png)
 
 ### Custom Shortcodes
-TODO: elaborate
+Additionally, before addressing the issue with responsiveness, we can encapsulate the `iframe` embed in a custom shortcode instead of using it as a raw HTML, i.e., create a parametrizable shortcode similar to the `youtube` shortcode provided by Hugo.
+```html
+{{ $id := .Get 0 }}
+
+<div>
+  <iframe
+      src="https://player.bilibili.com/player.html?bvid={{ $id }}&page=1&as_wide=1&high_quality=1&danmaku=0"
+      scrolling="no" framespacing="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+  </iframe>
+</div>
+```
+
+https://www.bilberry-sandbox.kiroule.com/article/test-bilibili-embed-shortcode/
 
 ### Responsiveness
 
