@@ -39,8 +39,9 @@ To make it work, you should add the following setting to your `config.toml` conf
 
 The `unsafe = true` option may sound intimidating, but it doesn't necessarily make your website insecure. 
 Perhaps the creators of Hugo meant that the practice of using raw HTML in markdown should be considered unsafe.
-The Bilberry Sandbox, which helps me develop, test, and maintain the Bilberry theme, has the raw HTML rendering enabled. 
-To try the above `iframe` embed, I've added another test [post](https://www.bilberry-sandbox.kiroule.com/article/test-raw-html-iframe-embed/).
+The Bilberry Sandbox, which helps me develop, test, and maintain the Bilberry theme, has the raw HTML rendering enabled.
+To try out the Bilibili iframe embed, I've created another test [post](https://www.bilberry-sandbox.kiroule.com/article/test-raw-html-iframe-embed/), where I also added the iframe from the above YouTube video for comparison.
+
 
 
 {{< toc >}}
