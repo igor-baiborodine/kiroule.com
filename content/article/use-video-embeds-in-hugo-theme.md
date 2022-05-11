@@ -71,6 +71,32 @@ As you can see, the video embed in the [test article](https://www.bilberry-sandb
 But when using the shortcode, you no longer need to apply the `unsafe = true` setting in your configuration file.
 
 ### Responsiveness
+To fix the issue with responsiveness when using custom shortcodes, you should define a CSS styling for the `div` element containing the iframe. For example, in the Bilberry theme, this styling is implemented using the SCSS syntax as [follows](https://github.com/Lednerb/bilberry-hugo-theme/blob/93290d430a60052aa8ab421d21a50a63fa64cd04/assets/sass/_articles.scss):
+```scss
+&.article {
+    .responsive-video {
+        position: relative;
+        /* 16:9 ratio*/
+        padding-bottom: 56.25%;
+        padding-top: 0px;
+        height: 0;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}
+```
+
+Then to apply the above styling, you should set the div's class attribute  with the `responsive-video` value: `<div class="responsive-video">`.
+
+### Enhanced youtube Shortcode
 
 ### Video Embed Archetype
 
