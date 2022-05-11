@@ -5,7 +5,7 @@ draft: false
 categories: [Jamstack, Recipe]
 tags: [Hugo Theme, Video Embed]
 series: "Hugo Theme Recipes"
-toc: false
+toc: true
 author: "Igor Baiborodine"
 ---
 
@@ -13,8 +13,6 @@ In this article, I will show how to handle video embedding when creating content
 it continues the  series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 
 <!--more-->
-
-{{< toc >}}
 
 With the proliferation of various video-sharing platforms such as [YouTube](https://www.youtube.com/), [Vimeo](https://vimeo.com/), [Bilibili](https://www.bilibili.com/), etc., the ability to post videos or include them in articles has become a necessity for any blog or website.
 This can be easily achieved if you plan to use videos from YouTube and Vimeo only, as Hugo includes built-in [youtube](https://gohugo.io/content-management/shortcodes/#youtube) and [vimeo](https://gohugo.io/content-management/shortcodes/#vimeo) shortcodes by default.
@@ -55,6 +53,8 @@ On the contrary, the YouTube video, which is embedded via the `youtube` shortcod
 
 ### Custom Shortcodes
 Additionally, before addressing the issue with responsiveness, we can encapsulate the `iframe` embed in a custom shortcode instead of using it as a raw HTML, i.e., create a parametrizable shortcode similar to the `youtube` shortcode provided by Hugo.
+Here is the [layouts/shortcodes/bilibili.html](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/f8421ec95b92b3f11f4e30c748247431e71b2fab/layouts/shortcodes/bilibili.html) shortcode file I added to the Bilberry Sandbox:
+
 ```html
 {{ $id := .Get 0 }}
 
@@ -66,7 +66,9 @@ Additionally, before addressing the issue with responsiveness, we can encapsulat
 </div>
 ```
 
-https://www.bilberry-sandbox.kiroule.com/article/test-bilibili-embed-shortcode/
+To display the above Bilibili video within an article, you need to put `{{</* bilibili BV1jz4y1f7yo */>}}` within the article's markdown, where the `BV1jz4y1f7yo` value is the video's ID. 
+As you can see, the video embed in the [test article](https://www.bilberry-sandbox.kiroule.com/article/test-bilibili-embed-shortcode/) is displayed the same way as the raw HTML `iframe` embed. 
+But when using the shortcode, you no longer need to apply the `unsafe = true` setting in your configuration file.
 
 ### Responsiveness
 
