@@ -109,6 +109,7 @@ When using Hugo's built-in `youtube` shortcode, it will be rendered as follows:
 As you can see, the `src` attribute of the iframe element is set to `https://www.youtube.com/embed/qtIqKaDlqXo`, which means that YouTube will automatically use its tracking cookie. 
 Unfortunately, that can pose a problem since the people visiting your site usually do not consent to this YouTube tracker.
 So, in 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your enhanced youtube shortcode.
+Here is the [layouts/shortcodes/youtube-enhanced.html](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/7111c0583f62a05543736963088f8b6ee4582fec/layouts/shortcodes/youtube-enhanced.html) shortcode file I implemented in the Bilberry Sandbox:
 
 ```html
 {{ $id := .Get "id" }}
