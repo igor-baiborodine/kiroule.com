@@ -66,7 +66,7 @@ Here is the [layouts/shortcodes/bilibili.html](https://github.com/igor-baiborodi
 </div>
 ```
 
-To display the above Bilibili video within an article, you need to put `{{</* bilibili BV1jz4y1f7yo */>}}` within the article's markdown, where the `BV1jz4y1f7yo` value is the video's ID. 
+To display the above-mentioned Bilibili video within an article, you need to put `{{</* bilibili BV1jz4y1f7yo */>}}` within the article's markdown, where the `BV1jz4y1f7yo` value is the video's ID. 
 As you can see, the video embed in the [test article](https://www.bilberry-sandbox.kiroule.com/article/test-bilibili-embed-shortcode/) is displayed the same way as the raw HTML `iframe` embed. 
 But when using the shortcode, you no longer need to apply the `unsafe = true` setting in your configuration file.
 
