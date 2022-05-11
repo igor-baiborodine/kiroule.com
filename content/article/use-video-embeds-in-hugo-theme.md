@@ -97,6 +97,31 @@ To fix the issue with responsiveness when using custom shortcodes, you should de
 Then to apply the above styling, you should set the div's class attribute  with the `responsive-video` value: `<div class="responsive-video">`.
 
 ### Enhanced youtube Shortcode
+When using Hugo's built-in `youtube` shortcode, it will be rendered as follows:
+```html
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/qtIqKaDlqXo"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+          allowfullscreen="" title="YouTube Video"></iframe>
+</div>
+```
+
+As you can see, the `src` attribute of the iframe element is set to `https://www.youtube.com/embed/qtIqKaDlqXo`, which means that YouTube will automatically use its tracking cookie. 
+Unfortunately, that can pose a problem since the people visiting your site usually do not consent to this YouTube tracker.
+So, in 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your enhanced youtube shortcode.
+
+```html
+{{ $id := .Get "id" }}
+{{ $start := .Get "start" | default 0 }}
+{{ $title := .Get "title" | default "YouTube Video" }}
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ $id }}?rel=0&start={{ $start }}"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+          allowfullscreen="" title="{{ $title }}"></iframe>
+</div>
+```
+
 
 ### Video Embed Archetype
 
