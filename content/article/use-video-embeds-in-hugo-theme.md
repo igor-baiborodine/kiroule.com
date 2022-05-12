@@ -44,8 +44,8 @@ Perhaps the creators of Hugo meant that the practice of using raw HTML in markdo
 The Bilberry Sandbox, which helps me develop, test, and maintain the Bilberry theme, has the raw HTML rendering enabled.
 To try out the Bilibili `iframe` embed, I've created another test [post](https://www.bilberry-sandbox.kiroule.com/article/test-raw-html-iframe-embed/), where I also added the `iframe` from the above YouTube video for comparison.
 
-As you can see from the screenshot, both video embeds are not displayed responsively, i.e., they do not fully fit into the width of the article. 
-On the contrary, the YouTube video, which is embedded via the `youtube` shortcode, does fit the article's width.
+As you can see from the first screenshot, both video embeds are not displayed responsively, i.e., they do not fully fit into the width of the article.
+In contrast, a YouTube video in the second screenshot, which is embedded via the `youtube` shortcode, does fit the article's width because its `iframe` element and its surrounding `div` have the required CSS inline styling.
 
 ![Test Raw HTML iframe Embed](/img/content/article/use-video-embeds-in-hugo-theme/bilberry-sandbox-raw-html-iframe-test.png)
 
@@ -71,7 +71,8 @@ As you can see, the video embed in the [test article](https://www.bilberry-sandb
 But when using the shortcode, you no longer need to apply the `unsafe = true` setting in your configuration file.
 
 ### Responsiveness
-To fix the issue with responsiveness when using custom shortcodes, you should define a CSS styling for the `div` element containing the iframe. For example, in the Bilberry theme, this styling is implemented using the SCSS syntax as [follows](https://github.com/Lednerb/bilberry-hugo-theme/blob/93290d430a60052aa8ab421d21a50a63fa64cd04/assets/sass/_articles.scss):
+To fix the issue with responsiveness when using custom shortcodes, you should define a CSS styling for the `div` element containing the `iframe`. 
+For example, in the Bilberry theme, this styling is implemented using the SCSS syntax as [follows](https://github.com/Lednerb/bilberry-hugo-theme/blob/93290d430a60052aa8ab421d21a50a63fa64cd04/assets/sass/_articles.scss):
 ```scss
 &.article {
     .responsive-video {
@@ -97,7 +98,7 @@ To fix the issue with responsiveness when using custom shortcodes, you should de
 Then to apply the above styling, you should set the div's class attribute  with the `responsive-video` value: `<div class="responsive-video">`.
 
 ### Enhanced youtube Shortcode
-When using Hugo's built-in `youtube` shortcode, it will be rendered as follows:
+When using Hugo's built-in `youtube` shortcode, it will render as follows:
 ```html
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/qtIqKaDlqXo"
@@ -108,7 +109,7 @@ When using Hugo's built-in `youtube` shortcode, it will be rendered as follows:
 
 As you can see, the `src` attribute of the iframe element is set to `https://www.youtube.com/embed/qtIqKaDlqXo`, which means that YouTube will automatically use its tracking cookie. 
 Unfortunately, that can pose a problem since the people visiting your site usually do not consent to this YouTube tracker.
-So, in 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your enhanced youtube shortcode.
+So, in 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your improved `youtube` shortcode.
 Here is the [layouts/shortcodes/youtube-enhanced.html](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/7111c0583f62a05543736963088f8b6ee4582fec/layouts/shortcodes/youtube-enhanced.html) shortcode file I implemented in the Bilberry Sandbox:
 
 ```html
@@ -123,8 +124,6 @@ Here is the [layouts/shortcodes/youtube-enhanced.html](https://github.com/igor-b
 </div>
 ```
 
-
-### Video Embed Archetype
 
 Plan:
 Note: all examples will be with YouTube embeds.
