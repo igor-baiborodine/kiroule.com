@@ -8,7 +8,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-In this post, I show how to install Hugo on Ubuntu in 3 different ways.
+In this post, I will show how to install Hugo on Ubuntu in 3 different ways.
 
 <!--more-->
 
