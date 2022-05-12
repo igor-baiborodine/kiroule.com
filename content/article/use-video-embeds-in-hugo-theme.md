@@ -110,11 +110,11 @@ When using Hugo's built-in `youtube` shortcode, it will render as follows:
 As you can see, the `src` attribute of the iframe element is set to `https://www.youtube.com/embed/qtIqKaDlqXo`.
 With this source URL, YouTube will automatically use its tracking cookie. 
 Unfortunately, that can pose a problem since the people visiting your site usually do not consent to this YouTube tracker.
-In 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your improved `youtube` shortcode. 
-Here is an improved `youtube` shortcode, namely [layouts/shortcodes/youtube-enhanced.html](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/7111c0583f62a05543736963088f8b6ee4582fec/layouts/shortcodes/youtube-enhanced.html), which I implemented in the Bilberry Sandbox:
+In 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your improved no-cookie YouTube shortcode. 
+Here is the [youtube-enhanced](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/d045f03af3f97024b9e659a623b81ce78ae02c4a/layouts/shortcodes/youtube-enhanced.html) shortcode, which I implemented in the Bilberry Sandbox:
 
 ```html
-{{ $id := .Get "id" }}
+{{ $id := .Get "id" | default (.Get 0) }}
 {{ $start := .Get "start" | default 0 }}
 {{ $title := .Get "title" | default "YouTube Video" }}
 
@@ -124,6 +124,22 @@ Here is an improved `youtube` shortcode, namely [layouts/shortcodes/youtube-enha
           allowfullscreen="" title="{{ $title }}"></iframe>
 </div>
 ```
+
+I created the following [test content](https://www.bilberry-sandbox.kiroule.com/article/test-enhanced-youtube-shortcode/) on the Bilberry Sandbox to test this custom shortcode. 
+It can be used the same way as the original shortcode from Hugo:
+```markdown
+# Providing only the video ID as an unnamed parameter
+{{</* youtube-enhanced qtIqKaDlqXo */>}}
+
+# Providing only the video ID as the named id parameter
+{{</* youtube-enhanced id="qtIqKaDlqXo" */>}}
+
+# Providing values for named id, title, and start parameters
+{{</* youtube-enhanced id="qtIqKaDlqXo" title="Hugo Introduction" start="120" */>}}
+```
+
+
+Conclusion
 
 
 Plan:
