@@ -97,7 +97,7 @@ For example, in the Bilberry theme, this styling is implemented using the SCSS s
 
 Then to apply the above styling, you should set the div's class attribute  with the `responsive-video` value: `<div class="responsive-video">`.
 
-### Enhanced youtube Shortcode
+### Enhanced YouTube Shortcode
 When using Hugo's built-in `youtube` shortcode, it will render as follows:
 ```html
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -140,7 +140,7 @@ It can be used the same way as the original shortcode from Hugo:
 
 If the `title` parameter is omitted, it will default to the `YouTube Video` value.
 If you want to start playing a video from a specific point, provide the `start` parameter, whose value should be in seconds.
-
+TODO: elaborate on rel param in the URL, and external CSS.
 
 
 Conclusion
