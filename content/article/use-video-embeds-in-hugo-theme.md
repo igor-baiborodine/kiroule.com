@@ -138,6 +138,10 @@ It can be used the same way as the original shortcode from Hugo:
 {{</* youtube-enhanced id="qtIqKaDlqXo" title="Hugo Introduction" start="120" */>}}
 ```
 
+If the `title` parameter is omitted, it will default to the `YouTube Video` value.
+If you want to start playing a video from a specific point, provide the `start` parameter, whose value should be in seconds.
+
+
 
 Conclusion
 
