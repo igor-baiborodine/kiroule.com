@@ -18,13 +18,13 @@ With the proliferation of various video-sharing platforms such as [YouTube](http
 This can be easily achieved if you plan to use videos from YouTube and Vimeo only, as Hugo includes built-in [youtube](https://gohugo.io/content-management/shortcodes/#youtube) and [vimeo](https://gohugo.io/content-management/shortcodes/#vimeo) shortcodes by default.
 
 ### Built-in Shortcodes
-For example, to embed a responsive video player to play a YouTube video with the URL https://www.youtube.com/watch?v=qtIqKaDlqXo, you need to place `{{</* youtube qtIqKaDlqXo */>}}` within the article's markdown, where the `qtIqKaDlqXo` value is the video's ID. 
+For example, to embed a responsive video player to display a YouTube video with the URL https://www.youtube.com/watch?v=qtIqKaDlqXo, you simply need to place `{{</* youtube qtIqKaDlqXo */>}}` within the article's markdown, where the `qtIqKaDlqXo` value is the video's ID. 
 To test the `youtube` shortcode, I created a [test article](https://www.bilberry-sandbox.kiroule.com/article/test-hugo-youtube-shortcode/) on the Bilberry Sandbox website where you can see what the embedded video looks like.
 
 ### Raw HTML iframe
 So far, so good, but what would you do if you needed to embed videos from video-sharing providers other than YouTube and Vimeo. 
 For example, let's say you want to use a video hosted on Bilibili, one of the major Chinese video-on-demand platforms.
-Simply trying to place the following `iframe` embed element will not work:
+Simply trying to place the following `iframe` embed will not work:
 ```html
 <iframe src="//player.bilibili.com/player.html?bvid=BV1jz4y1f7yo&page=1&high_quality=1&danmaku=0"
         scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
@@ -66,12 +66,12 @@ Here is the [layouts/shortcodes/bilibili.html](https://github.com/igor-baiborodi
 </div>
 ```
 
-To display the above-mentioned Bilibili video within an article, you need to put `{{</* bilibili BV1jz4y1f7yo */>}}` within the article's markdown, where the `BV1jz4y1f7yo` value is the video's ID. 
+To display the above-mentioned Bilibili video in an article, you need to put `{{</* bilibili BV1jz4y1f7yo */>}}` within the article's markdown, where the `BV1jz4y1f7yo` value is the video's ID. 
 As you can see, the video embed in the [test article](https://www.bilberry-sandbox.kiroule.com/article/test-bilibili-embed-shortcode/) is displayed the same way as the raw HTML `iframe` embed. 
 But when using the shortcode, you no longer need to apply the `unsafe = true` setting in your configuration file.
 
 ### Responsiveness
-To fix the issue with responsiveness when using custom shortcodes, you should define a CSS styling for the `div` element containing the `iframe`. 
+To fix the issue with responsiveness when using custom shortcodes, you should define an external CSS styling for the `div` element containing the `iframe`. 
 For example, in the Bilberry theme, this styling is implemented using the SCSS syntax as [follows](https://github.com/Lednerb/bilberry-hugo-theme/blob/93290d430a60052aa8ab421d21a50a63fa64cd04/assets/sass/_articles.scss):
 ```scss
 &.article {
@@ -107,10 +107,11 @@ When using Hugo's built-in `youtube` shortcode, it will render as follows:
 </div>
 ```
 
-As you can see, the `src` attribute of the iframe element is set to `https://www.youtube.com/embed/qtIqKaDlqXo`, which means that YouTube will automatically use its tracking cookie. 
+As you can see, the `src` attribute of the iframe element is set to `https://www.youtube.com/embed/qtIqKaDlqXo`.
+With this source URL, YouTube will automatically use its tracking cookie. 
 Unfortunately, that can pose a problem since the people visiting your site usually do not consent to this YouTube tracker.
-So, in 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your improved `youtube` shortcode.
-Here is the [layouts/shortcodes/youtube-enhanced.html](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/7111c0583f62a05543736963088f8b6ee4582fec/layouts/shortcodes/youtube-enhanced.html) shortcode file I implemented in the Bilberry Sandbox:
+In 2020, YouTube introduced a new privacy-enhanced video embed that you can use to create your improved `youtube` shortcode. 
+Here is an improved `youtube` shortcode, namely [layouts/shortcodes/youtube-enhanced.html](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/7111c0583f62a05543736963088f8b6ee4582fec/layouts/shortcodes/youtube-enhanced.html), which I implemented in the Bilberry Sandbox:
 
 ```html
 {{ $id := .Get "id" }}
