@@ -5,7 +5,7 @@ date: 2020-10-06T07:00:02-04:00
 categories: [Jamstack, Recipe]
 tags: [Hugo Theme, Taxonomy, Series]
 series: "Hugo Theme Recipes"
-toc: false
+toc: true
 author: "Igor Baiborodine"
 ---
 
@@ -41,7 +41,6 @@ One solution to this problem might be to create a shortcode to encapsulate such 
 But it is possible to parameterize such a shortcode by passing the series' name as an argument. In this case, the content should be somehow classified so that we can retrieve the corresponding articles. To help us group such content, we can implement the series taxonomy.
 
 Now let's take a closer look at the implementation details. The source code is available in this [commit](https://github.com/Lednerb/bilberry-hugo-theme/commit/553a452c745bf19f82e1a267b5bf51da0ae3bc7e), which I made to the Bilberry Hugo theme.
-{{< toc >}}
 
 ### Configuration
 Before using the `series` taxonomy, it should be defined in the site config file(e.g., `config.toml`) by providing singular and plural labels:
@@ -51,7 +50,7 @@ Before using the `series` taxonomy, it should be defined in the site config file
   category = "categories"
   series = "series"
 ```
-Please note that if you want to continue using `tags` and `categories` default taxonomies, you should explicitly define them in the config file.  
+Please note that if you want to continue using `tags` and `categories` default taxonomies, you should explicitly define them in the configuration file.  
 
 ### Taxonomy template
 The `layouts/_default/series.terms.html` file is the `series` taxonomy template. Hugo will use it to automatically generate both a page that lists all the series and individual pages that list the content associated with each series. This template is implemented as follows:

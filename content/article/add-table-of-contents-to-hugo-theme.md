@@ -5,7 +5,7 @@ date: 2020-10-19T08:08:54-04:00
 categories: [Jamstack, Recipe]
 tags: [Hugo Theme, Table of Contents, TOC]
 series: "Hugo Theme Recipes"
-toc: false
+toc: true
 author: "Igor Baiborodine"
 ---
 
@@ -19,8 +19,6 @@ Therefore, instead of manually adding a list of anchor links, I wanted to automa
 
 So let's examine the details of this solution. The source code for the implementation I describe below can be found in my [contribution](https://github.com/Lednerb/bilberry-hugo-theme/commit/dad026fc2517891bf0d931a3b9f1ad339d5d49e0
 ) to the Bilberry theme.
-
-{{< toc >}}
 
 ## Configuration
 To define what heading levels need to be included in TOC, you have to add the following to your site config file, for instance, `config.toml`:
