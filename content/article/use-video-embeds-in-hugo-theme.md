@@ -140,6 +140,10 @@ It can be used the same way as the original shortcode from Hugo:
 
 If the `title` parameter is omitted, it will default to the `YouTube Video` value.
 If you want to start playing a video from a specific point, provide the `start` parameter, whose value should be in seconds.
+In addition, the source URL for the video in question contains the `rel` parameter, which is set to `0`. 
+This parameter determines whether the player should show related videos when the playback of the initial video ends. 
+If set to `0`, no related videos will be shown. [Here](https://developers.google.com/youtube/player_parameters) you can read more on other supported YouTube player parameters.
+
 TODO: elaborate on rel param in the URL, and external CSS.
 
 
