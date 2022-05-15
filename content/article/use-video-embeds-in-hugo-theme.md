@@ -34,9 +34,9 @@ the Bilberry Sandbox website where you can see what the embedded video looks lik
 
 ### Raw HTML iframe
 
-So far, so good, but what would you do if you needed to embed videos from video-sharing providers
+So far, so good, but what would you do if you need to embed videos from video-sharing providers
 other than YouTube and Vimeo. For example, let's say you want to use a video hosted on Bilibili, one
-of the major Chinese video-on-demand platforms. Simply trying to place the following `iframe` embed
+of the major China's video-on-demand platforms. Simply trying to place the following `iframe` embed
 will not work:
 
 ```html
@@ -62,9 +62,9 @@ theme, has the raw HTML rendering enabled. To try out the Bilibili `iframe` embe
 another test [post](https://www.bilberry-sandbox.kiroule.com/article/test-raw-html-iframe-embed/),
 where I also added the `iframe` from the above YouTube video for comparison.
 
-As you can see from the first screenshot, both video embeds are not displayed responsively, i.e.,
+As you can see from the first screenshot below, both video embeds are not displayed responsively, i.e.,
 they do not fully fit into the width of the article. In contrast, a YouTube video in the second
-screenshot, which is embedded via the `youtube` shortcode, does fit the article's width because
+screenshot, which is embedded via the `youtube` shortcode, does fit the article's width since
 its `iframe` element and its surrounding `div` have the required inline CSS styling.
 
 ![Raw HTML iframe Embed](/img/content/article/use-video-embeds-in-hugo-theme/bilberry-sandbox-raw-html-iframe-test.png)
@@ -94,8 +94,8 @@ To display the above-mentioned Bilibili video in an article, you need to
 put `{{</* bilibili BV1jz4y1f7yo */>}}` within the article's markdown, where the `BV1jz4y1f7yo`
 value is the video's ID. As you can see, the video embed in
 the [test article](https://www.bilberry-sandbox.kiroule.com/article/test-bilibili-embed-shortcode/)
-is displayed the same way as the raw HTML `iframe` embed. But when using the shortcode, you no
-longer need to apply the `unsafe = true` setting in your configuration file.
+is displayed the same way as the raw HTML `iframe` embed. But when using the `bilibili` shortcode,
+you no longer need to apply the `unsafe = true` setting in the configuration file.
 
 ### Responsiveness
 
@@ -160,9 +160,8 @@ shortcode, which I implemented in the Bilberry Sandbox:
 ```
 
 I created the
-following [test content](https://www.bilberry-sandbox.kiroule.com/article/test-enhanced-youtube-shortcode/)
-on the Bilberry Sandbox to test this custom shortcode. It can be used the same way as the original
-shortcode from Hugo:
+following [content](https://www.bilberry-sandbox.kiroule.com/article/test-enhanced-youtube-shortcode/)
+to test this custom shortcode. It can be used the same way as the original shortcode from Hugo:
 
 ```markdown
 # Providing only the video ID as an unnamed parameter
@@ -188,10 +187,11 @@ into a separate either CSS, SCSS, or SASS file.
 
 Because Hugo provides shortcodes for two of the most popular video-sharing providers, YouTube and
 Vimeo, posting videos from them doesn't require any extra effort. However, the provided `youtube`
-shortcode lacks privacy, which can be easily addressed by implementing your custom shortcode. If you
-want to publish a video from any other provider, this can be achieved by either using a raw HTML
-`iframe` embed or encapsulating it in a custom shortcode. I also want to point out that the
-presented solution for creating video embed shortcodes can be applied to audio embedding.
+shortcode lacks privacy, which can be easily addressed by implementing your custom YouTube
+shortcode. If you want to publish a video from any other provider, then this can be achieved by
+either using a raw HTML `iframe` embed or encapsulating it in a custom shortcode. I also want to
+point out that the presented solution for creating video embed shortcodes can be applied to audio
+embedding.
 
 Continue reading the series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/):
 {{< series "Hugo Theme Recipes" >}}
