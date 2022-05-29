@@ -17,7 +17,9 @@ Technologies used: [Hugo Terrassa Theme](https://github.com/igor-baiborodine/hug
 [See GitHub Repository](https://github.com/projetsrios/projetsrios.com)
 
 ###### CI/CD with GitHub Actions
-Automated [workflow](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/tree/master/.github/workflows) for uploading data to Algolia index for the [Bilberry Sandbox](https://www.bilberry-sandbox.kiroule.com/). 
+Automated the following software development workflows:
+1. [Workflow](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/master/.github/workflows/upload-data-to-algolia-index.yml) for uploading data to Algolia index for the [Bilberry Sandbox/Netlify](https://www.bilberry-sandbox.kiroule.com/).
+2. [Workflow](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/master/.github/workflows/gh-pages.yml) for updating GitHub Pages when using the Bilberry theme as a Hugo module for the [Bilberry Sandbox/GitHub Pages](https://igor-baiborodine.github.io/bilberry-hugo-theme-sandbox/).
 
 Technologies used: [GitHub Actions](https://github.com/features/actions)
 
