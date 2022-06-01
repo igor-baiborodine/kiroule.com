@@ -1,6 +1,6 @@
 title = "Igor Baiborodine"
 baseURL = "https://www.kiroule.com/"
-theme = "bilberry-hugo-theme"
+theme = "github.com/Lednerb/bilberry-hugo-theme/v3"
 
 # Generate the robots.txt file for SEO
 enableRobotsTXT = true
