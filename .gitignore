@@ -6,6 +6,8 @@
 /public/
 /resources/_gen/
 .hugo_build.lock
+# Module vendoring
+/_vendor
 
 # Executable may be added to repository
 hugo.exe
