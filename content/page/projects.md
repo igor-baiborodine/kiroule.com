@@ -11,6 +11,11 @@ weight: 2
 ###### Learning Go
 1. [Exercises](https://github.com/igor-baiborodine/coding-challenges/blob/master/exercism/go-exercises.md) related to the [Exercism's Go track syllabus](https://exercism.org/tracks/go/concepts).
 
+###### Bilberry Hugo Theme
+Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
+1. Added support for Hugo modules.
+2. Reviewed pull requests, fixed bugs, updated documentation.
+
 ###### Company Website at https://www.projetsrios.com/
 
 Technologies used: [Hugo Terrassa Theme](https://github.com/igor-baiborodine/hugo-terrassa-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
