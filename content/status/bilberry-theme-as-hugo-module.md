@@ -15,6 +15,6 @@ Hugo module approach.
 
 I also migrated my personal website [kiroule.com](https://kiroule.com/) to using the Bilberry theme
 as a Hugo module. The Bilberry Sandbox website is built and deployed in both modes:
-on [Netlify](https://www.bilberry-sandbox.kiroule.com/) via git submodule and
+on [Netlify](https://www.bilberry-sandbox.kiroule.com/) via the Git submodule and
 on [GitHub Pages](https://igor-baiborodine.github.io/bilberry-hugo-theme-sandbox/) via the Hugo
 module.
