@@ -3,7 +3,7 @@
   command = "hugo"
 
 [build.environment]
-  HUGO_VERSION = "0.101.0"
+  HUGO_VERSION = "0.93.3"
 
 # URL: https://kiroule.com/
 [context.production.environment]
