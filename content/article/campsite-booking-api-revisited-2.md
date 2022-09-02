@@ -27,6 +27,22 @@ available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.
 
 ### var Syntax for Local Variables
 
+With the release of Java 10, it became possible to declare local variables using the new `var` keyword. When using `var`
+, you no longer need to declare the type of the variable explicitly, as this implies that its type will be inferred from
+context. So, for instance, we have the following pre-Java 10 variable declaration:
+```Java
+SomeClassWithVeryVeryLongName myVar = new SomeClassWithVeryVeryLongName(); 
+```
+
+With Java 10, it can be declared as follows:
+```Java
+var myVar = new SomeClassWithVeryVeryLongName(); 
+```
+
+And I took the opportunity to profit from this new feature to simplify the code and make it a little more readable. For
+more details, please check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e3038dce72f4ec816065ccc9a81f78665ac181e5).
+
 ### Java 17
 
 ### Campsite Table, API v2
