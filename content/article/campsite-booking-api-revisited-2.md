@@ -17,27 +17,25 @@ the series ["Campsite Booking API"](/series/campsite-booking-api/), I describe i
 
 <!--more-->
 
-This project iteration, already the third one, mainly consists of code enhancements. So now let's take a closer
-look at it. The source code is
+This project iteration, already the third one, mainly consists of code enhancements. So now, let's take a closer look at
+it in the order in which they were added. The source code is
 available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.0).
 
 List of changes:
-Rewrite tests in BDD style using JUnit 5
-Switch to var syntax for local variables
-Upgrade dependencies and Java to the latest LTS, namely Java 17
-Add campsite table, upgrade API to v2
-Switch from H2 to Apache Derby
-New GitHub action for updating README TOC
-Add findForDateRange method without a pessimistic write lock
-Add integration tests for concurrent bookings create/update
-
-Intro
+- Rewrite tests in BDD style using JUnit 5
+- Switch to var syntax for local variables
+- Upgrade dependencies and Java to the latest LTS, namely Java 17
+- Add campsite table, upgrade API to v2
+- Switch from H2 to Apache Derby
+- Add findForDateRange method without a pessimistic write lock
+- Add integration tests for concurrent bookings create/update
+- New GitHub action for updating README TOC
 
 {{< toc >}}
 
-### Local Variables: var Syntax
+### Tests with JUnit 5 in BDD style
 
-### Tests: BDD Style and JUnit 5
+### Local Variables with var Syntax
 
 ### 
 
