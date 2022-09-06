@@ -25,18 +25,84 @@ available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.
 
 ### Tests with JUnit 5 in BDD style
 
+When this project was started, unit and integration tests were implemented using JUnit 4
+with [AssertJ](https://assertj.github.io/doc/), [Mockito](https://site.mockito.org/), and the
+[Act-Arrange-Assert](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022#write-your-tests) (AAA)
+pattern. Let's demonstrate it using the **Calculator.java** class as an example:
+
+```java
+public class Calculator {
+  public int add(int op1, int op2) {
+    return op1 + op2;
+  }
+  public int subtract(int op1, int op2) {
+    return op1 - op2;
+  }
+  public int multiply(int op1, int op2) {
+    return op1 * op2;
+  }
+  public int divide(int op1, int op2) {
+    return op1 / op2;
+  }
+}
+```
+
+And unit tests with JUnit 4 and AAA approach for the above class might look like this:
+
+```java
+public class CalculatorTest {
+
+  private Calculator calculator = new Calculator();
+  private Integer op1;
+  private Integer op2;
+
+  @Before
+  public void setUp() {
+    op1 = null;
+    op2 = null;
+  }
+
+  @Test
+  public void twoPositiveOperands_divide_correctPositiveResult() {
+    // arrange
+    op1 = 6;
+    op2 = 3;
+    // act
+    int result = calculator.divide(op1, op2);
+    // assert
+    assertThat(result).isEqualTo(2);
+  }
+
+  @Test(expected = ArithmeticException.class)
+  public void secondOperandZero_divide_arithmeticException() {
+    // arrange
+    op1 = 6;
+    op2 = 0;
+    // act
+    calculator.divide(op1, op2);
+    // assert
+    // ArithmeticException thrown
+  }
+}
+```
+
+For more details, please check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/a022aef07bcecca0f4ae26971dadfd515b100e8a).
+
 ### var Syntax for Local Variables
 
 With the release of Java 10, it became possible to declare local variables using the new `var` keyword. When using `var`
 , you no longer need to declare the type of the variable explicitly, as this implies that its type will be inferred from
 context. So, for instance, we have the following pre-Java 10 variable declaration:
+
 ```java
-SomeClassWithVeryVeryLongName myVar = new SomeClassWithVeryVeryLongName(); 
+SomeClassWithVeryVeryLongName myVar=new SomeClassWithVeryVeryLongName(); 
 ```
 
 With Java 10, it can be declared as follows:
+
 ```java
-var myVar = new SomeClassWithVeryVeryLongName(); 
+var myVar=new SomeClassWithVeryVeryLongName(); 
 ```
 
 And I took the opportunity to profit from this new feature to simplify the code and make it a little more readable. For
