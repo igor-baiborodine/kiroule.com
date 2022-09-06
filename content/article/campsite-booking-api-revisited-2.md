@@ -51,7 +51,6 @@ And unit tests with JUnit 4 and AAA approach for the above class might look like
 
 ```java
 public class CalculatorTest {
-
   private Calculator calculator = new Calculator();
   private Integer op1;
   private Integer op2;
@@ -82,6 +81,71 @@ public class CalculatorTest {
     calculator.divide(op1, op2);
     // assert
     // ArithmeticException thrown
+  }
+}
+```
+
+These are the above unit tests re-written with JUnit 5 in BDD style:
+
+```java
+class CalculatorTest {
+  Calculator calculator = new Calculator();
+  Integer op1;
+  Integer op2;
+  Integer result;
+
+  @BeforeEach
+  void setUp() {
+    op1 = null;
+    op2 = null;
+    result = null;
+  }
+
+  @Nested
+  class Multiply{
+    @Test
+    void twoPositiveOperands_correctPositiveResult() {
+      given_twoOperands(6, 3);
+      when_multiply();
+      then_assertResult(18);
+    }
+
+    private void when_multiply() {
+      result = calculator.multiply(op1, op2);
+    }
+  }
+
+  @Nested
+  class Divide {
+    @Test
+    void secondOperandZero_arithmeticException() {
+      given_twoOperands(6, 0);
+      when_divide_then_assertExceptionThrown(ArithmeticException.class);
+    }
+
+    @Test
+    void twoPositiveOperands_correctPositiveResult() {
+      given_twoOperands(6, 3);
+      when_divide();
+      then_assertResult(2);
+    }
+
+    private void when_divide() {
+      result = calculator.divide(op1, op2);
+    }
+
+    private void when_divide_then_assertExceptionThrown(Class<? extends Exception> exception) {
+      assertThrows(exception, () -> calculator.divide(op1, op2));
+    }
+  }
+
+  private void given_twoOperands(int op1, int op2) {
+    this.op1 = op1;
+    this.op2 = op2;
+  }
+
+  private void then_assertResult(int expected) {
+    assertThat(result).isEqualTo(expected);
   }
 }
 ```
