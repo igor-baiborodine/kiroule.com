@@ -63,14 +63,14 @@ public class CalculatorTest {
   }
 
   @Test
-  public void twoPositiveOperands_divide_correctPositiveResult() {
+  public void twoPositiveOperands_multiply_correctPositiveResult() {
     // arrange
     op1 = 6;
     op2 = 3;
     // act
-    int result = calculator.divide(op1, op2);
+    int result = calculator.multiply(op1, op2);
     // assert
-    assertThat(result).isEqualTo(2);
+    assertThat(result).isEqualTo(18);
   }
 
   @Test(expected = ArithmeticException.class)
