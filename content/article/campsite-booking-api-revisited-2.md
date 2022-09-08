@@ -63,23 +63,23 @@ public class CalculatorTest {
 
   @Test
   public void twoPositiveOperands_multiply_correctPositiveResult() {
-    // arrange
+    // Arrange
     op1 = 6;
     op2 = 3;
-    // act
+    // Act
     int result = calculator.multiply(op1, op2);
-    // assert
+    // Assert
     assertThat(result).isEqualTo(18);
   }
 
   @Test(expected = ArithmeticException.class)
   public void secondOperandZero_divide_arithmeticException() {
-    // arrange
+    // Arrange
     op1 = 6;
     op2 = 0;
-    // act
+    // Act
     calculator.divide(op1, op2);
-    // assert
+    // Assert
     // ArithmeticException thrown
   }
 }
@@ -102,7 +102,12 @@ class CalculatorTest {
   }
 
   @Nested
-  class Multiply{
+  class Multiply {
+    @BeforeEach
+    void setUp() {
+      // executes before each test within this nested class
+    }
+
     @Test
     void twoPositiveOperands_correctPositiveResult() {
       given_twoOperands(6, 3);
@@ -150,6 +155,22 @@ class CalculatorTest {
 }
 ```
 
+So, comparing these two implementations, you can see that the JUnit 5/BDD implementation differs from the previous one
+in the following:
+- All tests related to a particular method were encapsulated in a nested class annotated with the JUnit 5 `@Nested`
+  annotation. Consequently, the `Act` part, namely the name of the method under test, has been removed from the names of
+  the test methods.
+- In test methods, following the [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) approach,
+  the `Arrange`, `Act`, and `Assert` sections were encapsulated in methods prefixed with `given_`
+  , `when_`, and `then_`, respectively, where these new methods can be declared either at the parent test class level or
+  in nested test classes.
+- The `@Before` annotation was replaced with the `@BeforeEach`. A method annotated with `@BeforeEach` and declared in a
+  nested test class will be executed before each test in that class but after the `@BeforeEach` methods from the parent
+  test class.
+
+In my opinion, writing tests in the BDD style improves the overall readability of the code and makes the purpose and
+flow of the tests clearer. In addition, it provides a great opportunity for code reuse.
+
 For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/a022aef07bcecca0f4ae26971dadfd515b100e8a).
 
@@ -160,13 +181,13 @@ With the release of Java 10, it became possible to declare local variables using
 context. So, for instance, we have the following pre-Java 10 variable declaration:
 
 ```java
-SomeClassWithVeryVeryLongName myVar=new SomeClassWithVeryVeryLongName(); 
+SomeClassWithVeryVeryLongName myVar = new SomeClassWithVeryVeryLongName(); 
 ```
 
 With Java 10, it can be declared as follows:
 
 ```java
-var myVar=new SomeClassWithVeryVeryLongName(); 
+var myVar = new SomeClassWithVeryVeryLongName(); 
 ```
 
 And I took the opportunity to profit from this new feature to simplify the code and make it a little more readable. For
