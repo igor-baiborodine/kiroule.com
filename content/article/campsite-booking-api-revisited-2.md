@@ -62,7 +62,7 @@ public class CalculatorTest {
   }
 
   @Test
-  public void twoPositiveOperands_multiply_correctPositiveResult() {
+  public void multiply_twoPositiveOperands_correctPositiveResult() {
     // Arrange
     op1 = 6;
     op2 = 3;
@@ -73,7 +73,7 @@ public class CalculatorTest {
   }
 
   @Test(expected = ArithmeticException.class)
-  public void secondOperandZero_divide_arithmeticException() {
+  public void divide_secondOperandZero_arithmeticException() {
     // Arrange
     op1 = 6;
     op2 = 0;
@@ -168,8 +168,11 @@ in the following:
   nested test class will be executed before each test in that class but after the `@BeforeEach` methods from the parent
   test class.
 
-In my opinion, writing tests in the BDD style improves the overall readability of the code and makes the purpose and
-flow of the tests clearer. In addition, it provides a great opportunity for code reuse.
+In my opinion, writing tests in the BDD style improves the code's overall readability and makes the tests' purpose and
+flow clearer. In addition, it provides an excellent opportunity for code reuse.
+
+Previously, with JUnit 4, I used the **methodName_stateUnderTest_expectedBehavior** convention for naming test methods,
+for instance, `divide_secondOperandZero_arithmeticException` as in the test implementation example above.
 
 For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/a022aef07bcecca0f4ae26971dadfd515b100e8a).
