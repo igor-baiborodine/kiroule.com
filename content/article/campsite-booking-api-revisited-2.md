@@ -157,9 +157,10 @@ class CalculatorTest {
 
 So, comparing these two implementations, you can see that the JUnit 5/BDD implementation differs from the previous one
 in the following:
+
 - All tests related to a particular method were encapsulated in a nested class annotated with the JUnit 5 `@Nested`
-  annotation. Consequently, the `Act` part, namely the name of the method under test, has been removed from the names of
-  the test methods.
+  annotation. Consequently, the `Act` part, that is to say, the name of the method under test, was removed from the
+  names of the test methods.
 - In test methods, following the [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) approach,
   the `Arrange`, `Act`, and `Assert` sections were encapsulated in methods prefixed with `given_`
   , `when_`, and `then_`, respectively, where these new methods can be declared either at the parent test class level or
@@ -172,7 +173,41 @@ In my opinion, writing tests in the BDD style improves the code's overall readab
 flow clearer. In addition, it provides an excellent opportunity for code reuse.
 
 Previously, with JUnit 4, I used the **methodName_stateUnderTest_expectedBehavior** convention for naming test methods,
-for instance, `divide_secondOperandZero_arithmeticException` as in the test implementation example above.
+for instance, `divide_secondOperandZero_arithmeticException` as in the test implementation example above. With JUnit 5,
+the **methodName** part was removed due to grouping all related tests inside a nested class. 
+
+Next, because the `camelCase` naming approach is harder to read for complex method names, I switched
+to the `underscore_case`, additionally applying this to nested test class names. Following the BDD style, I explicitly
+prefixed the **state_under_test** and **expected_behaviour** parts with `given_` and `then_`, respectively.
+
+To improve the display of test reports, JUnit 5 introduced new annotations such as `@DisplayName` and
+`@DisplayNameGeneration`. So, for example, it may suffice to annotate a test class with the `@DisplayNameGeneration(
+ReplaceUnderscores.class)` to display the `given_second_operand_zero_then_arithmetic_exception` method as `given second
+operand zero then arithmetic exception`.
+
+To further improve readability, I wanted to add a comma after the **given** part to display the method name like
+this: `given second operand zero, then arithmetic exception`. To do this, I used a double underscore to separate the
+**given** and **then** parts and implemented the
+following [CustomReplaceUnderscoresDisplayNameGenerator.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/CustomReplaceUnderscoresDisplayNameGenerator.java)
+class:
+
+```java
+public class CustomReplaceUnderscoresDisplayNameGenerator
+    extends DisplayNameGenerator.ReplaceUnderscores {
+
+  @Override
+  public String generateDisplayNameForMethod(Class<?> testClass, Method testMethod) {
+    String methodName = testMethod.getName()
+        .replace("__", ", ").replace("_", " ");
+
+    if (testMethod.getAnnotation(DisplayNamePrefix.class) != null) {
+      methodName = String.format("%s, %s", 
+          testMethod.getAnnotation(DisplayNamePrefix.class).value(), methodName);
+    }
+    return methodName;
+  }
+}
+```
 
 For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/a022aef07bcecca0f4ae26971dadfd515b100e8a).
