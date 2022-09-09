@@ -218,8 +218,6 @@ example, a method named `given_booking_dates_before_range_startDate__then_no_boo
 `SE|-|----|-|--` in the test results report, where the letters `S` and `D` stands for the start and end dates of the
 existing booking, and two `|-|` indicate the start and end of the requested date range:
 
-![IntelliJ Test Results with Display Name Prefix](intellij-test-results-with-display-name-prefix.png)
-
 For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/a022aef07bcecca0f4ae26971dadfd515b100e8a).
 
