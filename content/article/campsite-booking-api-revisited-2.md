@@ -228,8 +228,8 @@ With Java 10, it can be declared as follows:
 var myVar = new SomeClassWithVeryVeryLongName(); 
 ```
 
-And I took the opportunity to profit from this new feature to simplify the code and make it a little more readable. For
-more details, please check
+And I did not miss the opportunity to simplify the code and make it a little more readable using this new var syntax.
+For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e3038dce72f4ec816065ccc9a81f78665ac181e5).
 
 ### Java 17
