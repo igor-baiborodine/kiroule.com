@@ -27,8 +27,8 @@ available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.
 
 When this project was started, unit and integration tests were implemented using JUnit 4
 with [AssertJ](https://assertj.github.io/doc/), [Mockito](https://site.mockito.org/), and the
-[Act-Arrange-Assert](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022#write-your-tests) (AAA)
-pattern. Let's demonstrate it using the **Calculator.java** class as an example:
+[Act-Arrange-Assert](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022#write-your-tests)(AAA)
+pattern. Let's demonstrate it using the `Calculator.java` class as an example:
 
 ```java
 public class Calculator {
@@ -169,7 +169,7 @@ in the following:
   nested test class will be executed before each test in that class but after the `@BeforeEach` methods from the parent
   test class.
 
-In my opinion, writing tests in the BDD style improves the code's overall readability and makes the tests' purpose and
+I think, writing tests in the BDD style improves the code's overall readability and makes the tests' purpose and
 flow clearer. In addition, it provides an excellent opportunity for code reuse.
 
 Previously, with JUnit 4, I used the **methodName_stateUnderTest_expectedBehavior** convention for naming test methods,
@@ -214,9 +214,28 @@ the [integration tests](https://github.com/igor-baiborodine/campsite-booking/blo
 for the `findForDateRange` method in
 the [BookingRepository.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/BookingRepository.java)
 class, I wanted to better visualize the requested date ranges versus the start and end dates of an existing booking. For
-example, a method named `given_booking_dates_before_range_startDate__then_no_booking_found` would be prefixed with
+example, a method named `given_booking_dates_before_range_startDate__then_no_booking_found` must be shown with the prefix
 `SE|-|----|-|--` in the test results report, where the letters `S` and `D` stands for the start and end dates of the
 existing booking, and two `|-|` indicate the start and end of the requested date range:
+
+Since special characters such as hyphen(`-`) and pipe(`|`) are not allowed in method names in Java, I came up with the
+idea of implementing
+the [DisplayNamePrefix.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/DisplayNamePrefix.java)
+annotation, which works in conjunction with the `CustomReplaceUnderscoresDisplayNameGenerator.java` class. Thus, in order
+to display a prefix in the test results, the test method must be annotated with `@DisplayNamePrefix`, given that the
+test class is annotated with the `@DisplayNameGeneration(CustomReplaceUnderscoresDisplayNameGenerator.class)`:
+
+```java
+@Test
+@DisplayNamePrefix("SE|-|----|-|--")
+void given_booking_dates_before_range_start_date__then_no_booking_found() {
+  given_existingBooking(1, 2);
+
+  when_findBookingsForDateRange(3, 4);
+
+  then_assertNoBookingFoundForDateRange();
+}
+```
 
 ![IntelliJ Test Results with Display Name Prefix](intellij-test-results-with-display-name-prefix.png)
 
