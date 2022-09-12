@@ -258,11 +258,24 @@ With Java 10, it can be declared as follows:
 var myVar = new SomeClassWithVeryVeryLongName(); 
 ```
 
-And I did not miss the opportunity to simplify the code and make it a little more readable using this new var syntax.
+So I did not miss the opportunity to simplify the code and make it a little more readable using this new var syntax.
 For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e3038dce72f4ec816065ccc9a81f78665ac181e5).
 
 ### Java 17
+
+The previous iteration of this project was based on Java **11** LTS. But since Oracle released Java **17**, the next
+Long-Term Support version, in September 2021, I decided to upgrade the project to the latest Java LTS.
+
+This upgrade was relatively simple and involved updating the `java.version` property
+in [pom.xml](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/pom.xml) file from `11` to `17`.
+Unfortunately, this caused some of the project's dependencies to become incompatible, and as a result, I updated all of
+the project's dependencies, including Spring Boot, up to the latest versions.
+
+Because of Java 17, I also had to upgrade the base image in
+the [Dockerfile](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/Dockerfile) from `openjdk:11-jre-slim`
+to `azul/zulu-openjdk-debian:17-jre`, and  `distribution` and `java-version` properties in GitHub
+Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.0/.github/workflows).
 
 ### Campsite Table, API v2
 
