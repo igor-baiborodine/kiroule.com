@@ -285,7 +285,38 @@ Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v
 
 ### Integration Tests for Concurrent Booking Create/Update
 
-### README TOC GitHub Action
+### TOC Generator GitHub Actions
+
+Recently, while working on my other pet project,
+the [Bilberry Hugo theme](https://github.com/Lednerb/bilberry-hugo-theme), I discovered a pretty useful GitHub Actions
+workflow for generating README's table of contents(TOC). So, instead of manually creating and maintaining a TOC,
+the [TOC Generator](https://github.com/marketplace/actions/toc-generator) workflow will generate a TOC and a
+corresponding commit for it if your README.md file has TOC-related changes.
+
+So, to implement this feature, I had to do two things. First, I added the `readme-toc.yml` workflow to
+the `.github/workflows` directory. Please note that it's triggered only for pull requests.
+
+```yaml
+name: Generate README TOC
+
+on:
+  pull_request:
+    branches: "*"
+
+jobs:
+  generateTOC:
+    name: Generate TOC
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/toc-generator@v4
+```
+
+Secondly, I replaced the manually created table of contents in README with the following markdown:
+
+```markdown
+<!-- START doctoc -->
+<!-- END doctoc -->
+```
 
 Continue reading the series ["Campsite Booking API"](/series/campsite-booking-api/):
 {{< series "Campsite Booking API" >}}
