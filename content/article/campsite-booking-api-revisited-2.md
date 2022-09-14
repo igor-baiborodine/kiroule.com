@@ -279,6 +279,14 @@ Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v
 
 ### Campsite Table, API v2
 
+The original implementation was based on the assumption that there was only one campsite available for booking.
+Therefore, the domain model contained only one entity class, **Booking.java**. This time I decided to improve the
+solution with multiple campsites available for booking to choose from.
+
+![Domain Model Diagram](domain-model-diagram.png)
+
+![Data Model Diagram](data-model-diagram.png)
+
 ### Apache Derby Instead of H2
 
 ### findForDateRange Method without Pessimistic Write Locking
