@@ -292,8 +292,8 @@ The above class diagram can be converted to the following physical data model fo
 ![Data Model Diagram](data-model-diagram.png)
 
 The inception of the new domain class required the implementation of the corresponding service and repository classes,
-namely [CampsiteService.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/service/CampsiteServiceImpl.java)
-and [CampsiteRepository.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CampsiteRepository.java)
+namely [CampsiteServiceImpl.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/service/CampsiteServiceImpl.java)
+and [CampsiteRepositoryImpl.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CampsiteRepository.java)
 .
 
 Hence, it also affected the REST API by introducing breaking changes. First, a new `campsiteId` field was added to
@@ -304,9 +304,19 @@ parameter, `campsite_id`, was added to this
 endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/0ac063c5d6bb3c947035c60cf09df8d6980589a1/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
 . Due to these breaking changes, I had to upgrade the API version from **v1** to **v2**.
 
-### Apache Derby Instead of H2
-
 ### findForDateRange Method without Pessimistic Write Locking
+
+In the initial implementation,
+the [createBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L62)
+method in the BookingServiceImpl.java class used
+the [findVacantDays](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L34)
+method from the same class to get available booking dates and validate them before creating a new booking. Then,
+the `findVacantDays` method, in turn, invoked
+the [findForDateRange](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/repository/BookingRepository.java#L47)
+method in the BookingRepository.java class to get vacant dates. That is, in fact,
+the [getVacantDates](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
+and [addBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L42)
+endpoints shared the same service method to execute incoming requests.
 
 ### Integration Tests for Concurrent Booking Create/Update
 
