@@ -280,9 +280,9 @@ Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v
 ### Campsite Table, API v2
 
 The original implementation was based on the assumption that there was only one campsite available for booking.
-Therefore, the domain model contained only one entity class, **Booking.java**. This time I decided to improve the
-solution with multiple campsites available for booking to choose from. Consequently, a new **Campsite.java** entity has 
-been added to the domain model, which now looks like in the UML class diagram below:
+Therefore, the domain model contained only one domain class, **Booking.java**. This time I decided to enhance the
+solution with multiple campsites available for booking to choose from. Consequently, a new **Campsite.java** domain class 
+has been added to the model, which now looks like in the UML class diagram below:
 
 ![Domain Model Diagram](domain-model-diagram.png)
 
