@@ -280,13 +280,29 @@ Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v
 ### Campsite Table, API v2
 
 The original implementation was based on the assumption that there was only one campsite available for booking.
-Therefore, the domain model contained only one domain class, **Booking.java**. This time I decided to enhance the
-solution with multiple campsites available for booking to choose from. Consequently, a new **Campsite.java** domain class 
-has been added to the model, which now looks like in the UML class diagram below:
+Therefore, the domain model contained only one class, **Booking.java**. This time I decided to enhance the
+solution with multiple campsites available for booking to choose from. Consequently, a
+new [Campsite.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/model/Campsite.java)
+domain class has been added to the model, which now looks like in the UML class diagram below:
 
 ![Domain Model Diagram](domain-model-diagram.png)
 
+The above class diagram can be converted to the following physical data model for the MySQL database:
+
 ![Data Model Diagram](data-model-diagram.png)
+
+The inception of the new domain class required the implementation of the corresponding service and repository classes,
+namely [CampsiteService.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/service/CampsiteServiceImpl.java)
+and [CampsiteRepository.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CampsiteRepository.java)
+.
+
+Hence, it also affected the REST API by introducing breaking changes. First, a new `campsiteId` field was added to
+the [BookingDto.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/contract/v2/model/BookingDto.java)
+API model class. Previously, only two parameters, the `start_date` and `end_date` had to be passed to
+the `getVacantDates` endpoint in the API contract. So secondly, with multiple campsites to choose from, a new third
+parameter, `campsite_id`, was added to this
+endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/0ac063c5d6bb3c947035c60cf09df8d6980589a1/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
+. Due to these breaking changes, I had to upgrade the API version from **v1** to **v2**.
 
 ### Apache Derby Instead of H2
 
