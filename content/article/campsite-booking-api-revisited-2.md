@@ -304,7 +304,7 @@ parameter, `campsite_id`, was added to this
 endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/0ac063c5d6bb3c947035c60cf09df8d6980589a1/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
 . Due to these breaking changes, I had to upgrade the API version from **v1** to **v2**.
 
-### findForDateRange Method without Pessimistic Write Locking
+### findForDateRange Method without Pessimistic Read Locking
 
 In the initial implementation,
 the [createBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L62)
@@ -317,6 +317,40 @@ method in the BookingRepository.java class to get vacant dates. That is, in fact
 the [getVacantDates](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
 and [addBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L42)
 endpoints shared the same service method to execute incoming requests.
+
+And given that the `findForDateRange` method was implemented using the `@Lock(LockModeType.PESSIMISTIC_READ)`
+annotation, concurrent requests to the `getVacantDates` and `addBooking` endpoints may fail due to
+the `CannotAcquireLockException` that occurs when a transaction cannot obtain a pessimistic lock.
+
+The solution to this problem is to have two different methods for finding bookings for the date range in the
+**BookingRepository.java** class, one without any locking mechanism used by the `getVacantDates` endpoint and the other
+with pessimistic locking for the `addBooking` endpoint. In addition, the `LockModeType` value for the new method with
+pessimistic locking was updated to the `PESSIMISTIC_WRITE` to acquire an exclusive lock because when using
+the `PESSIMISTIC_READ` on a transaction initiated by the `createBooking` method in the **BookingServiceImpl.java**
+class, JPA will implicitly convert the pessimistic read lock to an exclusive lock, `PESSIMISTIC_WRITE`
+or `PESSIMISTIC_FORCE_INCREMENT`, when a new `Booking` entity is flushed to the database.
+
+```java
+public interface BookingRepository extends CrudRepository<Booking, Long> {
+
+  String FIND_FOR_DATE_RANGE = "select b from Booking b "
+      + "where ((b.startDate < ?1 and ?2 < b.endDate) "
+      + "or (?1 < b.endDate and b.endDate <= ?2) "
+      + "or (?1 <= b.startDate and b.startDate <=?2)) "
+      + "and b.active = true "
+      + "and b.campsite.id = ?3";
+
+  Optional<Booking> findByUuid(UUID uuid);
+
+  @Query(FIND_FOR_DATE_RANGE)
+  List<Booking> findForDateRange(LocalDate startDate, LocalDate endDate, Long campsiteId);
+
+  @Lock(LockModeType.PESSIMISTIC_WRITE)
+  @QueryHints({@QueryHint(name = "javax.persistence.lock.timeout", value ="100")})
+  @Query(FIND_FOR_DATE_RANGE)
+  List<Booking> findForDateRangeWithPessimisticWriteLocking(LocalDate startDate, LocalDate endDate, Long campsiteId);
+}
+```
 
 ### Integration Tests for Concurrent Booking Create/Update
 
