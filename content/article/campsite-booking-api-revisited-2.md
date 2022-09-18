@@ -392,8 +392,8 @@ response when sending simultaneous requests to create a booking as in the exampl
 }
 ```
 
-Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteLocking` method worked well when using
-MySQL but, for some reason, didn't work at all with the H2 database.
+Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteLocking` method works well when using
+MySQL, but somehow it doesn't work at all with the H2 database.
 
 ### TOC Generator GitHub Actions
 
