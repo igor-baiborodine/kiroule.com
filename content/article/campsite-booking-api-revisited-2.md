@@ -354,6 +354,43 @@ public interface BookingRepository extends CrudRepository<Booking, Long> {
 
 ### Integration Tests for Concurrent Booking Create/Update
 
+Back then, while working on the initial implementation of this project, I
+chose [H2](https://www.h2database.com/html/main.html) as an in-memory DB for developing integration tests or running the
+API without an external database. The H2 served well for these purposes except for the case of concurrent creation of
+bookings with the same start and end dates. Unlike MySQL, concurrent requests to the `addBooking` endpoint with the same
+start and end date and camping ID were successful when using H2.
+
+The expected result should be only one booking created, and other concurrent requests should return a `400 Bad Request`
+response when sending simultaneous requests to create a booking as in the example below, for instance:
+
+```json
+{
+   "id":2,
+   "version":0,
+   "campsiteId":1,
+   "uuid":"ea2e2f8f-749d-4497-b0ec-0da4bf437800",
+   "email":"john.smith.3@email.com",
+   "fullName":"John Smith 3",
+   "startDate":"2022-09-16",
+   "endDate":"2022-09-17",
+   "active":true,
+   "_links":{
+      "self":{
+         "href":"http://localhost/v2/booking/ea2e2f8f-749d-4497-b0ec-0da4bf437800"
+      }
+   }
+}
+{
+   "status":"BAD_REQUEST",
+   "timestamp":"2022-08-30T02:52:19.10936",
+   "message":"No vacant dates available from 2022-09-16 to 2022-09-17"
+}
+{
+   "status":"BAD_REQUEST",
+   "timestamp":"2022-08-30T02:52:19.210229",
+   "message":"No vacant dates available from 2022-09-16 to 2022-09-17"
+}
+```
 ### TOC Generator GitHub Actions
 
 Recently, while working on my other pet project,
