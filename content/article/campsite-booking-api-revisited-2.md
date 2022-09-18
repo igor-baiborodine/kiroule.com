@@ -394,10 +394,12 @@ response when sending simultaneous requests to create a booking as in the exampl
 
 Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteLocking` method works well when using
 MySQL, but somehow it doesn't work at all with the H2 database. So, while researching this issue, I came across
-informative articles by Andrey
+an informative article by Andrey
 Zahariev-Stoev: ["Handling Pessimistic Locking with JPA on Oracle, MySQL, PostgreSQL, Apache Derby and H2"](https://blog.mimacom.com/handling-pessimistic-locking-jpa-oracle-mysql-postgresql-derbi-h2/)
-and ["Testing Pessimistic Locking Handling with Spring Boot and JPA"](https://blog.mimacom.com/testing-pessimistic-locking-handling-spring-boot-jpa/)
 .
+
+["Testing Pessimistic Locking Handling with Spring Boot and JPA"](https://blog.mimacom.com/testing-pessimistic-locking-handling-spring-boot-jpa/)
+
 
 ### TOC Generator GitHub Actions
 
