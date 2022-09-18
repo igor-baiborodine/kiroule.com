@@ -308,12 +308,12 @@ endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/0
 
 In the initial implementation,
 the [createBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L62)
-method in the BookingServiceImpl.java class used
+method in the **BookingServiceImpl.java** class used
 the [findVacantDays](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L34)
 method from the same class to get available booking dates and validate them before creating a new booking. Then,
 the `findVacantDays` method, in turn, invoked
 the [findForDateRange](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/repository/BookingRepository.java#L47)
-method in the BookingRepository.java class to get vacant dates. That is, in fact,
+method in the **BookingRepository.java** class to get vacant dates. That is, in fact,
 the [getVacantDates](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
 and [addBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L42)
 endpoints shared the same service method to execute incoming requests.
@@ -391,6 +391,10 @@ response when sending simultaneous requests to create a booking as in the exampl
    "message":"No vacant dates available from 2022-09-16 to 2022-09-17"
 }
 ```
+
+Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteLocking` method worked well when using
+MySQL but, for some reason, didn't work at all with the H2 database.
+
 ### TOC Generator GitHub Actions
 
 Recently, while working on my other pet project,
