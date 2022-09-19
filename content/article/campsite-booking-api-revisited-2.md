@@ -28,7 +28,7 @@ available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.
 When this project was started, unit and integration tests were implemented using JUnit 4
 with [AssertJ](https://assertj.github.io/doc/), [Mockito](https://site.mockito.org/), and the
 [Act-Arrange-Assert](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022#write-your-tests)(AAA)
-pattern. Let's demonstrate it using the `Calculator.java` class as an example:
+pattern. Let's demonstrate it using the **Calculator** class as an example:
 
 ```java
 public class Calculator {
@@ -188,7 +188,7 @@ operand zero then arithmetic exception`.
 To further improve readability, I wanted to add a comma after the **given** part to display the method name like
 this: `given second operand zero, then arithmetic exception`. To do this, I used a double underscore to separate the
 **given** and **then** parts and implemented the
-following [CustomReplaceUnderscoresDisplayNameGenerator.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/CustomReplaceUnderscoresDisplayNameGenerator.java)
+following [CustomReplaceUnderscoresDisplayNameGenerator](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/CustomReplaceUnderscoresDisplayNameGenerator.java)
 class:
 
 ```java
@@ -280,7 +280,7 @@ Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v
 ### Campsite Table, API v2
 
 The original implementation was based on the assumption that there was only one campsite available for booking.
-Therefore, the domain model contained only one class, **Booking.java**. This time I decided to enhance the
+Therefore, the domain model contained only one class, **Booking**. This time I decided to enhance the
 solution with multiple campsites available for booking to choose from. Consequently, a
 new [Campsite.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/model/Campsite.java)
 domain class has been added to the model, which now looks like in the UML class diagram below:
@@ -308,12 +308,12 @@ endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/0
 
 In the initial implementation,
 the [createBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L62)
-method in the **BookingServiceImpl.java** class used
+method in the **BookingServiceImpl** class used
 the [findVacantDays](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/service/BookingServiceImpl.java#L34)
 method from the same class to get available booking dates and validate them before creating a new booking. Then,
 the `findVacantDays` method, in turn, invoked
 the [findForDateRange](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/repository/BookingRepository.java#L47)
-method in the **BookingRepository.java** class to get vacant dates. That is, in fact,
+method in the **BookingRepository** class to get vacant dates. That is, in fact,
 the [getVacantDates](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
 and [addBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae1cacb3dedbe387d9e397b3cb536b458353b/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L42)
 endpoints shared the same service method to execute incoming requests.
@@ -323,10 +323,10 @@ annotation, concurrent requests to the `getVacantDates` and `addBooking` endpoin
 the `CannotAcquireLockException` that occurs when a transaction cannot obtain a pessimistic lock.
 
 The solution to this problem is to have two different methods for finding bookings for the date range in the
-**BookingRepository.java** class, one without any locking mechanism used by the `getVacantDates` endpoint and the other
+**BookingRepository** class, one without any locking mechanism used by the `getVacantDates` endpoint and the other
 with pessimistic locking for the `addBooking` endpoint. In addition, the `LockModeType` value for the new method with
 pessimistic locking was updated to the `PESSIMISTIC_WRITE` to acquire an exclusive lock because when using
-the `PESSIMISTIC_READ` on a transaction initiated by the `createBooking` method in the **BookingServiceImpl.java**
+the `PESSIMISTIC_READ` on a transaction initiated by the `createBooking` method in the **BookingServiceImpl**
 class, JPA will implicitly convert the pessimistic read lock to an exclusive lock, `PESSIMISTIC_WRITE`
 or `PESSIMISTIC_FORCE_INCREMENT`, when a new `Booking` entity is flushed to the database.
 
@@ -396,10 +396,20 @@ Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteL
 MySQL, but somehow it doesn't work at all with the H2 database. So, while researching this issue, I came across
 an informative article by Andrey
 Zahariev-Stoev: ["Handling Pessimistic Locking with JPA on Oracle, MySQL, PostgreSQL, Apache Derby and H2"](https://blog.mimacom.com/handling-pessimistic-locking-jpa-oracle-mysql-postgresql-derbi-h2/)
-.
+. In this article, he explains in great detail the problems of concurrent database transactions and how they relate to
+exclusive pessimistic locking. In addition, he offers several suggestions for implementing pessimistic locking when
+using the [Java Persistence API (JPA)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html) with various RDBMS
+vendors.
 
-["Testing Pessimistic Locking Handling with Spring Boot and JPA"](https://blog.mimacom.com/testing-pessimistic-locking-handling-spring-boot-jpa/)
-
+It turned out that the H2 database does not provide full support for handling the `LockTimeoutException` and setting
+lock timeout for a single transaction; therefore, I replaced H2 with [Apache Derby](https://db.apache.org/derby/) as the
+in-memory DB. Consequently, I re-implemented the `findForDateRangeWithPessimisticWriteLocking` method, which was moved
+from the **BookingRepository** class to the [**CustomBookingRepository**](https://github.com/igor-baiborodine/campsite-booking/blob/0ac063c5d6bb3c947035c60cf09df8d6980589a1/src/main/java/com/kiroule/campsite/booking/api/repository/CustomizedBookingRepositoryImpl.java#L22)
+, and added a new [**BookingServiceImplConcurrentTestIT**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/service/BookingServiceImplConcurrentTestIT.java)
+class with integration tests for optimistic and pessimistic locking. All these code modifications were inspired
+by ["Testing Pessimistic Locking Handling with Spring Boot and JPA"](https://blog.mimacom.com/testing-pessimistic-locking-handling-spring-boot-jpa/)
+, another great article by Andrey Zahariev-Stoev, and are based on the source code from the corresponding
+GitHub [repository](https://github.com/andistoev/testing-pessimistic-locking-handling-spring-boot-jpa-mysql).
 
 ### TOC Generator GitHub Actions
 
