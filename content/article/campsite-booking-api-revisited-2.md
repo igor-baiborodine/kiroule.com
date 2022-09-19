@@ -18,16 +18,16 @@ the series ["Campsite Booking API"](/series/campsite-booking-api/), I describe i
 <!--more-->
 
 This project iteration, already the third one, mainly consists of code enhancements. So now, let's take a closer look at
-it in the order in which they were added. The source code is
+it in the order in which they were implemented. The source code is
 available [here](https://github.com/igor-baiborodine/campsite-booking/tree/v4.3.0).
 
 {{< toc >}}
 
 ### Tests with JUnit 5 in BDD style
 
-When this project was started, unit and integration tests were implemented using JUnit 4
+When this project started, unit and integration tests were implemented using JUnit 4
 with [AssertJ](https://assertj.github.io/doc/), [Mockito](https://site.mockito.org/), and the
-[Act-Arrange-Assert](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022#write-your-tests)(AAA)
+[Act-Arrange-Assert (AAA)](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022#write-your-tests)
 pattern. Let's demonstrate it using the **Calculator** class as an example:
 
 ```java
@@ -47,7 +47,7 @@ public class Calculator {
 }
 ```
 
-And unit tests with JUnit 4 and AAA approach for the above class might look like this:
+And unit tests with JUnit 4 and the AAA approach for the above class might look like this:
 
 ```java
 public class CalculatorTest {
@@ -155,7 +155,7 @@ class CalculatorTest {
 }
 ```
 
-So, comparing these two implementations, you can see that the JUnit 5/BDD implementation differs from the previous one
+So, comparing these two implementations, you can see that the JUnit 5/BDD implementation differs from the JUnit 4/AAA one
 in the following:
 
 - All tests related to a particular method were encapsulated in a nested class annotated with the JUnit 5 `@Nested`
@@ -212,7 +212,7 @@ public class CustomReplaceUnderscoresDisplayNameGenerator
 While working on
 the [integration tests](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/repository/BookingRepositoryTestIT.java)
 for the `findForDateRange` method in
-the [BookingRepository.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/BookingRepository.java)
+the [**BookingRepository.java**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/BookingRepository.java)
 class, I wanted to better visualize the requested date ranges versus the start and end dates of an existing booking. For
 example, a method named `given_booking_dates_before_range_startDate__then_no_booking_found` must be shown with the prefix
 `SE|-|----|-|--` in the test results report, where the letters `S` and `D` stands for the start and end dates of the
@@ -220,7 +220,7 @@ existing booking, and two `|-|` indicate the start and end of the requested date
 
 Since special characters such as hyphen(`-`) and pipe(`|`) are not allowed in method names in Java, I came up with the
 idea of implementing
-the [DisplayNamePrefix.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/DisplayNamePrefix.java)
+the [**DisplayNamePrefix.java**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/DisplayNamePrefix.java)
 annotation, which works in conjunction with the `CustomReplaceUnderscoresDisplayNameGenerator.java` class. Thus, in order
 to display a prefix in the test results, the test method must be annotated with `@DisplayNamePrefix`, given that the
 test class is annotated with the `@DisplayNameGeneration(CustomReplaceUnderscoresDisplayNameGenerator.class)`:
@@ -246,7 +246,7 @@ this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/a022ae
 
 With the release of Java 10, it became possible to declare local variables using the new `var` keyword. When using `var`
 , you no longer need to declare the type of the variable explicitly, as this implies that its type will be inferred from
-context. So, for instance, we have the following pre-Java 10 variable declaration:
+the context. So, for instance, we have the following pre-Java 10 variable declaration:
 
 ```java
 SomeClassWithVeryVeryLongName myVar = new SomeClassWithVeryVeryLongName(); 
@@ -258,7 +258,7 @@ With Java 10, it can be declared as follows:
 var myVar = new SomeClassWithVeryVeryLongName(); 
 ```
 
-So I did not miss the opportunity to simplify the code and make it a little more readable using this new var syntax.
+So I did not miss this opportunity to simplify the code and make it a little more readable using this new var syntax.
 For more details, please check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e3038dce72f4ec816065ccc9a81f78665ac181e5).
 
@@ -282,27 +282,26 @@ Actions' [workflows](https://github.com/igor-baiborodine/campsite-booking/tree/v
 The original implementation was based on the assumption that there was only one campsite available for booking.
 Therefore, the domain model contained only one class, **Booking**. This time I decided to enhance the
 solution with multiple campsites available for booking to choose from. Consequently, a
-new [Campsite.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/model/Campsite.java)
+new [**Campsite**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/model/Campsite.java)
 domain class has been added to the model, which now looks like in the UML class diagram below:
 
 ![Domain Model Diagram](domain-model-diagram.png)
 
-The above class diagram can be converted to the following physical data model for the MySQL database:
+The above class diagram translates to the following physical data model for the MySQL database:
 
 ![Data Model Diagram](data-model-diagram.png)
 
 The inception of the new domain class required the implementation of the corresponding service and repository classes,
-namely [CampsiteServiceImpl.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/service/CampsiteServiceImpl.java)
-and [CampsiteRepositoryImpl.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CampsiteRepository.java)
-.
+namely [**CampsiteServiceImpl**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/service/CampsiteServiceImpl.java)
+and [**CampsiteRepositoryImpl**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CampsiteRepository.java).
 
 Hence, it also affected the REST API by introducing breaking changes. First, a new `campsiteId` field was added to
-the [BookingDto.java](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/contract/v2/model/BookingDto.java)
+the [**BookingDto**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/contract/v2/model/BookingDto.java)
 API model class. Previously, only two parameters, the `start_date` and `end_date` had to be passed to
 the `getVacantDates` endpoint in the API contract. So secondly, with multiple campsites to choose from, a new third
 parameter, `campsite_id`, was added to this
-endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/0ac063c5d6bb3c947035c60cf09df8d6980589a1/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31)
-. Due to these breaking changes, I had to upgrade the API version from **v1** to **v2**.
+endpoint [signature](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/contract/v2/BookingApiContractV2.java#L31). 
+Due to these breaking changes, I had to upgrade the API version from **v1** to **v2**.
 
 ### findForDateRange Method without Pessimistic Read Locking
 
@@ -319,13 +318,13 @@ and [addBooking](https://github.com/igor-baiborodine/campsite-booking/blob/fc8ae
 endpoints shared the same service method to execute incoming requests.
 
 And given that the `findForDateRange` method was implemented using the `@Lock(LockModeType.PESSIMISTIC_READ)`
-annotation, concurrent requests to the `getVacantDates` and `addBooking` endpoints may fail due to
+annotation, concurrent requests to the `getVacantDates` and `addBooking` endpoints could fail due to
 the `CannotAcquireLockException` that occurs when a transaction cannot obtain a pessimistic lock.
 
 The solution to this problem is to have two different methods for finding bookings for the date range in the
 **BookingRepository** class, one without any locking mechanism used by the `getVacantDates` endpoint and the other
 with pessimistic locking for the `addBooking` endpoint. In addition, the `LockModeType` value for the new method with
-pessimistic locking was updated to the `PESSIMISTIC_WRITE` to acquire an exclusive lock because when using
+pessimistic locking was upgraded to the `PESSIMISTIC_WRITE` to acquire an exclusive lock because when using
 the `PESSIMISTIC_READ` on a transaction initiated by the `createBooking` method in the **BookingServiceImpl**
 class, JPA will implicitly convert the pessimistic read lock to an exclusive lock, `PESSIMISTIC_WRITE`
 or `PESSIMISTIC_FORCE_INCREMENT`, when a new `Booking` entity is flushed to the database.
