@@ -352,7 +352,7 @@ public interface BookingRepository extends CrudRepository<Booking, Long> {
 }
 ```
 
-### Integration Tests for Concurrent Booking Create/Update
+### New Implementation of findForDateRangeWithPessimisticWriteLocking Method
 
 Back then, while working on the initial implementation of this project, I
 chose [H2](https://www.h2database.com/html/main.html) as an in-memory DB for developing integration tests or running the
@@ -396,7 +396,7 @@ Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteL
 MySQL, but somehow it doesn't work at all with the H2 database. So, while researching this issue, I came across
 an informative article by Andrey
 Zahariev-Stoev: ["Handling Pessimistic Locking with JPA on Oracle, MySQL, PostgreSQL, Apache Derby and H2"](https://blog.mimacom.com/handling-pessimistic-locking-jpa-oracle-mysql-postgresql-derbi-h2/)
-. In this article, he explains in great detail the problems of concurrent database transactions and how they relate to
+. In this article, he explains in great detail the problem of concurrent database transactions and how they relate to
 exclusive pessimistic locking. In addition, he offers several suggestions for implementing pessimistic locking when
 using the [Java Persistence API (JPA)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html) with various RDBMS
 vendors.
@@ -404,12 +404,48 @@ vendors.
 It turned out that the H2 database does not provide full support for handling the `LockTimeoutException` and setting
 lock timeout for a single transaction; therefore, I replaced H2 with [Apache Derby](https://db.apache.org/derby/) as the
 in-memory DB. Consequently, I re-implemented the `findForDateRangeWithPessimisticWriteLocking` method, which was moved
-from the **BookingRepository** class to the [**CustomBookingRepository**](https://github.com/igor-baiborodine/campsite-booking/blob/0ac063c5d6bb3c947035c60cf09df8d6980589a1/src/main/java/com/kiroule/campsite/booking/api/repository/CustomizedBookingRepositoryImpl.java#L22)
+from the **BookingRepository** class to the [**CustomizedBookingRepository**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CustomizedBookingRepositoryImpl.java)
 , and added a new [**BookingServiceImplConcurrentTestIT**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/service/BookingServiceImplConcurrentTestIT.java)
 class with integration tests for optimistic and pessimistic locking. All these code modifications were inspired
 by ["Testing Pessimistic Locking Handling with Spring Boot and JPA"](https://blog.mimacom.com/testing-pessimistic-locking-handling-spring-boot-jpa/)
 , another great article by Andrey Zahariev-Stoev, and are based on the source code from the corresponding
 GitHub [repository](https://github.com/andistoev/testing-pessimistic-locking-handling-spring-boot-jpa-mysql).
+
+As you can see, the new implementation of the `findForDateRangeWithPessimisticWriteLocking` method differs from the old
+one in that it no longer uses annotations to set the query string, the type of lock mode, and the lock timeout. Instead,
+the query object is created explicitly with the provided query string, parameters, and the lock mode using the JPA's
+**Query** interface. The lock timeout is set through the appropriate custom repository context, either
+[**MysqlCustomizedRepositoryContextImpl**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/context/DerbyCustomizedRepositoryContextImpl.java) 
+or [**DerbyCustomizedRepositoryContextImpl**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/context/MysqlCustomizedRepositoryContextImpl.java) class.
+
+```java
+@Override
+public List<Booking> findForDateRangeWithPessimisticWriteLocking(
+    LocalDate startDate, LocalDate endDate, Long campsiteId) {
+
+  log.info("Lock timeout before executing query[{}]", 
+        customizedRepositoryContext.getLockTimeout());
+
+  Query query = customizedRepositoryContext.getEntityManager()
+      .createQuery(FIND_FOR_DATE_RANGE)
+      .setParameter(1, startDate)
+      .setParameter(2, endDate)
+      .setParameter(3, campsiteId)
+      .setLockMode(PESSIMISTIC_WRITE);
+
+  customizedRepositoryContext.setLockTimeout(
+      queryProperties.getFindForDateRangeWithPessimisticWriteLockingLockTimeoutInMs());
+
+  List<Booking> bookings = query.getResultList();
+  log.info("Lock timeout after executing query[{}]", 
+        customizedRepositoryContext.getLockTimeout());
+
+  return bookings;
+}
+```
+
+For more details, please check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/7fb89a927a3ef6575e4eb74843b0957b800a2bf6).
 
 ### TOC Generator GitHub Actions
 
