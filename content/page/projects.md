@@ -17,6 +17,21 @@ Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-them
 Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
 
+###### Campsite Booking API (3rd iteration)
+1. Re-wrote unit and integration tests with JUnit 5 in BDD style.
+2. Introduced `var` syntax for local variables.
+3. Upgraded to Java **17** LTS.
+4. Implemented `Campsite` domain class/table and corresponding service and repository classes; upgraded API's contract
+   to `v2`.
+5. Added the `findForDateRange` method without pessimistic read locking.
+6. Re-implemented the `findForDateRangeWithPessimisticWriteLocking` method, added integration tests for concurrent
+   bookings create/update.
+7. Added TOC Generator GitHub Actions workflow.
+
+Technologies used: [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)
+, [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
+[See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
+
 ###### Learning Go
 [Exercises](https://github.com/igor-baiborodine/coding-challenges/blob/master/exercism/go-exercises.md) related to the [Exercism's Go track syllabus](https://exercism.org/tracks/go/concepts).
 
@@ -84,7 +99,7 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 
 ## 2018
 ###### Campsite Booking API
-*Updated in 2021*
+*Updated in 2021, 2022*
 
 Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
