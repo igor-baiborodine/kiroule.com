@@ -357,7 +357,7 @@ Back then, while working on the initial implementation of this project, I
 chose [H2](https://www.h2database.com/html/main.html) as an in-memory DB for developing integration tests or running the
 API without an external database. The H2 served well for these purposes except for the case of concurrent creation of
 bookings with the same start and end dates. Unlike MySQL, concurrent requests to the `addBooking` endpoint with the same
-start and end date and camping ID were successful when using H2.
+start and end date and camping ID were unsuccessful when using H2.
 
 The expected result should be only one booking created, and other concurrent requests should return a `400 Bad Request`
 response when sending simultaneous requests to create a booking as in the example below, for instance:
@@ -384,11 +384,6 @@ response when sending simultaneous requests to create a booking as in the exampl
    "timestamp":"2022-08-30T02:52:19.10936",
    "message":"No vacant dates available from 2022-09-16 to 2022-09-17"
 }
-{
-   "status":"BAD_REQUEST",
-   "timestamp":"2022-08-30T02:52:19.210229",
-   "message":"No vacant dates available from 2022-09-16 to 2022-09-17"
-}
 ```
 
 Evidently, the pessimistic locking in the `findForDateRangeWithPessimisticWriteLocking` method works well when using
@@ -396,8 +391,8 @@ MySQL, but somehow it doesn't work at all with the H2 database. So, while resear
 an informative article by Andrey
 Zahariev-Stoev: ["Handling Pessimistic Locking with JPA on Oracle, MySQL, PostgreSQL, Apache Derby and H2"](https://blog.mimacom.com/handling-pessimistic-locking-jpa-oracle-mysql-postgresql-derbi-h2/)
 . In this article, he explains in great detail the problem of concurrent database transactions and how they relate to
-exclusive pessimistic locking. In addition, he offers several suggestions for implementing pessimistic locking when
-using the [Java Persistence API (JPA)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html) with various RDBMS
+exclusive pessimistic locking. In addition, he offers several suggestions for implementing pessimistic locking solution when
+using the [Java Persistence API (JPA)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html) with different RDBMS
 vendors.
 
 It turned out that the H2 database does not provide full support for handling the `LockTimeoutException` and setting
@@ -405,7 +400,7 @@ lock timeout for a single transaction; therefore, I replaced H2 with [Apache Der
 in-memory DB. Consequently, I re-implemented the `findForDateRangeWithPessimisticWriteLocking` method, which was moved
 from the **BookingRepository** class to the [**CustomizedBookingRepository**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/CustomizedBookingRepositoryImpl.java)
 , and added a new [**BookingServiceImplConcurrentTestIT**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/test/java/com/kiroule/campsite/booking/api/service/BookingServiceImplConcurrentTestIT.java)
-class with integration tests for optimistic and pessimistic locking. All these code modifications were inspired
+class that contains integration tests for optimistic and pessimistic locking. All these code modifications were inspired
 by ["Testing Pessimistic Locking Handling with Spring Boot and JPA"](https://blog.mimacom.com/testing-pessimistic-locking-handling-spring-boot-jpa/)
 , another great article by Andrey Zahariev-Stoev, and are based on the source code from the corresponding
 GitHub [repository](https://github.com/andistoev/testing-pessimistic-locking-handling-spring-boot-jpa-mysql).
@@ -413,7 +408,8 @@ GitHub [repository](https://github.com/andistoev/testing-pessimistic-locking-han
 As you can see, the new implementation of the `findForDateRangeWithPessimisticWriteLocking` method differs from the old
 one in that it no longer uses annotations to set the query string, the type of lock mode, and the lock timeout. Instead,
 the query object is created explicitly with the provided query string, parameters, and the lock mode using the JPA's
-**Query** interface. The lock timeout is set through the appropriate custom repository context, either
+[**Query**](https://docs.oracle.com/javaee/6/api/javax/persistence/Query.html) interface. The lock timeout is set 
+through the appropriate custom repository context, either
 [**MysqlCustomizedRepositoryContextImpl**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/context/DerbyCustomizedRepositoryContextImpl.java) 
 or [**DerbyCustomizedRepositoryContextImpl**](https://github.com/igor-baiborodine/campsite-booking/blob/v4.3.0/src/main/java/com/kiroule/campsite/booking/api/repository/context/MysqlCustomizedRepositoryContextImpl.java) class.
 
@@ -450,9 +446,9 @@ this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/7fb89a
 
 Recently, while working on my other pet project,
 the [Bilberry Hugo theme](https://github.com/Lednerb/bilberry-hugo-theme), I discovered a pretty useful GitHub Actions
-workflow for generating README's table of contents(TOC). So, instead of manually creating and maintaining a TOC,
+workflow for generating README's table of contents (TOC). So, instead of manually creating and maintaining a TOC,
 the [TOC Generator](https://github.com/marketplace/actions/toc-generator) workflow will generate a TOC and a
-corresponding commit for it if your README.md file has TOC-related changes.
+corresponding commit for it if your README file has TOC-related changes.
 
 So, to implement this feature, I had to do two things. First, I added the `readme-toc.yml` workflow to
 the `.github/workflows` directory. Please note that it's triggered only for pull requests.
