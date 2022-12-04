@@ -76,8 +76,7 @@ The `layouts/_default/series.terms.html` file is the `series` taxonomy template.
                         {{ if $series_page }}
                             {{ $series_name = $series_page.Title }}
                         {{ end }}
-
-                        <li><a href="{{ $series_path }}">{{ $series_name }} ({{ $taxonomy.Count }})</a></li>
+                        <li><a href="{{ $series_path | relLangURL }}">{{ $series_name }} ({{ $taxonomy.Count }})</a></li>
                     {{ end }}
                 </ul>
             </div>
@@ -94,7 +93,7 @@ The `layouts/shortcodes/series.html` file is the shortcode that encapsulates the
 {{ $series_name := .Get 0 | urlize }}
 
 {{ range $key, $taxonomy := .Site.Taxonomies.series }}
-    {{ if eq $key $series_name }}
+    {{ if eq ($key | urlize) $series_name }}
     <ul>
         {{ range $taxonomy.Pages.ByDate }}
         <li hugo-nav="{{ .RelPermalink }}">
