@@ -1,8 +1,8 @@
 ---
 title: "Multi-Variant Docker Images for Liferay Portal Community Edition"
 date: 2020-06-25T06:20:46-04:00
-categories: [Containerization, Write-Up]
-tags: [Docker, Liferay, Debian, Alpine, CICD]
+categories: ["Containerization", "Write-Up"]
+tags: ["Docker", "Liferay", "Debian", "Alpine", "CICD"]
 author: "Igor Baiborodine"
 ---
 

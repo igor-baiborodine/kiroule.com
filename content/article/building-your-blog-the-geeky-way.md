@@ -2,8 +2,8 @@
 title: "Building Your Blog, the Geeky Way"
 date: 2020-10-24T07:35:59-04:00
 showDate: false
-categories: [Jamstack]
-tags: [Blog, Hugo]
+categories: ["Jamstack"]
+tags: ["Blog", "Hugo"]
 author: "Igor Baiborodine"
 noSummary: true
 icon: fa-list-alt

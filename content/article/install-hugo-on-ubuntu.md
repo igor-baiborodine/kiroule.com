@@ -2,8 +2,8 @@
 title: "Install Hugo on Ubuntu"
 date: 2021-11-10T08:00:50-05:00
 
-categories: [Jamstack, How-to]
-tags: [Hugo, Ubuntu]
+categories: ["Jamstack", "How-to"]
+tags: ["Hugo", "Ubuntu"]
 toc: false
 author: "Igor Baiborodine"
 ---

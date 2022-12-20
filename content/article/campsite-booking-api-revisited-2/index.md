@@ -2,10 +2,10 @@
 title: "Campsite Booking API : Revisited 2"
 date: 2022-09-01T07:53:35-04:00
 
-categories: [Java, Write-Up]
-tags: [Java 17, Concurrency, Integration Test, GitHub Actions]
+categories: ["Java", "Write-Up"]
+tags: ["Java 17", "Concurrency", "Integration Test", "GitHub Actions"]
 toc: false
-series: "Campsite Booking API"
+series: ["Campsite Booking API"]
 author: "Igor Baiborodine"
 ---
 

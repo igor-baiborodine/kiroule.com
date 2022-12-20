@@ -2,9 +2,9 @@
 title: "Use Video Embeds in Hugo Theme"
 date: 2022-05-12T18:05:12-05:00
 draft: false
-categories: [Jamstack, Recipe]
-tags: [Hugo Theme, Video Embed]
-series: "Hugo Theme Recipes"
+categories: ["Jamstack", "Recipe"]
+tags: ["Hugo Theme", "Video Embed"]
+series: ["Hugo Theme Recipes"]
 toc: true
 author: "Igor Baiborodine"
 ---

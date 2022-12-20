@@ -2,10 +2,10 @@
 title: "Use Aliases to Redirect Old URLs"
 date: 2021-10-26T08:14:54-04:00
 
-categories: [Jamstack, How-to]
-tags: [Hugo, Aliases]
+categories: ["Jamstack", "How-to"]
+tags: ["Hugo", "Aliases"]
 toc: false
-series: "Building Your Blog, the Geeky Way"
+series: ["Building Your Blog, the Geeky Way"]
 author: "Igor Baiborodine"
 ---
 
