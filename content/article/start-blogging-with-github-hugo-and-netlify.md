@@ -1,9 +1,9 @@
 ---
 title: "Start Blogging With Hugo, GitHub and Netlify"
 date: 2020-04-29T19:47:04-04:00
-categories: [Jamstack, Tutorial]
-tags: [Blog, Hugo, GitHub, Netlify]
-series: "Building Your Blog, the Geeky Way"
+categories: ["Jamstack", "Tutorial"]
+tags: ["Blog", "Hugo", "GitHub", "Netlify"]
+series: ["Building Your Blog, the Geeky Way"]
 author: "Igor Baiborodine"
 ---
 

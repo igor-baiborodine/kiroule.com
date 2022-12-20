@@ -2,8 +2,8 @@
 title: "GitHub Actions in Action"
 date: 2021-05-07T07:11:44-04:00
 
-categories: [DevOps, Write-up]
-tags: [CICD, GitHub Actions, Docker]
+categories: ["DevOps", "Write-up"]
+tags: ["CICD", "GitHub Actions", "Docker"]
 toc: false
 author: "Igor Baiborodine"
 ---

@@ -2,9 +2,9 @@
 title: "Add Series Taxonomy to Hugo Theme"
 date: 2020-10-06T07:00:02-04:00
 
-categories: [Jamstack, Recipe]
-tags: [Hugo Theme, Taxonomy, Series]
-series: "Hugo Theme Recipes"
+categories: ["Jamstack", "Recipe"]
+tags: ["Hugo Theme", "Taxonomy", "Series"]
+series: ["Hugo Theme Recipes"]
 toc: true
 author: "Igor Baiborodine"
 ---
@@ -115,9 +115,9 @@ other = "Series"
 ### Usage
 To group articles as a series, add the `series` front matter variable to each article and set its value to the name of the series, for example:
 ```
-series: "Building Your Blog, the Geeky Way"
+series: ["Building Your Blog, the Geeky Way"]
 ```
-Then if you want to list all articles for a particular series within the markdown, use the `series` shortcode with the series' name, for example:
+Then, if you want to list all articles for a particular series within the markdown, use the `series` shortcode with the series' name, for example:
 ```
 {{</* series "Building Your Blog, the Geeky Way" */>}}
 ```

@@ -3,8 +3,8 @@ title: "kiroule.com: Summing Up After 6 Months"
 date: 2020-11-01T22:00:56-05:00
 draft: false
 
-categories: [Jamstack, Write-up]
-tags: [Blog]
+categories: ["Jamstack", "Write-up"]
+tags: ["Blog"]
 toc: false
 author: "Igor Baiborodine"
 ---

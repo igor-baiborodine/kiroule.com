@@ -1,8 +1,8 @@
 ---
 title: "Prepare for Certification Exam with Quizlet"
 date: 2020-10-25T22:07:24-04:00
-categories: [Certification]
-tags: [Quizlet, Flashcards, LPIC-1, Docker Certified Associate, Jenkins Certified Engineer, LPI Linux Essentials, Oracle Certified Professional Java SE 8]
+categories: ["Certification"]
+tags: ["Quizlet", "Flashcards", "LPIC-1", "Docker Certified Associate", "Jenkins Certified Engineer", "LPI Linux Essentials", "Oracle Certified Professional Java SE 8"]
 toc: false
 author: "Igor Baiborodine"
 noSummary: true

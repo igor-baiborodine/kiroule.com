@@ -2,10 +2,10 @@
 title: "Configure Custom Domain and HTTPS in Netlify : Revisited"
 date: 2021-10-20T07:53:45-04:00
 
-categories: [Jamstack, Tutorial]
-tags: [Subdomain, Netlify, Namecheap]
+categories: ["Jamstack", "Tutorial"]
+tags: ["Subdomain", "Netlify", "Namecheap"]
 toc: false
-series: "Building Your Blog, the Geeky Way"
+series: ["Building Your Blog, the Geeky Way"]
 author: "Igor Baiborodine"
 aliases:
     - /article/configure-custom-subdomain-and-https-on-netlify/
