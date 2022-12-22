@@ -98,14 +98,6 @@ Technologies used: [GitHub Actions](https://github.com/features/actions)
 
 ### 2020
 
-##### Personal Website
-Developed personal website at https://kiroule.com
-
-Read this [series](https://www.kiroule.com/series/building-your-blog-the-geeky-way/) for more details.
-
-Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hugo-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
-[See GitHub Repository](https://github.com/igor-baiborodine/kiroule.com)
-
 ##### Bilberry Hugo Theme
 
 Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
@@ -116,6 +108,14 @@ Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-them
 
 Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
+
+##### Personal Website
+Developed personal website at https://kiroule.com
+
+Read this [series](https://www.kiroule.com/series/building-your-blog-the-geeky-way/) for more details.
+
+Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hugo-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
+[See GitHub Repository](https://github.com/igor-baiborodine/kiroule.com)
 
 ### 2019
 ##### Multi-Variant Docker Images for Liferay Portal CE

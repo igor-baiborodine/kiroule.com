@@ -1,6 +1,6 @@
 ---
 title: "Series"
-date: 2022-12-31T07:15:44-05:00
+date: 2023-12-31T07:15:44-05:00
 showDate: false
 categories: []
 tags: []
