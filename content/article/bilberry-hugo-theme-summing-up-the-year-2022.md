@@ -3,7 +3,7 @@ title: "Bilberry Hugo Theme: Summing Up the Year 2022"
 date: 2023-01-01T18:00:00-05:00
 
 categories: ["Bilberry", "Jamstack", "Write-Up"]
-tags: ["Development"]
+tags: ["Development", "Overview"]
 toc: false
 author: "Igor Baiborodine"
 ---
@@ -75,4 +75,3 @@ The Bilberry Hugo theme has now:
 - 142+ [forks](https://github.com/Lednerb/bilberry-hugo-theme/network/members)
 - 45+ [contributors](https://github.com/Lednerb/bilberry-hugo-theme/graphs/contributors)
 - 21+ [translations](https://github.com/Lednerb/bilberry-hugo-theme/tree/master/i18n)
-- 
