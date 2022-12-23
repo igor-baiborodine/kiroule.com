@@ -70,9 +70,9 @@ volunteers.
 - Search form hijacking focus
 - Long title/subtitle overlapping header
 
-From all of the above, I would like to focus on the fact that it became possible to use the theme as
-a [Hugo module](https://gohugo.io/hugo-modules/). It required effort, and not everything could work out the first time.
-I want to note that not every Hugo theme can boast of supporting Hugo modules.
+From all of the above, I would like to point out that it became possible to use the theme as
+a [Hugo module](https://gohugo.io/hugo-modules/). Of course, it required effort, and not everything worked out the first
+time, but nevertheless, this feature was successfully implemented.
 
 Last but not least, to improve the theme's visibility, I have updated
 the [relevant information](https://themes.gohugo.io/themes/bilberry-hugo-theme/) in the themes catalog on Hugo's
