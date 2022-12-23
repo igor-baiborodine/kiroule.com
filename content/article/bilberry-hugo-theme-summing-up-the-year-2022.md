@@ -59,7 +59,8 @@ volunteers.
 - Miscellaneous minor styling updates in SCSS files
 - Make hyperlinks more obvious in the article's content 
 - Updates to French, Danish, and Russian translations
-- Complete rework of the `README` documentation along with several new sections
+- New GitHub action to automate generation of the table of contents in the `README`
+- Complete rework of the `README` along with several new sections
 - Various `dependabot` dependency and security updates
 
 **Bug Fixes**
@@ -69,6 +70,14 @@ volunteers.
 - Search form hijacking focus
 - Long title/subtitle overlapping header
 
+From all of the above, I would like to focus on the fact that it became possible to use the theme as
+a [Hugo module](https://gohugo.io/hugo-modules/). It required effort, and not everything could work out the first time.
+I want to note that not every Hugo theme can boast of supporting Hugo modules.
+
+Last but not least, to improve the theme's visibility, I have updated
+the [relevant information](https://themes.gohugo.io/themes/bilberry-hugo-theme/) in the themes catalog on Hugo's
+website. Also, I added the [Bilberry Hugo theme](https://jamstackthemes.dev/theme/bilberry-hugo-theme/) to the Jamstack
+Themes website.
 
 The Bilberry Hugo theme has now:
 - 296+ [stars](https://github.com/Lednerb/bilberry-hugo-theme/stargazers)
