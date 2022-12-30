@@ -84,3 +84,8 @@ The Bilberry Hugo theme has now:
 - 142+ [forks](https://github.com/Lednerb/bilberry-hugo-theme/network/members)
 - 45+ [contributors](https://github.com/Lednerb/bilberry-hugo-theme/graphs/contributors)
 - 21+ [translations](https://github.com/Lednerb/bilberry-hugo-theme/tree/master/i18n)
+
+I hope the New Year 2023 will be as fruitful as the past 2022, and the Bilberry Hugo theme will continue developing and
+delighting its users.
+
+![Happy New Year!](happy-new-year.png)
