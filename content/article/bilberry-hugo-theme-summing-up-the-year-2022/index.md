@@ -27,8 +27,7 @@ using [GitHub Discussions](https://github.com/features/discussions) along
 with [GitHub Issues](https://github.com/features/issues) for this. The main advantage of this was to keep the project
 and related discussions in one place. It would also make it easier to manage incoming requests, which could be
 categorized as real issues(defects or bugs) or theme usage questions, ideas(feature requests), and other general
-inquiries. And a year after switching to GitHub Discussions, I can testify that it was the right decision, and the
-experience of using it is only positive.
+inquiries.
 
 The other problem I faced as the official maintainer was how to facilitate and speed up the testing of changes submitted
 by other contributors. Testing in my local dev wasn't enough, and I needed a production-like environment with a website
@@ -70,7 +69,7 @@ volunteers.
 - Search form hijacking focus
 - Long title/subtitle overlapping header
 
-From all of the above, I would like to point out that it became possible to use the theme as
+From all of the above, I would like to note that the most important improvement was the ability to use the theme as
 a [Hugo module](https://gohugo.io/hugo-modules/). Of course, it required effort, and not everything worked out the first
 time, but nevertheless, this feature was successfully implemented.
 
