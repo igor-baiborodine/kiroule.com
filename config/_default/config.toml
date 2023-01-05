@@ -116,8 +116,8 @@ DefaultContentLanguage = "en"
 
     # credits line configuration
     copyrightBy = "Igor Baiborodine"
-    copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
-    copyrightYearOverride = "2017"
+    copyrightUseCurrentYear = false  # set to true to always display the current year in the copyright
+    copyrightYearOverride = "2020"
     copyrightUrl = "https://github.com/igor-baiborodine"
     creditsText = "Bilberry Hugo Theme vx.x.x"
     creditsUrl = "https://github.com/Lednerb/bilberry-hugo-theme"
