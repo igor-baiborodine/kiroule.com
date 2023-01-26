@@ -13,7 +13,8 @@ weight: 2
 
 ##### Learning Go
 
-[Elements of Programming Interviews in Go](https://github.com/igor-baiborodine/epi-go)
+1. [Distributed Services with Go Workshop](https://github.com/igor-baiborodine/distributed-services-with-go-workshop)
+2. [Elements of Programming Interviews in Go](https://github.com/igor-baiborodine/epi-go)
 
 ### 2022
 
