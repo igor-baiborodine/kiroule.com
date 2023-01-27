@@ -142,11 +142,11 @@ DefaultContentLanguage = "en"
 
 # don't change anything below
 [taxonomies]
-author   = "author"
-tag      = "tags"
-category = "categories"
-series   = "series"
+  author   = "author"
+  tag      = "tags"
+  category = "categories"
+  series   = "series"
 
 [outputs]
-home = [ "HTML", "JSON", "RSS" ]
-page = [ "HTML" ]
+  home = [ "HTML", "JSON", "RSS" ]
+  page = [ "HTML" ]
