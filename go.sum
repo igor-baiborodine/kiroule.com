@@ -22,3 +22,5 @@ github.com/Lednerb/bilberry-hugo-theme/v3 v3.21.0 h1:elf6AiWOA+vGLtu6a4Qf8MTcvTV
 github.com/Lednerb/bilberry-hugo-theme/v3 v3.21.0/go.mod h1:ERTLq/0yIBb0jN0Dh+w5G4wCp9TrB0JY86+Zh+26Dkg=
 github.com/Lednerb/bilberry-hugo-theme/v3 v3.23.0 h1:9rephz1mgzcREAUtYgJBFSFKI5SYVbIsOQjLBKv+m4Y=
 github.com/Lednerb/bilberry-hugo-theme/v3 v3.23.0/go.mod h1:ERTLq/0yIBb0jN0Dh+w5G4wCp9TrB0JY86+Zh+26Dkg=
+github.com/Lednerb/bilberry-hugo-theme/v3 v3.24.0 h1:G4DuRv57qz3tNUgFH8YPyDUw+mP2JTBHgVxIVelaFD8=
+github.com/Lednerb/bilberry-hugo-theme/v3 v3.24.0/go.mod h1:ERTLq/0yIBb0jN0Dh+w5G4wCp9TrB0JY86+Zh+26Dkg=
