@@ -1,6 +1,7 @@
 ---
 title: "Install Hugo on Ubuntu"
 date: 2021-11-10T08:00:50-05:00
+lastmod: 2023-03-28T08:00:00-05:00
 
 categories: ["Jamstack", "How-to"]
 tags: ["Hugo", "Ubuntu"]
@@ -8,7 +9,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-In this post, I will show how to install Hugo on Ubuntu in 3 different ways.
+In this post, I will show how to install Hugo on Ubuntu in three different ways.
 
 <!--more-->
 
@@ -36,12 +37,12 @@ When you check the location of the binary with the `whereis hugo` command, it gi
 ### dpkg
 To install the latest version of Hugo or a specific one, you can use **dpkg**, the Debian package manager. 
 But first, you have to download the `.deb` package from the [official Hugo release page](https://github.com/gohugoio/hugo/releases). 
-For example, to install version `0.89.2`, use the following commands:
+For example, to install version `0.109.0`, use the following commands:
 ```shell
-wget https://github.com/gohugoio/hugo/releases/download/v0.89.2/hugo_0.89.2_Linux-64bit.deb
-sudo dpkg -i hugo_0.89.2_Linux-64bit.deb
+wget https://github.com/gohugoio/hugo/releases/download/v0.109.0/hugo_0.109.0_linux-amd64.deb
+sudo dpkg -i hugo_0.109.0_linux-amd64.deb
 ```
-If you need the extended version, replace `hugo_0.89.2_Linux-64bit.deb` with `hugo_extended_0.89.2_Linux-64bit.deb`.
+If you need the extended version, replace `hugo_0.109.0_linux-amd64.deb` with `hugo_extended_0.109.0_linux-amd64.deb`.
 
 The location of the binary will be `/usr/local/bin/hugo` when installed with `dpkg`.
 
@@ -64,8 +65,9 @@ When you want to run Hugo installed via Snap, you should prefix the `hugo` comma
 
 ![Snap Run Hugo](/img/content/article/install-hugo-on-ubuntu/snap-run-hugo.png)
 
-And to summarize, it is evident that the **APT** option is not the best as you cannot get the latest version of Hugo. 
-In contrast, with the **Snap** package manager, you can only get the latest version. 
-The advantage of Snap is the ease of switching from the standard version to the extended one and back. 
-With all this in mind, it can be argued that the **dpkg** option is the most versatile, as it allows you to install the latest version and a specific one, either standard or extended. 
+And to summarize, it is evident that the **APT** option is not the best as you cannot get the latest version of Hugo.
+In contrast, with the **Snap** package manager, you can only get the latest version.
+The advantage of Snap is the ease of switching from the standard version to the extended one and back.
+With all this in mind, it can be argued that the **dpkg** option is the most versatile, as it allows you to install the
+latest version and a specific one, either standard or extended.
 Although switching with dpkg between the standard and extended versions might be a bit cumbersome.
