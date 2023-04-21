@@ -1,7 +1,7 @@
 ---
 title: "Install Hugo on Ubuntu"
 date: 2021-11-10T08:00:50-05:00
-lastmod: 2023-03-28T08:00:00-05:00
+lastmod: 2023-04-20T08:00:00-05:00
 
 categories: ["Jamstack", "How-to"]
 tags: ["Hugo", "Ubuntu"]
@@ -14,8 +14,9 @@ In this post, I will show how to install Hugo on Ubuntu in three different ways.
 <!--more-->
 
 Hugo releases come in two flavors, namely **standard** and **extended**. 
-The extended version differs in that it supports SASS/SCSS and PostCSS without any additional tooling or configuration. 
-Therefore, you should opt for the extended version if you choose a Hugo theme that doesn't use tools like Webpack for handling SASS/SCSS.
+The extended version differs in that it supports SASS/SCSS and PostCSS without any additional tooling or configuration.
+Therefore, you should opt for the extended version if you choose a Hugo theme that uses Hugo pipes instead of tools like
+Webpack for handling SASS/SCSS.
 
 You can get the following error message while trying to build an "extended" website with the standard version:
 ```shell
