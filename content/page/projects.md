@@ -1,10 +1,10 @@
 ---
 title: "Projects"
 date: 2020-04-25T21:25:07-04:00
-excludeFromTopNav: false
+menu: "topnav"
 showDate: false
 showComments: false
-weight: 2
+weight: 20
 ---
 
 {{< toc >}}
