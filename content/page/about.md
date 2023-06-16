@@ -1,10 +1,10 @@
 ---
 title: "About"
 date: 2020-04-26T13:13:06-04:00
-excludeFromTopNav: false
+menu: "topnav"
 showDate: false
 showComments: false
-weight: 1
+weight: 10
 link: ""
 target: "_blank"
 ---
