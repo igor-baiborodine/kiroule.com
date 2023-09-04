@@ -1,10 +1,2 @@
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha01 h1:N3ZMNTY2jvZAjIlHb6qtAKIEUXJLVGfP8C9Zb4JalPw=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha01/go.mod h1:275/d18gsd9E10jWfiaaFhRCt6VwratL3pbGw689IHg=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha03 h1:uauJhN/MSt5AZhtU3N0yHz7KfRsVld9k0TowxvyyZe8=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha03/go.mod h1:275/d18gsd9E10jWfiaaFhRCt6VwratL3pbGw689IHg=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha04 h1:UXbNqV1lO1ke+NHhAs6SOTYNKlRC9ryYkAhOSve4xwM=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha04/go.mod h1:275/d18gsd9E10jWfiaaFhRCt6VwratL3pbGw689IHg=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha06 h1:0+Bqba2F2FQIT2tJqqP3OYjdMtQukrKMgNK5Yh+kW7Y=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-alpha06/go.mod h1:275/d18gsd9E10jWfiaaFhRCt6VwratL3pbGw689IHg=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-rc1 h1:wk/vEp/BZZYgm3Q6+Yij3n/ieKgkk/sSMVxEwPR1hxw=
-github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.0-rc1/go.mod h1:275/d18gsd9E10jWfiaaFhRCt6VwratL3pbGw689IHg=
+github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.5 h1:w/pegFBjtIRvj5CEfwIfUUmWrZndMNuiHytk6Kc19hw=
+github.com/Lednerb/bilberry-hugo-theme/v4 v4.0.5/go.mod h1:EuKUIrQ8i/a2uxVuqZiUUK7FuoKsJ4UcolM1FYmLewM=
