@@ -22,6 +22,9 @@ theme's custom CSS and JavaScript artifacts, you had to execute an `npm` command
 then commit the generated assets to override the ones provided by the theme. Even worse, besides the above, you had to
 manage your own theme's fork when importing theme files as a Hugo module.
 
+The solution to this customization issue was switching to Hugo's asset
+processing, [Hugo Pipes](https://gohugo.io/hugo-pipes/), which became the main reason for developing the `v4`.
+
 Article plan:
 * Why v4?
 * Details on what was implemented as per the project scope.
