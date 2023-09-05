@@ -14,9 +14,17 @@ shed more light on `v4` features and how they were implemented.
 
 <!--more-->
 
+So, why `v4`? What was the raison d'être of developing a new major version? With the `v3` and previous versions, the
+main complaint from the users was that the theme customization, namely applying custom colors and fonts, was rather
+inconvenient and cumbersome. The theme's CSS and JavaScript assets management was initially implemented
+using [npm](https://www.npmjs.com/) and [Laravel Mix](https://laravel-mix.com/), a Webpack wrapper. To generate the
+theme's custom CSS and JavaScript artifacts, you had to execute an `npm` command in your local development environment and
+then commit the generated assets to override the ones provided by the theme. Even worse, besides the above, you had to
+manage your own theme's fork when importing theme files as a Hugo module.
+
 Article plan:
-Why v4?
-Details on what was implemented as per the project scope.
+* Why v4?
+* Details on what was implemented as per the project scope.
 
 ### Details 1
 ### Details 2
