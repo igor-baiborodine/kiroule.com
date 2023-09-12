@@ -37,12 +37,21 @@ Previously, color and font customizations were handled directly in the `assets/s
 the `_variables.scss` file no longer exists and such customizations are managed in your site's `config.toml` file by
 defining corresponding parameters from the `assets/sass/theme.scss` file, for example, `baseColor`, `headlineFont` etc.
 
-Article plan:
-* Why v4?
-* Details on what was implemented as per the project scope.
+Also, in `v4`, along with the migration to Hugo Pipes, the following new features and improvements were implemented:
 
-### Details 1
-### Details 2
-### Details 3
+* Menu items management in the top navigation is no longer done using a custom approach; it was aligned with Hugo's
+  [menu](https://gohugo.io/content-management/menus/) standards.
+* The `highlight.js` third-party library was replaced with Hugo's built-in
+  code [syntax highlighting](https://gohugo.io/content-management/syntax-highlighting/).
+* The Font Awesome icons set was upgraded from `v5` to [`v6`](https://fontawesome.com/v6/icons).
+* The Magnific Popup plugin that provided a lightbox for displaying larger images was replaced with
+  the [DimBox](https://dimboxjs.com/) plugin.
+* A scroll back to the top button. 
 
+Respectively, the [README guide](https://github.com/Lednerb/bilberry-hugo-theme/blob/master/v4/README.md) was updated
+because of all these changes, and some sections were thoroughly rewritten. Also,
+a [migration guide](https://github.com/Lednerb/bilberry-hugo-theme/blob/master/v4/v4-migration-guide.md) was added to
+facilitate a smooth transition of existing websites from `v3` to `v4`.
 
+I hope that with this new major release, current and future users of the Bilberry Hugo theme will enjoy using it and
+stay happy and satisfied.
