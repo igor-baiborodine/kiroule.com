@@ -17,13 +17,25 @@ shed more light on `v4` features and how they were implemented.
 So, why `v4`? What was the raison d'être of developing a new major version? With the `v3` and previous versions, the
 main complaint from the users was that the theme customization, namely applying custom colors and fonts, was rather
 inconvenient and cumbersome. The theme's CSS and JavaScript assets management was initially implemented
-using [npm](https://www.npmjs.com/) and [Laravel Mix](https://laravel-mix.com/), a Webpack wrapper. To generate the
-theme's custom CSS and JavaScript artifacts, you had to execute an `npm` command in your local development environment and
-then commit the generated assets to override the ones provided by the theme. Even worse, besides the above, you had to
-manage your own theme's fork when importing theme files as a Hugo module.
+using [npm](https://www.npmjs.com/) and [Laravel Mix](https://laravel-mix.com/), a Webpack wrapper. 
 
-The solution to this customization issue was switching to Hugo's asset
-processing, [Hugo Pipes](https://gohugo.io/hugo-pipes/), which became the main reason for developing the `v4`.
+To generate the theme's custom CSS and JavaScript artifacts, you had to execute an `npm` command in your local
+development environment and then commit the generated assets to override the ones provided by the theme. Worse, besides
+the above, you had to manage your own theme's fork when importing theme files as a Hugo module.
+
+The solution to this customization hindrance was switching to Hugo's built-in asset
+processing, [Hugo Pipes](https://gohugo.io/hugo-pipes/), and that became the main reason for developing the `v4`. With
+Hugo Pipes, the asset processing is defined 
+in [`v4/layouts/partials/css.html`](https://github.com/Lednerb/bilberry-hugo-theme/blob/v4.0.5/v4/layouts/partials/css.html)
+and [`v4/layouts/partials/js.html`](https://github.com/Lednerb/bilberry-hugo-theme/blob/v4.0.5/v4/layouts/partials/js.html)
+templates, which use artifacts from v4/assets/sass and v4/assets/js directories, respectively. The third-party
+dependencies in the above directories are still managed using `npm` and listed in
+the [`devDependencies`](https://github.com/Lednerb/bilberry-hugo-theme/blob/aa76d1808e645d0aad4ecbf7e51d130c28356c36/v4/package.json#L6)
+block of the `package.json` file. 
+
+Previously, color and font customizations were handled directly in the `assets/sass/_variables.scss` file. In `v4`,
+the `_variables.scss` file no longer exists and such customizations are managed in your site's `config.toml` file by
+defining corresponding parameters from the `assets/sass/theme.scss` file, for example, `baseColor`, `headlineFont` etc.
 
 Article plan:
 * Why v4?
