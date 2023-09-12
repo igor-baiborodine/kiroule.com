@@ -14,10 +14,10 @@ shed more light on `v4` features and how they were implemented.
 
 <!--more-->
 
-So, why `v4`? What was the raison d'être of developing a new major version? With the `v3` and previous versions, the
+So, why `v4`? What was the *raison d'être* of developing a new major version? With the `v3` and previous versions, the
 main complaint from the users was that the theme customization, namely applying custom colors and fonts, was rather
-inconvenient and cumbersome. The theme's CSS and JavaScript assets management was initially implemented
-using [npm](https://www.npmjs.com/) and [Laravel Mix](https://laravel-mix.com/), a Webpack wrapper. 
+inconvenient and cumbersome. It was caused by the fact that the theme's CSS and JavaScript assets management was
+initially implemented using [npm](https://www.npmjs.com/) and [Laravel Mix](https://laravel-mix.com/), a Webpack wrapper. 
 
 To generate the theme's custom CSS and JavaScript artifacts, you had to execute an `npm` command in your local
 development environment and then commit the generated assets to override the ones provided by the theme. Worse, besides
@@ -28,14 +28,16 @@ processing, [Hugo Pipes](https://gohugo.io/hugo-pipes/), and that became the mai
 Hugo Pipes, the asset processing is defined 
 in [`v4/layouts/partials/css.html`](https://github.com/Lednerb/bilberry-hugo-theme/blob/v4.0.5/v4/layouts/partials/css.html)
 and [`v4/layouts/partials/js.html`](https://github.com/Lednerb/bilberry-hugo-theme/blob/v4.0.5/v4/layouts/partials/js.html)
-templates, which use artifacts from v4/assets/sass and v4/assets/js directories, respectively. The third-party
+templates, which use artifacts from `v4/assets/sass` and `v4/assets/js` directories, respectively. The third-party
 dependencies in the above directories are still managed using `npm` and listed in
 the [`devDependencies`](https://github.com/Lednerb/bilberry-hugo-theme/blob/aa76d1808e645d0aad4ecbf7e51d130c28356c36/v4/package.json#L6)
 block of the `package.json` file. 
 
 Previously, color and font customizations were handled directly in the `assets/sass/_variables.scss` file. In `v4`,
 the `_variables.scss` file no longer exists and such customizations are managed in your site's `config.toml` file by
-defining corresponding parameters from the `assets/sass/theme.scss` file, for example, `baseColor`, `headlineFont` etc.
+defining corresponding parameters from
+the [`assets/sass/theme.scss`](https://github.com/Lednerb/bilberry-hugo-theme/blob/v4.0.5/v4/assets/sass/theme.scss)
+file, for example, `baseColor`, `headlineFont` etc.
 
 Also, in `v4`, along with the migration to Hugo Pipes, the following new features and improvements were implemented:
 
