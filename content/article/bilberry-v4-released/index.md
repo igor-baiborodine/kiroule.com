@@ -8,7 +8,7 @@ toc: false
 author: "Igor Baiborodine"
 ---
 
-The long-awaited `v4` of the Bilberry Hugo theme that has been in the works for the last six months is finally released.
+The long-awaited `v4` of the [Bilberry Hugo theme](https://github.com/Lednerb/bilberry-hugo-theme) that has been in the works for the last six months is finally released.
 The new release is a major version containing a few breaking changes and other essential improvements. In this post, I
 shed more light on `v4` features and how they were implemented.
 
