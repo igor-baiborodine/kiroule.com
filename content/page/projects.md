@@ -11,6 +11,13 @@ weight: 20
 
 ### 2023
 
+##### Bilberry Hugo Theme
+
+1. Defined the [scope](https://github.com/Lednerb/bilberry-hugo-theme/projects/2) of the `v4`, a new major release, and implemented it. 
+
+Technologies used: [Hugo](https://gohugo.io/)\
+[See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
+
 ##### Learning Go
 
 1. [Distributed Services with Go Workshop](https://github.com/igor-baiborodine/distributed-services-with-go-workshop)
