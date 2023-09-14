@@ -3,7 +3,7 @@ title: "Add Image Lightbox to Hugo Theme"
 date: 2023-09-14T16:40:06-04:00
 
 categories: ["Jamstack", "Recipe"]
-tags: ["Hugo Theme", "Lightbox", "Series"]
+tags: ["Hugo Theme", "Lightbox"]
 series: ["Hugo Theme Recipes"]
 toc: true
 author: "Igor Baiborodine"
