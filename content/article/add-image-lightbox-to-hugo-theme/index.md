@@ -9,7 +9,9 @@ toc: true
 author: "Igor Baiborodine"
 ---
 
-Summary
+If you need to add an image lightbox to your Hugo theme and have no idea how to approach it, read this article, where I
+present a simple and effective technique for achieving this. It is a continuation of the
+series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 
 <!--more-->
 
