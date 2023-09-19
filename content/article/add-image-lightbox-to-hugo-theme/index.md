@@ -5,7 +5,7 @@ date: 2023-09-14T16:40:06-04:00
 categories: ["Jamstack", "Recipe"]
 tags: ["Hugo Theme", "Lightbox", "Modal Zoom"]
 series: ["Hugo Theme Recipes"]
-toc: true
+toc: false
 author: "Igor Baiborodine"
 ---
 
@@ -33,9 +33,18 @@ my experience, you can use the following selection criteria:
 * Its license should not be more restrictive than your Hugo theme license.
 * It may also contain other functionalities, such as an image gallery, that you want to add to your Hugo theme.
 
-After narrowing down your choices, you must test selected plugins to see if they work well within your Hugo theme. It
-is possible that a plugin's CSS may conflict with your theme's CSS, which may cause problems with your chosen plugin
-functioning correctly.
+Second, after narrowing down your choices, you must test selected plugins to see if they work well within your Hugo
+theme. It is possible that a plugin's CSS may conflict with your theme's CSS, and that may cause problems with your
+chosen plugin functioning correctly.
+
+The technicalities of such testing will depend on the selected plugin and Hugo theme. Most lightbox plugin distributions
+come in the form of CSS and JavaScript assets that you should manually add to your theme's `static` folder. For example,
+the `static` folder in the Bilberry Hugo theme will look like below after downloading and copying minified assets for
+the [DimBox](https://github.com/hphaavikko/dimbox) plugin:
+
+![Theme's Static Folder with Assets](theme-static-folder-with-assets.png)
+
+
 
 The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
 for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
