@@ -5,7 +5,7 @@ date: 2023-09-14T16:40:06-04:00
 categories: ["Jamstack", "Recipe"]
 tags: ["Hugo Theme", "Lightbox", "Modal Zoom"]
 series: ["Hugo Theme Recipes"]
-toc: false
+toc: true
 author: "Igor Baiborodine"
 ---
 
@@ -15,6 +15,7 @@ series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 
 <!--more-->
 
+### Getting Started
 What is an image lightbox? An image lightbox, also sometimes called an image modal zoom, is a window overlay that goes
 over the website's currently displayed webpage to show a larger version of the image when the reader clicks on it.
 This "magnification" lets the reader view high-resolution images in great detail. Such a feature would be a great
@@ -27,10 +28,12 @@ the [Bilberry Hugo theme](https://github.com/Lednerb/bilberry-hugo-theme), I opt
 plugin since I'm not that good at CSS and JavaScript and didn't have enough spare time to implement it myself, so the
 recipe shown below is based on a third-party plugin.
 
+### Pick & Test Plugin
+
 First, picking a suitable plugin from the plethora of available ones might be challenging and time-consuming. Based on
 my experience, you can use the following selection criteria:
 * It should be a relatively recent development with a public repository on GitHub, Bitbucket, etc.
-* Its license should not be more restrictive than your Hugo theme license.
+* Its license should **not** be more restrictive than your Hugo theme license.
 * It may also contain other functionalities, such as an image gallery, that you want to add to your Hugo theme.
 
 Second, after narrowing down your choices, you must test selected plugins to see if they work well within your Hugo
@@ -44,10 +47,10 @@ the [DimBox](https://github.com/hphaavikko/dimbox) plugin:
 
 ![Theme's Static Folder with Assets](theme-static-folder-with-assets.png)
 
-In your Hugo theme, you locate a partial template file containing the `head` and `body` tags. For instance, in the
+In your Hugo theme, you locate a partial template file containing the `<head>` and `<body>` tags. For instance, in the
 Bilberry Hugo theme, such a partial template is
 the [`layouts/_default/baseof.html`](https://github.com/Lednerb/bilberry-hugo-theme/blob/e35ecca9f03c9579a9fca7aba0b5aa01563f197c/v4/layouts/_default/baseof.html)
-file. Next, include the plugin's CSS and JavaScript assets in the `head` and `body` tags, respectively:
+file. Next, include the plugin's CSS and JavaScript assets in the `<head>` and `<body>` tags, respectively:
 
 ```html
 <head>
@@ -62,6 +65,31 @@ file. Next, include the plugin's CSS and JavaScript assets in the `head` and `bo
     ...
 </body>
 ```
+
+After all this, it's time to create a test article that contains a high-resolution image. Place the raw HTML needed to
+add an image within the article's markdown according to the plugin documentation. For most plugins, it is a variation of
+the `<a>` tag with custom attributes, e.g., for the Dimbox plugin, that would be the following, given you copied
+the `my-test-image.jpg` image to the `static` folder of your website:
+
+```html
+<a href="my-test-image.jpg" data-dimbox="my-test-image">
+    <img src="my-test-image.jpg" alt="This is an awesome image" />
+</a>
+```
+
+But since raw HTML is used to display the test image, Goldmark's `unsafe` property in the `config.toml` file of your
+website should be set to `true`:
+
+```toml
+[markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
+```
+
+Having confirmed with tests that the selected plugin works as expected, it's time to start integrating it into the
+theme.
+
+### Theme Integration
 
 The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
 for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
