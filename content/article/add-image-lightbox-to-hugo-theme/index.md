@@ -63,13 +63,12 @@ file. Next, include the plugin's CSS and JavaScript assets in the `head` and `bo
 </body>
 ```
 
-
 The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
 for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
-`v4` of the Bilberry Hugo theme, which already had the lightbox support via the Magnific Popup plugin. After migrating CSS
-and JavaScript asset processing from `npm` and Laravel Mix to Hugo Pipes, this plugin stopped working, and I could not
-pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin with a new one, namely
-DimBox.
+`v4` of the Bilberry Hugo theme, which already had the lightbox support via the Magnific Popup plugin. After migrating
+CSS and JavaScript asset processing from `npm` and Laravel Mix to Hugo Pipes, this plugin stopped working, and I could
+not pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin with a new one,
+namely DimBox.
 
 Conclusion
 
