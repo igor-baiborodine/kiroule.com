@@ -44,6 +44,24 @@ the [DimBox](https://github.com/hphaavikko/dimbox) plugin:
 
 ![Theme's Static Folder with Assets](theme-static-folder-with-assets.png)
 
+In your Hugo theme, you locate a partial template file containing the `head` and `body` tags. For instance, in the
+Bilberry Hugo theme, such a partial template is
+the [`layouts/_default/baseof.html`](https://github.com/Lednerb/bilberry-hugo-theme/blob/e35ecca9f03c9579a9fca7aba0b5aa01563f197c/v4/layouts/_default/baseof.html)
+file. Next, include the plugin's CSS and JavaScript assets in the `head` and `body` tags, respectively:
+
+```html
+<head>
+    ...
+    <link rel="stylesheet" href="dimbox.min.css" />
+    ...
+</head>
+...
+<body>
+    ...
+    <script src="dimbox.min.js"></script>
+    ...
+</body>
+```
 
 
 The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
