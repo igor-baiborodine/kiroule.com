@@ -91,6 +91,17 @@ theme.
 
 ### Theme Integration
 
+Integrating a plugin with a theme consists of two parts: the plugin's assets integration and custom image render hook
+implementation. The first part depends on how asset management and processing are implemented in your Hugo theme.
+Suppose the theme does not use any tools for dependency management (e.g., npm) along with an asset processing pipeline (
+e.g., Hugo pipes). In that case, it will suffice to save the plugin's resource files in the `static` folder of the theme
+and include them in the theme's partial template within the `<head>` and `<body>` tags, as we did earlier while testing
+plugins.
+
+If your theme does use dependency management and/or asset processing tools, the plugin's assets will likely need to be
+stored in the theme's `assets` folder, and certain changes will need to be made to the dependency management and asset
+processing pipelines.
+
 The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
 for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
 `v4` of the Bilberry Hugo theme, which already had the lightbox support via the Magnific Popup plugin. After migrating
