@@ -5,7 +5,7 @@ date: 2023-09-14T16:40:06-04:00
 categories: ["Jamstack", "Recipe"]
 tags: ["Hugo Theme", "Lightbox", "Modal Zoom"]
 series: ["Hugo Theme Recipes"]
-toc: true
+toc: false
 author: "Igor Baiborodine"
 ---
 
@@ -14,6 +14,8 @@ present a simple and effective technique for achieving this. It is a continuatio
 series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/).
 
 <!--more-->
+
+{{< toc >}}
 
 ### Getting Started
 What is an image lightbox? An image lightbox, also sometimes called an image modal zoom, is a window overlay that goes
@@ -89,7 +91,7 @@ website should be set to `true`:
 Having confirmed with tests that the selected plugin works as expected, it's time to start integrating it into the
 theme.
 
-### Theme Integration
+### Integration with Theme
 
 Integrating a plugin with a theme consists of two parts: the plugin's assets integration and custom image render hook
 implementation. The first part depends on how asset management and processing are implemented in your Hugo theme.
