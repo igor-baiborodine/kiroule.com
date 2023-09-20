@@ -111,6 +111,20 @@ CSS and JavaScript asset processing from `npm` and Laravel Mix to Hugo Pipes, th
 not pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin with a new one,
 namely DimBox.
 
+As for the second part, the default render hook for images provided by Hugo needs to be replaced by a custom one that
+will take into account the implementation details of the selected lightbox plugin. That's because the default hook will
+render the markdown for adding an image as an img tag wrapped in the p tag, for example:
+
+```markdown
+![My Test Image](path/to/my-test-image.png)
+```
+
+```html
+<p>
+    <img src="path/to/my-test-image.png" alt="My Test Image">
+</p>
+```
+
 Conclusion
 
 Continue reading the series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/):
