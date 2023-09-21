@@ -74,8 +74,8 @@ the `<a>` tag with custom attributes, e.g., for the Dimbox plugin, that would be
 the `my-test-image.jpg` image to the `static` folder of your website:
 
 ```html
-<a href="path/to/my-test-image.jpg" data-dimbox="my-test-image">
-    <img src="path/to/my-test-image.jpg" alt="This is an awesome image" />
+<a href="my-test-image.jpg" data-dimbox="my-test-image">
+    <img src="my-test-image.jpg" alt="This is an awesome image" />
 </a>
 ```
 
@@ -113,17 +113,38 @@ namely DimBox.
 
 As for the second part, the default render hook for images provided by Hugo needs to be replaced by a custom one that
 will take into account the implementation details of the selected lightbox plugin. That's because the default hook will
-render the markdown for adding an image as an img tag wrapped in the p tag, for example:
+render the markdown for adding an image as the `<img>` tag wrapped in the `<p>` tag.
 
 ```markdown
-![My Test Image](path/to/my-test-image.jpg)
+![My Test Image](my-test-image.jpg)
 ```
+
+For example, the above markdown will be rendered as follows:
 
 ```html
 <p>
-    <img src="path/to/my-test-image.jpg" alt="My Test Image">
+    <img src="full/path/to/my-test-image.jpg" alt="My Test Image">
 </p>
 ```
+
+As an illustration, the `layouts/_default/_markup/render-image.html` template for the DimBox plugin can be implemented
+as below:
+
+```html
+<a href="{{ .Destination | safeURL }}" data-dimbox data-dimbox-caption="{{ .Text }}">
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+</a>
+```
+
+The above implementation will produce the following HTML for the image markdown:
+
+```html
+<a href="full/path/to/my-test-image.jpg" data-dimbox="" data-dimbox-caption="My Test Image">
+    <img src="full/path/to/my-test-image.jpg" alt="My Test Image">
+</a>
+```
+
+
 
 Conclusion
 
