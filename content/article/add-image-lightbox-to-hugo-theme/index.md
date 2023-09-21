@@ -74,8 +74,8 @@ the `<a>` tag with custom attributes, e.g., for the Dimbox plugin, that would be
 the `my-test-image.jpg` image to the `static` folder of your website:
 
 ```html
-<a href="my-test-image.jpg" data-dimbox="my-test-image">
-    <img src="my-test-image.jpg" alt="This is an awesome image" />
+<a href="path/to/my-test-image.jpg" data-dimbox="my-test-image">
+    <img src="path/to/my-test-image.jpg" alt="This is an awesome image" />
 </a>
 ```
 
@@ -116,12 +116,12 @@ will take into account the implementation details of the selected lightbox plugi
 render the markdown for adding an image as an img tag wrapped in the p tag, for example:
 
 ```markdown
-![My Test Image](path/to/my-test-image.png)
+![My Test Image](path/to/my-test-image.jpg)
 ```
 
 ```html
 <p>
-    <img src="path/to/my-test-image.png" alt="My Test Image">
+    <img src="path/to/my-test-image.jpg" alt="My Test Image">
 </p>
 ```
 
