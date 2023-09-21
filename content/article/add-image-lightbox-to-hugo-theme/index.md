@@ -104,13 +104,6 @@ If your theme does use dependency management and/or asset processing tools, the 
 stored in the theme's `assets` folder, and certain changes will need to be made to the dependency management and asset
 processing pipelines.
 
-The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
-for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
-`v4` of the Bilberry Hugo theme, which already had the lightbox support via the Magnific Popup plugin. After migrating
-CSS and JavaScript asset processing from `npm` and Laravel Mix to Hugo Pipes, this plugin stopped working, and I could
-not pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin with a new one,
-namely DimBox.
-
 As for the second part, the default render hook for images provided by Hugo needs to be replaced by a custom one that
 will take into account the implementation details of the selected lightbox plugin. That's because the default hook will
 render the markdown for adding an image as the `<img>` tag wrapped in the `<p>` tag.
@@ -144,7 +137,49 @@ The above implementation will produce the following HTML for the image markdown:
 </a>
 ```
 
+You can also enhance your image render hook for displaying figures, that is, images with a caption or legend at the
+bottom. The markdown for adding an image may contain an optional part, named `Title`, immediately after the path to the
+image:
 
+```markdown
+![My Test Image](my-test-image.jpg "Fig. 1 - My Test Image Caption")
+```
+
+You can add a condition to check if the image markdown contains the `Title` part. If so, the `<a>` tag along with
+the `<figcation>` tag should be wrapped into the `<figure>` tag:
+
+```html
+{{ if .Title }}
+<figure>
+    <a href="{{ .Destination | safeURL }}" data-dimbox data-dimbox-caption="{{ .Text }}">
+        <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+    </a>
+    <figcaption>{{ .Title }}</figcaption>
+</figure>
+{{ else }}
+<a href="{{ .Destination | safeURL }}" data-dimbox data-dimbox-caption="{{ .Text }}">
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+</a>
+{{ end }}
+```
+
+That will generate the following HTML for the image markdown with `Title`:
+
+```html
+<figure>
+    <a href="full/path/to/my-test-image.jpg" data-dimbox="" data-dimbox-caption="My Test Image">
+        <img src="full/path/to/my-test-image.jpg" alt="My Test Image">
+    </a>
+    <figcaption>Fig. 1 - My Test Image Caption</figcaption>
+</figure>
+```
+
+The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
+for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
+`v4` of the Bilberry Hugo theme, which already had the lightbox support via the Magnific Popup plugin. After migrating
+CSS and JavaScript asset processing from `npm` and Laravel Mix to Hugo Pipes, this plugin stopped working, and I could
+not pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin with a new one,
+namely DimBox.
 
 Conclusion
 
