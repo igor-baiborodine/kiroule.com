@@ -174,14 +174,12 @@ That will generate the following HTML for the image markdown with `Title`:
 </figure>
 ```
 
-The recipe that I presented above is also applicable when your theme already has support for the image modal zoom, but
-for some reason, you want to replace it with a different implementation (plugin). That happened to me while working the
-`v4` of the Bilberry Hugo theme, which already had the lightbox support via the Magnific Popup plugin. After migrating
-CSS and JavaScript asset processing from `npm` and Laravel Mix to Hugo Pipes, this plugin stopped working, and I could
-not pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin with a new one,
-namely DimBox.
-
-Conclusion
+The recipe presented above is based on my hands-on experience working on the new major release of the Bilberry Hugo
+theme. This theme already supported the modal image zoom via the Magnific Popup plugin. After migrating CSS and
+JavaScript asset processing from npm and Laravel Mix to Hugo Pipes, this plugin stopped working, and I could not
+pinpoint the root cause of that. Therefore, I had no choice but to replace the Magnific Popup plugin
+with a new one, DimBox. For more information, see
+this [commit](https://github.com/Lednerb/bilberry-hugo-theme/commit/01ecf2b1aff791df22411eb7fd262a3dce4359d2).
 
 Continue reading the series ["Hugo Theme Recipes"](/series/hugo-theme-recipes/):
 {{< series "Hugo Theme Recipes" >}}
