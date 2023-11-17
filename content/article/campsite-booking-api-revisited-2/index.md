@@ -10,10 +10,11 @@ author: "Igor Baiborodine"
 ---
 
 It has been almost a year and a half since I published the
-article ["Campsite Booking API: Revisited"](/article/campsite-booking-api-revisited/). During this time, I kept the
-project up-to-date and implemented numerous improvements. So, in this article, which is
-the second part of
-the series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/), I describe in detail what was achieved and how.
+article ["Campsite Booking API: Revisited"](/article/campsite-booking-api-revisited/). During this
+time, I kept the project up-to-date and implemented numerous improvements. So, in this article,
+which is
+the second part of the series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/), I
+describe in detail what was achieved and how.
 
 <!--more-->
 
