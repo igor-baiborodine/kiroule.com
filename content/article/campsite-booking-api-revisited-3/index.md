@@ -10,7 +10,7 @@ series: ["Campsite Booking API (Java)"]
 author: "Igor Baiborodine"
 ---
 
-Another year passed and I decided to return this project again and implement a new batch of
+Another year passed, and I decided to return to this project again and implement a new batch of
 improvements. So, continuing the
 series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/) with this installment, I
 detail changes to the project and its current state.
