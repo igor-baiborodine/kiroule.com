@@ -28,7 +28,17 @@ significant changes.
 
 {{< toc >}}
 
-### Details 1
+### Upgrade to Spring Boot 3
+
+Since Spring Boot 3
+was [released](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes)
+almost a year ago, this project was well due for an upgrade from version 2 to version 3. Given that
+this project was already using Java 17 LTS, which is the main prerequisite for Spring Boot 3
+migration, the upgrade consisted of bumping the version of the `spring-boot-starter-parent` artifact
+from `2.7.1` to `3.1.4`. Also, given that Spring Boot 3 moved from Java EE to Jakarta EE APIs for
+all dependencies, I had to replace all `javax` imports with `jakarta` ones. Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/c55811131fc34928e084f77e72ae0570e972d882)
+for more details.
 
 ### Details 2
 
