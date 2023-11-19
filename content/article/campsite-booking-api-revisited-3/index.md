@@ -40,7 +40,20 @@ all dependencies, I had to replace all `javax` imports with `jakarta` ones. Chec
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/c55811131fc34928e084f77e72ae0570e972d882)
 for more details.
 
-### Details 2
+### Entity Classes for the DB Layer
+
+This sample project is based on the layered architecture that consists of the
+presentation(`BookingController.java` class back then, later renamed
+to `BookingApiControllerImpl.java`), business(`BookingService.java class`),
+persistence(`BookingRepository.java` class), and database(MySQL or Derby DBs) layers. Each of the
+first three layers typically operates with its proper object classes, namely, data transfer object(
+DTO), model, and entity classes, respectively.
+
+But back then, it was implemented so that the business and persistence layers operated on the same
+object class, namely Booking.java. So, to make all layers work on their proper object classes, I
+added an entity object class named `BookingEntity.java` for the persistence layer. Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e2b91df8666561aaab933a936aa2e2ff93e7bdb1)
+for more details.
 
 ### Details 3
 
