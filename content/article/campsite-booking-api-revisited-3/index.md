@@ -55,7 +55,38 @@ added an entity object class named `BookingEntity.java` for the persistence laye
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e2b91df8666561aaab933a936aa2e2ff93e7bdb1)
 for more details.
 
-### Details 3
+### Explicit given-when-then Pattern for Tests
+
+When introducing the entity object class for the persistence level, I had to update the
+corresponding unit and integration tests. During the previous iteration, I rewrote all unit and
+integration tests
+using [JUnit 5 in BDD style](https://www.kiroule.com/article/campsite-booking-api-revisited-2/#tests-with-junit-5-in-bdd-style),
+which turned out to be a wrong decision. It's more challenging to make significant changes to the
+test methods when the code in it for the `given`, `when`, and `then` parts are encapsulated in
+methods prefixed with `given_`, `when_`, and `then_` parts, respectively.
+
+So, to solve this issue, I reworked all unit and integration tests again with an
+explicit `given-when-then` pattern, which is implemented using the following convention:
+
+* All tests related to a particular method should be encapsulated in a nested class annotated with
+  the JUnit 5 `@Nested` annotation.
+* The instance variable for the class under test should be named `classUnderTest`.
+* Methods that test a happy path execution should be named `happy_path`. Methods that test other
+  preconditions and inputs should be
+  named `given_<preconditions_and_inputs>__then_<expected_results>`.
+* Code within a test method should be laid out per the `given-when-then` pattern with the
+  explicit `// given`, `// when`, and `// then` comments.
+* The when part should only contain the invocation of the method under the test and the variable to
+  which the result of this invocation is assigned should be named `result`.
+
+Also, the BDD style does not play well with the parallel execution of tests since it forces the use
+of test class instance variables shared between the test methods. Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/579b4a74ab91159c2ef85d240d1d7007373a8f0f#diff-90ccdaedf224b4323b0c4c71c7d43a589ad486af9415e4a07d389763ca3d8a69)
+for more details.
+
+### Continuous Integration
+
+// TODO
 
 Continue reading the series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/):
 {{< series "Campsite Booking API (Java)" >}}
