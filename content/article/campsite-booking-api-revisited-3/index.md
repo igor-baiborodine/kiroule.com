@@ -66,7 +66,7 @@ test methods when the code in it for the `given`, `when`, and `then` parts are e
 methods prefixed with `given_`, `when_`, and `then_` parts, respectively.
 
 So, to solve this issue, I reworked all unit and integration tests again with an
-explicit `given-when-then` pattern, which is implemented using the following convention:
+explicit `given-when-then` pattern using the following convention:
 
 * All tests related to a particular method should be encapsulated in a nested class annotated with
   the JUnit 5 `@Nested` annotation.
@@ -75,7 +75,8 @@ explicit `given-when-then` pattern, which is implemented using the following con
   preconditions and inputs should be
   named `given_<preconditions_and_inputs>__then_<expected_results>`.
 * Code within a test method should be laid out per the `given-when-then` pattern with the
-  explicit `// given`, `// when`, and `// then` comments.
+  explicit `// given`, `// when`, and `// then` comments to improve readability and facilitate
+  visualization of the corresponding code blocks.
 * The when part should only contain the invocation of the method under the test and the variable to
   which the result of this invocation is assigned should be named `result`.
 
