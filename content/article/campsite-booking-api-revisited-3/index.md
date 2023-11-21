@@ -85,6 +85,64 @@ of test class instance variables shared between the test methods. Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/579b4a74ab91159c2ef85d240d1d7007373a8f0f#diff-90ccdaedf224b4323b0c4c71c7d43a589ad486af9415e4a07d389763ca3d8a69)
 for more details.
 
+### Test Containers for Integration Tests
+
+Previously, to implement integration tests, I used
+the [Apache Derby database](https://db.apache.org/derby/). But recently, I discovered a
+better alternative to it: a [MySQL test container](https://testcontainers.com/modules/mysql/), which
+is part of the Testcontainers open-source framework for providing lightweight instances of almost
+anything that can run in a Docker container.
+
+To implement the migration to the MySQL test container, firstly, I had to add two new dependencies
+to the `pom.xml` file:
+
+```xml
+<dependency>
+  <groupId>org.testcontainers</groupId>
+  <artifactId>testcontainers</artifactId>
+  <version>1.19.1</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>org.testcontainers</groupId>
+  <artifactId>mysql</artifactId>
+  <version>1.19.1</version>
+  <scope>test</scope>
+</dependency>
+```
+
+Secondly, I updated the `BaseIT.java` class by adding the container and corresponding Spring data
+source properties initializations:
+
+```java
+@SpringBootTest(webEnvironment = RANDOM_PORT)
+@ActiveProfiles("mysql")
+public abstract class BaseIT {
+
+  private static final String MYSQL_DOCKER_IMAGE_NAME = "mysql:8-debian";
+  private static final String MYSQL_DATABASE_NAME = "test_campsite";
+
+  static final MySQLContainer<?> mySqlContainer;
+  static {
+    mySqlContainer =
+        new MySQLContainer<>(MYSQL_DOCKER_IMAGE_NAME).withDatabaseName(MYSQL_DATABASE_NAME);
+    mySqlContainer.start();
+  }
+
+  @DynamicPropertySource
+  static void mysqlProperties(DynamicPropertyRegistry registry) {
+    registry.add("spring.datasource.url", mySqlContainer::getJdbcUrl);
+    registry.add("spring.datasource.username", mySqlContainer::getUsername);
+    registry.add("spring.datasource.password", mySqlContainer::getPassword);
+    registry.add("spring.jpa.properties.hibernate.show_sql", () -> "true");
+  }
+}
+```
+
+Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/d56c4407a360f68e342e479dc2f41d315bb131ae)
+for more details.
+
 ### Continuous Integration
 
 // TODO
