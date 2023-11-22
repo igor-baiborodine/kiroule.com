@@ -36,7 +36,9 @@ almost a year ago, this project was well due for an upgrade from version 2 to ve
 this project was already using Java 17 LTS, which is the main prerequisite for Spring Boot 3
 migration, the upgrade consisted of bumping the version of the `spring-boot-starter-parent` artifact
 from `2.7.1` to `3.1.4`. Also, given that Spring Boot 3 moved from Java EE to Jakarta EE APIs for
-all dependencies, I had to replace all `javax` imports with `jakarta` ones. Check
+all dependencies, I had to replace all `javax` imports with `jakarta` ones. 
+
+Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/c55811131fc34928e084f77e72ae0570e972d882)
 for more details.
 
@@ -51,7 +53,9 @@ DTO), model, and entity classes, respectively.
 
 But back then, it was implemented so that the business and persistence layers operated on the same
 object class, namely Booking.java. So, to make all layers work on their proper object classes, I
-added an entity object class named `BookingEntity.java` for the persistence layer. Check
+added an entity object class named `BookingEntity.java` for the persistence layer. 
+
+Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/e2b91df8666561aaab933a936aa2e2ff93e7bdb1)
 for more details.
 
@@ -81,7 +85,9 @@ explicit `given-when-then` pattern using the following convention:
   which the result of this invocation is assigned should be named `result`.
 
 Also, the BDD style does not play well with the parallel execution of tests since it forces the use
-of test class instance variables shared between the test methods. Check
+of test class instance variables shared between the test methods. 
+
+Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/579b4a74ab91159c2ef85d240d1d7007373a8f0f#diff-90ccdaedf224b4323b0c4c71c7d43a589ad486af9415e4a07d389763ca3d8a69)
 for more details.
 
