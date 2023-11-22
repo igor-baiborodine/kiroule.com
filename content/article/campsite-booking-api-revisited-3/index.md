@@ -23,8 +23,8 @@ GitHub's [projects](https://docs.github.com/en/issues/planning-and-tracking-with
 feature. To do so, I created
 the [Campsite Booking 2023](https://github.com/users/igor-baiborodine/projects/1/views/1) project
 with all the items I wanted to implement. Creating such a project helped me illustrate the scope of
-the new iteration, plan my work, and track progress. And now, let's give more details of the most
-significant changes.
+the new iteration, plan my work, and track progress. And now, let's dive into the most significant
+changes.
 
 {{< toc >}}
 
@@ -42,7 +42,7 @@ Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/c55811131fc34928e084f77e72ae0570e972d882)
 for more details.
 
-### Entity Classes for the DB Layer
+### Entity Classes for DB Layer
 
 This sample project is based on the layered architecture that consists of the
 presentation(`BookingController.java` class back then, later renamed
@@ -190,6 +190,52 @@ either `mysql` or `derby` value on application start.
 
 Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/c185f58903dd9af924b9d28a844ca45d2a55607a)
+for more details.
+
+### Multi-module Maven Project
+
+Before implementing an API-first design approach, I had to migrate this project to Maven's
+multi-module project since, in the end, I should have ended up with two submodules, one for the API
+contract and another for the actual implementation of the API, something like below:
+
+```text
+├── campsite-booking
+│   ├── campsite-booking-api
+│   ├── campsite-booking-service
+```
+
+So, at this stage, I only extracted the current API implementation into the campsite-booking-service
+submodule while completely reworking the parent POM. Switching to a multi-module project required
+certain adjustments in the Dockerfile. Previously, the following command was used to build the
+application's executable JAR:
+
+```Dockerfile
+RUN mvn --batch-mode package -DskipTests -DskipITs; \
+    mv /usr/src/app/target/campsite-booking-$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout).jar \
+        /usr/src/app/target/app.jar
+```
+
+With the existing `campsite-booking-service` submodule, the above command had to be updated by
+appending `spring-boot:repackage` to the `mvn package` command and adjusting the path to the
+produced JAR file.
+
+```Dockerfile
+RUN mvn package spring-boot:repackage --batch-mode -DskipTests -DskipITs; \
+    mv /usr/src/app/campsite-booking-service/target/campsite-booking-service-$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout).jar \
+        /usr/src/app/app.jar
+```
+
+The `spring-boot:repackage` command is needed here to ensure that the repackaged application's JAR
+contains not only compiled Java classes from the submodule but also all the required runtime
+dependencies. Also, it was necessary to define the `start-class` property in the submodule's POM:
+```xml
+<properties>
+    <start-class>com.kiroule.campsitebooking.CampsiteBookingServiceApp</start-class>
+</properties>
+```
+
+Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/2ecb6f0ead5681f236146863cb78e23bb5429951)
 for more details.
 
 ### Continuous Integration
