@@ -143,6 +143,49 @@ Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/d56c4407a360f68e342e479dc2f41d315bb131ae)
 for more details.
 
+### Flyway Migrations
+
+Another enhancement implemented is the database migrations or versioning
+using [Flyway](https://documentation.red-gate.com/fd/quickstart-how-flyway-works-184127223.html), an
+open-source database migration tool. Previously, the database schema was created or updated on every
+application initialization using Spring Data JPA's built-in schema generation feature by defining
+the `spring.jpa.hibernate.ddl-auto` property in the application properties file.
+
+So, to implement this feature, I started by adding two new dependencies to the `pom.xml` file:
+
+```xml
+<dependency>
+  <groupId>org.flywaydb</groupId>
+  <artifactId>flyway-core</artifactId>
+  <version>9.22.3</version>
+</dependency>
+<dependency>
+  <groupId>org.flywaydb</groupId>
+  <artifactId>flyway-mysql</artifactId>
+  <version>9.22.3</version>
+</dependency>
+```
+
+Then, while removing the `spring.jpa.hibernate.ddl-auto` property in the application properties
+file, I added two new DDL SQL migration scripts for MySQL and Apache Derby vendors, which were
+placed into the default location for Flyway scripts, namely, the `db/migration` folder:
+
+![Flyway Migration Scripts Location](flyway-migration-scripts-location.png)
+
+Also, since I provided migration scripts for two vendors, I had to define
+the `spring.flyway.locations` application property as follows:
+
+```properties
+spring.flyway.locations=classpath:db/migration/{vendor}
+```
+
+Depending on the data source used, the `{vendor}` placeholder will be replaced automatically with
+either `mysql` or `derby` value on application start.
+
+Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/c185f58903dd9af924b9d28a844ca45d2a55607a)
+for more details.
+
 ### Continuous Integration
 
 // TODO
