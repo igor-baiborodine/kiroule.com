@@ -5,15 +5,16 @@ date: 2022-09-01T07:53:35-04:00
 categories: ["Java", "Write-Up"]
 tags: ["Java 17", "Concurrency", "Integration Test", "GitHub Actions"]
 toc: false
-series: ["Campsite Booking API"]
+series: ["Campsite Booking API (Java)"]
 author: "Igor Baiborodine"
 ---
 
 It has been almost a year and a half since I published the
-article ["Campsite Booking API: Revisited"](/article/campsite-booking-api-revisited/). During this time, I kept the
-project up-to-date and implemented numerous improvements. So, in this article, which is
-the second part of
-the series ["Campsite Booking API"](/series/campsite-booking-api/), I describe in detail what was achieved and how.
+article ["Campsite Booking API: Revisited"](/article/campsite-booking-api-revisited/). During this
+time, I kept the project up-to-date and implemented numerous improvements. So, in this article,
+which is
+the second part of the series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/), I
+describe in detail what was achieved and how.
 
 <!--more-->
 
@@ -475,5 +476,5 @@ Secondly, I replaced the manually created table of contents in README with the f
 <!-- END doctoc -->
 ```
 
-Continue reading the series ["Campsite Booking API"](/series/campsite-booking-api/):
-{{< series "Campsite Booking API" >}}
+Continue reading the series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/):
+{{< series "Campsite Booking API (Java)" >}}

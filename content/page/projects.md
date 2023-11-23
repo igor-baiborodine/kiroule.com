@@ -11,6 +11,21 @@ weight: 20
 
 ### 2023
 
+##### Campsite Booking API (4th iteration)
+
+1. Upgraded to Spring Boot 3. 
+2. Added entity classes for the DB layer.
+3. Reworked unit and integration tests using explicit `given-when-then` pattern.
+4. Introduced test containers for integration tests.
+5. Implemented database versioning using Flyway migrations.
+6. Migrated to multi-module Maven project structure.
+7. Applied the API-first design approach.
+
+Read this [article](https://www.kiroule.com/article/campsite-booking-api-revisited-3/) for more details.
+
+Technologies used: [Java 17](https://www.oracle.com/java/technologies/downloads/#java17), [Spring Boot 3](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
+[See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
+
 ##### Bilberry Hugo Theme
 
 1. Defined the [scope](https://github.com/Lednerb/bilberry-hugo-theme/projects/2) of the `v4`, a new major release, and implemented it. 
@@ -26,6 +41,7 @@ Technologies used: [Hugo](https://gohugo.io/)\
 ### 2022
 
 ##### Bilberry Hugo Theme
+
 Made the following [contributions](https://github.com/Lednerb/bilberry-hugo-theme/commits?author=igor-baiborodine):
 1. Added support for Hugo modules.
 2. Implemented various new features, fixed bugs, reviewed pull requests, and updated documentation.
@@ -34,6 +50,7 @@ Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
 
 ##### Campsite Booking API (3rd iteration)
+
 1. Re-wrote unit and integration tests with JUnit 5 in BDD style.
 2. Introduced `var` syntax for local variables.
 3. Upgraded to Java **17** LTS.
@@ -50,15 +67,18 @@ Technologies used: [Java 17](https://www.oracle.com/java/technologies/downloads/
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
 
 ##### Learning Go
+
 [Exercises](https://github.com/igor-baiborodine/coding-challenges/blob/master/exercism/go-exercises.md) related to the [Exercism's Go track syllabus](https://exercism.org/tracks/go/concepts).
 
 ##### Company Website
+
 Developed company website at https://www.projetsrios.com/.
 
 Technologies used: [Hugo Terrassa Theme](https://github.com/igor-baiborodine/hugo-terrassa-theme), [Git](https://git-scm.com/), [Hugo](https://gohugo.io/), [GitHub](https://github.com/), [Netlify](https://www.netlify.com/)\
 [See GitHub Repository](https://github.com/projetsrios/projetsrios.com)
 
 ##### CI/CD with GitHub Actions
+
 Automated the following software development workflows:
 1. [Workflow](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/master/.github/workflows/upload-data-to-algolia-index.yml) for uploading data to Algolia index for the [Bilberry Sandbox/Netlify](https://www.bilberry-sandbox.kiroule.com/).
 2. [Workflow](https://github.com/igor-baiborodine/bilberry-hugo-theme-sandbox/blob/master/.github/workflows/gh-pages.yml) for updating GitHub Pages when using the Bilberry theme as a Hugo module for the [Bilberry Sandbox/GitHub Pages](https://igor-baiborodine.github.io/bilberry-hugo-theme-sandbox/).
@@ -126,6 +146,7 @@ Technologies used: [Bilberry Hugo Theme](https://github.com/Lednerb/bilberry-hug
 [See GitHub Repository](https://github.com/igor-baiborodine/kiroule.com)
 
 ### 2019
+
 ##### Multi-Variant Docker Images for Liferay Portal CE
 *Updated in 2020, 2021*
 
@@ -137,6 +158,7 @@ Technologies used: [Docker](https://www.docker.com/), [Debian](https://www.debia
 [See GitHub Repository](https://github.com/igor-baiborodine/docker-liferay-portal-ce)
 
 ### 2018
+
 ##### Campsite Booking API
 
 Technologies used: [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
