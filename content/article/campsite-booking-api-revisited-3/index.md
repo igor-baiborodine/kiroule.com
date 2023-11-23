@@ -238,9 +238,41 @@ Check
 this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/2ecb6f0ead5681f236146863cb78e23bb5429951)
 for more details.
 
-### Continuous Integration
+### API-first Design Approach
 
-// TODO
+And here comes the final change, or the culmination of this improvements' iteration, namely, the
+migration to the API-first design approach. To learn more about what it means and what its benefits
+are, I recommend reading
+this [article](https://swagger.io/resources/articles/adopting-an-api-first-approach/).
+
+This migration consisted of three main blocks. The first consisted of creating an API design document
+using the [OpenAPI Specification](https://swagger.io/specification/). The `campsite-booking-service`
+module has already been implemented using the OpenAPI specification but using an
+implementation-first approach. So, given, for example, that the service is running in your local
+dev, the initial API design document can be obtained from this
+URL: http://localhost:8080/v3/api-docs.yaml. Next, I had to make certain adjustments to it, and the
+final version of the `campsite-booking-api.yaml` file can be
+seen [here](https://github.com/igor-baiborodine/campsite-booking/blob/b7ddaea7dedf7d5d364708b3cd5ab744b73a2c6a/campsite-booking-api/src/main/resources/campsite-booking-api.yaml).
+
+The second part was to add a new submodule named `campsite-booking-api` that contained the newly
+created `campsite-booking-api.yaml` design document. Also,
+the [pom.xml](https://github.com/igor-baiborodine/campsite-booking/blob/b7ddaea7dedf7d5d364708b3cd5ab744b73a2c6a/campsite-booking-api/pom.xml)
+of this submodule had to be updated to enable the generation of DTO and interface Java classes from
+the API design document. To do so, I used
+the [openapi-generator-maven-plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin)
+build plugin, which, when executed, generates the following classes:
+
+![OpenAPI Generator Generated Sources](openapi-generator-generated-sources.png)
+
+Third, the `campsite-booking-service` submodule was modified by adding a new dependency for
+the [com.kiroule.campsite-booking-api](https://github.com/igor-baiborodine/campsite-booking/packages/1986692)
+artifact, and based on the generated code, certain adjustments were made to
+the `BookingController.java` class, which was renamed
+to [BookingApiControllerImpl.java](https://github.com/igor-baiborodine/campsite-booking/blob/b7ddaea7dedf7d5d364708b3cd5ab744b73a2c6a/campsite-booking-service/src/main/java/com/kiroule/campsitebooking/controller/BookingApiControllerImpl.java).
+
+Check
+this [commit](https://github.com/igor-baiborodine/campsite-booking/commit/b7ddaea7dedf7d5d364708b3cd5ab744b73a2c6a)
+for more details.
 
 Continue reading the series ["Campsite Booking API (Java)"](/series/campsite-booking-api-java/):
 {{< series "Campsite Booking API (Java)" >}}
