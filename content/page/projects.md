@@ -19,7 +19,7 @@ weight: 20
 4. Introduced test containers for integration tests.
 5. Implemented database versioning using Flyway migrations.
 6. Migrated to multi-module Maven project structure.
-7. Applied an API-first design approach.
+7. Applied the API-first design approach.
 
 Read this [article](https://www.kiroule.com/article/campsite-booking-api-revisited-3/) for more details.
 
