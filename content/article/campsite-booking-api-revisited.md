@@ -5,7 +5,9 @@ date: 2021-02-03T08:00:01-05:00
 categories: ["Java", "Write-Up"]
 tags: ["Spring Boot", "SonarCloud", "CICD", "GitHub Actions", "Docker"]
 toc: false
-series: ["Campsite Booking API"]
+series: ["Campsite Booking API (Java)"]
+
+
 author: "Igor Baiborodine"
 ---
 
@@ -455,5 +457,6 @@ And in conclusion, I want to say that coming back to the project after two years
 refreshing and enjoyable. After improving the existing code base and adding new features such as containerization and
 CI/CD, the project is now more robust and complete.
 
-Continue reading the series ["Campsite Booking API"](/series/campsite-booking-api/):
-{{< series "Campsite Booking API" >}}
+Continue reading the series ["Campsite Booking API (Java)"]
+(/series/campsite-booking-api-java/):
+{{< series "Campsite Booking API (Java)" >}}
