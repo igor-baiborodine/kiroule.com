@@ -1,5 +1,5 @@
 module github.com/igor-baiborodine/kiroule.com
 
-go 1.19
+go 1.21
 
-require github.com/Lednerb/bilberry-hugo-theme/v4 v4.2.0 // indirect
+require github.com/Lednerb/bilberry-hugo-theme/v4 v4.2.2 // indirect
