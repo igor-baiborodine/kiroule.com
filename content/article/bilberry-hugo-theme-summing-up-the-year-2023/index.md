@@ -14,7 +14,7 @@ achieved over the past year.
 
 <!--more-->
 
-Back then, I concluded with the following summary for 2022:
+Back then, I concluded the summary for 2022 with the following:
 > "I hope the New Year 2023 will be as fruitful as the past 2022, and the Bilberry Hugo theme will
 > continue developing and delighting its users."
 
