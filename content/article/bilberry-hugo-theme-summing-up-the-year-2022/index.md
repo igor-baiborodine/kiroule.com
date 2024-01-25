@@ -86,5 +86,3 @@ The Bilberry Hugo theme has now:
 
 I hope the New Year 2023 will be as fruitful as the past 2022, and the Bilberry Hugo theme will continue developing and
 delighting its users.
-
-![Happy New Year!](happy-new-year.png)
