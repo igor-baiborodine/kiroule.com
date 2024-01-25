@@ -22,7 +22,7 @@ formalized using
 GitHub's [projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 feature. To do so, I created
 the [Campsite Booking 2023](https://github.com/users/igor-baiborodine/projects/1/views/1) project
-with all the items I wanted to implement. Creating such a project helped me illustrate the scope of
+with all the items I wanted to implement. Creating such a project helped me clarify the scope of
 the new iteration, plan my work, and track progress. And now, let's dive into the most significant
 changes.
 
