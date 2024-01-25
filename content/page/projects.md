@@ -9,6 +9,12 @@ weight: 20
 
 {{< toc >}}
 
+### 2024
+
+##### Learning Go
+
+1. [Event-Driven Architecture in Golang](https://github.com/igor-baiborodine/event-driven-architecture-in-golang-workshop)
+
 ### 2023
 
 ##### Campsite Booking API (4th iteration)
