@@ -3,6 +3,7 @@
   command = "hugo"
 
 [build.environment]
+  GO_VERSION = "1.21"
   HUGO_VERSION = "0.125.7"
 
 # URL: https://kiroule.com/
@@ -22,7 +23,7 @@
 [context.deploy-preview]
   command = """
     version/update-version.sh && \
-    hugo -b $DEPLOY_PRIME_URL\
+    hugo --baseURL $DEPLOY_PRIME_URL\
     """
 
 # URL: https://dev--kiroule.netlify.app/
