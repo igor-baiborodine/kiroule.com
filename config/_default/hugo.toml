@@ -1,6 +1,13 @@
 title = "Igor Baiborodine"
 baseURL = "https://www.kiroule.com/"
-theme = "github.com/Lednerb/bilberry-hugo-theme/v4"
+
+[module]
+  [[module.imports]]
+    # Option 1 (recommended): adding the theme as a Hugo module
+    path = "github.com/Lednerb/bilberry-hugo-theme/v4"
+
+    # Options 2 and 3: cloning/copying the theme files
+    # path = "bilberry-hugo-theme/v4"
 
 # Generate the robots.txt file for SEO
 enableRobotsTXT = true
@@ -124,9 +131,9 @@ DefaultContentLanguage = "en"
 
 
 # customize your available languages for your multi-langual site
-# or delete the [Languages] blog to use the theme with only one supported language
-[Languages]
-  [Languages.en]
+# or delete the [languages] blog to use the theme with only one supported language
+[languages]
+  [languages.en]
     weight = 1
 
 [markup]
