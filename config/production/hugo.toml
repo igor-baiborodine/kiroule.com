@@ -1,7 +1,7 @@
 # Enable / Disable Google Analytics statistics for your site
 [services]
   [services.googleAnalytics]
-    ID = 'UA-60574401-2'
+    ID = '311459284'
 
 # Enable / Disable comments on the articles via Disqus.
 disqusShortname = "kiroule"
