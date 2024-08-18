@@ -1,6 +1,6 @@
 <ul id="all-series">
     {{ range $name, $taxonomy := .Site.Taxonomies.series }}
-        {{ $series_name := $name }}
+        {{ $series_name := $name | humanize }}
         {{ $series_path := (printf "/series/%s" (urlize $name)) }}
         {{ $series_page := site.GetPage $series_path }}
 
