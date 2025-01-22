@@ -3,8 +3,8 @@
   command = "hugo"
 
 [build.environment]
-  GO_VERSION = "1.21.11"
-  HUGO_VERSION = "0.125.7"
+  GO_VERSION = "1.22.6"
+  HUGO_VERSION = "0.139.4"
 
 # URL: https://kiroule.com/
 [context.production.environment]
