@@ -20,15 +20,23 @@ author: "Igor Baiborodine"
 
 ### Raison d'Être or What's My Motivation
 
-- Briefly explain why learning a new programming language is widely considered a cornerstone of
-  professional development for a software engineer.
-- Briefly mention my background and why Go attracts me as a professional Java developer.
-- Elaborate on my previous Go learning experiences and list previous Go pet projects.
-- Emphasize the jump from small pet projects to a real-world system rewrite. Include a short, honest
-  reflection on prior explorations with Go and what none of those smaller
-  projects could offer compared to a big migration.
-- Briefly mention why migration skills matter beyond just picking up Go (e.g. cloud, “polyglot”
-  teams, etc.).
+As a professional Java developer, I believe that real growth comes from stepping outside the
+familiar. Learning another JVM-based language like Kotlin or Scala—even though they have their
+strengths—doesn’t shift my mindset or challenge my habits the way picking up a language like Go
+does. Go introduces me to entirely new programming paradigms and problem-solving approaches, thanks
+to its minimalistic syntax, explicitness, and distinct concurrency model. Its straightforward
+standard library and philosophy of “no hidden magic” push me to re-examine how I structure code and
+systems. More importantly, Go is engineered for cloud-native development and microservices—domains
+where modern software is heading—so adding it to my toolkit directly expands not just my technical
+abilities but also my readiness for next-generation software challenges.
+
+Making this leap is about more than simply adding a language to my resume. Immersing myself in Go
+means grappling with new idioms, evolving my understanding of system design, and adapting to the
+fast-paced, polyglot realities of today’s software teams. It positions me to contribute more
+effectively in modern cloud environments and to approach both legacy migrations and greenfield
+projects with renewed perspective and confidence. By embracing Go, I’m not just diversifying my
+skill set—I’m deliberately preparing for where the industry is going, while also expanding the ways
+I can create robust, scalable software solutions.
 
 ### Why Insurance Hub?
 
@@ -73,7 +81,7 @@ way to attract a broader audience.
 
 - AI as a learning accelerator
 - Elaborate on JetBrains AI Pro, Junie coding agent, Perplexity—explain how they’ll speed up design,
-  code reviews and docs.
+  code reviews, and docs.
 - Promise honest reporting on successes and failures with these tools.
 
 **Article conclusion goes here.**
