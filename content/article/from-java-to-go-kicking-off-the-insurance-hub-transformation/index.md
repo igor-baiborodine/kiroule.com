@@ -18,6 +18,8 @@ author: "Igor Baiborodine"
 
 {{< toc >}}
 
+TODO: add links
+
 ### Raison d'Être or What's My Motivation
 
 As a professional Java developer, I believe that real growth comes from stepping outside the
@@ -40,15 +42,58 @@ I can create robust, scalable software solutions.
 
 ### Why Insurance Hub?
 
-- Java project -> to Go, it's logical and simpler for me since I'm a Java developer
-- Offer a candid description of how you selected this system—why not something simpler, or a
-  greenfield project? (This helps frame the "real-world complexity" factor.)
-- Highlight this as a "dual-learning project": growing Go skills *and* system
-  architecture/modernization skills.
-- Familiar business domain → lowers domain-knowledge risk.
-- Technically challenging enough to stay interesting.
-- Opportunity to cover much more than Go coding: migration of an existing system, system design,
-  cloud deployment with k8s, CI/CD, testing strategies for replacement components etc.
+Before setting out to learn Go, I took a brief detour into Python. My efforts there never really
+moved beyond getting comfortable with the syntax and solving a few HackerRank
+challenges—engaging, but not transformative. With Go, I made a conscious decision to approach
+things differently. I wasn't looking to just dabble in the language; I wanted to truly master the
+broader Go ecosystem, the tooling, the patterns, and what it takes to build distributed,
+cloud-native systems from scratch. The goal was simple: if I ever transitioned into a Go developer
+role, I'd be productive and ready from day one.
+
+I knew that mastering a new language—especially in parallel with a full-time job as a Java
+developer—would be a gradual process, one that demanded patience and steady commitment during my
+spare hours. My Go journey began in 2022 with Jon Bodner's "Learning Go," coupled with hands-on
+practice through Exercism's Go track. In 2023, I raised the bar by working through Travis
+Jeffery's "Distributed Services with Go Workshop." That book was a deep dive not just into Go, but
+into distributed systems development, and many concepts were entirely new to me. I made it a point
+to work through each chapter's code in my local environment, making sure everything ran as intended
+and maintaining a fork of the repository to track my understanding alongside Go's evolving
+ecosystem. I also challenged myself with problems from "Elements of Programming Interviews" to round
+out my skills.
+
+In 2024, I focused on "Event-Driven Architecture In Golang" by Michael Stack—one of the best
+resources I've found on building event-driven, cloud-native systems in Go. Once again, I
+methodically worked through the material, updating and experimenting with the source code to
+reinforce new paradigms and idioms. Once again, I maintained a forked repository for the source code
+to keep it current.
+
+That same year marked a significant milestone: I set out to migrate my "Campsite Booking API" pet
+project from Java to Go. Previously, I had documented the original Java implementation thoroughly on
+my blog, sharing design decisions and lessons learned. Approaching the migration, I drew inspiration
+from the Mallbots example in Michael Stack's book, applying its techniques, architectural structure,
+and best practices as I rebuilt the application in Go. The process was demanding—spanning many
+months—but the result was a fully functional Go-based microservice and a rewarding step forward
+in my journey, now available as the campsite-booking-go repository.
+
+To support my progress and explore new facets of Go, I dove into additional books: "Test-driven
+Development in Go" by Adelina Simion, "Efficient Go" by Bartłomiej Płotka, "Functional Programming
+in Go" by Dylan Meeus, and "Ultimate Go Notebook" by William Kennedy with Hoanh An. Each of these
+resources broadened my understanding and deepened my toolkit as I refined my approach.
+
+When it came time to choose the next challenge, I wanted to build something closer to the real-world
+complexity—something like the Mallbots application, but drawn from an existing codebase rather than
+starting entirely from scratch. My search led me to "Micronaut Microservices POC," a simplified
+insurance sales system written in Java and designed around distributed microservices. This project
+fit perfectly, aligning with my professional experience in the insurance domain and offering the
+kind of scale and architecture ideal for a meaningful migration. Reimagining and building this
+system in Go—now titled "Insurance Hub" in my GitHub repository—not only allows me to grow my Go
+skills, but also lets me practice a full spectrum of system modernization: migration, architecture
+design, cloud deployment on Kubernetes, CI/CD, effective testing strategies, and more.
+
+This journey marks a genuine "dual-learning project"—an opportunity to blend technical growth with
+real-world, hands-on modernization skills. Having ported the code and set my sights on a holistic
+migration, I'm excited to push forward and share the lessons I learn along the way. Let the journey
+begin!
 
 ### System Analysis Deep Dive
 

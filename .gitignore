@@ -18,3 +18,5 @@ hugo.linux
 
 *.iml
 algolia/node_modules
+
+**/draft/*
