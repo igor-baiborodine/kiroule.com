@@ -97,15 +97,63 @@ begin!
 
 ### System Analysis Deep Dive
 
-- Show a C4 simple architecture diagram or visual to engage readers.
-- Instead of a dry summary, you could frame this as a **"Tale of Two Architectures."** Use your
-  `system-overview-and-migration-analysis.md` to create a high-level comparison table or a "before
-  and after" narrative.
-  - **Before (Current State):** Java 14/Micronaut, mixed persistence (PostgreSQL, MongoDB), basic
-    observability, non-cloud-native deployment.
-  - **After (Target State):** Idiomatic Go, consolidated persistence (PostgreSQL with JSONB),
-    gRPC-first communication, comprehensive observability on Kubernetes.
-    This creates a clearer, more engaging picture for the reader.
+> **Disclaimer:** All subsequent analysis and migration decisions are made with these key
+> assumptions in mind:
+>
+> * Although the original Java project was developed as a proof of concept, it is approached as if
+    it were a production-ready system, running and maintained in a non-cloud-native environment.
+    This perspective is intentional to better simulate real-world conditions for learning purposes.
+> * As in most real-world scenarios, a complete greenfield rewrite is not feasible. The existing
+    system cannot simply be discarded and rebuilt from scratch; instead, a phased, incremental
+    migration strategy is necessary to ensure business continuity and minimize risk during the
+    transition.
+
+#### A Tale of Two Architectures
+
+To truly understand the "why" behind this migration, it's helpful to visualize the journey from the
+starting point to the destination. Below is a high-level comparison that contrasts the original
+Java-based architecture with the modernized Go-based target. This "before and after" view clarifies
+the strategic shifts in technology, deployment, and operations.
+
+*(Placeholder for Java-based C4 system container diagram)*
+
+*(Placeholder for Go-based C4 system container diagram)*
+
+| Aspect                         | Before (Current State)                                                                                                                         | After (Target State)                                                                                                                                                                                                                        |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Language & Framework**       | Java 14 with the Micronaut framework.                                                                                                          | Idiomatic Go, favoring the standard library and proven, lightweight libraries.                                                                                                                                                              |
+| **Data Persistence**           | Mixed persistence model: PostgreSQL for relational data, MongoDB for flexible product data, and Elasticsearch for search.                      | Consolidated persistence on PostgreSQL, leveraging its powerful JSONB capabilities to replace MongoDB. Elasticsearch is retained for search.                                                                                                |
+| **Interservice Communication** | Primarily synchronous RESTful HTTP APIs, with some asynchronous communication using Apache Kafka.                                              | gRPC-first for all internal service-to-service communication, providing performance and strict API contracts. REST is exposed at the edge via a gRPC-gateway for external clients, with some asynchronous communication using Apache Kafka. |
+| **Deployment & Environment**   | Non-cloud-native environment. Docker Compose is used for local development, but production lacks a unified orchestration platform.             | Fully cloud-native and Kubernetes-first. Services are designed as stateless, 12-factor-compliant applications deployed on Kubernetes.                                                                                                       |
+| **Observability**              | Basic and incomplete. Distributed tracing is implemented with Zipkin, but there is no centralized logging or comprehensive metrics collection. | Comprehensive, end-to-end observability using OpenTelemetry for traces, Prometheus for metrics, and a centralized logging solution (like Loki) for structured logs.                                                                         |
+| **File & Artifact Storage**    | Relies on a local filesystem for storing documents, bank statements, and tariff rules.                                                         | Migrated to S3-compatible object storage (like MinIO) for scalable, durable, and cloud-native artifact management.                                                                                                                          |
+| **Legacy Integrations**        | Uses external services like JSReports for PDF generation and a file-based system for tariff rule execution.                                    | Replaced with embedded, modern Go libraries (e.g., `chromedp` for PDFs) and in-memory data grids (Tarantool) for high-performance rule execution.                                                                                           |
+
+#### Key Architectural Shifts
+
+This transformation addresses several critical architectural concerns:
+
+**Operational Complexity Reduction**: The current system's diverse technology stack (Java/Micronaut,
+MongoDB, file-based storage, external JSReports) creates multiple operational touchpoints. The
+target architecture consolidates these into fewer, more standardized components.
+
+**Cloud-Native Alignment**: Moving from Docker Compose and traditional deployment to
+Kubernetes-first architecture enables automatic scaling, rolling updates, and improved resource
+utilization while following established cloud-native patterns.
+
+**Data Governance Simplification**: Consolidating from PostgreSQL + MongoDB + file storage to
+PostgreSQL + JSONB + object storage reduces data management complexity while maintaining flexibility
+through PostgreSQL's advanced JSON capabilities.
+
+**Performance and Reliability**: The shift to gRPC internal communication, in-memory pricing rules (
+Tarantool), and Go's efficient concurrency model targets improved system performance and resource
+utilization.
+
+**Developer Experience Enhancement**: Standardizing on gRPC with code generation, comprehensive
+observability, and Kubernetes-native tooling aims to improve development velocity and debugging
+capabilities.
+
+TODO: add link to the system analysis doc
 
 ### Migration Strategy Overview
 
