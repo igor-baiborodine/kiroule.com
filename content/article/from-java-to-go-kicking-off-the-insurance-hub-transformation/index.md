@@ -153,37 +153,147 @@ utilization while following established cloud-native patterns.
 PostgreSQL + JSONB + object storage reduces data management complexity while maintaining flexibility
 through PostgreSQL's advanced JSON capabilities.
 
-**Performance and Reliability**: The shift to gRPC internal communication, in-memory pricing rules (
-Tarantool), and Go's efficient concurrency model targets improved system performance and resource
+**Performance and Reliability**: The shift to gRPC internal communication, in-memory pricing rules
+(Tarantool), and Go's efficient concurrency model targets improved system performance and resource
 utilization.
 
 **Developer Experience Enhancement**: Standardizing on gRPC with code generation, comprehensive
 observability, and Kubernetes-native tooling aims to improve development velocity and debugging
 capabilities.
 
-For more details, see the [System Overview and Migration Analysis](https://github.com/igor-baiborodine/insurance-hub/blob/main/docs/system-overview-and-migration-analysis.md) document.
+For more details, see
+the [System Overview and Migration Analysis](https://github.com/igor-baiborodine/insurance-hub/blob/main/docs/system-overview-and-migration-analysis.md)
+document.
 
 ### Migration Strategy Overview
 
-- High-level phases (6-phase approach from your analysis) or use a simple phase table or timeline
-  graphic to visualize the roadmap.
-- Briefly introduce the “Strangler Fig” pattern and why phased, safe migration matters.
+Migrating a real-world system isn't about ditching the old and starting over—especially when
+business continuity and reliability matter. The Insurance Hub migration follows a carefully phased,
+six-step approach, using industry-proven patterns to balance progress with risk management. Each
+phase lays the foundation for the next, ensuring stability and learning opportunities at every step.
+
+#### Why a Phased, Safe Migration?
+
+Rather than opting for a high-risk “big bang” rewrite, this migration leverages two core strategies:
+
+- **Lift and Shift:** Move the existing system (with as few changes as possible) into a modern
+  platform like Kubernetes. This quickly delivers cloud-native benefits (scalability, resilience)
+  without altering business logic, serving as a learning exercise and a safe first step.
+- **Strangler Fig Pattern:** Gradually replace parts of the system (service by service) with
+  Go-based alternatives. The old and new systems run in parallel during transition; traffic is
+  slowly redirected as confidence grows. This minimizes disruption, allows stepwise validation, and
+  supports rapid rollback if issues appear.
+
+**Every phase outlined below will be covered in detail in future blog posts.**
+
+#### The Six Phases at a Glance
+
+| Phase                                                                       | Summary                                                                                                                                                                                                                    |
+|-----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **1. Foundational Infrastructure & Environment Migration (Lift and Shift)** | Move the live Java system and all its dependencies into Kubernetes, configuring external storage and using K8s-native service discovery. No code rewrites—just infrastructure changes to validate the new platform safely. |
+| **2. Foundational Observability with Shared Trace Storage**                 | Deploy a modern observability stack (Grafana, Tempo, Prometheus, Loki) alongside the legacy system. Zipkin trace data is preserved and made visible in the new stack—no code changes needed.                               |
+| **3. Data Store Consolidation**                                             | Migrate all data to PostgreSQL, replacing MongoDB where needed (using JSONB for flexible data). Update relevant services to use the unified data layer and simplify persistence management.                                |
+| **4. Phased Service Migration to Go (Strangler Fig Pattern)**               | One by one, rewrite Java services in Go, deploying them alongside the originals. Use observability tools to monitor, gradually cut over traffic, and safely retire each old service after validation.                      |
+| **5. Modernize Edge and Authentication**                                    | Upgrade the gateway and authentication: replace the Java gateway with Envoy Proxy and adopt Keycloak for identity. Modern, robust security is achieved as older, fragile components are replaced.                          |
+| **6. Finalization, Automation, and Optimization**                           | Complete the transformation: fully retire all old services, automate deployments with GitOps, fine-tune resources, and document everything. The system is now modern, maintainable, and ready for continuous improvement.  |
+
+#### Why This Approach Matters
+
+By splitting the migration into well-defined, sequential phases, you ensure the system remains both
+operational and continuously improvable throughout the process. Each phase is an opportunity to
+test, learn, and refine your approach—without putting the business or the user experience at
+unnecessary risk.
+
+Stay tuned: each phase will be explored in depth in upcoming posts, sharing technical lessons
+learned and real-world strategies for safe, sustainable system modernization.
 
 ### Iterative Dev with GitHub Projects
 
-- Include a screenshot (if possible) or a brief demo/description of how you set up your GitHub
-  Project for solo work.
+A system migration of this scale is a significant undertaking. To ensure the project stays organized
+and on track, I'm not just writing code—I'm managing it with the same discipline I would in my daily
+job. For this, I'm using **GitHub Projects**, a flexible and integrated tool for planning and
+tracking work directly within the ecosystem of my code.
 
-### How AI Tools Fit In
+This isn't my first time using this tool to manage a complex project. I previously used GitHub
+Projects to plan and execute the [third major iteration](https://github.com/users/igor-baiborodine/projects/1)
+of my **Campsite Booking API** project, and it was instrumental in breaking down the work and
+visualizing progress.
 
-This is a very strong and unique point. Be sure to emphasize it. It will set my blog series apart
-by integrating a highly relevant and modern topic into the development workflow. This is a great
-way to attract a broader audience.
+For this migration, I’ve chosen the **Kanban** project type. While templates like "Feature Release"
+are powerful, Kanban offers a clean, visual, and straightforward approach that's perfect for a solo
+developer. It allows me to focus on the flow of work from "To Do" to "Done" without the overhead of
+more complex methodologies. It prioritizes simplicity and momentum.
 
-- AI as a learning accelerator
-- Elaborate on JetBrains AI Pro, Junie coding agent, Perplexity—explain how they’ll speed up design,
-  code reviews, and docs.
-- Promise honest reporting on successes and failures with these tools.
+However, a simple Kanban board isn't quite enough for a project with six distinct phases. To adapt
+it to my needs, I've made a couple of key customizations:
+
+- **Phase Labels:** I created a custom `Phase` label for issues. This allows me to tag every
+  task—from setting up infrastructure to migrating a specific service—with the corresponding phase
+  from my migration plan (e.g., `Phase 1: Infrastructure`, `Phase 4: Service Migration`, etc.).
+  This adds a crucial layer of organization.
+
+- **Dedicated Views:** By applying labels for each phase, I can create saved views tailored to the
+  six distinct steps of the migration. This setup makes it easy to instantly filter the project
+  board and focus on tasks tied to a particular phase—for example, zooming in on
+  `Phase 3: Data Store Consolidation` when that stage is active. At the same time, I can switch to a
+  holistic view to assess overall progress and spot dependencies between phases. This combination of
+  detailed and broad perspectives ensures I stay organized and can adjust priorities as the project
+  evolves.
+
+This setup gives me a powerful, lightweight system to manage a long-term project in a structured and
+iterative way. You can see the (currently empty at the moment of writing) board and follow along
+with the progress here: [Insurance Hub Migration Project on GitHub](https://github.com/users/igor-baiborodine/projects/8).
+
+### How AI Fits In
+
+Accelerating my Go learning journey means making smart use of modern AI tools—but with a clear
+purpose. My primary aim for this migration is to deeply understand Go and its ecosystem, not to let
+AI generate code for me or to adopt the so-called much-hyped “vibe-coding” trend, where agents write
+programs end-to-end. Instead, I treat AI as a versatile resource: a supercharged reference tool,
+much like a “Stack Overflow on steroids,” guiding me through questions, documentation, and best
+practices while I focus on writing every line of code myself.
+
+#### Which AI Tools Am I Using?
+
+- **JetBrains AI Pro (with AI Assistant & Junie):**  
+  While working in IntelliJ IDEA with the Go plugin, I have chosen to use JetBrains AI Pro. This
+  tool provides contextual code suggestions, chat-driven assistance, and in-editor research,
+  leveraging a combination of industry-leading language models such as OpenAI's GPT, Google's
+  Gemini, and Anthropic's Claude family. Although AI Pro is capable of generating code, I find
+  myself relying much more on its knowledge and explanation features rather than just its code
+  generation capabilities. Additionally, the Junie AI Coding Agent, which comes bundled with the Pro
+  version, offers extra support for more complex refactoring tasks. However, I plan to use it
+  carefully to ensure I maintain a hands-on learning approach.
+
+- **Ollama Local Server (Small/Medium Open-Source Models):**  
+  For privacy and fast, offline access, I run a local Ollama server using models like Code Llama,
+  Phi-3 Mini, or Mistral 7B—chosen for efficiency and strong coding support. This lets me quickly
+  explore examples or review tricky Go syntax without sending sensitive code to the cloud.
+
+- **Perplexity.ai (Free Tier):**  
+  Perplexity is my go-to for rapid, up-to-date answers and research. It excels at synthesizing
+  documentation, community forums, and official sources into practical, focused responses—saving
+  hours of web searching and summarizing. Whenever I need a deep dive on a Go idiom or a concise
+  explanation, Perplexity delivers a clear, citation-backed response.
+
+- **Grammarly (with Generative AI):**  
+  Good engineering involves effective communication, so I use Grammarly’s paid AI suite to review
+  and enhance my technical writing.
+
+Throughout this migration, I’ll be transparent about how and when I use AI. All AI-driven insights,
+experiments, or “aha!” moments go into
+a [GitHub Gist](https://gist.github.com/igor-baiborodine/83b0385b50a6bba2c712149a36e21cbd)—serving
+as an open logbook for my process. Once the migration is complete, I plan to publish a
+dedicated post reflecting on my “AI adventures”: what worked, what didn’t, and honest advice for
+anyone navigating the balance between learning and leveraging AI.
+
+> **Key takeaway:**  
+> AI is an accelerator, not a shortcut. By keeping the responsibility for writing and understanding
+> code firmly in my hands, and using AI as a reference and research tool, I aim for both speed and
+> depth in mastering Go and modern system design.
+
+For more context on the vibe-coding trend and its pitfalls, see the analysis and reflections
+at [florianherrengt.com](https://blog.florianherrengt.com/vibe-coder-career-path.html).
 
 **Article conclusion goes here.**
 
