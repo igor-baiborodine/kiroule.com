@@ -10,15 +10,22 @@ series: [ "Insurance Hub: The Way to Go" ]
 author: "Igor Baiborodine"
 ---
 
-**Article intro 1 goes here.**
+After years of mastering Go through books, exercises, and successfully migrating
+my [Campsite Booking API](https://github.com/igor-baiborodine/campsite-booking-go) from Java, I'm
+embarking on my most ambitious project yet: transforming a Java-based insurance system into a
+modern, cloud-native Go application. This marks the beginning of a comprehensive migration journey
+that will explore every aspect of system modernization—from architecture redesign to deployment
+strategies.
 
 <!--more-->
 
-**Article intro 2 goes here.**
+Unlike my previous Go learning projects, which started from scratch, this undertaking addresses the
+real-world complexities of migrating an existing Java microservices system. In this inaugural post,
+I will share my personal motivation for this transition, conduct a thorough analysis of the original
+Java-based architecture, and present the target cloud-native design we will work towards. Join me as
+I navigate the challenges and discoveries of this ambitious project.
 
 {{< toc >}}
-
-TODO: add links
 
 ### Raison d'Être or What's My Motivation
 
