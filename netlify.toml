@@ -23,7 +23,7 @@
 [context.deploy-preview]
   command = """
     version/update-version.sh && \
-    hugo --baseURL $DEPLOY_PRIME_URL --buildFuture\
+    hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture\
     """
 
 # URL: https://dev--kiroule.netlify.app/
