@@ -38,6 +38,9 @@
     algolia/run-data-upload-js.sh -p\
     """
 
+[context.deploy-preview]
+  command = "hugo --environment dev -b $DEPLOY_PRIME_URL --buildFuture"
+
 # Use this configuration for specific branch development
 # URL: https://<feature-branch>--kiroule.netlify.app/
 #[context.<feature-branch>.environment]
