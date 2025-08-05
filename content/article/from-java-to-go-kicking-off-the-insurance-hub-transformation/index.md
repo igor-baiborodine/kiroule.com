@@ -74,9 +74,9 @@ That same year, I reached a new milestone: migrating my
 project from Java to Go. I’d previously [detailed](https://www.kiroule.com/series/campsite-booking-api-java/) 
 the original Java code on my blog, so this new migration was inspired by the Mallbots example from 
 Michael Stack’s book, borrowing its architecture and best practices as I rebuilt in Go. The 
-challenge stretched over many months but resulted in a fully functional 
-[Go-based microservice](https://github.com/igor-baiborodine/campsite-booking-go)
-—a major step forward, now public as the campsite-booking-go repository.
+challenge stretched over many months but resulted in a fully functional Go-based microservice—a 
+major step forward, now public as the [campsite-booking-go](https://github.com/igor-baiborodine/campsite-booking-go) 
+repository.
 
 To keep sharpening my skills, I explored more titles—
 [“Test-driven Development in Go”](https://www.packtpub.com/en-ca/product/test-driven-development-in-go-9781803235028?srsltid=AfmBOoqqkatvLLwXMctQFr62npHew6scvgFRJuGkZlQqh4kMnRN0GevP) 
@@ -93,8 +93,8 @@ When I was ready for a new challenge, I wanted a project with real-world complex
 slate, but something like the Mallbots app, drawn from an existing codebase. That led me to 
 [“Micronaut Microservices POC,”](https://github.com/asc-lab/micronaut-microservices-poc) 
 a simplified Java-based insurance sales system, designed around distributed microservices. The 
-project was a perfect fit, aligning with my industry experience and offering the right architecture 
-for a meaningful migration experiment. Reimagining and rebuilding this system in Go—now 
+project was a perfect fit, aligning with my insurance industry experience and offering the right 
+architecture for a meaningful migration experiment. Reimagining and rebuilding this system in Go—now 
 [“Insurance Hub”](https://github.com/igor-baiborodine/insurance-hub) 
 in my GitHub—lets me grow my Go skills and practice the full spectrum of system modernization: 
 migration, architecture, Kubernetes deployment, CI/CD, testing, and more.
@@ -207,7 +207,7 @@ learned and real-world strategies for safe, sustainable system modernization.
 Managing a migration of this scale means staying organized beyond just code. I use 
 [**GitHub Projects**](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 —a flexible, deeply integrated tool for planning and progress tracking. I’ve put this to the test
-before, like in the [third major iteration](https://github.com/users/igor-baiborodine/projects/1) of
+before, like in the [forth major iteration](https://github.com/users/igor-baiborodine/projects/1) of
 my Campsite Booking API, where it broke down the work and made milestones visible.
 
 For the Insurance Hub, I chose a **Kanban** board. Kanban’s visual simplicity makes it perfect for a
@@ -254,9 +254,9 @@ serves as an open journal until I finish the migration and publish a dedicated p
 “adventures.”
 
 > **Key takeaway:**  
-> AI accelerates learning—it’s not a shortcut. By keeping control over code and using AI primarily
-> for research and exploration, I aim for both speed and depth in mastering Go and modern system
-> design.
+> AI is an accelerator, not a shortcut. By keeping the responsibility for writing and understanding
+> code firmly in my hands, and using AI as a reference and research tool, I aim for both speed and
+> depth in mastering Go and modern system design.
 
 For a thoughtful look at the “vibe-coding” trend and its pitfalls,
 see [this analysis](https://blog.florianherrengt.com/vibe-coder-career-path.html).
