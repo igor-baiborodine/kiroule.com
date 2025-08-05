@@ -55,36 +55,49 @@ and the realities of building distributed, cloud-native systems. My goal was sim
 switched to a Go developer role, I’d be productive and ready from day one.
 
 Mastering a new language—especially while balancing a full-time Java job—is a gradual process that
-demands patience and steady focus. My Go journey began in 2022 with Jon Bodner’s “Learning Go,”
-cemented through practice on Exercism’s Go track. In 2023, I stepped up to Travis Jeffery’s 
-“Distributed Services with Go Workshop,” which was not just a lesson in Go but a deep dive into
-distributed systems. I made it a point to follow every chapter hands-on, maintaining a working fork
-of the source code and tackling “Elements of Programming Interviews” to broaden my grasp.
+demands patience and steady focus. My Go journey began in 2022 with 
+Jon Bodner’s [“Learning Go,”](https://www.oreilly.com/library/view/learning-go-2nd/9781098139285/)
+cemented through practice on [Exercism’s Go track](https://exercism.org/tracks/go). In 2023, I 
+stepped up to Travis Jeffery’s [“Distributed Services with Go Workshop,”](https://pragprog.com/titles/tjgo/distributed-services-with-go/) 
+which was not just a lesson in Go but a deep dive into distributed systems. I made it a point to 
+follow every chapter hands-on, maintaining a [working fork](https://github.com/igor-baiborodine/distributed-services-with-go-workshop)
+of the source code and tackling [“Elements of Programming Interviews”](https://elementsofprogramminginterviews.com/) 
+to broaden my grasp.
 
-In 2024, I dug into “Event-Driven Architecture In Golang” by Michael Stack—one of the best resources
-I’ve found for event-driven, cloud-native systems in Go. Again, I worked methodically through the
-code, regularly updating my repository as I refined my knowledge and adapted to Go’s evolving
-patterns.
+In 2024, I dug into [“Event-Driven Architecture In Golang”](https://www.oreilly.com/library/view/event-driven-architecture-in/9781803238012/) 
+by Michael Stack—one of the best resources I’ve found for event-driven, cloud-native systems in Go. 
+Again, I worked methodically through the code, regularly updating my [repository](https://github.com/igor-baiborodine/event-driven-architecture-in-golang-workshop) 
+as I refined my knowledge and adapted to Go’s evolving patterns.
 
-That same year, I reached a new milestone: migrating my “Campsite Booking API” project from Java to
-Go. I’d previously detailed the original Java code on my blog, so this new migration was inspired by
-the Mallbots example from Michael Stack’s book, borrowing its architecture and best practices as I
-rebuilt in Go. The challenge stretched over many months but resulted in a fully functional Go-based
-microservice—a major step forward, now public as the campsite-booking-go repository.
+That same year, I reached a new milestone: migrating my 
+[“Campsite Booking API”](https://github.com/igor-baiborodine/campsite-booking) 
+project from Java to Go. I’d previously [detailed](https://www.kiroule.com/series/campsite-booking-api-java/) 
+the original Java code on my blog, so this new migration was inspired by the Mallbots example from 
+Michael Stack’s book, borrowing its architecture and best practices as I rebuilt in Go. The 
+challenge stretched over many months but resulted in a fully functional 
+[Go-based microservice](https://github.com/igor-baiborodine/campsite-booking-go)
+—a major step forward, now public as the campsite-booking-go repository.
 
-To keep sharpening my skills, I explored more titles—“Test-driven Development in Go” by Adelina
-Simion, “Efficient Go” by Bartłomiej Płotka, “Functional Programming in Go” by Dylan Meeus, and 
-“Ultimate Go Notebook” by William Kennedy and Hoanh An. Each added a fresh perspective and deepened 
-my toolkit as I moved forward.
+To keep sharpening my skills, I explored more titles—
+[“Test-driven Development in Go”](https://www.packtpub.com/en-ca/product/test-driven-development-in-go-9781803235028?srsltid=AfmBOoqqkatvLLwXMctQFr62npHew6scvgFRJuGkZlQqh4kMnRN0GevP) 
+by Adelina Simion, 
+[“Efficient Go”](https://www.oreilly.com/library/view/efficient-go/9781098105709/) 
+by Bartłomiej Płotka, 
+[“Functional Programming in Go”](https://www.packtpub.com/en-us/product/functional-programming-in-go-9781801811163) 
+by Dylan Meeus, and 
+[“Ultimate Go Notebook”](https://www.ardanlabs.com/ultimate-go-notebook/) 
+by William Kennedy with Hoanh An. Each added a fresh perspective and deepened my toolkit as I moved 
+forward.
 
 When I was ready for a new challenge, I wanted a project with real-world complexity: not a blank
 slate, but something like the Mallbots app, drawn from an existing codebase. That led me to 
-“Micronaut Microservices POC,” a simplified Java-based insurance sales system, designed around
-distributed microservices. The project was a perfect fit, aligning with my industry experience and
-offering the right architecture for a meaningful migration experiment. Reimagining and rebuilding
-this system in Go—now “Insurance Hub” in my GitHub—lets me grow my Go skills and practice the full
-spectrum of system modernization: migration, architecture, Kubernetes deployment, CI/CD, testing,
-and more.
+[“Micronaut Microservices POC,”](https://github.com/asc-lab/micronaut-microservices-poc) 
+a simplified Java-based insurance sales system, designed around distributed microservices. The 
+project was a perfect fit, aligning with my industry experience and offering the right architecture 
+for a meaningful migration experiment. Reimagining and rebuilding this system in Go—now 
+[“Insurance Hub”](https://github.com/igor-baiborodine/insurance-hub) 
+in my GitHub—lets me grow my Go skills and practice the full spectrum of system modernization: 
+migration, architecture, Kubernetes deployment, CI/CD, testing, and more.
 
 This journey is truly a “dual-learning project”—blending technical growth with hands-on
 modernization. Having ported the code and mapped out my migration plan, I’m excited to share every
@@ -160,13 +173,15 @@ learning at every stage.
 
 Rather than a risky “big bang” rewrite, this migration takes two safe, iterative paths:
 
-- **Lift and Shift:** Move the existing system (with as few changes as possible) into a modern
-  platform like Kubernetes. This quickly delivers cloud-native benefits (scalability, resilience)
-  without altering business logic, serving as a learning exercise and a safe first step.
-- **Strangler Fig Pattern:** Gradually replace parts of the system (service by service) with
-  Go-based alternatives. The old and new systems run in parallel during transition; traffic is
-  slowly redirected as confidence grows. This minimizes disruption, allows stepwise validation, and
-  supports rapid rollback if issues appear.
+- [**Lift and Shift:**](https://www.ibm.com/think/topics/lift-and-shift) Move the existing system 
+  (with as few changes as possible) into a modern platform like Kubernetes. This quickly delivers 
+  cloud-native benefits (scalability, resilience) without altering business logic, serving as a 
+  learning exercise and a safe first step.
+- [**Strangler Fig Pattern:**](https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig)
+  Gradually replace parts of the system (service by service) with Go-based alternatives. The old and
+  new systems run in parallel during transition; traffic is slowly redirected as confidence grows.
+  This minimizes disruption, allows stepwise validation, and supports rapid rollback if issues
+  appear.
 
 #### The Six Phases at a Glance
 
@@ -189,7 +204,8 @@ learned and real-world strategies for safe, sustainable system modernization.
 
 ### Iterative Dev with GitHub Projects
 
-Managing a migration of this scale means staying organized beyond just code. I use **GitHub Projects**
+Managing a migration of this scale means staying organized beyond just code. I use 
+[**GitHub Projects**](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 —a flexible, deeply integrated tool for planning and progress tracking. I’ve put this to the test
 before, like in the [third major iteration](https://github.com/users/igor-baiborodine/projects/1) of
 my Campsite Booking API, where it broke down the work and made milestones visible.
