@@ -212,7 +212,7 @@ my Campsite Booking API, where it broke down the work and made milestones visibl
 
 For the Insurance Hub, I chose a **Kanban** board. Kanban’s visual simplicity makes it perfect for a
 solo developer: focusing on the workflow—“To Do” to “Done”—without extra bureaucracy. To structure
-it for a six-phase migration, I introduced custom **Phase** labels for every task, and saved
+it for a six-phase migration, I introduced custom `Phase` labels for every task, and saved
 dedicated views for each migration step. This organization lets me zoom in on focused work or get a
 big-picture overview, helping me adjust priorities as needed.
 
