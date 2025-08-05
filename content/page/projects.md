@@ -9,6 +9,13 @@ weight: 20
 
 {{< toc >}}
 
+### 2025
+
+##### Insurance Hub - Migration to Go
+
+Technologies used: [Go](https://github.com/golang/go), [gRPC](https://github.com/grpc/grpc-go), [PostgreSQL](https://www.postgresql.org/), [Goose](https://pressly.github.io/goose/), [Docker](https://www.docker.com/), [Kubernetes](https://kubernetes.io/)\
+[See GitHub repository](https://github.com/igor-baiborodine/insurance-hub)
+
 ### 2024
 
 ##### Campsite Booking API (Go)
@@ -16,7 +23,7 @@ weight: 20
 Technologies used: [Go](https://github.com/golang/go), [gRPC](https://github.com/grpc/grpc-go), [PostgreSQL](https://www.postgresql.org/), [Goose](https://pressly.github.io/goose/), [Docker](https://www.docker.com/), [Kubernetes](https://kubernetes.io/)\
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking-go)
 
-##### Learning Go
+##### Mastering Go
 
 1. [Event-Driven Architecture in Golang](https://github.com/igor-baiborodine/event-driven-architecture-in-golang-workshop)
 
@@ -44,7 +51,7 @@ Technologies used: [Java 17](https://www.oracle.com/java/technologies/downloads/
 Technologies used: [Hugo](https://gohugo.io/)\
 [See GitHub Repository](https://github.com/Lednerb/bilberry-hugo-theme)
 
-##### Learning Go
+##### Mastering Go
 
 1. [Distributed Services with Go Workshop](https://github.com/igor-baiborodine/distributed-services-with-go-workshop)
 2. [Elements of Programming Interviews in Go](https://github.com/igor-baiborodine/epi-go)
@@ -77,7 +84,7 @@ Read this [article](https://www.kiroule.com/article/campsite-booking-api-revisit
 Technologies used: [Java 17](https://www.oracle.com/java/technologies/downloads/#java17), [Spring Boot 2](http://projects.spring.io/spring-boot/), [Maven 3](http://maven.apache.org/)\
 [See GitHub repository](https://github.com/igor-baiborodine/campsite-booking)
 
-##### Learning Go
+##### Mastering Go
 
 [Exercises](https://github.com/igor-baiborodine/coding-challenges/blob/master/exercism/go-exercises.md) related to the [Exercism's Go track syllabus](https://exercism.org/tracks/go/concepts).
 
