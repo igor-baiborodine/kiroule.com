@@ -1,17 +1,17 @@
 ---
-title: "From Java to Go: Kicking Off the Insurance Hub Transformation"
+title: "From Java to Go: Kicking Off the Insurance Hub Transformation" 
 date: 2025-07-28T17:00:00-04:00
 
-categories: [ "Java", "Go", "Write-up" ]
-tags: [ "Java-to-Go", "Software Migration", "Cloud-Native Go", "AI in Software Development" ]
+categories: [ "Java", "Go" , "Write-up" ]
+tags: [ "Java-to-Go" , "Software Migration", "Cloud-Native Go", "AI in Software Development" ]
 toc: false
 series: [ "Insurance Hub: The Way to Go" ]
 
-author: "Igor Baiborodine"
+author: "Igor Baiborodine" 
 ---
 
 After years spent mastering Go through books, hands-on exercises, and migrating
-my [Campsite Booking API](https://github.com/igor-baiborodine/campsite-booking-go) from Java, I'm
+my [Campsite Booking API](https://github.com/igor-baiborodine/campsite-booking-go) from Java, I’m
 setting out on my most ambitious project yet: transforming a Java-based insurance system into a
 modern, cloud-native Go application. This post marks the start of a comprehensive migration
 journey—one that will dive into every aspect of system modernization, from architecture redesign to
@@ -55,31 +55,31 @@ and the realities of building distributed, cloud-native systems. My goal was sim
 switched to a Go developer role, I’d be productive and ready from day one.
 
 Mastering a new language—especially while balancing a full-time Java job—is a gradual process that
-demands patience and steady focus. My Go journey began in 2022 with Jon Bodner’s "Learning Go,"
+demands patience and steady focus. My Go journey began in 2022 with Jon Bodner’s “Learning Go,”
 cemented through practice on Exercism’s Go track. In 2023, I stepped up to Travis Jeffery’s 
-"Distributed Services with Go Workshop," which was not just a lesson in Go but a deep dive into
+“Distributed Services with Go Workshop,” which was not just a lesson in Go but a deep dive into
 distributed systems. I made it a point to follow every chapter hands-on, maintaining a working fork
 of the source code and tackling “Elements of Programming Interviews” to broaden my grasp.
 
-In 2024, I dug into "Event-Driven Architecture In Golang" by Michael Stack—one of the best resources
+In 2024, I dug into “Event-Driven Architecture In Golang” by Michael Stack—one of the best resources
 I’ve found for event-driven, cloud-native systems in Go. Again, I worked methodically through the
 code, regularly updating my repository as I refined my knowledge and adapted to Go’s evolving
 patterns.
 
-That same year, I reached a new milestone: migrating my "Campsite Booking API" project from Java to
+That same year, I reached a new milestone: migrating my “Campsite Booking API” project from Java to
 Go. I’d previously detailed the original Java code on my blog, so this new migration was inspired by
 the Mallbots example from Michael Stack’s book, borrowing its architecture and best practices as I
 rebuilt in Go. The challenge stretched over many months but resulted in a fully functional Go-based
 microservice—a major step forward, now public as the campsite-booking-go repository.
 
-To keep sharpening my skills, I explored more titles—"Test-driven Development in Go" by Adelina
-Simion, "Efficient Go" by Bartłomiej Płotka, "Functional Programming in Go" by Dylan Meeus, and 
-"Ultimate Go Notebook" by William Kennedy and Hoanh An. Each added fresh perspective and deepened my
-toolkit as I moved forward.
+To keep sharpening my skills, I explored more titles—“Test-driven Development in Go” by Adelina
+Simion, “Efficient Go” by Bartłomiej Płotka, “Functional Programming in Go” by Dylan Meeus, and 
+“Ultimate Go Notebook” by William Kennedy and Hoanh An. Each added a fresh perspective and deepened 
+my toolkit as I moved forward.
 
 When I was ready for a new challenge, I wanted a project with real-world complexity: not a blank
 slate, but something like the Mallbots app, drawn from an existing codebase. That led me to 
-"Micronaut Microservices POC," a simplified Java-based insurance sales system, designed around
+“Micronaut Microservices POC,” a simplified Java-based insurance sales system, designed around
 distributed microservices. The project was a perfect fit, aligning with my industry experience and
 offering the right architecture for a meaningful migration experiment. Reimagining and rebuilding
 this system in Go—now “Insurance Hub” in my GitHub—lets me grow my Go skills and practice the full
@@ -98,15 +98,15 @@ useful lesson ahead. Let’s get started!
 > * Though the original Java project was a proof of concept, I treat it as a production-ready
     system, maintained in a non-cloud-native environment. This approach better simulates real-world
     learning.
-> * As in most real-world scenarios, a complete greenfield rewrite isn't feasible. The system can't
+> * As in most real-world scenarios, a complete greenfield rewrite isn’t feasible. The system can’t
     simply be discarded and rebuilt from scratch. Instead, a phased migration strategy is the only
     way to ensure business continuity and reduce risk.
 
 #### A Tale of Two Architectures
 
-Understanding the "why" behind this migration starts with comparing where I began and where I’m
+Understanding the “why” behind this migration starts with comparing where I began and where I’m
 headed. Here’s a high-level look at the existing Java-based system versus the modern Go-based
-target. This "before and after" view highlights the key shifts in technology, deployment, and
+target. This “before and after” view highlights the key shifts in technology, deployment, and
 operations.
 
 **Current State**
@@ -216,8 +216,9 @@ practices. I focus on writing the code myself.
 - **JetBrains AI Pro (with AI Assistant & Junie):**  
   In IntelliJ IDEA with the Go plugin, JetBrains AI Pro offers contextual code suggestions, chat
   help, and in-editor research, leveraging LLMs from OpenAI, Google, and Anthropic (Claude). I use
-  AI assistance for knowledge and explanations far more than just pure code snippets. The Junie AI
-  Coding Agent joins in for complex refactoring, but my hands-on approach remains the priority.
+  AI assistance for knowledge, and explanations that go far beyond just pure code snippets. The 
+  Junie AI Coding Agent joins in for complex refactoring, but my hands-on approach remains the 
+  priority.
 
 - **Ollama Local Server (Small/Medium Models):**  
   For privacy and speed, I run Ollama locally, using models like Code Llama, Phi-3 Mini, or Mistral
@@ -228,7 +229,7 @@ practices. I focus on writing the code myself.
   for deep-diving Go idioms or clarifying challenging topics—saving hours of scattered searching.
 
 - **Grammarly (with Generative AI):**  
-  Good engineering involves effective communication, so I use Grammarly’s paid AI suite to review
+  Sound engineering involves effective communication, so I use Grammarly’s paid AI suite to review
   and enhance my technical writing.
 
 I keep a transparent log of all AI interactions and learnings in
