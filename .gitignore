@@ -17,6 +17,6 @@ hugo.linux
 # End of https://www.toptal.com/developers/gitignore/api/hugo
 
 *.iml
-algolia/node_modules
+**/node_modules
 
 **/draft/*
