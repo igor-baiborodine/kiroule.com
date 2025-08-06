@@ -4,7 +4,7 @@ while getopts "pf:a:k:n:u:" opt; do
   case $opt in
   # netlify
   p)
-    npm install "algoliasearch"
+    npm --prefix "algolia" install
     # Environment variables below (except PWD) should be configured
     # in the section 'Build & deploy/Environment variables' of your site in Netlify;
     # Alternatively, the ALGOLIA_INDEX_NAME variable can be defined in the netlify.toml file.
